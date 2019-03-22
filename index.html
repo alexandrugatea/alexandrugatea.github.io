@@ -21,10 +21,10 @@
                 </div>
 
                 <ul class="primary-nav list list-unstyled">
-                    <li class="nav-element"> <a href="#home">Home</a></li>
-                    <li class="nav-element"> <a href="#about">About</a></li>
-                    <li class="nav-element"> <a href="#portfolio">Portfolio</a></li>
-                    <li class="nav-element"> <a href="#contact">Contact</a></li>
+                    <li class="nav-element"> <a class="active" href="/index.html">Home</a></li>
+                    <li class="nav-element"> <a href="/about.html">About</a></li>
+                    <li class="nav-element"> <a href="/portfolio.html">Portfolio</a></li>
+                    <li class="nav-element"> <a href="/contact.html">Contact</a></li>
                 </ul>
 
                 <div class="social-links text-right">
@@ -39,7 +39,7 @@
     <!-- Pages -->
     <main>
         <!-- Homepage -->
-        <div id="home" class="homepage page">
+        <div id="home" class="homepage page active">
             <!-- Hero -->
             <section class="homepage-hero background-secondary">
                 <div class="absolute absolute-full">
@@ -64,15 +64,88 @@
 
             <!-- About -->
             <section class="homepage-about">
-                <h2 class="title text-center" data-shadow="About me">
-                    <span>Who, What, Why </span>
-                </h2>
+                <div class="container">
+                    <h2 class="title text-center" data-shadow="About me">
+                        <span>Who, What, Why </span>
+                    </h2>
+                    <p class="quote">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="grid">
+                        <div class="grid-cell cell-text">
+                            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+                                voluptas distinctio neque quo nesciunt modi, totam perferendis magni necessitatibus
+                                optio iure tempore aliquam, aut cumque eum eaque obcaecati repudiandae
+                                consequuntur.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
+                                debitis magni mollitia, distinctio, quibusdam qui totam suscipit cupiditate corporis
+                                quis consectetur porro eum expedita quos enim ad id hic laboriosam.</p>
+                        </div>
+                        <div class="grid-cell cell-image image-decorative">
+                            <div class="image-container">
+                                <div class="relative">
+                                    <div class="ratio-square">
+                                        <img src="images/home-about-decorative.png"
+                                            class="absolute absolute-full image-fit" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-cell cell-image image-bio">
+                            <div class="image-container">
+                                <div class="relative">
+                                    <div class="ratio-square">
+                                        <img src="images/home-about-bio.png" class="absolute absolute-full image-fit" alt="">
+                                        <div class="absolute pos-bottom-right padding-horizpntal-40 padding-vertical-20">
+                                            <a href=".about.html" class="btn btn-link">More about me <i class="fa fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Portfolio -->
             <section class="homepage-portfolio background-accent">
-                <h2 class="title text-center text-light" data-shadow="My Hobbies"> <span>Portfolio </span>
-                </h2>
+                <div class="container">
+                    <h2 class="title text-center text-light" data-shadow="My Hobbies"> <span>Portfolio </span> </h2>
+                    
+                    <div class="grid">
+                        <div class="grid-cell image-large relative">
+                            <div class="absolute absolute-full">
+                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                            </div>
+                        </div>
+                        <div class="grid-cell image-logo">
+                            <div class="ratio-square relative">
+                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                            </div>
+                        </div>
+                        <div class="grid-cell image-web">
+                            <div class="ratio-square relative">
+                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                            </div>
+                        </div>
+                        <div class="grid-cell text-web">
+                            <div class="portfolio-text-box ratio-square relative background-light">
+                                <div class="absolute absolute-full text-left">
+                                    <h3>Web Design</h3>
+                                    <p>I've always found designing and implementing web elements enjoyable.</p>
+                                    <a href="/portfolio.html" class="btn btn-link text-accent">Visit Gallery</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-cell text-logo relative">
+                            <div class="portfolio-text-box ratio-square relative background-light">
+                                <div class="absolute absolute-full text-left">
+                                    <h3>Logo design</h3>
+                                    <p>I like to design logos.<br>Have a look on few of my projects.</p>
+                                    <a href="/portfolio.html" class="btn btn-link text-accent">Visit Gallery</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Contact -->
@@ -80,12 +153,16 @@
                 <h2 class="title text-center" data-shadow="Contact me">
                     <span>Now let's discuss about your business</span>
                 </h2>
+                <p class="description text-center">
+                        Now that I've shared my story, it's time you share yours!
+                </p>
+                <div class="flex-list flex-center">
+                    <div class="flex-item">
+                        <a href="" class="btn btn-accent">Mail me!</a>
+                    </div>
+                </div>
             </section>
         </div>
-
-        <div id="about" class="page"></div>
-        <div id="portfolio" class="page"></div>
-        <div id="contact" class="page"></div>
 
     </main>
 

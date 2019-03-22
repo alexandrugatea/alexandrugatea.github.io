@@ -23,34 +23,34 @@ $step: 5;
         @each $position,
         $pos in $position-map {
             .margin-#{$position}-#{$size} {
-                margin-#{$position}: #{$size}#{$ut};
+                margin-#{$position}: #{$size}#{$ut}!important;
             }
             .padding-#{$position}-#{$size} {
-                padding-#{$position}: #{$size}#{$ut};
+                padding-#{$position}: #{$size}#{$ut}!important;
             }
         }
         .margin-all-#{$size} {
-            margin: #{$size}#{$ut};
+            margin: #{$size}#{$ut}!important;
         }
         .margin-vertical-#{$size} {
-            margin-top: #{$size}#{$ut};
-            margin-bottom: #{$size}#{$ut};
+            margin-top: #{$size}#{$ut}!important;
+            margin-bottom: #{$size}#{$ut}!important;
         }
         .margin-horizontal-#{$size} {
-            margin-right: #{$size}#{$ut};
-            margin-left: #{$size}#{$ut};
+            margin-right: #{$size}#{$ut}!important;
+            margin-left: #{$size}#{$ut}!important;
         }
 
         .padding-all-#{$size} {
-            padding: #{$size}#{$ut};
+            padding: #{$size}#{$ut}!important;
         }
         .padding-vertical-#{$size} {
-            padding-top: #{$size}#{$ut};
-            padding-bottom: #{$size}#{$ut};
+            padding-top: #{$size}#{$ut}!important;
+            padding-bottom: #{$size}#{$ut}!important;
         }
         .padding-horizontal-#{$size} {
-            padding-right: #{$size}#{$ut}; 
-            padding-left: #{$size}#{$ut};
+            padding-right: #{$size}#{$ut}!important; 
+            padding-left: #{$size}#{$ut}!important;
         }
         .font-size-#{$size} {
             font-size: #{$size}#{$ut}!important;

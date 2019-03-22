@@ -1,10 +1,8 @@
 footer {
     background: $primary;
-    position: fixed;
-    bottom: 0;
-    z-index: -1;
-    left:0;
-    right: 0;
+    .logo {
+        max-width: rem-calc(400px);
+    }
 
     .main-footer {
         display: flex;
@@ -17,8 +15,7 @@ footer {
             display: flex;
             flex-grow: 1;
             justify-content: flex-start;
-            align-items: center;
-            padding-left: rem-calc(50px);  
+            align-items: center; 
     
             a {
                 text-decoration: none;

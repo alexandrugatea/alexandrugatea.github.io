@@ -8,9 +8,10 @@
 @import "mixins/foundationMQ.scss";
 @import "mixins/margins-paddings.scss";
 @import "mixins/widths.scss";
-@import "mixins/fonts.scss";
+@import "mixins/fonts.scss"; 
 
 // BASE PARTIALS
+@import "base/animate.scss";
 @import "base/reset.scss";
 @import "base/grid.scss";
 @import "base/buttons.scss";
@@ -31,3 +32,4 @@
 @import "templates/page";
 @import "templates/homepage";
 @import "templates/contact";
+@import "templates/about";

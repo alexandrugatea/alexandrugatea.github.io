@@ -1,9 +1,39 @@
-.contact-page {
+#contact {
 
-    form {
+    .map {
+        position: relative;
+        width: 100%;
+        height: rem-calc(400px);
+
+        iframe {
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    
+    .form {
+        @extend .card;
         padding: 5%;
-        transform: translateY(-50%);
+        margin-top: -25%;
         z-index: 100;
         position: relative;
+        border-radius: rem-calc(4px);
+        max-width: rem-calc(450px);
+        width: 100%;
+        border: none;
+
+    }
+
+    .contact-addresses {
+        margin-top: 15%;
+
+        a, p {
+            color: $primary;
+            text-decoration: none;
+            font-weight: 600;
+        }
     }
 }

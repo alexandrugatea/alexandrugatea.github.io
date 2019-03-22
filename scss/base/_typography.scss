@@ -35,31 +35,31 @@ small {
 // TEXT ALIGNMENTS
 // ===============================================
 .text-center {
-    text-align: center;
+    text-align: center!important;
 }
 
 .text-left {
-    text-align: left;
+    text-align: left!important;
 }
 
 .text-right {
-    text-align: right;
+    text-align: right!important;
 }
 
 .text-bold {
-    font-weight: bold;
+    font-weight: bold!important;
 }
 
 .text-italic {
-    font-style: italic;
+    font-style: italic!important;
 }
 
 .text-uppercase {
-    text-transform: uppercase;
+    text-transform: uppercase!important;
 }
 
 .text-capitalize {
-    text-transform: capitalize;
+    text-transform: capitalize!important;
 }
 
 
@@ -129,7 +129,7 @@ blockquote span {
 section {
 
     .title {
-        margin-bottom: 5%;
+        margin-bottom: 3%;
         position: relative;
         line-height: 1;
         display: flex;

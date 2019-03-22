@@ -18,16 +18,16 @@ light-grey: $light-background);
 @each $key,
 $color in $colors {
     .text-#{$key} {
-        color: $color;
+        color: $color!important;
     }
     .background-#{$key} {
-        background-color: $color;
+        background-color: $color!important;
     }
     @for $i from 1 through 10 {
         $opacity: $i * 10;
         $op: $opacity / 100;
         .background-transparent-#{$key}-#{$opacity} {
-            background-color: rgba($color, $op);  
+            background-color: rgba($color, $op)!important;;  
         }
     }
 }

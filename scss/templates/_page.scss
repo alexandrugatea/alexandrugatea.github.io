@@ -1,14 +1,18 @@
+body {
+    position: relative;
+}
+
+header {
+    position: sticky;
+    top:0;
+    z-index: 1000;
+}
+
 section {
     padding: 5%;
     position: relative;
 }
 
-body {
-    overflow: hidden;
-}
-
 .page {
-    height: calc(100vh - 90px); 
-    overflow-y: auto;
     background: $white;
 }

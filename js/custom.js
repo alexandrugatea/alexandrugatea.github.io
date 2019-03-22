@@ -1,6 +1,5 @@
 jQuery(document).ready(function(){
 
-
     //ripple effect on buttons
     $(document).on("mousedown", "[data-ripple]", function (e) {
 
@@ -46,17 +45,5 @@ jQuery(document).ready(function(){
             }
         });
     });
-
-    footerOffset();
-
-    $(window).on('resize', function(){
-        footerOffset();
-    });
-    
-
-    function footerOffset() {
-        var footerHeight = $('footer').height();
-        $('.page').css('padding-bottom', footerHeight + 'px');
-    }
 
 });

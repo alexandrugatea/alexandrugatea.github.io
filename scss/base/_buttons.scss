@@ -7,7 +7,7 @@
     padding: $btn-padding;
     margin-bottom: 0;
     font-size: $base-font-size;
-    font-weight: 700;
+    font-weight: 700; 
     line-height: 1;
     text-align: center;
     white-space: nowrap;
@@ -26,9 +26,10 @@
     transition: all 0.25s ease;
     text-transform: uppercase;
     min-width: rem-calc(165px);
+    color: $white;
 
     &.btn-default {
-        border: 1px solid $input-color;
+        border: 1px solid $input-color; 
     }
 
     &.btn-small {
@@ -43,6 +44,14 @@
 
     &.btn-rounded {
         border-radius: 50px;
+    }
+
+    &.btn-link {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        min-width: auto;
+        padding: 0;
     }
 
     &:hover,
