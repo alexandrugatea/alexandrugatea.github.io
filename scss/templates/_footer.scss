@@ -1,5 +1,10 @@
 footer {
     background: $primary;
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+    left:0;
+    right: 0;
 
     .main-footer {
         display: flex;
@@ -13,7 +18,7 @@ footer {
             flex-grow: 1;
             justify-content: flex-start;
             align-items: center;
-            padding-left: rem-calc(50px);
+            padding-left: rem-calc(50px);  
     
             a {
                 text-decoration: none;
@@ -29,7 +34,7 @@ footer {
                 }
             }
     
-            .router-link-exact-active {
+            .active {
                 position: relative;
                 color: $secondary;
     
@@ -55,10 +60,14 @@ footer {
                 color: $white;
                 font-size: rem-calc(14px);
             }
-        }
 
-        .flex-item {
-            margin-bottom: 0; 
+            .flex-list {
+                margin-bottom: 0;
+
+                .flex-item {
+                    margin-bottom: 0; 
+                }
+            }
         }
 
     }

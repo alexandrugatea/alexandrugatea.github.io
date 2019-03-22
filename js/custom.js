@@ -1,14 +1,5 @@
-window.$ = require('jquery')
-window.JQuery = require('jquery')
+jQuery(document).ready(function(){
 
-$(document).ready(function(){
-
-var header = $('header').outerHeight();
-var footer = $('footer').outerHeight();
-var windowHeight = $(window).height();
-var offset = windowHeight - (header + footer);
-
-$('main').css('min-height', offset + 'px');
 
     //ripple effect on buttons
     $(document).on("mousedown", "[data-ripple]", function (e) {
@@ -55,4 +46,17 @@ $('main').css('min-height', offset + 'px');
             }
         });
     });
+
+    footerOffset();
+
+    $(window).on('resize', function(){
+        footerOffset();
+    });
+    
+
+    function footerOffset() {
+        var footerHeight = $('footer').height();
+        $('.page').css('padding-bottom', footerHeight + 'px');
+    }
+
 });

@@ -4849,6 +4849,11 @@ header .social-links a:hover {
 
 footer {
   background: #19335E;
+  position: fixed;
+  bottom: 0;
+  z-index: -1;
+  left: 0;
+  right: 0;
 }
 footer .main-footer {
   display: flex;
@@ -4890,11 +4895,11 @@ footer .main-footer .primary-nav a {
 footer .main-footer .primary-nav a:hover {
   color: #F5B527;
 }
-footer .main-footer .primary-nav .router-link-exact-active {
+footer .main-footer .primary-nav .active {
   position: relative;
   color: #F5B527;
 }
-footer .main-footer .primary-nav .router-link-exact-active:before {
+footer .main-footer .primary-nav .active:before {
   content: "";
   display: block;
   position: absolute;
@@ -4913,7 +4918,10 @@ footer .main-footer .copyright * {
   color: #ffffff;
   font-size: 0.875rem;
 }
-footer .main-footer .flex-item {
+footer .main-footer .copyright .flex-list {
+  margin-bottom: 0;
+}
+footer .main-footer .copyright .flex-list .flex-item {
   margin-bottom: 0;
 }
 
@@ -4940,6 +4948,17 @@ footer .main-footer .flex-item {
 section {
   padding: 5%;
   position: relative;
+}
+
+body {
+  overflow: hidden;
+}
+
+.page {
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+  background: #ffffff;
+  display: none;
 }
 
 .homepage .homepage-hero {

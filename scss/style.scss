@@ -2,26 +2,26 @@
 // SASS RESET - MAIN FILES
 // ===============================================
 
-@import "base/variables";
+@import "base/variables.scss";
 
-@import "mixins/functions";
-@import "mixins/foundationMQ";
-@import "mixins/margins-paddings";
-@import "mixins/widths";
-@import "mixins/fonts";
+@import "mixins/functions.scss";
+@import "mixins/foundationMQ.scss";
+@import "mixins/margins-paddings.scss";
+@import "mixins/widths.scss";
+@import "mixins/fonts.scss";
 
 // BASE PARTIALS
-@import "base/reset";
-@import "base/grid";
-@import "base/buttons";
-@import "base/typography";
-@import "base/cards";
-@import "base/colors";
-@import "base/images";
-@import "base/position";
-@import "base/elements";
-@import "base/floating-buttons";
-@import "base/forms";
+@import "base/reset.scss";
+@import "base/grid.scss";
+@import "base/buttons.scss";
+@import "base/typography.scss";
+@import "base/cards.scss";
+@import "base/colors.scss";
+@import "base/images.scss";
+@import "base/position.scss";
+@import "base/elements.scss";
+@import "base/floating-buttons.scss";
+@import "base/forms.scss";
 
 
 // CUSTOM TEMPALTE PARTIALS
