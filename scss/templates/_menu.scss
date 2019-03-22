@@ -1,0 +1,85 @@
+.logo {
+    max-width: 200px;
+    width: 100%;
+}
+
+header {
+    background: $primary;
+
+    .menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .logo-container {
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+
+        a {
+            display: block;
+            line-height: 0;
+        }
+    }
+
+    .primary-nav {
+        display: flex;
+        flex-grow: 1;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: rem-calc(50px);
+
+        a {
+            text-decoration: none;
+            color: $white;
+            display: block;
+            padding: rem-calc(35px 20px);
+            @include font($base-font-size, $base-font-size, 20px);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+
+            &:hover {
+                color: $secondary;
+            }
+        }
+
+        .router-link-exact-active {
+            position: relative;
+            color: $secondary;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: rem-calc(20px);
+                width: 50%;
+                left: 25%;
+                height: rem-calc(3px);
+                background: $secondary;
+            }
+        }
+    }
+
+    .social-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: rem-calc(-10px);
+
+        a {
+            color: $white;
+            display: block;
+            @include font($base-font-size, $base-font-size, 20px);
+            font-family: 'FontAwesome';
+            padding: rem-calc(35px 10px);
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $secondary;
+            }
+
+        }
+    }
+
+}

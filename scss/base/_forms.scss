@@ -1,0 +1,17 @@
+.form-control {
+    padding: $btn-padding;
+    border-radius: rem-calc(4px);
+    border: 1px solid $input-color;
+    width: 100%;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: $gutter / 2;
+}
+
+textarea {
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+}

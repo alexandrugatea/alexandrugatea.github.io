@@ -1,0 +1,174 @@
+// Typography
+
+h1 { @include font(32px, $h1, $h1LH, 900); }
+  
+h2 { @include font($h2 - 6, $h2, $h2LH, 600); }
+  
+h3 { @include font($h3 - 6, $h3, $h3LH, 600); }
+
+
+h4 { @include font($h4 - 4, $h4, $h4LH, 600); }
+
+h5 { @include font($h5 - 3, $h5, $h5LH, 600); }
+
+h6 { @include font($h6 - 2, $h6, $h6LH, 600); }
+
+body { @include font($base-font-size - 2, $base-font-size, $baseLH); }
+
+p, a, span, div, li { @include font(16px, $base-font-size, $baseLH); }
+
+a {
+    color: $primary;
+    text-decoration: underline;
+    &:hover {
+        color: $primary-light;
+    }
+}
+
+small {
+    font-size: 70%;
+    opacity: 0.8;
+}
+
+
+// ===============================================
+// TEXT ALIGNMENTS
+// ===============================================
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+
+hr {
+    margin: $gutter 0;
+}
+
+
+// ===============================================
+// LISTS
+// ===============================================
+.list {
+    margin: 0;
+    padding: 0;
+    &.list-unstyled {
+        list-style-type: none;
+    }
+}
+
+
+
+// ===============================================
+// Blockquote
+// ===============================================
+blockquote {
+    font-size: $h4;
+    width: 80%;
+    margin: $gutter auto;
+    font-family: inherit;
+    color: $type;
+    padding: $gutter;
+    border-left: 8px solid $primary;
+    line-height: 1.6;
+    position: relative;
+    background: darken($white, 5%);
+    font-weight: 300; 
+    @include breakpoint(small only) {
+    
+        width: 100%;
+        font-size: $base-font-size;
+    
+    }
+}
+
+blockquote::before {
+    font-family: sans-serif;
+    content: "\201C";
+    color: $primary;
+    font-size: 75px;
+    position: absolute;
+    left: $half-gutter / 2;
+    top: -$half-gutter / 2;
+}
+
+blockquote::after {
+    content: '';
+}
+
+blockquote span {
+    display: block;
+    color: $type;
+    font-size: $base-font-size;
+    font-weight: 700;
+    margin-top: $half-gutter;
+}
+
+section {
+
+    .title {
+        margin-bottom: 5%;
+        position: relative;
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items:  center;
+        
+
+        span {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        &:before {
+            content: attr(data-shadow);
+            position: relative;
+            color: $black;
+            opacity: 0.1;
+            font-size: $h1;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        &:after {
+            content: '';
+
+        }
+
+        &.text-left {
+            justify-content: flex-start;
+
+            span {
+                left: 0;
+                transform: translateX(0) translateY(-50%);
+            }
+        }
+    }
+}

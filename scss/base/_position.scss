@@ -1,0 +1,123 @@
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+
+// ===============================================
+// absolute element covers parent
+// ===============================================
+.absolute-full {
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+}
+
+// ===============================================
+// absolute element covers half of the parent, 
+// positioned top, bottom, left right
+// ===============================================
+.absolute-half-top {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.absolute-half-bottom {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.absolute-half-left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 50%;
+    height: 100%;
+}
+
+.absolute-half-right {
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+
+
+
+// ===============================================
+// absolute element is placed either
+// top-left top-center top-right
+// center-left center-center cetner-right
+// bottom-left bottom-center bottom-right
+// ===============================================
+.pos-top-left {
+    top: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+}
+
+.pos-top-center {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+
+.pos-top-right {
+    top: 0;
+    right: 0;
+    transform: translate(0%, 0%);
+}
+
+.pos-center-left {
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+}
+
+.pos-center-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pos-center-right {
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+}
+
+.pos-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(0%, 0%);
+}
+
+.pos-bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+
+.pos-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(0%, 0%);
+}

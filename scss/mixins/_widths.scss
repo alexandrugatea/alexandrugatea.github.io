@@ -1,0 +1,29 @@
+@for $i from 0 through 100 {
+    .width-xs-#{$i} {
+        width: percentage($i / 100);
+    }
+}
+
+@include breakpoint(medium) {
+    @for $i from 0 through 100 {
+        .width-sm-#{$i} {
+            width: percentage($i / 100);
+        }
+    }
+}
+
+@include breakpoint(large) {
+    @for $i from 0 through 100 {
+        .width-md-#{$i} {
+            width: percentage($i / 100);
+        }
+    }
+}
+
+@include breakpoint(xlarge) {
+    @for $i from 0 through 100 {
+        .width-lg-#{$i} {
+            width: percentage($i / 100);
+        }
+    }
+}

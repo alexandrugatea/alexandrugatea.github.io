@@ -1,0 +1,59 @@
+/**
+ * Adding margin, padding & width classes.
+ * Ex. margin-top--10px, padding-all--50per, width--100per
+ */
+
+/* Map for position */
+
+$position-map: ( top: 'top',
+right: 'right',
+left: 'left',
+bottom: 'bottom',
+);
+
+
+$unit-map: (px: 'px');
+$max: 100;
+$step: 5;
+
+@for $i from 0 through ($max/$step) {
+    $size: $step * $i;
+    @each $unit,
+    $ut in $unit-map {
+        @each $position,
+        $pos in $position-map {
+            .margin-#{$position}-#{$size} {
+                margin-#{$position}: #{$size}#{$ut};
+            }
+            .padding-#{$position}-#{$size} {
+                padding-#{$position}: #{$size}#{$ut};
+            }
+        }
+        .margin-all-#{$size} {
+            margin: #{$size}#{$ut};
+        }
+        .margin-vertical-#{$size} {
+            margin-top: #{$size}#{$ut};
+            margin-bottom: #{$size}#{$ut};
+        }
+        .margin-horizontal-#{$size} {
+            margin-right: #{$size}#{$ut};
+            margin-left: #{$size}#{$ut};
+        }
+
+        .padding-all-#{$size} {
+            padding: #{$size}#{$ut};
+        }
+        .padding-vertical-#{$size} {
+            padding-top: #{$size}#{$ut};
+            padding-bottom: #{$size}#{$ut};
+        }
+        .padding-horizontal-#{$size} {
+            padding-right: #{$size}#{$ut}; 
+            padding-left: #{$size}#{$ut};
+        }
+        .font-size-#{$size} {
+            font-size: #{$size}#{$ut}!important;
+        }
+    }
+}

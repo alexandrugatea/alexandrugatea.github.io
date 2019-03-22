@@ -1,0 +1,33 @@
+// ===============================================
+// SASS RESET - MAIN FILES
+// ===============================================
+
+@import "base/variables";
+
+@import "mixins/functions";
+@import "mixins/foundationMQ";
+@import "mixins/margins-paddings";
+@import "mixins/widths";
+@import "mixins/fonts";
+
+// BASE PARTIALS
+@import "base/reset";
+@import "base/grid";
+@import "base/buttons";
+@import "base/typography";
+@import "base/cards";
+@import "base/colors";
+@import "base/images";
+@import "base/position";
+@import "base/elements";
+@import "base/floating-buttons";
+@import "base/forms";
+
+
+// CUSTOM TEMPALTE PARTIALS
+@import "templates/menu";
+@import "templates/footer";
+@import "templates/hero";
+@import "templates/page";
+@import "templates/homepage";
+@import "templates/contact";

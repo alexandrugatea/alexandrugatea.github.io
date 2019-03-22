@@ -1,0 +1,20 @@
+@mixin font($min-font-size: 12, $max-font-size: 21, $line-height: $baseLH, $font-weight: 400, $font-style: normal, $lower-range: 320px, $upper-range: 1400px, $font-family: $base-font) {
+
+    font-size: calc(#{$min-font-size} + #{(($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))} * ((100vw - #{$lower-range}) / #{(($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))}));
+  
+    $lh: $line-height / $max-font-size;
+    $lhv: decimal-round($lh, 3, round);
+  
+    line-height: $lhv;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+  
+    @media screen and (max-width: $lower-range) {
+      font-size: rem-calc($min-font-size);
+    }
+  
+    @media screen and (min-width: $upper-range) {
+      font-size: rem-calc($max-font-size);
+    }
+  }

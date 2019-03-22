@@ -1,0 +1,112 @@
+.floating-share {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    .float-btn {
+        width: $float-btn-size;
+        height: $float-btn-size;
+        line-height: $float-btn-size;
+        border-radius: 50%;
+        text-align: center;
+        outline: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        display: block;
+        transition: all 0.15s ease-in-out;
+        position: relative;
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .float-trigger {
+        position: relative;
+        z-index: 100;
+        background: $float-btn-color;
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    .share-items {
+        z-index: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style-type: none;
+        .floating-item {
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            opacity: 0;
+            position: absolute;
+            color: #fff;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+
+            .float-btn {
+                text-decoration: none;
+                color: inherit;
+                &:hover {
+                    transform: scale(1.2);
+                    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+        .item-heart .float-btn {
+            background: #f44336
+        }
+        .item-star .float-btn {
+            background: #9C27B0
+        }
+        .item-wifi .float-btn {
+            background: #3F51B5
+        }
+        .item-bell .float-btn {
+            background: #03A9F4
+        }
+        .item-cloud .float-btn {
+            background: #8BC34A
+        }
+        .item-cog .float-btn {
+            background: #FF9800
+        }
+        .item-folder .float-btn {
+            background: #FF5722
+        }
+        .item-paper-plane .float-btn {
+            background: #795548
+        }
+    }
+}
+
+
+.floating-share.opened {
+    .float-trigger {
+        transform: scale(1.5);
+        box-shadow: 0px 0px 0px 5px rgba($float-btn-color, 0.3);
+        z-index: 3001;
+    }
+    .share-items {
+        z-index: 3000;
+    }
+}
+
+// animations
+@for $i from 1 through 20 {
+    $delay: $i * 0.05;
+    $animdelay: $i * 0.10;
+    .floating-share.opened .share-items li:nth-child(#{$i}) {
+        opacity: 1;
+        transition-delay: #{$delay}s;
+        animation-delay: #{$animdelay}s;
+
+    }
+    .floating-share.closing .share-items li:nth-last-child(#{$i}) {
+        animation: hide 0.5s ease forwards;
+        transition-delay: #{$delay}s;
+        animation-delay: #{$animdelay}s;
+    }
+}

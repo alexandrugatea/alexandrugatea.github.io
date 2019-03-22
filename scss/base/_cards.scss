@@ -1,0 +1,44 @@
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    height: auto;
+    margin-bottom: $gutter;
+    position: relative;
+    background: $white;
+    border: 1px solid #ccc;
+    .card-header,
+    .card-body,
+    .card-footer {
+        padding: $half-gutter;
+    }
+    .card-header {
+        * {
+            padding: 0;  
+        }
+    }
+    .card-body {
+        flex-grow: 1;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+$card-heights: ( tall: $card-tall,
+medium: $card-medium,
+small: $card-small);
+
+@each $key,
+$height in $card-heights {
+    .card-#{$key} {
+        height: $height;
+    }
+}
+

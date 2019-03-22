@@ -1,0 +1,35 @@
+@mixin ratio($ratio: 1 1) {
+    $width: 100%;
+    $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+    width: $width;
+    height: 0;
+    padding-bottom: $height;
+}
+
+.ratio-square {
+    @include ratio(1 1);
+}
+
+.ratio-16-9 {
+    @include ratio(16 9);
+}
+
+.ratio-9-16 {
+    @include ratio(9 16);
+}
+
+.ratio-3-4 {
+    @include ratio(3 4);
+}
+
+.ratio-4-3 {
+    @include ratio(4 3);
+}
+
+.ratio-quarter {
+    @include ratio(4 1);
+}
+
+.ratio-half {
+    @include ratio(4 2);
+}

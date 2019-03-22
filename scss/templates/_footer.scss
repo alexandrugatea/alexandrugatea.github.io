@@ -1,0 +1,65 @@
+footer {
+    background: $primary;
+
+    .main-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 5%;
+
+        .primary-nav {
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: rem-calc(50px);
+    
+            a {
+                text-decoration: none;
+                color: $white;
+                display: block;
+                padding: rem-calc(35px 20px);
+                @include font($base-font-size, $base-font-size, 20px);
+                transition: all 0.3s ease;
+                text-transform: uppercase; 
+    
+                &:hover {
+                    color: $secondary;
+                }
+            }
+    
+            .router-link-exact-active {
+                position: relative;
+                color: $secondary;
+    
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: rem-calc(20px);
+                    width: 50%;
+                    left: 25%;
+                    height: rem-calc(3px);
+                    background: $secondary; 
+                }
+            }
+        }
+
+        .copyright {
+            background: darken($primary, 5%);
+            width: 100%;
+            padding: rem-calc(15px 0);
+
+            * {
+                color: $white;
+                font-size: rem-calc(14px);
+            }
+        }
+
+        .flex-item {
+            margin-bottom: 0; 
+        }
+
+    }
+}

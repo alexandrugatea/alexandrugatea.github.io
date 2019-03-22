@@ -1,0 +1,93 @@
+// ===============================================
+// SASS FRAMEWORK VARIABLES
+// ===============================================
+
+// ===============================================
+// Typography
+// ===============================================
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+$sans-font:                         'Raleway', sans-serif;
+$base-font:                         $sans-font; 
+
+$base-font-size:                    16px;
+$baseLH:                            30px;
+
+$paragraph:                         $base-font-size;
+
+$h1:                                100px;
+$h1LH:                              110px;
+
+$h2:                                32px;
+$h2LH:                              42px;
+
+$h3:                                28px;
+$h3LH:                              38px;
+
+$h4:                                24px;
+$h4LH:                              34px;
+
+$h5:                                18px;
+$h5LH:                              28px;
+
+$h6:                                16px;
+$h6LH:                              26px;
+
+
+
+
+// ===============================================
+// Colors
+// ===============================================
+
+$primary:                           #19335E;
+$primary-dark:                      darken($primary, 10%);
+$primary-light:                     lighten($primary,10%);
+
+$secondary:                         #F5B527;
+$secondary-dark:                    darken($secondary, 10%);
+$secondary-light:                   lighten($secondary,10%);
+
+$accent:                            #E80D3A;
+$accent-dark:                       darken($accent, 10%);
+$accent-light:                      lighten($accent,10%);
+
+$light-background:                  #f8f8f8;
+
+
+$white:                             #ffffff;
+$black:                             #1F1F1F;
+$type:                              #333333;
+
+$float-btn-color:                   $secondary;
+
+
+$input-color:                       #cccccc;
+
+// ===============================================
+// Sizes   |   Spacings
+// ===============================================
+
+$gutter:                            40px;
+$half-gutter:                       $gutter / 2;
+$container:                         1200px;
+
+$hero-full:                         100vh;                      
+$hero-tall:                         600px;                      
+$hero-medium:                       400px;                      
+$hero-small:                        250px;                      
+$hero-extra-small:                  150px;                      
+
+$card-tall:                         400px;
+$card-medium:                       300px;
+$card-small:                        200px;
+
+$float-btn-size:                    34px;
+
+$btn-padding:                       15px 30px;
+$btn-small-padding:                 8px 15px;
+$btn-large-padding:                 22px 40px;
+
