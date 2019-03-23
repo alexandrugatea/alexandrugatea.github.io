@@ -1,7 +1,10 @@
 footer {
     background: $primary;
     .logo {
+        width: 60%;
         max-width: rem-calc(400px);
+        margin: auto;
+        display: block;
     }
 
     .main-footer {
@@ -10,6 +13,10 @@ footer {
         justify-content: center;
         align-items: center;
         padding-top: 5%;
+
+        @include breakpoint(small only) {
+            padding-top: 5%;
+        }
 
         .primary-nav {
             display: flex;
@@ -21,11 +28,14 @@ footer {
                 text-decoration: none;
                 color: $white;
                 display: block;
-                padding: rem-calc(35px 20px);
-                @include font($base-font-size, $base-font-size, 20px);
+                
                 transition: all 0.3s ease;
                 text-transform: uppercase; 
-    
+
+                @include breakpoint(small only) {
+                    padding: rem-calc(15px 10px);
+                    font-size: $base-font-size - 4;
+                }
                 &:hover {
                     color: $secondary;
                 }
@@ -56,10 +66,27 @@ footer {
             * {
                 color: $white;
                 font-size: rem-calc(14px);
+
+                @include breakpoint(small only) {
+                    font-size: rem-calc(12px);
+                    text-align: center;
+                }
+            }
+
+            .container > .flex-list {
+                
+                @include breakpoint(small only) {
+                    flex-direction: column-reverse;
+                }
             }
 
             .flex-list {
                 margin-bottom: 0;
+
+                .flex-list {
+                    justify-content: space-evenly!important;
+                    padding-bottom: rem-calc(20px);
+                }
 
                 .flex-item {
                     margin-bottom: 0; 

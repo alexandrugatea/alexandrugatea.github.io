@@ -119,8 +119,12 @@
 }
 
 @include breakpoint(small only) {
-    .flex-list > .flex-item {
-        width: 100%;
+    .flex-list.is-responsive {
+        flex-wrap: wrap;
+
+        > .flex-item {
+            width: 100%;
+        }
     }
 }
 

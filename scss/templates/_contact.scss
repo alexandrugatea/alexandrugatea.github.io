@@ -40,13 +40,17 @@
     .form {
         @extend .card;
         padding: 5%;
-        margin-top: -25%;
+       
         z-index: 100;
         position: relative;
         border-radius: rem-calc(4px);
         max-width: rem-calc(450px);
         width: 100%;
         border: none;
+
+        @include breakpoint(medium) {
+            margin-top: -25%;
+        }
 
     }
 

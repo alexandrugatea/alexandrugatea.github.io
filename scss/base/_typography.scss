@@ -135,15 +135,26 @@ section {
         display: flex;
         justify-content: center;
         align-items:  center;
+        overflow: hidden;
+        flex-direction: column;
         
-
         span {
-            position: absolute;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             font-size: inherit;
             font-weight: inherit;
+            width: 100%;
+            text-align: center;
+            
+            @include breakpoint(medium) {
+                position: absolute;
+                top:50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @include breakpoint(small only) {
+                position: relative;
+                margin-top: rem-calc(-30px);
+            }
         }
 
         &:before {
@@ -151,8 +162,7 @@ section {
             position: relative;
             color: $black;
             opacity: 0.1;
-            font-size: $h1;
-            font-weight: 900;
+            @include font(32px, $h1, $h1LH, 900);
             line-height: 1;
             text-transform: uppercase;
         }

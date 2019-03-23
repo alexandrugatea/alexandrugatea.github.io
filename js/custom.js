@@ -4,7 +4,16 @@ jQuery(document).ready(function(){
 
     $(document).on('click','#toTop', function(){
         $("html, body").animate({scrollTop: 0}, 1000);
-    })
+    });
+
+    // open mobile menu
+    var wW = $(window).width();
+
+    if (wW < 768) {
+        $('header .menu').on('click', function(){
+            $(this).toggleClass('open');
+        });
+    }
 
     //ripple effect on buttons
     $(document).on("mousedown", "[data-ripple]", function (e) {

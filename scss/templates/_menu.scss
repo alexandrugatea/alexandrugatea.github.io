@@ -10,12 +10,33 @@ header {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        transition: all 0.4s ease-in-out;
+
+        @include breakpoint(small only) {
+            display: block;
+            height: rem-calc(50px);
+            overflow: hidden;
+            
+            > * {
+                width: 100%;
+            }
+        }
+
     }
 
     .logo-container {
         display: flex;
         align-self: stretch;
         align-items: center;
+        @include breakpoint(small only) {
+            height: rem-calc(50px);
+            align-items: center;
+            justify-content: center;
+
+            a {
+                pointer-events: none;
+            }
+        }
 
         a {
             display: block;
@@ -29,6 +50,25 @@ header {
         justify-content: flex-start;
         align-items: center;
         padding-left: rem-calc(50px);
+
+        @include breakpoint(small only) {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-left: 0;
+            width: 100%;
+            position: absolute;
+            left: -10000px;
+            
+            li {
+                width: 100%;
+
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 5vh;
+                }
+            }
+        }
 
         a {
             text-decoration: none;
@@ -57,6 +97,13 @@ header {
                 left: 25%;
                 height: rem-calc(3px);
                 background: $secondary;
+
+                @include breakpoint(small only) {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 50%;
+                    height: rem-calc(1px);
+                }
             }
         }
     }
@@ -66,6 +113,12 @@ header {
         align-items: center;
         justify-content: flex-end;
         margin-right: rem-calc(-10px);
+
+        @include breakpoint(small only) {
+            position: absolute;
+            left: -1000px;
+            justify-content: space-evenly;
+        }
 
         a {
             color: $white;
@@ -82,4 +135,21 @@ header {
         }
     }
 
+}
+
+
+header {
+
+    .menu.open {
+        height: calc(100vh - 50px);
+
+        .primary-nav {
+            position: relative;
+            left: 0; 
+        }
+        .social-links {
+            position: relative;
+            left: 0;
+        }
+    }
 }
