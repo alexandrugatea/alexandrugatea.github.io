@@ -120,6 +120,31 @@
     <!-- scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/onscreen.js"></script>
+    <script>
+
+        jQuery(document).ready(function($){
+
+            $('.card').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInLeft')},
+                    tolerance: 50
+            });
+
+            $('.text-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInRight')},
+                    tolerance: 50
+            });
+            
+            $('.resume').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+            
+        });
+    </script>
 </body>
 
 </html>

@@ -47,12 +47,12 @@
                     <span>Design</span>
                     <span>Experience</span>
                 </div>
-                <h1 class="text-center text-primary">UIUX Artist</h1>
-                <p class="text-center text-dark description">
+                <h1 class="text-center text-primary will-animate">UIUX Artist</h1>
+                <p class="text-center text-dark description will-animate">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi ratione itaque dolores nesciunt saepe
                     harum aperiam est dicta cupiditate eligendi quis distinctio cumque a facere dolor amet, quae in sed?
                 </p>
-                <ul class="flex-list flex-center flex-vertical-center">
+                <ul class="flex-list flex-center flex-vertical-center will-animate">
                     <li class="flex-item">
                         <a href="/contact" class="btn btn-accent" data-ripple>Hire me!</a>
                     </li>
@@ -83,8 +83,7 @@
                             <div class="image-container">
                                 <div class="relative">
                                     <div class="ratio-square">
-                                        <img src="images/home-about-decorative.png"
-                                            class="absolute absolute-full image-fit" alt="">
+                                        <img src="images/home-about-bio.png" class="absolute absolute-full image-fit" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -93,9 +92,10 @@
                             <div class="image-container">
                                 <div class="relative">
                                     <div class="ratio-square">
-                                        <img src="images/home-about-bio.png" class="absolute absolute-full image-fit" alt="">
+                                        <img src="images/fiddle-loader.png" class="absolute absolute-full image-fit" alt="">
+                                        <div class="absolute absolute-full background-transparent-primary-80"></div>
                                         <div class="absolute pos-bottom-right padding-horizpntal-40 padding-vertical-20">
-                                            <a href="about" class="btn btn-link">More about me <i class="fa fa-chevron-right"></i></a>
+                                            <a href="about" class="btn btn-link padding-all-30">More about me <i class="fa fa-chevron-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -113,17 +113,19 @@
                     <div class="grid">
                         <div class="grid-cell image-large relative">
                             <div class="absolute absolute-full">
-                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                                <img src="images/home-portfolio-large.png" class="absolute absolte-full image-fit">
                             </div>
                         </div>
                         <div class="grid-cell image-logo">
                             <div class="ratio-square relative">
-                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                                <img src="images/home-portfolio-logo.png" class="absolute absolte-full image-fit">
+                                <div class="absolute absolute-full background-transparent-primary-80"></div>
                             </div>
                         </div>
                         <div class="grid-cell image-web">
                             <div class="ratio-square relative">
-                                <img src="images/home-about-decorative.png" class="absolute absolte-full image-fit">
+                                <img src="images/home-portfolio-web.png" class="absolute absolte-full image-fit">
+                                <div class="absolute absolute-full background-transparent-secondary-80"></div>
                             </div>
                         </div>
                         <div class="grid-cell text-web">
@@ -150,15 +152,15 @@
 
             <!-- Contact -->
             <section class="homepage-contact bg">
-                <h2 class="title text-center" data-shadow="Contact me">
+                <h2 class="title text-center will-animate" data-shadow="Contact me">
                     <span>Now let's discuss about your business</span>
                 </h2>
-                <p class="description text-center">
+                <p class="description text-center will-animate">
                         Now that I've shared my story, it's time you share yours!
                 </p>
-                <div class="flex-list flex-center">
+                <div class="flex-list flex-center will-animate">
                     <div class="flex-item">
-                        <a href="" class="btn btn-accent">Mail me!</a>
+                        <a href="contact" class="btn btn-accent" data-ripple>Mail me!</a>
                     </div>
                 </div>
             </section>
@@ -215,13 +217,59 @@
     <script>
 
         jQuery(document).ready(function($){
-            var lpBenefitsDelay= 100;
-            
-            $('.lp-benefits .list-item').each(function(){
-                $(this).css('animation-delay', lpBenefitsDelay + 'ms');
-                lpBenefitsDelay += 200;
+
+            // hero
+            var heroElDelay= 100;
+            $('.homepage-hero .will-animate').each(function(){
+                $(this).css('animation-delay', heroElDelay + 'ms');
+                heroElDelay += 200;
             });
-            $('.homepage-hero').onScreen({doIn: function() {$(this).addClass('animated slideInUp')},tolerance: 50});
+            $('.homepage-hero .will-animate').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            // about
+            var aboutElDelay= 100;
+            $('.homepage-about .grid-cell').each(function(){
+                $(this).css('animation-delay', aboutElDelay + 'ms');
+                aboutElDelay += 200;
+            });
+            $('.homepage-about .grid-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            // portfolio
+            var portfolioElDelay= 100;
+            $('.homepage-portfolio .grid-cell').each(function(){
+                $(this).css({
+                    animationDelay: portfolioElDelay + 'ms',
+                    animationDuration: '0.5s'
+                });
+            portfolioElDelay += 200;
+            });
+            
+            $('.homepage-portfolio .grid-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated zoomIn')},
+                    tolerance: 50
+            });
+
+            // contact
+            var contactElDelay= 100;
+            $('.homepage-contact .will-animate').each(function(){
+                $(this).css('animation-delay', contactElDelay + 'ms');
+                contactElDelay += 200;
+            });
+            $('.homepage-contact .will-animate').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+           
         });
     </script>
 

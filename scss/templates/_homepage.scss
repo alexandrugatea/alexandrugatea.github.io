@@ -69,6 +69,12 @@
             }
         }
 
+        .btn-link {
+            &:hover {
+                color: $secondary;
+            }
+        }
+
     }
 
     .homepage-portfolio {

@@ -471,7 +471,65 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="js/onscreen.js"></script>
+    <script>
 
+        jQuery(document).ready(function($){
+
+            // hero
+
+            $('.portfolio-hero .title').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            $('section:not(.portfolio-hero) .title').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            var webDelay= 100;
+            $('.portfolio-web .grid-cell').each(function(){
+                $(this).css('animation-delay', webDelay + 'ms');
+                webDelay += 200;
+            });
+
+            $('.portfolio-web .grid-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            var logoDelay= 100;
+            $('.portfolio-logo .grid-cell').each(function(){
+                $(this).css('animation-delay', logoDelay + 'ms');
+                logoDelay += 200;
+            });
+
+            $('.portfolio-logo .grid-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+            var fiddleDelay= 100;
+            $('.portfolio-stuff .grid-cell').each(function(){
+                $(this).css('animation-delay', fiddleDelay + 'ms');
+                fiddleDelay += 200;
+            });
+
+            $('.portfolio-stuff .grid-cell').onScreen({
+                doIn: function() {
+                    $(this).addClass('animated fadeInUp')},
+                    tolerance: 50
+            });
+
+
+            
+        });
+    </script>
     <script>
         jQuery(document).ready(function($){
 
