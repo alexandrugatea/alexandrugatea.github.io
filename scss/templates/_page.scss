@@ -1,5 +1,10 @@
 body {
     position: relative;
+
+    &.locked {
+        overflow: hidden;
+        padding-right: 17px;
+    }
 }
 
 header {
