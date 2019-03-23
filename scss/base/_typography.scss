@@ -19,7 +19,7 @@ p, a, span, div, li { @include font(14px, $base-font-size, $baseLH); }
 
 p {
     @include breakpoint(small only) {
-        line-height: 1.4;
+        line-height: 1.7;
     }
 }
 a {

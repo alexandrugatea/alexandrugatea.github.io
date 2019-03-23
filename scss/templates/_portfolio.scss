@@ -1,5 +1,10 @@
 #portfolio {
 
+    .portfolio-hero {
+        height: auto;
+        border-radius: 0;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -33,6 +38,14 @@
                         flex-grow: 1;
                     }
                 }
+
+                .card-image {
+                    .ratio-square {
+                        @include breakpoint(small only) {
+                            padding-bottom: 30%;
+                        }
+                    }
+                }
                 .btn {
                     margin-top: rem-calc(20px);
                 }
@@ -53,6 +66,10 @@
     transition: all 0.35s ease-in-out;
     padding: 5%;
 
+    @include breakpoint(small only) {
+        overflow-y: auto;
+    }
+
     &.opened {
         z-index: 2000;
         pointer-events: all;
@@ -72,6 +89,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include breakpoint(small only) {
+            width: rem-calc(50px);
+            height: rem-calc(50px);
+        }
 
         &:before, &:after {
             content: '';
@@ -96,14 +118,17 @@
     
 .modal-web {
 
+    @include breakpoint(small only) {
+        padding: rem-calc(50px 20px 20px 20px);
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 10% 30% 20% 20% 10% 10%;
         grid-template-rows: 10vh 30vh 30vh 10vh;
 
         @include breakpoint(small only) {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
+            display: block;
         }
 
         .grid-cell {
@@ -205,6 +230,22 @@
             }
         }
 
+        .back {
+            @include breakpoint(small only) {
+                display: none;
+            }
+        }
+
+        .type {
+            @include breakpoint(small only) {
+                margin-top: rem-calc(75px);
+
+                .web-title, p {
+                    margin-bottom: rem-calc(20px);
+                }
+            }
+        }
+
         @include breakpoint(small only) {
             
         }
@@ -251,13 +292,12 @@
         grid-template-columns: 50% 50%;
         grid-template-rows: 40vh 40vh;
         grid-gap: 40px;
-        grid-template-areas: "type shown" 
-                            "items shown";
+        grid-template-areas: "type shown"   "items shown";
+        
         @include breakpoint(small only) {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas: "type" "shown" "items";
+            grid-template-columns: 100%;
+            grid-template-rows: auto;
+            grid-template-areas: "type"  "shown" "items";
         }
     }
 
