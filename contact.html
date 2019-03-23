@@ -138,28 +138,34 @@
 
         jQuery(document).ready(function($){
 
-            $('.contact-addresses').css('animation-delay', '0.3s')
-            $('.form').css({
-                animationDelay: '0.7s',
-                animationDuration: '0.7s'
-            })
+            var wW = $(window).width();
 
-            // hero
-            $('.title').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
-            $('.contact-addresses').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInRight')},
-                    tolerance: 50
-            });
-            $('.form').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated bounceIn')},
-                    tolerance: 50
-            });
+            if (wW > 767) {
+                
+                $('.contact-addresses').css('animation-delay', '0.3s')
+                $('.form').css({
+                    animationDelay: '0.7s',
+                    animationDuration: '0.7s'
+                })
+
+                // hero
+                $('.title').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
+                $('.contact-addresses').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInRight')},
+                        tolerance: 50
+                });
+                $('.form').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated bounceIn')},
+                        tolerance: 50
+                });
+            
+            }
             
         });
     </script>

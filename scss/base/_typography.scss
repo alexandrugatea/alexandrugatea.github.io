@@ -2,9 +2,9 @@
 
 h1 { @include font(32px, $h1, $h1LH, 900); }
   
-h2 { @include font($h2 - 6, $h2, $h2LH, 600); }
+h2 { @include font($h2 - 10, $h2, $h2LH, 600); }
   
-h3 { @include font($h3 - 6, $h3, $h3LH, 600); }
+h3 { @include font($h3 - 8, $h3, $h3LH, 600); }
 
 
 h4 { @include font($h4 - 4, $h4, $h4LH, 600); }
@@ -15,8 +15,13 @@ h6 { @include font($h6 - 2, $h6, $h6LH, 600); }
 
 body { @include font($base-font-size - 2, $base-font-size, $baseLH); }
 
-p, a, span, div, li { @include font(16px, $base-font-size, $baseLH); }
+p, a, span, div, li { @include font(14px, $base-font-size, $baseLH); }
 
+p {
+    @include breakpoint(small only) {
+        line-height: 1.4;
+    }
+}
 a {
     color: $primary;
     text-decoration: underline;
@@ -173,11 +178,13 @@ section {
         }
 
         &.text-left {
-            justify-content: flex-start;
-
-            span {
-                left: 0;
-                transform: translateX(0) translateY(-50%);
+            @include breakpoint(medium) {
+                justify-content: flex-start;
+    
+                span {
+                    left: 0;
+                    transform: translateX(0) translateY(-50%);
+                }
             }
         }
     }

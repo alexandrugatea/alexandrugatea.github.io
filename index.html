@@ -218,57 +218,63 @@
 
         jQuery(document).ready(function($){
 
-            // hero
-            var heroElDelay= 100;
-            $('.homepage-hero .will-animate').each(function(){
-                $(this).css('animation-delay', heroElDelay + 'ms');
-                heroElDelay += 200;
-            });
-            $('.homepage-hero .will-animate').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+            var wW = $(window).width();
 
-            // about
-            var aboutElDelay= 100;
-            $('.homepage-about .grid-cell').each(function(){
-                $(this).css('animation-delay', aboutElDelay + 'ms');
-                aboutElDelay += 200;
-            });
-            $('.homepage-about .grid-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
-
-            // portfolio
-            var portfolioElDelay= 100;
-            $('.homepage-portfolio .grid-cell').each(function(){
-                $(this).css({
-                    animationDelay: portfolioElDelay + 'ms',
-                    animationDuration: '0.5s'
+            if (wW > 768) {
+                
+                // hero
+                var heroElDelay= 100;
+                $('.homepage-hero .will-animate').each(function(){
+                    $(this).css('animation-delay', heroElDelay + 'ms');
+                    heroElDelay += 200;
                 });
-            portfolioElDelay += 200;
-            });
-            
-            $('.homepage-portfolio .grid-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated zoomIn')},
-                    tolerance: 50
-            });
+                $('.homepage-hero .will-animate').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-            // contact
-            var contactElDelay= 100;
-            $('.homepage-contact .will-animate').each(function(){
-                $(this).css('animation-delay', contactElDelay + 'ms');
-                contactElDelay += 200;
-            });
-            $('.homepage-contact .will-animate').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+                // about
+                var aboutElDelay= 100;
+                $('.homepage-about .grid-cell').each(function(){
+                    $(this).css('animation-delay', aboutElDelay + 'ms');
+                    aboutElDelay += 200;
+                });
+                $('.homepage-about .grid-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
+
+                // portfolio
+                var portfolioElDelay= 100;
+                $('.homepage-portfolio .grid-cell').each(function(){
+                    $(this).css({
+                        animationDelay: portfolioElDelay + 'ms',
+                        animationDuration: '0.5s'
+                    });
+                portfolioElDelay += 200;
+                });
+                
+                $('.homepage-portfolio .grid-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated zoomIn')},
+                        tolerance: 50
+                });
+
+                // contact
+                var contactElDelay= 100;
+                $('.homepage-contact .will-animate').each(function(){
+                    $(this).css('animation-delay', contactElDelay + 'ms');
+                    contactElDelay += 200;
+                });
+                $('.homepage-contact .will-animate').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
+
+            }
            
         });
     </script>

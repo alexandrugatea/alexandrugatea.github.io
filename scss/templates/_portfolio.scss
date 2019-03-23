@@ -6,6 +6,10 @@
         grid-auto-rows: 1fr;
         grid-gap: rem-calc(30px);
 
+        @include breakpoint(small only) {
+            grid-template-columns: 1fr;
+        }
+
         .grid-cell {
             position: relative;
 
@@ -96,6 +100,11 @@
         display: grid;
         grid-template-columns: 10% 30% 20% 20% 10% 10%;
         grid-template-rows: 10vh 30vh 30vh 10vh;
+
+        @include breakpoint(small only) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
 
         .grid-cell {
 
@@ -196,32 +205,39 @@
             }
         }
 
-        .back {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-
-        .front {
-            grid-column-start: 2;
-            grid-column-end: 5;
-            grid-row-start: 2;
-            grid-row-end: 4;
-        }
-
-        .type {
-            grid-column-start: 5;
-            grid-column-end: 7;
-            grid-row-start: 2;
-            grid-row-end: 4;
+        @include breakpoint(small only) {
             
-            display: flex;
-            padding: rem-calc(20px);
-            align-items: center;
+        }
 
-            .web-title, p {
-                margin-bottom: rem-calc(20px);
+        @include breakpoint(medium) {
+            
+            .back {
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 5;
+            }
+    
+            .front {
+                grid-column-start: 2;
+                grid-column-end: 5;
+                grid-row-start: 2;
+                grid-row-end: 4;
+            }
+    
+            .type {
+                grid-column-start: 5;
+                grid-column-end: 7;
+                grid-row-start: 2;
+                grid-row-end: 4;
+                
+                display: flex;
+                padding: rem-calc(20px);
+                align-items: center;
+    
+                .web-title, p {
+                    margin-bottom: rem-calc(20px);
+                }
             }
         }
     }
@@ -237,6 +253,12 @@
         grid-gap: 40px;
         grid-template-areas: "type shown" 
                             "items shown";
+        @include breakpoint(small only) {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas: "type" "shown" "items";
+        }
     }
 
     .shown {

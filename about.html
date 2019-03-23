@@ -46,9 +46,11 @@
                         <div class="card">
                             <div class="relative ratio-square background-light">
                                 <div class="absolute absolute-full card-content">
-                                    <div class="user-icon"> <i class="fa fa-user fa-3x text-light"></i> </div>
+                                    <div class="user-icon relative"> 
+                                        <img src="images/home-about-bio.png" class="absolute absolute-full image-fit" alt="">
+                                    </div>
                                     <h4 class="user-name text-center">Alexandru Gatea</h4>
-                                    <div class="user-info">I'm an experienced UI/UX Developer with high focus on output quality and user experience. Currently leaving in Cluj-Napoca. </div>
+                                    <p class="user-info">I'm an experienced UI/UX Developer with high focus on output quality and user experience. Currently leaving in Cluj-Napoca. </p>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +71,11 @@
                 <h2 class="title text-center" data-shadow="My Resume">
                     <span>Curriculum Vitae</span>
                 </h2>
-                <embed src="./media/CV_Alexandru_Gatea.pdf" type="application/pdf" width="100%" height="100%">
+                <object data="/CV_Alexandru_Gatea.pdf" type="application/pdf" width="100%" height="100%">
+                    <p>Your web browser doesn't have a PDF plugin.
+                    Instead you can <a href="/media/CV_Alexandru_Gatea.pdf">click here to
+                    download the PDF file.</a></p>
+                  </object>
             </section>
         </div>
     </main>
@@ -125,24 +131,29 @@
 
         jQuery(document).ready(function($){
 
-            $('.card').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInLeft')},
-                    tolerance: 50
-            });
+            var wW = $(window).width();
 
-            $('.text-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInRight')},
-                    tolerance: 50
-            });
+            if (wW > 767) {
+                
+                $('.card').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInLeft')},
+                        tolerance: 50
+                });
+    
+                $('.text-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInRight')},
+                        tolerance: 50
+                });
+                
+                $('.resume').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
             
-            $('.resume').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
-            
+            }
         });
     </script>
 </body>

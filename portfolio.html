@@ -126,6 +126,7 @@
 
                     <div class="grid-cell">
                         <div class="card">
+                            <button data-modal="modal-med" class="btn btn-link text-accent"></button>
                             <div class="card-image">
                                 <div class="relative ratio-square">
                                     <img src="images/med/AtleticMed_color.jpg" alt="" class="absolute absolute-full image-contain">
@@ -141,6 +142,7 @@
 
                     <div class="grid-cell">
                         <div class="card">
+                            <button data-modal="modal-more" class="btn btn-link text-accent"></button>
                             <div class="card-image">
                                 <div class="relative ratio-square">
                                     <img src="images/logo-more.png" alt="" class="absolute absolute-full image-contain">
@@ -412,8 +414,8 @@
                         <div><img src="images/logos/logo-2.png" alt=""></div>
                         <div><img src="images/logos/logo-3.png" alt=""></div>
                         <div><img src="images/logos/logo-4.png" alt=""></div>
-                        <div><img src="images/logos/logo-5.png" alt=""></div>
-                        <div><img src="images/logos/logo-6.png" alt=""></div>
+                        <div><img src="images/logos/logo-5.jpg" alt=""></div>
+                        <div><img src="images/logos/logo-6.jpg" alt=""></div>
                     </div>
                 </div>
                 <div class="grid-cell relative items">
@@ -476,57 +478,59 @@
 
         jQuery(document).ready(function($){
 
-            // hero
+            var wW = $(window).width();
 
-            $('.portfolio-hero .title').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+            if (wW > 767) {
+            
+                $('.portfolio-hero .title').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-            $('section:not(.portfolio-hero) .title').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+                $('section:not(.portfolio-hero) .title').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-            var webDelay= 100;
-            $('.portfolio-web .grid-cell').each(function(){
-                $(this).css('animation-delay', webDelay + 'ms');
-                webDelay += 200;
-            });
+                var webDelay= 100;
+                $('.portfolio-web .grid-cell').each(function(){
+                    $(this).css('animation-delay', webDelay + 'ms');
+                    webDelay += 200;
+                });
 
-            $('.portfolio-web .grid-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+                $('.portfolio-web .grid-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-            var logoDelay= 100;
-            $('.portfolio-logo .grid-cell').each(function(){
-                $(this).css('animation-delay', logoDelay + 'ms');
-                logoDelay += 200;
-            });
+                var logoDelay= 100;
+                $('.portfolio-logo .grid-cell').each(function(){
+                    $(this).css('animation-delay', logoDelay + 'ms');
+                    logoDelay += 200;
+                });
 
-            $('.portfolio-logo .grid-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+                $('.portfolio-logo .grid-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-            var fiddleDelay= 100;
-            $('.portfolio-stuff .grid-cell').each(function(){
-                $(this).css('animation-delay', fiddleDelay + 'ms');
-                fiddleDelay += 200;
-            });
+                var fiddleDelay= 100;
+                $('.portfolio-stuff .grid-cell').each(function(){
+                    $(this).css('animation-delay', fiddleDelay + 'ms');
+                    fiddleDelay += 200;
+                });
 
-            $('.portfolio-stuff .grid-cell').onScreen({
-                doIn: function() {
-                    $(this).addClass('animated fadeInUp')},
-                    tolerance: 50
-            });
+                $('.portfolio-stuff .grid-cell').onScreen({
+                    doIn: function() {
+                        $(this).addClass('animated fadeInUp')},
+                        tolerance: 50
+                });
 
-
+            }
             
         });
     </script>
@@ -661,11 +665,7 @@
 
                 target.slick('slickGoTo', slideToShow);
 
-
             });
-
-
-
 
             function countSlides(slideParent, slideNumberContainer) {
                 $(slideParent).on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -680,7 +680,6 @@
             }
         });
     </script>
-
 
 </body>
 
