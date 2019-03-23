@@ -16,6 +16,20 @@ header {
             display: block;
             height: rem-calc(50px);
             overflow: hidden;
+
+            &:after {
+                content: '\f0c9';
+                font-family: 'FontAwesome';
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: #fff;
+                height: rem-calc(50px);
+                width: rem-calc(50px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             
             > * {
                 width: 100%;
@@ -142,6 +156,10 @@ header {
 
     .menu.open {
         height: 100vh;
+
+        &:after {
+            content: '\f00d';
+        }
 
         .primary-nav {
             position: relative;
