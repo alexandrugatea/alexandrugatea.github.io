@@ -211,6 +211,19 @@
     <!-- scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/onscreen.js"></script>
+    <script>
+
+        jQuery(document).ready(function($){
+            var lpBenefitsDelay= 100;
+            
+            $('.lp-benefits .list-item').each(function(){
+                $(this).css('animation-delay', lpBenefitsDelay + 'ms');
+                lpBenefitsDelay += 200;
+            });
+            $('.homepage-hero').onScreen({doIn: function() {$(this).addClass('animated slideInUp')},tolerance: 50});
+        });
+    </script>
 
 </body>
 

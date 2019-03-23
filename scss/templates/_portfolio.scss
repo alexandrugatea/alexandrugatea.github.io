@@ -4,13 +4,19 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: 1fr;
-        grid-gap: rem-calc(10px);
+        grid-gap: rem-calc(30px);
 
         .grid-cell {
             position: relative;
 
             .card {
                 height: 100%;
+
+                > .btn {
+                    z-index: 10;
+                    margin: 0;
+                    outline: none;
+                }
 
                 .card-body {
                     display: flex;
@@ -289,5 +295,16 @@
                 opacity: 0.4;
             }
         }
+    }
+}
+
+#modal-more {
+    .slick-slide{
+        background: $white;
+        padding: 30px;
+    }
+
+    .ratio-square {
+        background: $white;
     }
 }

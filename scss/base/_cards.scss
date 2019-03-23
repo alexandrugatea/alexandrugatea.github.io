@@ -12,7 +12,9 @@
     margin-bottom: $gutter;
     position: relative;
     background: $white;
-    border: 1px solid #ccc;
+    border-radius: rem-calc(4px);
+    box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.2); 
+
     .card-header,
     .card-body,
     .card-footer {
