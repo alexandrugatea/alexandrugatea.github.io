@@ -79,6 +79,9 @@
             transform: translateX(-50%) rotate(-45deg);
         }
     }
+    iframe {
+        position: relative;
+    }
 }
     
 .modal-web {

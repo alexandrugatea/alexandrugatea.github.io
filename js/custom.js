@@ -1,5 +1,11 @@
 jQuery(document).ready(function(){
 
+    // back to top
+
+    $(document).on('click','#toTop', function(){
+        $("html, body").animate({scrollTop: 0}, 1000);
+    })
+
     //ripple effect on buttons
     $(document).on("mousedown", "[data-ripple]", function (e) {
 
@@ -47,3 +53,10 @@ jQuery(document).ready(function(){
     });
 
 });
+
+
+
+
+
+
+
