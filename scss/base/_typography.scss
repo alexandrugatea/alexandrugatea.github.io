@@ -18,6 +18,8 @@ body { @include font($base-font-size - 2, $base-font-size, $baseLH); }
 p, a, span, div, li { @include font(14px, $base-font-size, $baseLH); }
 
 p {
+    margin-bottom: rem-calc(15px);
+    
     @include breakpoint(small only) {
         line-height: 1.7;
     }
