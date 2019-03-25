@@ -1,0 +1,135 @@
+// position prototype app on the screen and set it's phone background
+
+#app {
+    @include breakpoint(medium) {
+        img:not(.animated) {
+            opacity: 0;
+        }
+        
+        img:not(.animated) + iframe {
+            opacity: 0;
+        }
+    }
+
+    &.inactive {
+        top: 2000px;
+    }
+}
+#app, #concept {
+    height: $prototypeHeight;
+    position: fixed;
+    top:0;
+    right: 5%;
+    width: rem-calc($prototypeWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+
+    .application {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 3s;
+        width: rem-calc(360px);
+        height: rem-calc(640px);
+        margin-top: -1px;
+    }
+}
+
+#concept {
+    right: -800px;
+
+    &.active {
+        right: 5%;
+    }
+
+    img {
+        opacity: 1;
+    }
+
+    .application {
+        background: $conceptBlueDark;
+    }
+}
+
+
+#concept {
+
+    .splash {
+        opacity: 0;
+    }
+
+    &.active {
+
+        .splash {
+            opacity: 1;
+            background: url('../images/telenav/splash-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            overflow: hidden;
+    
+            .frame-caption {
+                padding: rem-calc(16px);
+                animation: showCarousel 0.7s ease-in-out forwards;  
+                animation-delay: 2s;
+                opacity: 0;
+    
+                .concept-carousel {
+    
+                    p {
+                        font-size: rem-calc(14px);
+                        line-height: 1.4
+                    }
+
+                    .slick-slide {
+                        outline: none;
+                    }
+
+                    .slick-dots {
+
+                        button:before {
+                            color: $conceptBlueLight;
+                        }
+
+                        &.slick-active {
+
+                            button:before {
+                                color: $conceptAmber;
+                            }
+                        }
+                    }
+                }
+    
+                .btn-telenav {
+                    background: linear-gradient(45deg, #ffbf00 0%,#ffdd00 100%);
+                    opacity: 0;
+                    margin-top: auto;
+
+                    &.animated {
+                        opacity: 1;
+                        animation-duration: 0.15s; 
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+// carousel animations
+
+@keyframes showCarousel {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
