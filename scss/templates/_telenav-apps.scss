@@ -131,6 +131,8 @@
     .frame {
         display: flex;
         flex-direction: column;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
 
         .btn-telenav {
             background: linear-gradient(45deg, #ffbf00 0%,#ffdd00 100%);
@@ -174,6 +176,8 @@
                 padding: rem-calc($grid);
                 color: $conceptBlueLight;
                 font-size: rem-calc(14px);
+                // since the label is over the input we'll deactivate user clicks, so input activates when user clicks on label
+                pointer-events: none;
             }
 
             input {

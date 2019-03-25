@@ -57,13 +57,9 @@ jQuery(document).ready(function($){
         
         setTimeout(function(){
             $('.frame').removeClass('exit');
-        }, 1);
+        }, 1500);
 
         $('.application').find('.' + toGo).addClass('active');
 
       });
-
-      $('form').submit(function(e){
-          e.preventDefault();
-      })
 });

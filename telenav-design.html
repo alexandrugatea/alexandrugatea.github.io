@@ -125,23 +125,25 @@
                         Create an account
                     </h4>
                     <p class="frame-helper">  All the fields below are mandatory </p>
-                    <form class="frame-form">
+
+                    <!--  I used a div to prevent html 5 from throwing data valdiation errors on button click -->
+                    <div class="frame-form">
                         <div class="frame-input relative">
-                            <input type="text" name="name" id="name" value="Alexandru Gatea">
-                            <label for="">Name</label>
+                            <input type="text" name="name" id="phone" value="Alexandru Gatea">
+                            <label for="phone">Name</label>
                         </div>
                         <div class="frame-input relative">
-                            <input type="email" name="email" id="email" value="alexandru.gatea@gmail.com">
-                            <label for="">Email</label>
+                            <input type="email" name="phone" id="email" value="alexandru.gatea@gmail.com">
+                            <label for="phone">Email</label>
                         </div>
                         <div class="frame-input relative">
-                            <input type="email" name="email" id="email" value="0745495970">
-                            <label for="">Phone</label>
+                            <input type="phone" name="phone" id="phone" value="0745495970">
+                            <label for="phone">Phone</label>
                         </div>
                         <div class="frame-submit">
-                            <button class="btn btn-block btn-secondary btn-telenav btn-rounded" data-target="splash" data-ripple>Create</button>
+                            <button class="btn btn-block btn-secondary btn-telenav btn-rounded"  data-ripple>Create</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
