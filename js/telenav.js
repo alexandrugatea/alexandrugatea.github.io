@@ -43,5 +43,27 @@ jQuery(document).ready(function($){
         if (slick.$slides.length - 1 == currentSlide) {
             $('.splash').find('.btn-telenav').addClass('animated slideInUp');
         }
+      });
+
+
+      // change the screen 
+
+      var screenChanger = $('#concept [data-target]');
+
+      screenChanger.on('click', function(){
+        var toGo = $(this).attr('data-target');
+
+        $('.frame.active').removeClass('active').addClass('exit');
+        
+        setTimeout(function(){
+            $('.frame').removeClass('exit');
+        }, 1);
+
+        $('.application').find('.' + toGo).addClass('active');
+
+      });
+
+      $('form').submit(function(e){
+          e.preventDefault();
       })
 });
