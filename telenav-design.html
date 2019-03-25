@@ -7,9 +7,79 @@
     <title>Portfolio | Alexandru Gatea</title>
     <link rel="stylesheet" href="css/telenav.css">
 </head>
-<body>
+<body id="telenav" class="relative">
     <div id="app">
-        <iframe width="360" height="640" src="https://xd.adobe.com/embed/94c9299e-8636-470f-5c92-a2c3d80525a2-e2f8/?fullscreen" frameborder="0" allowfullscreen></iframe>
+        <img src="images/telenav/nexus.png" alt="Application Background Image">
+        <iframe class="application" width="360" height="640" src="https://xd.adobe.com/embed/94c9299e-8636-470f-5c92-a2c3d80525a2-e2f8/?fullscreen" frameborder="0" allowfullscreen></iframe>
     </div>
+    <div id="concept">
+        <img src="images/telenav/nexus.png" alt="Application Background Image">
+        <div class="application">
+
+        </div>
+    </div>
+
+    <section class="data-container">
+         <h2 class="title" data-shadow='UIUX Designer'> <span>The Telenav Challenge</span></h2>
+         <ul class="list list-unstyled">
+             <li class="padding-all-10">
+                 <strong>Position:</strong> <span>UI UX Designer</span>
+             </li>
+            <li class="padding-all-10">
+                <strong>Applicant:</strong> <span>Alexandru Gatea</span>
+            </li>
+            <li class="padding-all-10">
+                <strong>Location:</strong> <span>Cluj Napoca</span>
+            </li>
+         </ul>
+         <ul class="margin-top-20 list list-unstyled">
+             <li>
+                <button data-switch class="btn btn-accent concept" data-ripple>
+                    Switch to <span class="concept">Concept</span> <span class="prototype">Prototype</span>
+                </button>
+             </li>
+         </ul>
+    </section>
+
+    <div class="portfolio-links absolute pos-bottom-center width-xs-30 padding-all-30">
+        <div class="floating-share floating-dial-top-center">
+            <button class="float-trigger float-btn"><i class="fa fa-link"></i></button>
+            <ul class="share-items">
+                <li class="floating-item item-heart">
+                    <a href="https://alexandrugatea.github.io/telenav-sketches" class="float-btn" data-tooltip="Telenav Sketches" target="_blank">
+                        <i class="fa fa-heart"></i>
+                    </a>
+                </li>
+                <li class="floating-item item-star">
+                    <a href="https://alexandrugatea.github.io/telenav-wireframes" class="float-btn" data-tooltip="Telenav Wireframes" target="_blank">
+                        <i class="fa fa-star"></i>
+                    </a>
+                </li>
+                <li class="floating-item item-wifi">
+                    <a href="https://alexandrugatea.github.io" class="float-btn" data-tooltip="My Portfolio" target="_blank">
+                        <i class="fa fa-wifi"></i>
+                    </a>
+                </li>
+                <li class="floating-item item-bell">
+                    <a href="https://alexandrugatea.bitbucket.io/templates/scss-framework/sf.html" class="float-btn" data-tooltip="My Framework" target="_blank">
+                        <i class="fa fa-bell"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <h4 class="text-center">In order to preview this application correctly please switch to a device with a minimum resolution of:<br>
+                <span class="text-accent">1366 X 768px</span>
+            </h4>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/scss.js"></script>
+    <script src="js/onscreen.js"></script>
+    <script src="js/telenav.js"></script>
+
 </body>
 </html>

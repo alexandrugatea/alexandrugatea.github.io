@@ -27,6 +27,7 @@
     text-transform: uppercase;
     min-width: rem-calc(165px);
     color: $white;
+    outline: none;
 
     &.btn-default {
         border: 1px solid $input-color; 

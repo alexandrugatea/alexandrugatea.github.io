@@ -46,6 +46,10 @@
             transition: all 0.3s ease;
             border-radius: 50%;
 
+            &:hover {
+                z-index: 3000;
+            }
+
             .float-btn {
                 text-decoration: none;
                 color: inherit;
