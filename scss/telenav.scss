@@ -70,6 +70,7 @@ body {
         animation-delay: 3s;
         width: rem-calc(360px);
         height: rem-calc(640px);
+        margin-top: -1px;
     }
 }
 
@@ -147,7 +148,6 @@ body {
         transition: all 0.25s ease;
         position: absolute;
         z-index: 3001;
-        transition-delay: 0.4s;
     }
 
     &:after {
