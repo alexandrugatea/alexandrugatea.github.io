@@ -54,10 +54,6 @@ jQuery(document).ready(function($){
         var toGo = $(this).attr('data-target');
 
         $('.frame.active').removeClass('active').addClass('exit');
-        
-        setTimeout(function(){
-            $('.frame').removeClass('exit');
-        }, 1500);
 
         $('.application').find('.' + toGo).addClass('active');
 

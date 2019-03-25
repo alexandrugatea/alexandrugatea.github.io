@@ -214,7 +214,7 @@
     // upon change, the element that was active will move up
     .frame.exit {
         top: -120%;
-        transition: all 0.9s ease-in-out;
+        transition: all 0.6s ease-out;
         z-index: 1;
         transform: scale(0.9);
     }
@@ -222,7 +222,7 @@
     // upon change the element that became active will move up, into view port.
     .frame.active {
         top: 0%;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-out;
         z-index: 2;
     }
 
