@@ -3,7 +3,7 @@
     .about-hero {
         .grid {
             display: grid;
-            grid-template-columns: 2fr 3fr;
+            grid-template-columns: 2fr 4fr;
 
             @include breakpoint(small only) {
                 grid-template-columns: 1fr;
@@ -43,6 +43,14 @@
                     .user-info {
                         text-align: center;
                         max-width: 70%;
+
+                        a {
+                            text-decoration: none;
+                            color: inherit;
+                            &:hover {
+                                color: $secondary;
+                            }
+                        }
                     }
                 }
             }
