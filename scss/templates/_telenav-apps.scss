@@ -1,0 +1,244 @@
+// position prototype app on the screen and set it's phone background
+
+#app {
+    @include breakpoint(medium) {
+        img:not(.animated) {
+            opacity: 0;
+        }
+        
+        img:not(.animated) + iframe {
+            opacity: 0;
+        }
+    }
+
+    &.inactive {
+        top: 2000px;
+    }
+}
+#app, #concept {
+    height: $prototypeHeight;
+    position: fixed;
+    top:0;
+    right: 5%;
+    width: rem-calc($prototypeWidth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+
+    .application {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 3s;
+        width: rem-calc(360px);
+        height: rem-calc(640px);
+        margin-top: -1px;
+        overflow: hidden;
+    }
+}
+
+#concept {
+    right: -800px;
+
+    &.active {
+        right: 5%;
+    }
+
+    img {
+        opacity: 1;
+    }
+
+    .application {
+        background: $conceptBlueDark;
+    }
+}
+
+
+#concept {
+
+    .splash {
+        opacity: 0;
+    }
+
+    &.active {
+
+        .splash {
+            opacity: 1;
+            background: url('../images/telenav/splash-bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            overflow: hidden;
+    
+            .frame-caption {
+                padding: rem-calc(16px);
+                animation: showCarousel 0.7s ease-in-out forwards;  
+                animation-delay: 2s;
+                opacity: 0;
+    
+                .concept-carousel {
+    
+                    p {
+                        font-size: rem-calc(14px);
+                        line-height: 1.4
+                    }
+
+                    .slick-slide {
+                        outline: none;
+                    }
+
+                    .slick-dots {
+
+                        button:before {
+                            color: $conceptBlueLight;
+                        }
+
+                        &.slick-active {
+
+                            button:before {
+                                color: $conceptAmber;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .btn-telenav {
+                opacity: 0;
+    
+                &.animated {
+                    opacity: 1;
+                    animation-duration: 0.15s; 
+                }
+            }
+        }
+
+        .account {
+            background: $conceptBlue;
+
+            
+
+        }
+    }
+}
+
+// switching the screens
+#concept {
+
+    .frame {
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+
+        .btn-telenav {
+            background: linear-gradient(45deg, #ffbf00 0%,#ffdd00 100%);
+        }
+
+        .frame-caption {
+            padding: rem-calc($grid);
+            flex-grow: 1;
+        }
+
+        .frame-title {
+            padding: rem-calc(20px 0);
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .frame-helper {
+            color: $conceptBlueLight;
+            padding-bottom: rem-calc($grid);
+        }
+
+        .frame-image {
+            height: rem-calc(160px);
+        }
+
+        .frame-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-grow: 1;
+        }
+
+        .frame-input {
+            margin-bottom: rem-calc($grid);
+            
+            label {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                padding: rem-calc($grid);
+                color: $conceptBlueLight;
+                font-size: rem-calc(14px);
+                // since the label is over the input we'll deactivate user clicks, so input activates when user clicks on label
+                pointer-events: none;
+            }
+
+            input {
+                border-radius: rem-calc(100px);
+                padding: rem-calc($grid);
+                padding-right: rem-calc(100px);
+                border: 1px solid $conceptBlueLight;
+                background: transparent;
+                box-shadow: none;
+                color: $white;
+                font-size: rem-calc(14px);
+                width: 100%;
+                font-weight: 700;
+            }
+
+        }
+
+        .frame-submit {
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+
+    // push all screend that are not active to the bottom of the page
+    .frame:not(.active) {
+        top: 100%;
+    }
+
+    .frame {
+        z-index: 0;
+    }
+
+    // upon change, the element that was active will move up
+    .frame.exit {
+        top: -120%;
+        transition: all 0.9s ease-in-out;
+        z-index: 1;
+        transform: scale(0.9);
+    }
+
+    // upon change the element that became active will move up, into view port.
+    .frame.active {
+        top: 0%;
+        transition: all 0.5s ease-in-out;
+        z-index: 2;
+    }
+
+}
+
+// carousel animations
+
+@keyframes showCarousel {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
