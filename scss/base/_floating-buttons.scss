@@ -53,6 +53,7 @@
             .float-btn {
                 text-decoration: none;
                 color: inherit;
+                animation: stopHover 0.3s ease forwards;
                 &:hover {
                     transform: scale(1.2);
                     box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2);
@@ -86,6 +87,18 @@
     }
 }
 
+// fix floating data tooltip on first init the floating trigger
+
+@keyframes stopHover {
+    from {
+        pointer-events: none;
+    }
+
+    to {
+        pointer-events: all;
+    }
+}
+
 
 .floating-share.opened {
     .float-trigger {
@@ -112,5 +125,55 @@
         animation: hide 0.5s ease forwards;
         transition-delay: #{$delay}s;
         animation-delay: #{$animdelay}s;
+    }
+}
+
+[data-tooltip] {
+
+    &:before,
+    &:after {
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s ease;
+        position: absolute;
+        z-index: 3001;
+    }
+
+    &:after {
+        content: attr(data-tooltip);
+        background: #212121;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-top: 5px solid #212121;
+        border-right: 5px solid transparent;
+    }
+
+    &:hover {
+
+        &:before,
+        &:after {
+            opacity: 1;
+        }
+
+        &:after {
+            top: -35px;
+        }
+
+        &:before {
+            top: -7px;
+        }
     }
 }
