@@ -7923,6 +7923,15 @@ section .title:after {
   overflow: hidden;
 }
 
+#concept:not(.active) svg {
+  width: 250px;
+  margin: 0 auto;
+}
+
+#concept:not(.active) svg .text {
+  fill: #ffffff;
+}
+
 #concept {
   right: -800px;
 }
