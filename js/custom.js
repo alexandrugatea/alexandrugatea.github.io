@@ -101,7 +101,7 @@ jQuery(document).ready(function(){
 
         setTimeout(function(){
             $(location).attr('href', goTo);
-        }, 600);
+        }, 1200);
 
 
     });
