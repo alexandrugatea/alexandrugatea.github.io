@@ -2,3 +2,5 @@
 *.scssc
 scss/autodakar/*
 scss/fonts/*
+css/telenav.css.map
+css/telenav.css

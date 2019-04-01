@@ -150,10 +150,10 @@
 
             var wW = $(window).width();
 
+            $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
+            $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
             if (wW > 767) {
 
-                $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
-                $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
                 
                 $('.card').onScreen({
                     doIn: function() {

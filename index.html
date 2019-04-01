@@ -214,11 +214,11 @@
         jQuery(document).ready(function($){
 
             var wW = $(window).width();
+            $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
+            $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
 
             if (wW > 768) {
 
-                $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
-                $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
 
                 // hero
                 var heroElDelay= 100;
