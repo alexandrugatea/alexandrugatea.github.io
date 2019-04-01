@@ -101,6 +101,7 @@ header {
         .active {
             position: relative;
             color: $secondary;
+            pointer-events: none;
 
             &:before {
                 content: '';

@@ -22,9 +22,9 @@
 
                 <ul class="primary-nav list list-unstyled">
                     <li class="nav-element"> <a class="active" href="/">Home</a></li>
-                    <li class="nav-element"> <a href="about">About</a></li>
-                    <li class="nav-element"> <a href="portfolio">Portfolio</a></li>
-                    <li class="nav-element"> <a href="contact">Contact</a></li>
+                    <li class="nav-element"> <a href="about" class="link">About</a></li>
+                    <li class="nav-element"> <a href="portfolio" class="link">Portfolio</a></li>
+                    <li class="nav-element"> <a href="contact" class="link">Contact</a></li>
                 </ul>
 
                 <div class="social-links text-right">
@@ -53,10 +53,10 @@
                 </p>
                 <ul class="flex-list flex-center flex-vertical-center will-animate">
                     <li class="flex-item">
-                        <a href="/contact" class="btn btn-accent" data-ripple>Hire me!</a>
+                        <a href="/contact" class="btn btn-accent link" data-ripple>Hire me!</a>
                     </li>
                     <li class="flex-item">
-                        <a href="/portfolio" class="btn btn-primary" data-ripple>Portfolio</a>
+                        <a href="/portfolio" class="btn btn-primary link" data-ripple>Portfolio</a>
                     </li>
                 </ul>
             </section>
@@ -216,6 +216,9 @@
             var wW = $(window).width();
 
             if (wW > 768) {
+
+                $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
+                $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
 
                 // hero
                 var heroElDelay= 100;

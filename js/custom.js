@@ -1,5 +1,17 @@
+changeBackground();
+
+function changeBackground() {
+    if (sessionStorage.getItem('colour')) {
+        $('html').css('background', sessionStorage.getItem('colour'));
+    } else {
+        $('html').css('background', '#E80D3A');
+        sessionStorage.setItem('colour', "#E80D3A");
+    }
+}
+
 jQuery(document).ready(function(){
 
+   
     // back to top
 
     $(document).on('click','#toTop', function(){
@@ -61,7 +73,49 @@ jQuery(document).ready(function(){
         });
     });
 
+    // circle animation for page transition
+
+    var link = $('.link');
+
+    link.on('click', function(e){
+
+        // stop page redirect
+        e.preventDefault();
+
+        // get target url
+        // var host = window.location.host;
+        var goTo = $(this).attr('href');
+        var elColor = $(this).css('backgroundColor');
+        var elHex = hexc(elColor);
+        // $.cookie("clickedColor", hexc(elColor));
+        sessionStorage.setItem('colour', '#' + hexc(elColor));
+
+        // create circle
+        $('body').addClass('locked').append('<div class="transition-circle" style="background: #' + elHex + '; top: ' + e.pageY + 'px; left: ' + e.pageX + 'px"></div>');
+
+        setTimeout(function(){
+            $(location).attr('href', goTo);
+        }, 600);
+
+
+    });
+
+    // get color value
+    function hexc(colorval) {
+        var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        delete(parts[0]);
+        for (var i = 1; i <= 3; ++i) {
+            parts[i] = parseInt(parts[i]).toString(16);
+            if (parts[i].length == 1) parts[i] = '0' + parts[i];
+        }
+        colorVar = parts.join('');
+
+        return colorVar;
+    }
+
 });
+
+
 
 
 
