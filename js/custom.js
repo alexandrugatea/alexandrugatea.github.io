@@ -97,7 +97,7 @@ jQuery(document).ready(function(){
         sessionStorage.setItem('colour', '#' + hexc(elColor));
 
         // create circle
-        $('body').addClass('locked').append('<div class="transition-circle" style="background: #' + elHex + '; top: ' + e.pageY + 'px; left: ' + e.pageX + 'px"></div>');
+        $('body').addClass('locked').append('<div class="transition-circle" style="background: #' + elHex + '; top: ' + (e.clientY + document.body.scrollTop) + 'px; left: ' + e.clientX + 'px"></div>');
 
         setTimeout(function(){
             $(location).attr('href', goTo);
