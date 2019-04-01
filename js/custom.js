@@ -86,6 +86,12 @@ jQuery(document).ready(function(){
         // var host = window.location.host;
         var goTo = $(this).attr('href');
         var elColor = $(this).css('backgroundColor');
+
+        if (elColor == "rgba(0, 0, 0, 0)") {
+            elColor = $(this).css('color');
+        }
+
+
         var elHex = hexc(elColor);
         // $.cookie("clickedColor", hexc(elColor));
         sessionStorage.setItem('colour', '#' + hexc(elColor));
