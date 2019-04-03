@@ -1,14 +1,3 @@
-changeBackground();
-
-function changeBackground() {
-    if (sessionStorage.getItem('colour')) {
-        $('html').css('background', sessionStorage.getItem('colour'));
-    } else {
-        $('html').css('background', '#E80D3A');
-        sessionStorage.setItem('colour', "#E80D3A");
-    }
-}
-
 jQuery(document).ready(function(){
 
    

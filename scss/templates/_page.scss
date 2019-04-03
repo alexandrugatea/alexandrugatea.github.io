@@ -3,7 +3,6 @@ body {
 
     &.locked {
         overflow: hidden;
-        padding-right: 17px;
     }
 }
 
@@ -71,3 +70,23 @@ section {
         height: 10000px;
     }
 }
+
+
+body::-webkit-scrollbar {
+    // width: 10px;
+    display: none;
+  }
+// /* Track */
+// body::-webkit-scrollbar-track {
+//   background: rgba(0,0,0,0.05); 
+// }
+
+// /* Handle */
+// body::-webkit-scrollbar-thumb {
+//     background: rgba(0,0,0,01); 
+// }
+
+// /* Handle on hover */
+// body::-webkit-scrollbar-thumb:hover {
+//     background: rgba(0,0,0,0.15); 
+// } 
