@@ -6444,8 +6444,7 @@ footer {
 body {
   position: relative; }
   body.locked {
-    overflow: hidden;
-    padding-right: 17px; }
+    overflow: hidden; }
 
 header {
   position: sticky;
@@ -6499,6 +6498,9 @@ section {
   to {
     width: 10000px;
     height: 10000px; } }
+body::-webkit-scrollbar {
+  display: none; }
+
 #home .homepage-hero {
   min-height: calc(100vh - 90px);
   display: flex;
