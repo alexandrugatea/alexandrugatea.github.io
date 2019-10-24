@@ -20,7 +20,7 @@ disabledLink.on('click', function(e){
 
 // move to next screen, while animating
 
-var option = $('.option-link:not(.disabled)');
+var option = $('.choose .option-link:not(.disabled)');
 
 option.on('click', function( ){
     $(this).parents('.options.active').addClass('is-transitioning');
