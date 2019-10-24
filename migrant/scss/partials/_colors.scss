@@ -1,0 +1,14 @@
+.dark-blue-gradient {
+    @include linear-gradient(#{$gradient-dark-blue-angle}, $gradient-dark-blue-start, $gradient-dark-blue-end);
+    color: $white;
+}
+
+.light-blue-gradient {
+    @include linear-gradient(#{$gradient-light-blue-angle}, $gradient-light-blue-start , $gradient-light-blue-end);
+    color: $white;
+}
+
+.green-gradient {
+    @include linear-gradient(#{$gradient-green-angle}, $gradient-green-start , $gradient-green-end);
+    color: $white;
+}    

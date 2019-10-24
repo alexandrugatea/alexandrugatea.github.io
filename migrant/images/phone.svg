@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="137.6" viewBox="0 0 86 137.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="phone" transform="translate(-635.001 -341)">
+    <path id="Path_8676" data-name="Path 8676" class="cls-1" d="M173.4,0H104.6A8.6,8.6,0,0,0,96,8.6V129a8.6,8.6,0,0,0,8.6,8.6h68.8A8.6,8.6,0,0,0,182,129V8.6A8.6,8.6,0,0,0,173.4,0Zm2.867,129a2.867,2.867,0,0,1-2.867,2.867H104.6A2.867,2.867,0,0,1,101.733,129V8.6A2.867,2.867,0,0,1,104.6,5.733h68.8A2.867,2.867,0,0,1,176.267,8.6Z" transform="translate(539.001 341)"/>
+    <rect id="Rectangle_747" data-name="Rectangle 747" class="cls-1" width="63.067" height="5.733" transform="translate(646.468 363.933)"/>
+    <rect id="Rectangle_748" data-name="Rectangle 748" class="cls-1" width="63.067" height="5.733" transform="translate(646.468 449.933)"/>
+    <rect id="Rectangle_749" data-name="Rectangle 749" class="cls-1" width="34.4" height="5.733" transform="translate(655.068 352.467)"/>
+    <rect id="Rectangle_750" data-name="Rectangle 750" class="cls-1" width="5.733" height="5.733" transform="translate(695.201 352.467)"/>
+    <rect id="Rectangle_751" data-name="Rectangle 751" class="cls-1" width="5.733" height="5.733" transform="translate(675.134 461.4)"/>
+    <path id="Path_8677" data-name="Path 8677" class="cls-1" d="M305.2,245.333H293.733A5.733,5.733,0,0,0,288,251.066V256.8a5.733,5.733,0,0,0,5.733,5.733H305.2a5.733,5.733,0,0,0,5.733-5.733v-5.733A5.733,5.733,0,0,0,305.2,245.333Zm0,11.467H293.733v-5.733H305.2Z" transform="translate(398.601 161.6)"/>
+    <path id="Path_8678" data-name="Path 8678" class="cls-1" d="M208.733,185.8v-8.6A5.733,5.733,0,0,0,203,171.467h-5.733v-5.733A5.733,5.733,0,0,0,191.534,160h-25.8A5.733,5.733,0,0,0,160,165.734v40.133a5.733,5.733,0,0,0,5.733,5.733H203a5.733,5.733,0,0,0,5.733-5.733v-8.6H203v8.6H165.733V165.734h25.8v8.6A2.867,2.867,0,0,0,194.4,177.2H203v8.6Z" transform="translate(492.201 223.999)"/>
+    <rect id="Rectangle_752" data-name="Rectangle 752" class="cls-1" width="20.067" height="5.733" transform="translate(666.534 395.467)"/>
+    <path id="Path_8679" data-name="Path 8679" class="cls-1" d="M331.467,128H320v5.733h8.6v8.6h5.733V130.866A2.867,2.867,0,0,0,331.467,128Z" transform="translate(375.201 247.4)"/>
+  </g>
+</svg>

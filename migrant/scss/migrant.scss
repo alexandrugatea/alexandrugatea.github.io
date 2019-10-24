@@ -1,6 +1,13 @@
 // import partials
 
-// variables
 @import 'partials/variables',
+        'partials/functions',
+        'partials/mixins',
         'partials/base',
-        'partials/reset';
+        'partials/reset',
+        'partials/colors',
+        'partials/animate';
+
+// import pages
+
+@import 'pages/page';

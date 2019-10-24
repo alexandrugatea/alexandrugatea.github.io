@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82.682" height="72.035" viewBox="0 0 82.682 72.035">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" x2="-1.731" y2="0.619" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e0e0e0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="1" x2="-1.731" y2="0.619" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="1" x2="-1.731" y2="0.619" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e2e2e2"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="m-logo-white" transform="translate(-63.999 -180.941)">
+    <g id="Group_117" data-name="Group 117" transform="translate(97.215 181.336)">
+      <path id="Rectangle_38" data-name="Rectangle 38" class="cls-1" d="M7.4,0h0a7.4,7.4,0,0,1,7.4,7.4v60.07a0,0,0,0,1,0,0H7.4A7.4,7.4,0,0,1,0,60.07V7.4A7.4,7.4,0,0,1,7.4,0Z" transform="translate(31.766 4.167)"/>
+      <path id="Path_5272" data-name="Path 5272" class="cls-2" d="M7.916,0a7.088,7.088,0,0,1,7.216,7.216l-.606,47.512-7.31.093A7.088,7.088,0,0,1,0,47.606L.514,7.4A7.539,7.539,0,0,1,7.916,0Z" transform="translate(38.766 0) rotate(45)"/>
+    </g>
+    <g id="Group_118" data-name="Group 118" transform="translate(63.999 180.941)">
+      <path id="Rectangle_36" data-name="Rectangle 36" class="cls-3" d="M7.428,0h0a7.428,7.428,0,0,1,7.428,7.428V47.883a7.428,7.428,0,0,1-7.428,7.428H0a0,0,0,0,1,0,0V7.428A7.428,7.428,0,0,1,7.428,0Z" transform="translate(2.825 3.554)"/>
+      <path id="Path_5271" data-name="Path 5271" class="cls-2" d="M7.373,0A7.467,7.467,0,0,1,14.8,7.43l.08,22.211a7.337,7.337,0,0,1-7.373,7.377l-7.4-.027L0,7.377A7.337,7.337,0,0,1,7.373,0Z" transform="translate(0 10.882) rotate(-47)"/>
+    </g>
+  </g>
+</svg>

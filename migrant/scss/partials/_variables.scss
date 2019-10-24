@@ -1,8 +1,50 @@
 // Migrant App scss variables
 
 // import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,600i,700,700i&display=swap');
 
 $base-font: 'Nunito', sans-serif;
+$base-radius: 5px;
+// COLORS
+
+$white: #ffffff;
+$black: #000000;
+
+$blue-dark                : #4965E1;
+$blue-light               : #5294E6;
+$green                    : #389E42;
+$light-text               : #ffffff;
+$dark-text                : #434344;
+$disabled-text            : #686868;
+$grey                     : #F2F2F2;
+
+$color-page-title         : #282D53;
+$color-text-dark          : $dark-text;
+$color-text-light         : $light-text;
 
 
+// +++ dark blue gradient
+$gradient-dark-blue-start: #4965E1;
+$gradient-dark-blue-end  : #5294E6;
+$gradient-dark-blue-angle: 'to bottom right';
+
+// +++ light blue gradient
+$gradient-light-blue-start : #3A80D8;
+$gradient-light-blue-end   : #5294E6;
+$gradient-light-blue-angle : 'to bottom right';
+
+// +++ green gradient
+$gradient-green-start     : #25742D;
+$gradient-green-end       : #52E6C8;
+$gradient-green-angle     : 'to bottom right';
+ 
+
+// FORMS
+
+$form-title-color         : #9194A6;
+$form-title-size          : 20px;
+
+$label-color              : rgba(0,0,0,0.5);
+$label-size               : 16px;
+
+$input-border: #000;

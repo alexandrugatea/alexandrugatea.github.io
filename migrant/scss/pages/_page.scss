@@ -1,0 +1,148 @@
+.page {
+    
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        opacity: 0;
+        padding-bottom: rem-calc(50px);
+        overflow: hidden; 
+        height: 0;
+        padding: 0;
+        transition: all 0.3s ease;
+
+        &.active {
+            opacity: 1;
+            height: auto;
+
+            .option {
+                transform: none;
+            }
+        }
+
+        .paypoint {
+            z-index: 20;
+        }
+
+        .phone {
+            z-index: 15;
+        }
+
+        &.choose {
+            .option {
+                height: rem-calc(380px);
+            }
+        }
+        &.send-receive {
+            .option {
+                height: rem-calc(280px);
+            }
+        } 
+
+
+        .option {
+            @include prefix(border-radius, rem-calc($base-radius));
+            width: 100%;
+            max-width: rem-calc(280px);  
+            box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.16);
+            overflow: hidden;
+            padding: rem-calc(1px);
+            margin: rem-calc(0 16px); 
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative; 
+            transition: all 0.5s ease;
+            height: rem-calc(380px);
+
+            > * {
+                transition: all 0.3s ease; 
+            }
+
+            &-head {
+                @include flex-center;
+                height: rem-calc(280px);
+                flex-direction: column;
+                position: relative;
+                z-index: 10;
+                
+                .option-title {
+                    color: inherit;
+                    text-transform: uppercase;
+                    text-align: center; 
+                    @include font(26, 32, 43, 700);
+                    margin-top: rem-calc(25px); 
+                }
+            } 
+ 
+            &-body {
+                @include flex-center;  
+                background: $white; 
+                flex-direction: column;
+                height: rem-calc(100px);  
+                @include prefix(border-bottom-left-radius, rem-calc($base-radius));
+                @include prefix(border-bottom-right-radius, rem-calc($base-radius));
+                position: relative;
+                z-index: 5;
+                overflow: hidden;
+            }
+            
+            &-title {
+                @include font(18, 24, 32, 600);
+                color: $dark-text;
+            }
+
+            &-info {
+                @include font(14, 14, 19, 400, italic);
+                color: $disabled-text;
+                display: block;
+                text-align: center;
+            } 
+            &-link {
+                display: block;
+                position: absolute; 
+                top:0;
+                left:0; 
+                width: 100%;
+                height: 100%; 
+                opacity: 0;
+                z-index: 100; 
+            }
+        } 
+
+        .paypoint {
+            @include prefix(transform, translateX(calc(50% + 16px)));
+        } 
+        .phone {
+            @include prefix(transform, translateX(calc(-50% - 16px)));
+        }
+
+        &.is-transitioning { 
+
+            .page-title {
+                opacity: 0;
+                transform: translateY(10px);
+                margin: 0;
+            }
+
+            .option-head {
+
+                img {
+                    transform: scale(0);
+                }
+            }
+
+            .option-body {
+                transform: translateY(111%);
+            }
+
+            .option {
+               height: rem-calc(280px);
+            }
+ 
+        }
+    }
+} 

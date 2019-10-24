@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.005" height="55.998" viewBox="0 0 64.005 55.998">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: #5294e6;
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1" x2="-1.731" y2="0.619" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4143dd"/>
+      <stop offset="1" stop-color="#4f6de2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="2.03" y1="-0.046" x2="-1.593" y2="0.574" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4f6ee2"/>
+      <stop offset="1" stop-color="#4244dd"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.123" y1="-0.029" x2="1.725" y2="0.815" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#79aaf8"/>
+      <stop offset="1" stop-color="#5d96f0"/>
+    </linearGradient>
+  </defs>
+  <g id="m-logo-color" transform="translate(-4667.982 261.953)">
+    <g id="Logo_big" data-name="Logo big" transform="translate(4667.982 -261.955)">
+      <g id="Group_117" data-name="Group 117" transform="translate(25.692 0.351)">
+        <path id="Rectangle_38" data-name="Rectangle 38" class="cls-1" d="M5.727,0h0a5.727,5.727,0,0,1,5.727,5.727V52.5a0,0,0,0,1,0,0H5.727A5.727,5.727,0,0,1,0,46.776V5.727A5.727,5.727,0,0,1,5.727,0Z" transform="translate(24.596 3.147)"/>
+        <path id="Path_5272" data-name="Path 5272" class="cls-2" d="M6.036,0a5.539,5.539,0,0,1,5.616,5.616L11.291,42.48l-5.671.056A5.539,5.539,0,0,1,0,36.919L.309,5.728A5.807,5.807,0,0,1,6.036,0Z" transform="translate(30.074 0) rotate(45)"/>
+      </g>
+      <g id="Group_118" data-name="Group 118" transform="translate(0 0)">
+        <path id="Rectangle_36" data-name="Rectangle 36" class="cls-3" d="M5.747,0h0a5.747,5.747,0,0,1,5.747,5.747V37.254A5.747,5.747,0,0,1,5.747,43H0a0,0,0,0,1,0,0V5.747A5.747,5.747,0,0,1,5.747,0Z" transform="translate(2.205 2.714)"/>
+        <path id="Path_5271" data-name="Path 5271" class="cls-4" d="M5.732,0a5.756,5.756,0,0,1,5.746,5.747l.02,17.221A5.724,5.724,0,0,1,5.765,28.7L.026,28.7,0,5.733A5.724,5.724,0,0,1,5.732,0Z" transform="translate(0 8.412) rotate(-47)"/>
+      </g>
+    </g>
+  </g>
+</svg>
