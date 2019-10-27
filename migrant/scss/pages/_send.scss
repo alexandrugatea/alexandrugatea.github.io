@@ -7,7 +7,7 @@ form {
     min-height: rem-calc(330px);
 
     .carousel-inner {
-        overflow: visible;
+        padding: rem-calc(10px);
     }
 
     .carousel-item {

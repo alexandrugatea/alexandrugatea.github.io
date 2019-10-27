@@ -45,15 +45,17 @@ ul.nav {
 
 .form-container {
     @include flex-center;
-    padding: rem-calc(80px);
+    padding: rem-calc(70px);
+    margin-top: rem-calc(64px);
+
 
     @include breakpoint(large down) {
-        padding: rem-calc(30px);
+        padding: rem-calc(20px);
     }
 
     @media screen and (max-height: 600px) {
-        padding: rem-calc(100px 30px);
-        align-items: flex-start;
+        padding: rem-calc(100px 20px);
+        justify-content: flex-start;
         height: auto;
     }
 }

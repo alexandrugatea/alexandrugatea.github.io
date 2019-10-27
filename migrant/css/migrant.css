@@ -77,17 +77,18 @@ ul.nav .title {
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 5rem;
+  padding: 4.375rem;
+  margin-top: 4rem;
 }
 @media screen and (max-width: 63.9375em) {
   .form-container {
-    padding: 1.875rem;
+    padding: 1.25rem;
   }
 }
 @media screen and (max-height: 600px) {
   .form-container {
-    padding: 6.25rem 1.875rem;
-    align-items: flex-start;
+    padding: 6.25rem 1.25rem;
+    justify-content: flex-start;
     height: auto;
   }
 }
@@ -3506,7 +3507,7 @@ form {
   min-height: 20.625rem;
 }
 form .carousel-inner {
-  overflow: visible;
+  padding: 0.625rem;
 }
 form .carousel-item {
   min-height: 20.625rem;
@@ -3590,8 +3591,44 @@ form .is-animated:not(.animated) {
   align-items: center;
   width: 100%;
   height: 100%;
-  background: url(../images/success-animation.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+#success-msg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#success-msg path, #success-msg circle {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+#success-msg circle {
+  animation: smsg-grow 1s ease-in forwards;
+  animation-delay: 4s;
+}
+#success-msg path {
+  animation: smsg-grow 1.35s ease-in forwards;
+  animation-delay: 4.6s;
+}
+#success-msg text {
+  opacity: 0;
+  animation: smsg-show 0.35s ease-in forwards;
+  animation-delay: 4.6s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes smsg-grow {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes smsg-show {
+  100% {
+    opacity: 1;
+  }
 }
