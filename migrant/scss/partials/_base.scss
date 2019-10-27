@@ -51,6 +51,7 @@ ul.nav {
 
     @include breakpoint(large down) {
         padding: rem-calc(20px);
+        align-items: flex-start;
     }
 
     @media screen and (max-height: 600px) {

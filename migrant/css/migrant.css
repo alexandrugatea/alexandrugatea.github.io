@@ -83,6 +83,7 @@ ul.nav .title {
 @media screen and (max-width: 63.9375em) {
   .form-container {
     padding: 1.25rem;
+    align-items: flex-start;
   }
 }
 @media screen and (max-height: 600px) {
