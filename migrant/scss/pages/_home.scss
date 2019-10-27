@@ -1,0 +1,268 @@
+.home {
+    padding: 0;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    @include breakpoint(large down) {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin-bottom: rem-calc(64px);
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+
+        @include breakpoint(large down) {
+            position: relative;
+            height: auto;
+            max-width: 100%;
+            padding: rem-calc(30px);
+        }
+
+        background: url('../images/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        padding: rem-calc(50px);
+        width: 100%;
+        max-width: percentage(480/1024);
+        height: 100%;
+        transition: all 0.8s ease-in-out;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(#161D3D, 0.39);
+            z-index: 0;
+        }
+
+        * {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &-title {
+            color: $white;
+            @include font(32px, 42px, 64px);
+
+            span {
+                @include font(44px, 54px, 64px, 700);
+            }
+        }
+    }
+
+    .content {
+        padding: rem-calc(30px);
+        flex-direction: column;
+        @include flex-center;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+        @include breakpoint(xlarge) {
+            margin-left: percentage(480/1024);
+            padding: rem-calc(64px);
+        }
+    }
+
+    .options.choose {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transition: all 0.3s ease;
+
+        .option {
+            @include prefix(border-bottom-left-radius, rem-calc($base-radius));
+            @include prefix(border-bottom-right-radius, rem-calc($base-radius));
+
+            width: 100%;
+            max-width: rem-calc(416px);
+            box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.16);
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            position: relative;
+            transition: all 0.3s ease;
+            height: rem-calc(97px);
+            background: $white;
+            margin-bottom: rem-calc(25px);
+            border: 1px solid $grey;
+
+            &-head {
+                @include flex-center;
+                width: rem-calc(110px);
+                height: 100%;
+            }
+
+            &-body {
+
+                height: 100%;
+                position: relative;
+                z-index: 5;
+                display: flex;
+                align-items: center;
+            }
+
+            &-title {
+                @include font(18px, 24px, 32px, 600);
+                color: $dark-text;
+            }
+
+            &-info {
+                @include font(14px, 14px, 19px, 400, italic);
+                color: $disabled-text;
+                display: block;
+                text-align: center;
+            }
+
+            &-link {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 100;
+            }
+        }
+
+    }
+
+    .options.send-receive {
+        display: none;
+
+        .option {
+            width: rem-calc(280px);
+            height: rem-calc(280px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            @include prefix(border-radius, 5px);
+            @include prefix(box-shadow, 0px 10px 20px 0px rgba(0, 0, 0, 0.16));
+            margin: rem-calc(0 20px);
+            position: relative;
+
+            @include breakpoint(large down) {
+                width: 50vw;
+                height: 0;
+                padding-bottom: 50vw;
+                margin: rem-calc(20px 0);
+
+                .option-head {
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    width: 100%;
+                    height: 100%;
+                    @include flex-center;
+                    flex-direction: column;
+                }
+            }
+
+            &-head {
+                text-align: center;
+            }
+
+            &-title {
+                color: inherit;
+                text-transform: uppercase;
+                text-align: center;
+                @include font(26px, 32px, 43px, 700);
+                margin-top: rem-calc(25px);
+            }
+
+            &-link {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 100;
+            }
+        }
+    }
+}
+
+// switching the cta's
+
+.home.switched {
+
+    .page-title {
+        transform: translateY(-10px);
+        opacity: 0;
+        height: 0;
+        overflow: 0;
+        margin: 0;
+    }
+
+    .sidebar {
+        left: 100vw;
+
+        * {
+            opacity: 0;
+        }
+
+        @include breakpoint(large down) {
+            transform: translateY(2000px);
+            left: 0;
+        }
+    }
+
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        top:0;
+
+        .choose {
+            opacity: 0;
+            transform: scale(0.6);
+            height: 0;
+        }
+
+        .send-receive {
+            display: flex;
+            opacity: 0;
+            animation: show 0.3s linear forwards;
+            animation-delay: 0.3s;
+
+            @include breakpoint(large down) {
+                flex-direction: column;
+            }
+        }
+    }
+
+}
+
+@keyframes show {
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}

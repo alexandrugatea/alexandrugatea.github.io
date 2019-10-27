@@ -14,46 +14,51 @@
 </head>
 <body>
     <div class="home page">
-        <div class="logo">
-            <img src="images/m-logo-color.svg" alt="">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="images/m-logo-white.svg" alt="">
+            </div>
+            <h1 class="sidebar-title"><span>Migrant</span> <br>We deliver money<br>to your doorsteps</h1>
         </div>
-        <div class="options choose active">
+        <div class="content">
             <h1 class="page-title">  Choose transfer method</h1>
-            <div class="option paypoint light-blue-gradient">
-                <div class="option-head">
-                    <img src="images/paypoint.svg" alt="Paypoint">
+            <div class="options choose">
+                <div class="option paypoint">
+                    <div class="option-head">
+                        <img src="images/the-tube-terminal.svg" alt="Paypoint">
+                    </div>
+                    <div class="option-body">
+                        <h2 class="option-title">Paypoint Terminal</h2>
+                    </div>
+                    <button class="option-link"></button>
                 </div>
-                <div class="option-body">
-                    <h2 class="option-title">Paypoint Terminal</h2>
+                <div class="option phone disabled">
+                    <div class="option-head">
+                        <img src="images/Wallet.svg" alt="Phone">
+                    </div>
+                    <div class="option-body">
+                        <h2 class="option-title">Mobile Transfer <p class="option-info">available soon</p></h2>
+                        
+                    </div>
+                    <button class="option-link disabled"></button>
                 </div>
-                <button class="option-link"></button>
             </div>
-            <div class="option phone dark-blue-gradient disabled">
-                <div class="option-head">
-                    <img src="images/phone.svg" alt="Phone">
+    
+            <div class="options send-receive">
+                <div class="option paypoint light-blue-gradient">
+                    <div class="option-head">
+                        <img src="images/send-money.svg" alt="Send Money">
+                        <h2 class="option-title">Send <br>Money</h2>
+                    </div>
+                    <a href="/migrant/send.html" class="option-link"></a>
                 </div>
-                <div class="option-body">
-                    <h2 class="option-title">Phone</h2>
-                    <p class="option-info">available soon</p>
+                <div class="option phone green-gradient">
+                    <div class="option-head">
+                        <img src="images/receive-money.svg" alt="Receive Money">
+                        <h2 class="option-title">Receive <br>Money</h2>
+                    </div>
+                    <a href="/migrant/receive.html" class="option-link"></a>
                 </div>
-                <button class="option-link disabled"></button>
-            </div>
-        </div>
-
-        <div class="options send-receive">
-            <div class="option paypoint light-blue-gradient">
-                <div class="option-head">
-                    <img src="images/send-money.svg" alt="Paypoint">
-                    <h2 class="option-title">Send <br>Money</h2>
-                </div>
-                <a href="/migrant/send.html" class="option-link"></a>
-            </div>
-            <div class="option phone green-gradient">
-                <div class="option-head">
-                    <img src="images/receive-money.svg" alt="Phone">
-                    <h2 class="option-title">Receive <br>Money</h2>
-                </div>
-                <a href="/migrant/receive.html" class="option-link"></a>
             </div>
         </div>
     </div>

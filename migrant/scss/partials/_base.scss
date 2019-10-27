@@ -1,20 +1,59 @@
 .page {
-    padding        : rem-calc(100px 30px 0px);
-    display        : flex;
-    flex-direction : column;
-    height         : 100vh;
+    padding: rem-calc(100px 0px 0px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     justify-content: flex-start;
-    align-items    : center; 
+    align-items: center;
 }
 
-.logo {
-    margin-bottom: rem-calc(60px);
-}
+
 
 .page-title {
-    @include font(20, 25, 34, $font-weight: 400);
+    @include font(20px, 25px, 34px, $font-weight: 400);
     color: $color-page-title;
     margin-bottom: rem-calc(30px);
-    width: 100%; 
+    width: 100%;
     text-align: center;
+}
+
+
+ul.nav {
+    display: flex;
+    justify-content: space-between;
+    height: rem-calc(64px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    @include shadow;
+
+    .back,
+    .menu {
+        @include flex-center;
+        width: rem-calc(64px);
+    }
+    
+    .title {
+        flex-grow: 1;
+        margin: rem-calc(0 16px);
+        text-emphasis: left;
+        @include font(20px, 20px, 64px, 600);
+    }
+}
+
+.form-container {
+    @include flex-center;
+    padding: rem-calc(80px);
+
+    @include breakpoint(large down) {
+        padding: rem-calc(30px);
+    }
+
+    @media screen and (max-height: 600px) {
+        padding: rem-calc(100px 30px);
+        align-items: flex-start;
+        height: auto;
+    }
 }

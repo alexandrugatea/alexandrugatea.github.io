@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,231 @@
     <title>Migrant App</title>
 
     <!-- Get Bootstrap 4 Css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Include style.css -->
     <link rel="stylesheet" href="css/migrant.css">
 </head>
+
 <body>
-    <div class="home page">
-        <div class="logo">
-            <img src="images/m-logo-color.svg" alt="">
+    <div class="send page">
+        <ul role='navigation' class="nav dark-blue-gradient">
+            <li class="back"> <a href="/migrant/index.html"><img src="images/back.svg" alt=""></a></li>
+            <li class="title">Send Money</li>
+            <li class="menu"><a href="#!"><img src="images/menu.svg" alt=""></a></li>
+        </ul>
+
+        <div class="form-container">
+            <form action="" id="sendForm">
+                <div id="sendFormCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="form-group-title is-animated">Sender Information</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group is-animated">
+                                        <label for="send-idt">Identification Document Type</label>
+                                        <select class="form-control" name="send-idt" id="send-idt">
+                                            <option selected disabled></option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group is-animated">
+                                        <label for="send-idn">Identification Document Number</label>
+                                        <input type="text" class="form-control" name="send-idn" id="send-idn">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group is-animated">
+                                        <label for="send-first-name">First Name</label>
+                                        <input type="text" class="form-control" name="send-first-name" id="send-first-name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group is-animated">
+                                        <label for="send-last-name">Last Name</label>
+                                        <input type="text" class="form-control" name="send-last-name" id="send-last-name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group is-animated">
+                                        <label for="send-phone">Phone</label>
+                                        <input type="text" class="form-control" name="send-phone" id="send-phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="button-group">
+                                        <button data-target="#sendFormCarousel" data-slide-to="1" class="btn btn-primary is-animated">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="form-group-title is-animated">Payment Details</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8 col-md-9">
+                                    <div class="form-group is-animated">
+                                        <label for="send-amount">Amount</label>
+                                        <input type="number" class="form-control" name="send-amount" id="send-amount">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group is-animated">
+                                        <div class="form-group is-animated">
+                                            <label for="send-amount-currency">Currency</label>
+                                            <select class="form-control" name="send-amount-currency" id="send-amount-currency">
+                                                <option selected disabled></option>
+                                                <option>a</option>
+                                                <option>b</option>
+                                                <option>c</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8 col-md-9">
+                                    <div class="form-group is-animated">
+                                        <label for="send-amount-transfer">Transfer Method</label>
+                                        <select class="form-control" name="send-amount-transfer" id="send-amount-transfer">
+                                            <option selected disabled></option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    <div class="form-group is-animated">
+                                        <label for="send-trasnfer-currency">Currency</label>
+                                        <select class="form-control" name="send-trasnfer-currency" id="send-trasnfer-currency">
+                                            <option selected disabled></option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="button-group">
+                                        <button data-target="#sendFormCarousel" data-slide-to="2" class="btn btn-primary is-animated">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="form-group-title is-animated">Receiver Information</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-first-name">First Name</label>
+                                                <input type="text" class="form-control" name="send-receiver-first-name" id="send-receiver-first-name">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-last-name">Last Name</label>
+                                                <input type="text" class="form-control" name="send-receiver-last-name"  id="send-receiver-last-name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-sm-12">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-phone">Phone Number</label>
+                                                <input type="text" class="form-control" name="send-receiver-phone" id="send-receiver-phone">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-2"></div>
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-country">Country</label>
+                                                <select class="form-control" name="send-trasnfer-country" id="send-trasnfer-country">
+                                                    <option selected disabled></option>
+                                                    <option>a</option>
+                                                    <option>b</option>
+                                                    <option>c</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-city">Amount</label>
+                                                <input type="text" class="form-control" name="send-receiver-city" id="send-receiver-city">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group is-animated">
+                                                <label for="send-receiver-address">Address</label>
+                                                <input type="text" class="form-control" name="send-receiver-address" id="send-receiver-address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="button-group">
+                                        <!-- <button type="submit" class="btn btn-primary is-animated">Submit</button> -->
+                                        <a href="/migrant/success.html" class="btn btn-primary is-animated">Send</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-       <h1>Here will be the form for sending money in the "shape" (or form) of a carousel </h1>
-        
+
     </div>
 
 
     <!-- Get Bootstrap JS dependencies -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <!-- Custom animation scripts -->
     <script src="js/migrant-animations.js"></script>
 </body>
+
 </html>

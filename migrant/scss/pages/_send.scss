@@ -1,0 +1,65 @@
+.send {
+    padding: 0;
+}
+
+form {
+    width: 100%;
+    min-height: rem-calc(330px);
+
+    .carousel-inner {
+        overflow: visible;
+    }
+
+    .carousel-item {
+        min-height: rem-calc(330px);
+    }
+
+    .row {
+        margin-left: rem-calc(-10px);
+        margin-right: rem-calc(-10px);
+    }
+
+    [class*='col'] {
+        padding: rem-calc(0 10px);
+    }
+
+    .form-group-title {
+        @include font($form-title-size, $form-title-size, 27px);
+        color: $form-title-color;
+        margin-bottom: rem-calc(16px);
+    }
+
+    label {
+        @include font($label-size, $label-size, 22px);
+        color: $label-color;
+        margin-bottom: rem-calc(5px);
+    }
+    .form-control, select.form-control:not([size]):not([multiple]) {
+        margin-bottom: rem-calc(16px);
+        height: rem-calc(50px);
+        border-radius: rem-calc(5px);
+        border-color: $input-border;
+
+        &:focus {
+            @include shadow;
+        }
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: rem-calc(65px);
+
+        .btn {
+            min-width: rem-calc(150px);
+            line-height: rem-calc(20px);
+            padding: rem-calc(15px);
+            background: $blue-light;
+            color: $white;
+        }
+    }
+
+    .is-animated:not(.animated) {
+        opacity: 0;
+    }
+}

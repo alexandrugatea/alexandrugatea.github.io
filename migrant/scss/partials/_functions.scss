@@ -239,12 +239,12 @@ $breakpoint-classes: (small medium large xlarge xxlarge) !default;
 
   @else {
     @if $bp != null and $bp <= $pbp {
-      @media print, screen and (#{$str}) {
+      @media print, screen and #{$str} {
         @content;
        }
     }
     @else {
-      @media screen and (#{$str}) {
+      @media screen and #{$str} {
         @content;
       }
     }

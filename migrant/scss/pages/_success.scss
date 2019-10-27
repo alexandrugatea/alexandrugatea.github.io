@@ -1,0 +1,11 @@
+.success.page {
+    position: fixed;
+    top:0;
+    left:0;
+    @include flex-center;
+
+    background: url('../images/success-animation.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

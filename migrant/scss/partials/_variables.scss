@@ -7,8 +7,8 @@ $base-font: 'Nunito', sans-serif;
 $base-radius: 5px;
 // COLORS
 
-$white: #ffffff;
-$black: #000000;
+$white                    : #ffffff;
+$black                    : #000000;
 
 $blue-dark                : #4965E1;
 $blue-light               : #5294E6;
@@ -24,13 +24,13 @@ $color-text-light         : $light-text;
 
 
 // +++ dark blue gradient
-$gradient-dark-blue-start: #4965E1;
-$gradient-dark-blue-end  : #5294E6;
+$gradient-dark-blue-start: $blue-dark;
+$gradient-dark-blue-end  : $blue-light;
 $gradient-dark-blue-angle: 'to bottom right';
 
 // +++ light blue gradient
-$gradient-light-blue-start : #3A80D8;
-$gradient-light-blue-end   : #5294E6;
+$gradient-light-blue-start : $blue-light;
+$gradient-light-blue-end   : #3A80D8;
 $gradient-light-blue-angle : 'to bottom right';
 
 // +++ green gradient
@@ -41,10 +41,10 @@ $gradient-green-angle     : 'to bottom right';
 
 // FORMS
 
-$form-title-color         : #9194A6;
+$form-title-color         : $dark-text;
 $form-title-size          : 20px;
 
-$label-color              : rgba(0,0,0,0.5);
+$label-color              : rgba($dark-text,0.65);
 $label-size               : 16px;
 
-$input-border: #000;
+$input-border             : #9194A6;

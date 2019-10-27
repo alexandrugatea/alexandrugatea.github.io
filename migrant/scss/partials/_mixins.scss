@@ -60,3 +60,9 @@
     }
   }
 
+  // box shadow
+
+  @mixin shadow($x: 0px, $y: 10px, $blur: 20px, $spread: 0px, $color: rgba($black, 0.16) ) {
+    box-shadow: $x $y $blur $spread $color;
+  }
+
