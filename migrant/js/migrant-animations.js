@@ -84,7 +84,7 @@ jQuery(document).ready(function ($) {
 
     if ($('.page').hasClass('success')) {
         setTimeout(function(){
-            goBack();
+            // goBack();
         }, 8000);
     }
 

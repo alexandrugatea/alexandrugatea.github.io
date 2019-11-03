@@ -3690,7 +3690,7 @@ form .receive-container .button-group {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 #success-msg path, #success-msg circle {
   stroke-dasharray: 2000;
