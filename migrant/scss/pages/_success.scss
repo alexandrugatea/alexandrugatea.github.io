@@ -3,11 +3,6 @@
     top:0;
     left:0;
     @include flex-center;
-
-    // background: url('../images/success-animation.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 #success-msg {
@@ -22,17 +17,17 @@
     }
 
     circle {
-        animation: smsg-grow 1s ease-in forwards;
+        animation: smsg-grow 0.7s ease-in forwards;
         animation-delay: 4s;
     }
     path {
-        animation: smsg-grow 1.35s ease-in forwards;
+        animation: smsg-grow 1s ease-in forwards;
         animation-delay: 4.6s;
     }
     text {
         opacity: 0;
         animation: smsg-show 0.35s ease-in forwards;
-        animation-delay: 4.6s;
+        animation-delay: 5s;
         transform-origin: center;
         transform-box: fill-box;
     }

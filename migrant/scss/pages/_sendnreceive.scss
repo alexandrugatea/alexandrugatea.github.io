@@ -1,10 +1,14 @@
-.send {
+.send, .receive {
     padding: 0;
 }
 
 form {
     width: 100%;
     min-height: rem-calc(330px);
+
+    .animated {
+        animation-duration: 0.5s;
+    }
 
     .carousel-inner {
         padding: rem-calc(10px);
@@ -52,14 +56,56 @@ form {
 
         .btn {
             min-width: rem-calc(150px);
-            line-height: rem-calc(20px);
+            line-height: rem-calc(18px);
             padding: rem-calc(15px);
-            background: $blue-light;
             color: $white;
         }
+    }
+
+    .receive-amount {
+        @include font(48px, 48px, 66px);
+        color: #000000;
+        margin-top: rem-calc(20px);
     }
 
     .is-animated:not(.animated) {
         opacity: 0;
     }
+
+    .receive-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .receive-sender-container {
+            flex-grow: 1;
+        }
+        .button-group {
+            margin-top: 0;
+
+            @include breakpoint(medium up) {
+                justify-content: flex-start;
+            }
+        }
+    }
+}
+
+.carousel {
+
+    .carousel-item {
+        opacity: 0;
+        transition: all 0.5s ease;
+
+        &.carousel-item-left, 
+        &.carousel-item-next {
+            opacity:0;
+        }
+
+        &.active {
+            opacity:1;
+        }
+
+    }
+
+
 }

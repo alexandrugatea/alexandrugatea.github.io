@@ -6,5 +6,13 @@ body * {
 
 body {
     font-family: $base-font;
+
+    &.locked {
+        overflow: hidden;
+    }
+}
+
+.inactive {
+    opacity: 0.5;
 }
  

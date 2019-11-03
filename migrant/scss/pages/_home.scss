@@ -4,7 +4,6 @@
     align-items: stretch;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
 
     @include breakpoint(large down) {
         flex-direction: column;
@@ -23,24 +22,26 @@
         z-index: 100;
         top: 0;
         left: 0;
-
+        
+        
+        background: url('../images/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        padding: rem-calc(50px);
+        width: 100%;
+        max-width: percentage(480/1024);
+        height: 100%;
+        transition: all 0.8s ease-in-out;
+        transition-delay: 0.3s;
+        
         @include breakpoint(large down) {
             position: relative;
             height: auto;
             max-width: 100%;
             padding: rem-calc(30px);
         }
-
-        background: url('../images/bg.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        padding: rem-calc(50px);
-        width: 100%;
-        max-width: percentage(480/1024);
-        height: 100%;
-        transition: all 0.8s ease-in-out;
 
         &:before {
             content: '';
@@ -77,6 +78,7 @@
         position: relative;
         z-index: 1;
         transition: all 0.3s ease-in-out;
+
         @include breakpoint(xlarge) {
             margin-left: percentage(480/1024);
             padding: rem-calc(64px);
@@ -163,14 +165,22 @@
             overflow: hidden;
             @include prefix(border-radius, 5px);
             @include prefix(box-shadow, 0px 10px 20px 0px rgba(0, 0, 0, 0.16));
-            margin: rem-calc(0 20px);
+            margin: rem-calc(20px);
             position: relative;
 
             @include breakpoint(large down) {
-                width: 50vw;
+               
+                @media (orientation: landscape) {
+                    width: 50vh;
+                    padding-bottom: 50vh;
+                }
+               
+                @media (orientation: portrait) {                   
+                   width: 75vw;
+                   padding-bottom: 75vw;
+                }
                 height: 0;
-                padding-bottom: 50vw;
-                margin: rem-calc(20px 0);
+                margin: rem-calc(20px);
 
                 .option-head {
                     position: absolute;
@@ -222,7 +232,7 @@
     }
 
     .sidebar {
-        left: 100vw;
+        transform: translateX(100vw);
 
         * {
             opacity: 0;
@@ -250,10 +260,12 @@
             display: flex;
             opacity: 0;
             animation: show 0.3s linear forwards;
-            animation-delay: 0.3s;
+            animation-delay: 0.8s;
 
             @include breakpoint(large down) {
-                flex-direction: column;
+                @media(orientation:portrait) {
+                    flex-direction: column;
+                }
             }
         }
     }

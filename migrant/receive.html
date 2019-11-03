@@ -13,12 +13,71 @@
     <link rel="stylesheet" href="css/migrant.css">
 </head>
 <body>
-    <div class="home page">
-        <div class="logo">
-            <img src="images/m-logo-color.svg" alt="">
+    <div class="receive page">
+        <ul role='navigation' class="nav green-gradient">
+            <li class="back"> <a href="/migrant/index.html"><img src="images/back.svg" alt=""></a></li>
+            <li class="title">Receive Money</li>
+            <li class="menu"><a href="#!"><img src="images/menu.svg" alt=""></a></li>
+        </ul>
+
+        <div class="form-container">
+            <form action="" id="receiveForm">
+                <div id="receiveFormCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-8">
+                                    <h2 class="form-group-title is-animated">Sender Information</h2>
+                                    <div class="form-group is-animated">
+                                        <label for="receive-idt">Identification Document Type</label>
+                                        <select class="form-control" name="receive-idt" id="receive-idt" required>
+                                            <option selected disabled></option>
+                                            <option>a</option>
+                                            <option>b</option>
+                                            <option>c</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group is-animated">
+                                        <label for="receive-idn">Identification Document Number</label>
+                                        <input type="text" class="form-control" name="receive-idn" id="receive-idn" required>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="receive-first-name">First Name</label>
+                                                <input type="text" class="form-control" name="receive-first-name" id="receive-first-name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group is-animated">
+                                                <label for="receive-last-name">Last Name</label>
+                                                <input type="text" class="form-control" name="receive-last-name" id="receive-last-name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3 offset-md-1">
+                                    <div class="receive-container is-animated">
+                                    <h2 class="form-group-title">Received Ammount</h2>
+                                        <div class="form-group">
+                                            <h3 class="receive-amount inactive"><span>0</span> lei</h3>
+                                        </div>
+                                        <div class="form-group receive-sender-container">
+                                            <p class="receive-sender">From: <br> <span>--</span></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="button-group">
+                                                <button type="submit" class="btn background-green" disabled>Receive</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-       <h1>Here will be the form for receiving money in the "shape" (or form) of a carousel </h1>
-        
     </div>
 
 

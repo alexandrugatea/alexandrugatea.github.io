@@ -24,6 +24,7 @@ jQuery(document).ready(function ($) {
 
     option.on('click', function () {
         $(this).parents('.home').addClass('switched');
+        $('body').addClass('locked');
     });
 
     // animate inputs on page load
@@ -41,6 +42,54 @@ jQuery(document).ready(function ($) {
 
     $('.carousel').on('slid.bs.carousel', function(){
         $('.carousel-item.active .is-animated').addClass('animated fadeInUp');
-    })
+    });
+
+    // enable receive form button if all inputs are filled
+
+    if ($('#receiveForm').length > 0) {
+        var receiveInput = $('#receiveForm .form-control');
+    
+        receiveInput.on('blur, input', function(e) {
+            var isRequired = 0;
+            receiveInput.each(function() {
+                if($(this).val().length === 0) {
+                    isRequired++;
+                }
+            });
+              if(isRequired === 0) {
+                $('[type="submit"]').prop("disabled", false);
+                addReceivedInfo();
+            } else {
+                $('[type="submit"]').prop("disabled", true);
+            }
+          });
+
+    }
+    function addReceivedInfo() {
+        $(".receive-amount span").text("4720").parent().removeClass("inactive");
+        $(".receive-sender span").text("Red John \n 90 High Street, Bristol, UK");
+    }
+    // fill received data
+
+
+    $("#receiveForm").on('submit', function(e){
+        e.preventDefault();
+        setTimeout(function(){
+            goBack();
+        }, 4000);
+    });
+
+    // return to homepage after success animation is done
+
+
+    if ($('.page').hasClass('success')) {
+        setTimeout(function(){
+            goBack();
+        }, 8000);
+    }
+
+    function goBack(){
+        window.location.href = '/migrant/index.html';
+    };
 
 });

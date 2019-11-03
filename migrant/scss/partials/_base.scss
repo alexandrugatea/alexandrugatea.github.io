@@ -47,7 +47,7 @@ ul.nav {
     @include flex-center;
     padding: rem-calc(70px);
     margin-top: rem-calc(64px);
-
+    overflow: auto;
 
     @include breakpoint(large down) {
         padding: rem-calc(20px);

@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .dark-blue-gradient {
     @include linear-gradient(#{$gradient-dark-blue-angle}, $gradient-dark-blue-start, $gradient-dark-blue-end);
     color: $white;
@@ -11,4 +13,24 @@
 .green-gradient {
     @include linear-gradient(#{$gradient-green-angle}, $gradient-green-start , $gradient-green-end);
     color: $white;
-}    
+} 
+
+// generate color classes based on variables
+$colors: (
+    "blue": $blue-button,
+    "green": $green-button,
+    "white": $white
+);
+
+// generate .background-color class to be used in html
+@each $key, $color in $colors {
+
+    .background-#{$key} {
+        background-color: $color;
+    }
+
+    .text-#{$key} {
+        color: $color;
+    }
+
+}
