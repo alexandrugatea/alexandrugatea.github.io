@@ -22,12 +22,15 @@
         z-index: 100;
         top: 0;
         left: 0;
+        overflow: hidden;
+        white-space: nowrap;
         
         
         background: url('../images/bg.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         
         padding: rem-calc(50px);
         width: 100%;
@@ -232,7 +235,7 @@
     }
 
     .sidebar {
-        transform: translateX(100vw);
+        animation: sidebar 1.3s ease-in forwards;
 
         * {
             opacity: 0;
@@ -277,4 +280,32 @@
         display: flex;
         opacity: 1;
     }
+}
+
+@keyframes sidebar {
+
+    0% {
+        left: 0;
+    }
+
+    30% {
+        left:0; 
+        right: auto; 
+        max-width: 100%;
+    }
+
+    31%, 70% {
+        left:auto; 
+        right: 0; 
+        max-width: 100%;
+    }
+
+    100% {
+        left: auto;
+        right:0;
+        padding: 0;
+        max-width: 0%;
+    }
+
+
 }

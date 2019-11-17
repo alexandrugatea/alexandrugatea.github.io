@@ -5,6 +5,38 @@
 form {
     width: 100%;
     min-height: rem-calc(330px);
+    margin: auto;
+    max-width:rem-calc(1024px);
+
+    .form-group {
+        position: relative;
+
+        span.error {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            @include font(13px, 13px, 16px);
+            opacity: 0;
+            z-index: 1;
+            transform: translateY(-100%);
+            transition: all 0.3s ease;
+            color: #ff0000;
+        }
+        .form-control {
+            position: relative;
+            z-index: 2;
+
+            &.error {
+                border-color: #ff0000;
+
+               + .error {
+                    opacity: 1;
+                    transform: translateY(100%);
+                }
+            }
+        }
+
+    }
 
     .animated {
         animation-duration: 0.5s;

@@ -60,3 +60,7 @@ ul.nav {
         height: auto;
     }
 }
+
+.btn[disabled="true"] {
+    pointer-events: none;
+}

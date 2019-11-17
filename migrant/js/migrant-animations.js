@@ -19,7 +19,6 @@ jQuery(document).ready(function ($) {
 
 
     // move to next screen, while animating
-
     var option = $('.options.choose .option-link:not(.disabled)');
 
     option.on('click', function () {
@@ -27,20 +26,9 @@ jQuery(document).ready(function ($) {
         $('body').addClass('locked');
     });
 
-    // animate inputs on page load
-
-    $('.carousel-item').each(function(){
-        var delay = 100;
-        $(this).find('.is-animated').each(function(){
-            $(this).css('animation-delay', delay + 'ms');
-            delay += 100;
-        });
-    });
-
-
     $('.carousel-item.active .is-animated').addClass('animated fadeInUp');
 
-    $('.carousel').on('slid.bs.carousel', function(){
+    $('.carousel').on('slid.bs.carousel', function () {
         $('.carousel-item.active .is-animated').addClass('animated fadeInUp');
     });
 
@@ -48,47 +36,75 @@ jQuery(document).ready(function ($) {
 
     if ($('#receiveForm').length > 0) {
         var receiveInput = $('#receiveForm .form-control');
-    
-        receiveInput.on('blur, input', function(e) {
+
+        receiveInput.on('blur, input', function (e) {
             var isRequired = 0;
-            receiveInput.each(function() {
-                if($(this).val().length === 0) {
+            receiveInput.each(function () {
+                if ($(this).val().length === 0) {
                     isRequired++;
                 }
             });
-              if(isRequired === 0) {
+            if (isRequired === 0) {
                 $('[type="submit"]').prop("disabled", false);
                 addReceivedInfo();
             } else {
                 $('[type="submit"]').prop("disabled", true);
             }
-          });
-
+        });
     }
+
+    if ($('#sendForm').length > 0) {
+        $('#sendForm .btn').prop("disabled", true).parent().css('opacity', '0.5');
+
+        $('.carousel-item').each(function () {
+            var delay = 100;
+            var sendInput = $(this).find('.form-control[required]');
+            var next = $(this).find('.btn');
+    
+            // animate inputs on page load
+            $(this).find('.is-animated').each(function () {
+                $(this).css('animation-delay', delay + 'ms');
+                delay += 100;
+            });
+
+            sendInput.on('blur, input', function (e) {
+                var isRequired = 0;
+
+                sendInput.each(function () {
+                    if ($(this).val() === "") {
+                        isRequired++;
+                    }
+                });
+                if (isRequired === 0 || isRequired === null) {
+                    next.removeAttr("disabled").parent().css('opacity', '1');
+                } else {
+                    next.prop("disabled", true).parent().css('opacity', '0.5');
+                }
+            });
+        });
+    }
+
+    // fill received data
     function addReceivedInfo() {
         $(".receive-amount span").text("4720").parent().removeClass("inactive");
         $(".receive-sender span").text("Red John \n 90 High Street, Bristol, UK");
     }
-    // fill received data
 
-
-    $("#receiveForm").on('submit', function(e){
+    $("#receiveForm").on('submit', function (e) {
         e.preventDefault();
-        setTimeout(function(){
+        setTimeout(function () {
             goBack();
         }, 4000);
     });
-
+    
     // return to homepage after success animation is done
-
-
     if ($('.page').hasClass('success')) {
-        setTimeout(function(){
-            // goBack();
+        setTimeout(function () {
+            goBack();
         }, 8000);
     }
 
-    function goBack(){
+    function goBack() {
         window.location.href = '/migrant/index.html';
     };
 

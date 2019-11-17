@@ -95,6 +95,10 @@ ul.nav .title {
   }
 }
 
+.btn[disabled=true] {
+  pointer-events: none;
+}
+
 body * {
   margin: 0;
   padding: 0;
@@ -3218,10 +3222,13 @@ body.locked {
   z-index: 100;
   top: 0;
   left: 0;
+  overflow: hidden;
+  white-space: nowrap;
   background: url("../images/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   padding: 3.125rem;
   width: 100%;
   max-width: 46.875%;
@@ -3503,7 +3510,7 @@ body.locked {
   margin: 0;
 }
 .home.switched .sidebar {
-  transform: translateX(100vw);
+  animation: sidebar 1.3s ease-in forwards;
 }
 .home.switched .sidebar * {
   opacity: 0;
@@ -3543,6 +3550,27 @@ body.locked {
     opacity: 1;
   }
 }
+@keyframes sidebar {
+  0% {
+    left: 0;
+  }
+  30% {
+    left: 0;
+    right: auto;
+    max-width: 100%;
+  }
+  31%, 70% {
+    left: auto;
+    right: 0;
+    max-width: 100%;
+  }
+  100% {
+    left: auto;
+    right: 0;
+    padding: 0;
+    max-width: 0%;
+  }
+}
 .send, .receive {
   padding: 0;
 }
@@ -3550,6 +3578,47 @@ body.locked {
 form {
   width: 100%;
   min-height: 20.625rem;
+  margin: auto;
+  max-width: 64rem;
+}
+form .form-group {
+  position: relative;
+}
+form .form-group span.error {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: calc(13px + 0 * ((100vw - 320px) / 704));
+  line-height: 1.231;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  color: #ff0000;
+}
+@media screen and (max-width: 320px) {
+  form .form-group span.error {
+    font-size: 0.8125rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  form .form-group span.error {
+    font-size: 0.8125rem;
+  }
+}
+form .form-group .form-control {
+  position: relative;
+  z-index: 2;
+}
+form .form-group .form-control.error {
+  border-color: #ff0000;
+}
+form .form-group .form-control.error + .error {
+  opacity: 1;
+  transform: translateY(100%);
 }
 form .animated {
   animation-duration: 0.5s;
@@ -3684,6 +3753,7 @@ form .receive-container .button-group {
   align-items: center;
   width: 100%;
   height: 100%;
+  height: 100vh;
 }
 
 #success-msg {
@@ -3697,6 +3767,7 @@ form .receive-container .button-group {
   stroke-dashoffset: 2000;
 }
 #success-msg circle {
+  fill: #ffffff;
   animation: smsg-grow 0.7s ease-in forwards;
   animation-delay: 4s;
 }
@@ -3722,5 +3793,3 @@ form .receive-container .button-group {
     opacity: 1;
   }
 }
-
-/*# sourceMappingURL=migrant.css.map */

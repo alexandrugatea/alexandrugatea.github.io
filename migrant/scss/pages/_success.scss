@@ -3,6 +3,7 @@
     top:0;
     left:0;
     @include flex-center;
+    height: 100vh;
 }
 
 #success-msg {
@@ -17,6 +18,7 @@
     }
 
     circle {
+        fill: #ffffff;
         animation: smsg-grow 0.7s ease-in forwards;
         animation-delay: 4s;
     }
