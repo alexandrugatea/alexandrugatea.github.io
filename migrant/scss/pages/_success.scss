@@ -18,9 +18,9 @@
     }
 
     circle {
-        fill: #ffffff;
         animation: smsg-grow 0.7s ease-in forwards;
         animation-delay: 4s;
+        transition: all 0.3s ease;
     }
     path {
         animation: smsg-grow 1s ease-in forwards;
@@ -38,6 +38,7 @@
 @keyframes smsg-grow {
     100% {
         stroke-dashoffset: 0;
+        fill: #ffffff;
     }
 }
 

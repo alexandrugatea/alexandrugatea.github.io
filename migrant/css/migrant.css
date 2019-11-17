@@ -3222,8 +3222,6 @@ body.locked {
   z-index: 100;
   top: 0;
   left: 0;
-  overflow: hidden;
-  white-space: nowrap;
   background: url("../images/bg.jpg");
   background-size: cover;
   background-position: center;
@@ -3238,8 +3236,7 @@ body.locked {
 }
 @media screen and (max-width: 63.9375em) {
   .home .sidebar {
-    position: relative;
-    height: auto;
+    height: 40vh;
     max-width: 100%;
     padding: 1.875rem;
   }
@@ -3311,6 +3308,12 @@ body.locked {
   .home .content {
     margin-left: 46.875%;
     padding: 4rem;
+  }
+}
+@media screen and (max-width: 63.9375em) {
+  .home .content {
+    height: 60vh;
+    margin-top: 40vh;
   }
 }
 .home .options.choose {
@@ -3448,8 +3451,8 @@ body.locked {
 }
 @media screen and (max-width: 63.9375em) and (orientation: portrait) {
   .home .options.send-receive .option {
-    width: 75vw;
-    padding-bottom: 75vw;
+    width: 40vh;
+    padding-bottom: 40vh;
   }
 }
 @media screen and (max-width: 63.9375em) {
@@ -3517,7 +3520,7 @@ body.locked {
 }
 @media screen and (max-width: 63.9375em) {
   .home.switched .sidebar {
-    transform: translateY(2000px);
+    animation: sidebar-vertical 1.3s ease-in forwards;
     left: 0;
   }
 }
@@ -3526,6 +3529,8 @@ body.locked {
   margin-right: auto;
   position: absolute;
   top: 0;
+  height: 100vh;
+  margin: 0;
 }
 .home.switched .content .choose {
   opacity: 0;
@@ -3569,6 +3574,27 @@ body.locked {
     right: 0;
     padding: 0;
     max-width: 0%;
+  }
+}
+@keyframes sidebar-vertical {
+  0% {
+    top: 0;
+  }
+  30% {
+    top: 0;
+    bottom: auto;
+    height: 100%;
+  }
+  31%, 70% {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+  }
+  100% {
+    top: auto;
+    bottom: 0;
+    padding: 0;
+    height: 0%;
   }
 }
 .send, .receive {
@@ -3767,9 +3793,9 @@ form .receive-container .button-group {
   stroke-dashoffset: 2000;
 }
 #success-msg circle {
-  fill: #ffffff;
   animation: smsg-grow 0.7s ease-in forwards;
   animation-delay: 4s;
+  transition: all 0.3s ease;
 }
 #success-msg path {
   animation: smsg-grow 1s ease-in forwards;
@@ -3786,6 +3812,7 @@ form .receive-container .button-group {
 @keyframes smsg-grow {
   100% {
     stroke-dashoffset: 0;
+    fill: #ffffff;
   }
 }
 @keyframes smsg-show {

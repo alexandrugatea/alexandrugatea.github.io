@@ -35,16 +35,22 @@ jQuery(document).ready(function ($) {
     // enable receive form button if all inputs are filled
 
     if ($('#receiveForm').length > 0) {
-        var receiveInput = $('#receiveForm .form-control');
+        var receiveInput = $(this).find('[required]');
 
-        receiveInput.on('blur, input', function (e) {
-            var isRequired = 0;
-            receiveInput.each(function () {
-                if ($(this).val().length === 0) {
-                    isRequired++;
-                }
-            });
-            if (isRequired === 0) {
+        // calculate required fields
+        for (i=0; i <= $(this).find(receiveInput).length; i++) {
+            var required = i;
+        }
+
+        receiveInput.on('blur', function (e) {
+            if ($(this).val().length > 1) {
+                required--;
+                $(this).removeClass('error');
+            } else {
+                $(this).addClass('error');
+            }
+
+            if (required === 0) {
                 $('[type="submit"]').prop("disabled", false);
                 addReceivedInfo();
             } else {
@@ -58,7 +64,7 @@ jQuery(document).ready(function ($) {
 
         $('.carousel-item').each(function () {
             var delay = 100;
-            var sendInput = $(this).find('.form-control[required]');
+            var sendInput = $(this).find('[required]');
             var next = $(this).find('.btn');
     
             // animate inputs on page load
@@ -67,15 +73,20 @@ jQuery(document).ready(function ($) {
                 delay += 100;
             });
 
-            sendInput.on('blur, input', function (e) {
-                var isRequired = 0;
+            // calculate required fields
+            for (i=0; i <= $(this).find(sendInput).length; i++) {
+                var required = i;
+            }
+            
+            sendInput.on('blur', function (e) {
+                if ($(this).val().length > 1) {
+                    required--;
+                    $(this).removeClass('error');
+                } else {
+                    $(this).addClass('error');
+                }
 
-                sendInput.each(function () {
-                    if ($(this).val() === "") {
-                        isRequired++;
-                    }
-                });
-                if (isRequired === 0 || isRequired === null) {
+                if (required === 0) {
                     next.removeAttr("disabled").parent().css('opacity', '1');
                 } else {
                     next.prop("disabled", true).parent().css('opacity', '0.5');
@@ -92,6 +103,7 @@ jQuery(document).ready(function ($) {
 
     $("#receiveForm").on('submit', function (e) {
         e.preventDefault();
+        $("#receiveForm [type='submit']").text('Money Received');
         setTimeout(function () {
             goBack();
         }, 4000);

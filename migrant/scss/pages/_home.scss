@@ -22,9 +22,6 @@
         z-index: 100;
         top: 0;
         left: 0;
-        overflow: hidden;
-        white-space: nowrap;
-        
         
         background: url('../images/bg.jpg');
         background-size: cover;
@@ -40,8 +37,7 @@
         transition-delay: 0.3s;
         
         @include breakpoint(large down) {
-            position: relative;
-            height: auto;
+            height: 40vh;
             max-width: 100%;
             padding: rem-calc(30px);
         }
@@ -85,6 +81,11 @@
         @include breakpoint(xlarge) {
             margin-left: percentage(480/1024);
             padding: rem-calc(64px);
+        }
+
+        @include breakpoint(large down) {
+            height: 60vh;
+            margin-top: 40vh;
         }
     }
 
@@ -179,8 +180,8 @@
                 }
                
                 @media (orientation: portrait) {                   
-                   width: 75vw;
-                   padding-bottom: 75vw;
+                    width: 40vh;
+                    padding-bottom: 40vh;
                 }
                 height: 0;
                 margin: rem-calc(20px);
@@ -242,7 +243,7 @@
         }
 
         @include breakpoint(large down) {
-            transform: translateY(2000px);
+            animation: sidebar-vertical 1.3s ease-in forwards;
             left: 0;
         }
     }
@@ -252,6 +253,8 @@
         margin-right: auto;
         position: absolute;
         top:0;
+        height: 100vh;
+        margin: 0;
 
         .choose {
             opacity: 0;
@@ -306,6 +309,30 @@
         padding: 0;
         max-width: 0%;
     }
+}
 
+@keyframes sidebar-vertical {
 
+    0% {
+        top: 0;
+    }
+
+    30% {
+        top:0; 
+        bottom: auto; 
+        height: 100%;
+    }
+
+    31%, 70% {
+        top:auto; 
+        bottom: 0; 
+        height: 100%;
+    }
+
+    100% {
+        top:auto; 
+        bottom: 0; 
+        padding: 0;
+        height: 0%;
+    }
 }

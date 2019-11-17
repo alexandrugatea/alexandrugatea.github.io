@@ -30,28 +30,32 @@
                                     <h2 class="form-group-title is-animated">Sender Information</h2>
                                     <div class="form-group is-animated">
                                         <label for="receive-idt">Identification Document Type</label>
-                                        <select class="form-control" name="receive-idt" id="receive-idt" required>
-                                            <option selected disabled></option>
-                                            <option>a</option>
-                                            <option>b</option>
-                                            <option>c</option>
+                                        <select class="form-control" name="receive-idt" id="receive-idt"  required val="">
+                                            <option selected disabled="disabled" val=""></option>
+                                            <option val="valid">Valid Option</option>
+                                            <option val="valid2">Valid Option 2</option>
+                                            <option val="valid3">Valid Option 3</option>
                                         </select>
+                                        <span class="error">Value too short</span>
                                     </div>
                                     <div class="form-group is-animated">
                                         <label for="receive-idn">Identification Document Number</label>
-                                        <input type="text" class="form-control" name="receive-idn" id="receive-idn" required>
+                                        <input type="text" class="form-control" name="receive-idn" id="receive-idn"  required val="">
+                                        <span class="error">Value too short</span>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="form-group is-animated">
                                                 <label for="receive-first-name">First Name</label>
-                                                <input type="text" class="form-control" name="receive-first-name" id="receive-first-name" required>
+                                                <input type="text" class="form-control" name="receive-first-name" id="receive-first-name"  required val="">
+                                                <span class="error">Value too short</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-md-6">
                                             <div class="form-group is-animated">
                                                 <label for="receive-last-name">Last Name</label>
-                                                <input type="text" class="form-control" name="receive-last-name" id="receive-last-name" required>
+                                                <input type="text" class="form-control" name="receive-last-name" id="receive-last-name"  required val="">
+                                                <span class="error">Value too short</span>
                                             </div>
                                         </div>
                                     </div>
