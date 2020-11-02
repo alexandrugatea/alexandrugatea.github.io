@@ -8,6 +8,13 @@ footer {
             display: block;
         }
     }
+    .element {
+        display: flex;
+
+        @include breakpoint(medium) {
+            display: grid;
+        }
+    }
 
     .logo {
         width: 60%;
