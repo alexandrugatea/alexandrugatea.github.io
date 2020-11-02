@@ -1,0 +1,13 @@
+$hero-heights : (
+    full: $hero-full,
+    tall: $hero-tall,
+    medium: $hero-medium,
+    small: $hero-small,
+    extra-small: $hero-extra-small,
+);
+
+@each $key, $height in $hero-heights {
+    .da-hero-#{$key} {
+        height: $height;
+    }
+}

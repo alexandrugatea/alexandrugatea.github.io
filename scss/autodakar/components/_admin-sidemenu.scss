@@ -1,0 +1,154 @@
+// admin variables
+
+$admin-sidebar-width: 250px;
+$admin-sidebar-width-mobile: 50px;
+$admin-sidebar-background: $dark;
+
+.admin{
+
+    &-sidemenu {
+        width: rem-calc($admin-sidebar-width-mobile);
+        background: $dark;
+        position: sticky;
+        top:0;
+        height: 100vh;
+        flex-shrink: 0;
+        transition: all 0.15s ease-in-out;
+
+        &.open{
+            width: rem-calc($admin-sidebar-width);
+        }
+
+        .admin-nav {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .navbar-toggler {
+                position: absolute;
+                top:0;
+                right: 0;
+                padding: rem-calc(15px);
+                border: none;
+
+                &:before {
+                    @extend .material-icons;
+                    content: 'close';
+                    font-size: rem-calc(20px);
+                    color: $white;
+                }
+            }
+
+            &-header {
+                height: rem-calc($admin-sidebar-width / 2);
+                background: $primary;
+                color: $white; 
+                padding: rem-calc($gutter / 2);
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                svg {
+                    height: rem-calc(30px);
+                    margin-right: rem-calc(10px);
+                }
+            }
+
+            &-body {
+                flex-grow: 1;
+            }
+
+            .nav {
+
+                &-items {
+                    padding: rem-calc($gutter / 2 0);
+                }
+
+                &-item {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                &-link {
+                    padding: rem-calc($gutter / 2);
+                    color: $white;
+                    white-space: nowrap;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    &:hover {
+                        background: rgba($white, 0.1);
+                        color: $primary;
+                    }
+        
+                    &.active {
+                        background: $primary;
+                        color: $white;
+                        font-weight: 600;
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top:50%;
+                            right: rem-calc(-8px);
+                            transform: translateY(-50%);
+                            width:0;
+                            height:0;
+                            border-top: 10px solid transparent;
+                            border-bottom: 10px solid transparent;
+                            border-left: 10px solid $primary; 
+                        }
+                    }
+
+                    .material-icons {
+                        margin-right: rem-calc(10px);
+                        font-size: rem-calc(18px);
+                    }
+                }
+            }
+        }
+
+        &:not(.open) {
+            .admin-nav {
+        
+                .navbar-toggler {
+        
+                    &:before {
+                        content: 'menu';
+                    }
+                }
+        
+                &-header {
+
+                    span {
+                        font-size: 0;
+                    }
+
+                    svg {
+                        height: rem-calc(20px);
+                        margin-right: rem-calc(0px);
+                    }
+                }
+        
+                .nav {
+        
+                    &-link {
+                        font-size: 0;
+
+                        .material-icons {
+                            margin-right: rem-calc(0px);
+                            font-size: rem-calc(18px);
+                        }
+            
+                    }
+                }
+            }
+        }
+    }
+
+}

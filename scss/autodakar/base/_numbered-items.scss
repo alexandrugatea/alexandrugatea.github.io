@@ -1,0 +1,43 @@
+.has-numbered-items {
+  counter-reset: estimated-value-index;
+
+  .is-numbered-item {
+    counter-increment: estimated-value-index;
+    padding: rem-calc(10px);
+    border-bottom: 1px solid rgba($dark, 0.2);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+
+    &:before {
+      content: counter(estimated-value-index)". ";
+      display: block;
+      padding: rem-calc(5px);
+      font-size: rem-calc(18px);
+      color: $primary;
+      margin-right: rem-calc(10px);
+      font-weight: 700;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-child(even) {
+      background: $light-grey;
+    }
+
+
+    .rem {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      font-size: rem-calc(12px);
+      cursor: pointer;
+
+      span {
+        margin-left: 5px;
+        display: inline-block;
+      }
+    }
+  }
+}

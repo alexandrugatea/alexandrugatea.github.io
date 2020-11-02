@@ -1,0 +1,24 @@
+.admin {
+
+    &-dashboard {
+        display: flex;
+        justify-content: flex-start;
+        min-height: 100vh;
+        position: relative;
+
+    }
+
+    &-content {
+        flex-grow: 1;
+        background: $light-grey;
+        
+        .content {
+            padding: $gutter;
+            min-height: calc(100vh - 60px);
+        }
+
+        footer {
+            padding: $gutter / 2 $gutter;
+        }
+    }
+}

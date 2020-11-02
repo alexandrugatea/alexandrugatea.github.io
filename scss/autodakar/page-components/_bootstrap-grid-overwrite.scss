@@ -1,0 +1,20 @@
+$da-container-width: 1440px;
+$da-gutter: 30px;
+
+.container {
+    width: 100%;
+    max-width: rem-calc($da-container-width);
+    padding-left: rem-calc($da-gutter);
+    padding-right: rem-calc($da-gutter);
+
+    .row {
+        margin-left: rem-calc(-$da-gutter);
+        margin-right: rem-calc(-$da-gutter);
+        width: auto;
+
+        .col, [class*='col'] {
+            padding-left: rem-calc($da-gutter);
+            padding-right: rem-calc($da-gutter);
+        }
+    }
+}

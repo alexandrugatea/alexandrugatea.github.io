@@ -1,0 +1,17 @@
+header {
+
+    .navbar {
+        background: transparent;
+        padding: 0;
+    }
+
+    #logo {
+        height: rem-calc(30px);
+    }
+}
+
+footer {
+    background: $dark;
+    color: $white; 
+    padding: rem-calc(10px);
+}

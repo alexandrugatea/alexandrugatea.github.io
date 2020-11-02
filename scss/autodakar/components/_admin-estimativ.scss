@@ -1,0 +1,13 @@
+.da-estimativ {
+
+    .form-options-list {
+        grid-gap: rem-calc(30px);
+        padding: rem-calc(15px);
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+        .float-trigger {
+            width: 100%;
+            min-height: rem-calc(120px);
+        } 
+    }
+}

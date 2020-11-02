@@ -1,0 +1,19 @@
+
+$da-slider-spacing: 30px;
+
+.da-testimonials {
+
+    .testimonials-slider {
+        padding-top: rem-calc(40px);
+        padding-bottom: rem-calc(60px);
+        width: auto;
+        margin-left: rem-calc(-$da-slider-spacing);
+        margin-right: rem-calc(-$da-slider-spacing);
+    }
+
+    .testimonial-slide {
+        padding: rem-calc(0 $da-slider-spacing);
+    }
+
+
+}
