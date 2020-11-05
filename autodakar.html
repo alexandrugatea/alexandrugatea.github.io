@@ -7,14 +7,83 @@
     <title>AutoDakar</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
-    <link rel="stylesheet" href="css/autodakar/app.css">
+    <link rel="stylesheet" href="autodakar/css/app.css">
 </head>
 <body>
 
-    <!-- HERO -->
+<!-- MENU -->
+<div class="da-nav">
+    <div class="container">
+        <div class="da-nav-content">
+            <div class="da-nav-logo">
+                <a href="/">
+                    <img src="autodakar/images/logo.svg" alt="">
+                </a>
+            </div>
+            <ul class="da-nav-list">
+                <li class="da-nav-list-item active">
+                    <a href="#!">Acasa</a> 
+                </li>
+                <li class="da-nav-list-item has-dropdown">
+                    <span >Servicii</span> 
+                    <div class="da-nav-dropdown">
+                        <ul>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Parprize</a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Tinichigerie</a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Vopsitorie</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="da-nav-list-item has-dropdown">
+                    <span >Companie</span> 
+                    <div class="da-nav-dropdown">
+                        <ul>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Despre noi</a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Promotii</a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a href="#!">Testimoniale</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="da-nav-list-item">
+                        <a href="#!">Galerie</a> 
+                </li>
+                <li class="da-nav-list-item">
+                        <a href="#!">Contact</a> 
+                </li>
+                <li class="da-nav-list-item da-background-primary tracking">
+                        <a href="#!" class="da-text-light">Tracking</a> 
+                </li>
+                <li class="da-nav-list-item da-background-accent programari">
+                        <a href="#!" class="da-text-light">Programari</a> 
+                </li>
+            </ul>
+            <div class="da-nav-mobile">
+                <button class="hamburger hamburger--spin" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HERO -->
 <div class="da-hero da-background-dark da-section-padding relative">
-    <div class="da-hero-image">
-        <img src="images/dakar.png" alt="" class="absolute absolute-full da-image-fit">
+    <div class="da-hero-image absolute absolute-full">
+        <img src="/autodakar/images/dakar.png" alt="" class="da-image-fit">
     </div>
     <div class="da-hero-text text-center absolute pos-center-center">
         <h1 class="da-hero-title da-text-light">Auto Dakar</h1>
@@ -24,7 +93,7 @@
     
 <!-- QUICK ACCESS -->
 
-<div class="da-quick-access da-section-padding da-background-light-grey">
+<!-- <div class="da-quick-access da-section-padding da-background-light-grey">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-lg-6 margin-auto">
@@ -66,11 +135,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- PROMOTIONS -->
 
-<div class="da-promotions da-background-primary da-section-padding">
+<!-- <div class="da-promotions da-background-primary da-section-padding">
     <div class="container">
         <div class="row promotions-slider" data-initialize="promotions-slider">
             <div class="col">
@@ -125,11 +194,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- ABOUT US -->
 
-<div class="da-about da-single-card da-section-padding da-background-light-grey">
+<!-- <div class="da-about da-single-card da-section-padding da-background-light-grey">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -152,11 +221,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- SERVICES -->
 
-<div class="da-services da-background-accent da-section-padding">
+<!-- <div class="da-services da-background-accent da-section-padding">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 offset-1">
@@ -164,7 +233,7 @@
                     <div class="da-parbrize grid-cell">
                         <div class="da-service-card da-background-dark relative">
                             <div class="card-image absolute absolute-full">
-                                <img src="images/dakar.png" class="absolute absolute-full da-image-fit">
+                                <img src="/autodakar/images/dakar.png" class="absolute absolute-full da-image-fit">
                             </div>
                             <div class="card-content width-xs-100 absolute pos-bottom-left flex-list felx-space-between margin-all-0 padding-all-30 flex-vertical-bottom">
                                 <div class="card-text">
@@ -180,7 +249,7 @@
                     <div class="da-tinichigerie grid-cell">
                         <div class="da-service-card da-background-dark relative">
                             <div class="card-image absolute absolute-full">
-                                <img src="images/dakar.png" class="absolute absolute-full da-image-fit">
+                                <img src="/autodakar/images/dakar.png" class="absolute absolute-full da-image-fit">
                             </div>
                             <div class="card-content width-xs-100 absolute pos-bottom-left flex-list felx-space-between margin-all-0 padding-all-30 flex-vertical-bottom">
                                 <div class="card-text">
@@ -196,7 +265,7 @@
                     <div class="da-vopsitorie grid-cell">
                         <div class="da-service-card da-background-dark relative">
                             <div class="card-image absolute absolute-full">
-                                <img src="images/dakar.png" class="absolute absolute-full da-image-fit">
+                                <img src="/autodakar/images/dakar.png" class="absolute absolute-full da-image-fit">
                             </div>
                             <div class="card-content width-xs-100 absolute pos-bottom-left flex-list felx-space-between margin-all-0 padding-all-30 flex-vertical-bottom">
                                 <div class="card-text">
@@ -213,11 +282,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- TESTIMONIALS -->
 
-<div class="da-testimonials da-section-padding da-background-light">
+<!-- <div class="da-testimonials da-section-padding da-background-light">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -296,9 +365,65 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- FOOTER -->
+
+<div class="footer has-watermark">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-grid-cell useful-links">
+
+                <h3 class="footer-section-title">Utile</h3>
+                <ul class="footer-section-list">
+                    <li>
+                        <a href="#!">Schimbare parbrize</a>
+                    </li>
+                    <li>
+                        <a href="#!">Reparatii Tinichigerie</a>
+                    </li>
+                    <li>
+                        <a href="#!">Vopsitorie</a>
+                    </li>
+                    <li>
+                        <a href="#!">Promotii</a>
+                    </li>
+                    <li>
+                        <a href="#!">Testimoniale</a>
+                    </li>
+                    <li>
+                        <a href="#!">Galerie Foto</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="footer-grid-cell contact-program">
+
+                <h3 class="footer-section-title">Contact</h3>
+                <ul class="footer-section-list">
+                    <li>Telefon: <a href="tel:0040745495970">0745 49 59 70 </a> </li>
+                    <li>Email: <a href="mailto:alexandru.gatea@gmail.com">contact@autodakar.ro</a> </li>
+                    <li class="program">Program</li>
+                    <li>L - V: 09:00 - 18:00</li>
+                    <li>S - D: Inchis</li>
+                </ul>
+            </div>
+            <div class="footer-grid-cell service-map">
+
+                <h3 class="footer-section-title">Adresa Service</h3>
+                <ul class="footer-section-list">
+                    <li> <a href="#!">Numele Strazii si numarul</a> </li>
+                    <li>
+                        <a href="#!">
+                            map
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
     
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/slick.min.js"></script>
@@ -375,6 +500,22 @@
             $(this).parents('.grid-cell').toggleClass('active');
             $(this).parents('.da-service-card').toggleClass('active');
         });
+    </script>
+
+    <!-- mobile menu open/close -->
+    <script>
+
+        let menuTrigger = $('.da-nav-mobile'),
+            menuTarget  = $('.da-nav-list');
+
+
+        menuTrigger.on('click', function() {
+            menuTarget.toggleClass('opened');
+            $('body').toggleClass('scroll-locked');
+            $('.hamburger').toggleClass('is-active');
+
+        });
+        
     </script>
 
 </body>
