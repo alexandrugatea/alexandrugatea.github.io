@@ -150,7 +150,7 @@ $-zf-breakpoints-keys: map-to-list($breakpoints, 'keys');
   $-zf-zero-breakpoint: nth(map-keys($breakpoints), 1);
 }
 
-$breakpoint-classes: (small medium large xlarge xxlarge) !default;
+$breakpoint-classes: (small medium large xlarge xxlarge xxxlarge) !default;
 
 @function breakpoint($val: $-zf-zero-breakpoint) {
   $bp: nth($val, 1);

@@ -13299,7 +13299,7 @@ textarea.form-control, .bootstrap-select > textarea.dropdown-toggle {
 }
 
 .da-hero {
-  min-height: 37.5rem;
+  height: 100vh;
   position: relative;
 }
 .da-hero:before {
