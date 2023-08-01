@@ -25,7 +25,7 @@ $color in $colors {
     }
     @for $i from 1 through 10 {
         $opacity: $i * 10;
-        $op: $opacity / 100;
+        $op: calc($opacity / 100);
         .background-transparent-#{$key}-#{$opacity} {
             background-color: rgba($color, $op)!important;;  
         }

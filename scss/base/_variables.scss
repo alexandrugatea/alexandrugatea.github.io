@@ -1,17 +1,18 @@
 // ===============================================
 // SASS FRAMEWORK VARIABLES
 // ===============================================
-
+@use "sass:math";
 // ===============================================
 // Typography
 // ===============================================
 
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@400;500;600;700;800&family=Titillium+Web:wght@600;700;800&display=swap');
 $sans-font:                         'Raleway', sans-serif;
+$tech-font:                         'Titillium Web', sans-serif;
 $base-font:                         $sans-font; 
+$text-font:                         'Lato', sans-serif; 
 
 $base-font-size:                    16px;
 $baseLH:                            30px;
@@ -72,7 +73,7 @@ $input-color:                       #cccccc;
 // ===============================================
 
 $gutter:                            40px;
-$half-gutter:                       $gutter / 2;
+$half-gutter:                       math.div($gutter, 2);
 $container:                         1280px;
 
 $hero-full:                         100vh;                      
@@ -91,3 +92,12 @@ $btn-padding:                       15px 30px;
 $btn-small-padding:                 8px 15px;
 $btn-large-padding:                 22px 40px;
 
+
+
+// Coming soon page
+$cs-main-dark: #000E29;
+$cs-text-color: #93E5E8;
+$cs-accent: #00FFCE;
+
+$cs-resume-beige: #BEAC83;
+$cs-resume-green: #269436;

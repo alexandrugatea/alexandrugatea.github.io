@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    //scroll-behavior: smooth;
+}
+
 .wireframes {
     
     iframe {
@@ -18,8 +22,8 @@
     }
 }
 
-header,
-main,
+body:not(.soon) header,
+body:not(.soon) main,
 #home .homepage-hero .will-animate, 
 #home .homepage-about .grid-cell,
 #home .homepage-portfolio .grid-cell,
@@ -44,4 +48,3 @@ main,
         }
     }
 }
-

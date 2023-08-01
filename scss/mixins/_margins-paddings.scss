@@ -16,7 +16,7 @@ $unit-map: (px: 'px');
 $max: 100;
 $step: 5;
 
-@for $i from 0 through ($max/$step) {
+@for $i from 0 through calc($max/$step) {
     $size: $step * $i;
     @each $unit,
     $ut in $unit-map {

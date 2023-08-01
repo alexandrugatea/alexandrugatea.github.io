@@ -9,6 +9,7 @@
 @import "mixins/margins-paddings.scss";
 @import "mixins/widths.scss";
 @import "mixins/fonts.scss"; 
+@import "mixins/glass.scss"; 
 
 // BASE PARTIALS
 @import "base/animate.scss";
@@ -34,6 +35,7 @@
 @import "templates/contact";
 @import "templates/about";
 @import "templates/portfolio";
+@import "templates/comingSoon";
 
 // VENDOR PARTIALS
 @import "vendor/slick";

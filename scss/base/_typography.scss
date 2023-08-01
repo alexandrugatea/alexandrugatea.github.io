@@ -117,8 +117,8 @@ blockquote::before {
     color: $primary;
     font-size: 75px;
     position: absolute;
-    left: $half-gutter / 2;
-    top: -$half-gutter / 2;
+    left: calc($half-gutter / 2);
+    top: calc($half-gutter / 2 * -1);
 }
 
 blockquote::after {

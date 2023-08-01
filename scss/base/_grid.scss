@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .container {
     max-width: $container;
     padding: 0 $half-gutter;
@@ -29,8 +31,8 @@
     width: auto;
     flex-wrap: nowrap;
     list-style-type: none;
-    margin-left: -($half-gutter / 2);
-    margin-right: -($half-gutter / 2);
+    margin-left: calc($half-gutter / 2 * -1);
+    margin-right: calc($half-gutter / 2 * -1);
     margin-bottom: -$half-gutter;
     list-style-type: none;
     &.flex-center {
@@ -76,8 +78,8 @@
         height: 100%; 
     }
     .flex-item {
-        padding-left: $half-gutter / 2;
-        padding-right: $half-gutter / 2; 
+        padding-left: calc($half-gutter / 2);
+        padding-right: calc($half-gutter / 2); 
         margin-bottom: $half-gutter;
     }
 
@@ -113,7 +115,7 @@
 @for $i from 1 through 10 {
     .flex-#{$i} {
         > .flex-item {
-            width: percentage(1 / $i); 
+            width: math.percentage(math.div(1, $i)); 
         }
     }
 }
@@ -127,4 +129,3 @@
         }
     }
 }
-

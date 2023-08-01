@@ -1,7 +1,9 @@
+@use "sass:math";
+
 $global-font-size: 100% !default;
 
 @function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
+  @return math.div($num , ($num * 0 + 1));
 }
 
 @function rem-calc($values, $base: null) {
@@ -13,7 +15,7 @@ $global-font-size: 100% !default;
   }
 
   @if unit($base) == '%' {
-    $base: ($base / 100%) * 16px;
+    $base: calc($base / 100%) * 16px;
   }
 
   @if unit($base) == 'rem' {
@@ -50,7 +52,7 @@ $global-font-size: 100% !default;
   }
 
   @if unit($value) != 'rem' {
-    $value: strip-unit($value) / strip-unit($base) * 1rem;
+    $value: math.div(strip-unit($value), strip-unit($base)) * 1rem;
   }
 
   @if $value == 0rem {
@@ -181,7 +183,7 @@ $breakpoint-classes: (small medium large xlarge xxlarge) !default;
 
   $bp: -zf-bp-to-em($bp);
   @if $bp-max {
-    $bp-max: -zf-bp-to-em($bp-max) - (1/16);
+    $bp-max: -zf-bp-to-em($bp-max) - calc(1/16);
   }
   @if $bp > 0em or $dir == 'only' or $dir == 'down' {
     @if $dir == 'only' {

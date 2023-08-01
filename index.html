@@ -7,277 +7,155 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio | Alexandru Gatea</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/color.js"></script>
 </head>
 
-<body>
-    <!-- Page menu -->
-    <header>
-        <div class="container">
-            <nav class="menu">
-                <div class="logo-container">
-                    <a href="/" class="link" title="Portfolio | Alexandru Gatea">
-                        <img src="images/logo.svg" class="logo" alt="Portfolio | Alexandru Gatea">
-                    </a>
-                </div>
-
-                <ul class="primary-nav list list-unstyled">
-                    <li class="nav-element"> <a class="active" href="/">Home</a></li>
-                    <li class="nav-element"> <a href="about" class="link">About</a></li>
-                    <li class="nav-element"> <a href="portfolio" class="link">Portfolio</a></li>
-                    <li class="nav-element"> <a href="contact" class="link">Contact</a></li>
-                </ul>
-
-                <div class="social-links text-right">
-                    <a href="https://www.linkedin.com/in/alexandru-gatea" target="_blank"><i class="fa fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/alexandrudangatea" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/gateaalexandrudan" target="_blank"><i class="fa fa-facebook"></i></a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Pages -->
+<body class="soon">
+    <div class="background">
+        <div class="background-top"></div>
+        <div class="background-bottom"></div>
+    </div>
     <main>
-        <!-- Homepage -->
-        <div id="home" class="page">
-            <!-- Hero -->
-            <section class="homepage-hero background-secondary bg">
-                <div class="absolute absolute-full">
-                    <span>Interface</span>
-                    <span>Design</span>
-                    <span>Experience</span>
-                </div>
-                <h1 class="text-center text-primary will-animate">UIUX Artist</h1>
-                <p class="text-center text-dark description will-animate">
-                        I'm an experienced UI/UX Developer with high focus on output quality and user experience. Currently leaving in Cluj-Napoca.
-                </p>
-                <ul class="flex-list flex-center flex-vertical-center will-animate">
-                    <li class="flex-item">
-                        <a href="/contact" class="btn btn-accent link" data-ripple>Hire me!</a>
-                    </li>
-                    <li class="flex-item">
-                        <a href="/portfolio" class="btn btn-primary link" data-ripple>Portfolio</a>
-                    </li>
+        <div class="intro">
+            <div class="logo-container">
+                <a href="/" class="link" title="Portfolio | Alexandru Gatea">
+                    alexandru<strong>gatea</strong>
+                </a>
+            </div>
+            <h1 class="cs-title">Hello! I'm <a href="#resume">Alex.</a></h1>
+            <div class="cs-desc">
+                <p>This website is currently under a heavy rebranding process, but worry not as you can still explore around.</p>
+                <p>You can check my:</p>
+                <ul>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank">Linked In</a></li>
+                    <li><a href="https://www.instagram.com/alexandrudangatea/" target="_blank">Instagram</a></li>
+                    <li><a href="/index_old.html">old website</a></li>
                 </ul>
-            </section>
-
-            <!-- About -->
-            <section class="homepage-about">
-                <div class="container">
-                    <h2 class="title text-center" data-shadow="About me">
-                        <span>Who, What, Why </span>
-                    </h2>
-                    <p class="quote">I always seek to be efficient and informed, always trying to be my best version. </p>
-
-                    <div class="grid">
-                        <div class="grid-cell cell-text">
-                            <p class="description">
-                                A curious person, receptive to everything that is new and always focused on details. I find pleasure in what I'm working on because my experience in the field comes from a passion over which, self-taught, I built day after day. I like to find inspiration in everything that surrounds me, but at the same time I pay attention to the client/ user requests. I grewed homogeneously, started as a intern and evolving to became a mentor. I have learned to value collegiality, team spirit, and also I improved my communication techniques.</p>
-                        </div>
-                        <div class="grid-cell cell-image image-decorative">
-                            <div class="image-container">
-                                <div class="relative">
-                                    <div class="ratio-square">
-                                        <img src="images/home-about-bio.png" class="absolute absolute-full image-fit" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-cell cell-image image-bio">
-                            <div class="image-container">
-                                <div class="relative">
-                                    <div class="ratio-square">
-                                        <img src="images/fiddle-loader.png" class="absolute absolute-full image-fit" alt="">
-                                        <div class="absolute absolute-full background-transparent-primary-80"></div>
-                                        <div class="absolute pos-bottom-right padding-horizpntal-40 padding-vertical-20">
-                                            <a href="about" class="btn btn-link padding-all-30 link">More about me <i class="fa fa-chevron-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Portfolio -->
-            <section class="homepage-portfolio background-accent bg">
-                <div class="container">
-                    <h2 class="title text-center text-light" data-shadow="My Hobbies"> <span>Portfolio </span> </h2>
-                    
-                    <div class="grid">
-                        <div class="grid-cell image-large relative">
-                            <div class="absolute absolute-full">
-                                <img src="images/home-portfolio-large.jpg" class="absolute absolte-full image-fit">
-                            </div>
-                        </div>
-                        <div class="grid-cell image-logo">
-                            <div class="ratio-square relative">
-                                <img src="images/home-portfolio-logo.png" class="absolute absolte-full image-fit">
-                                <div class="absolute absolute-full background-transparent-primary-80"></div>
-                            </div>
-                        </div>
-                        <div class="grid-cell image-web">
-                            <div class="ratio-square relative">
-                                <img src="images/home-portfolio-web.png" class="absolute absolte-full image-fit">
-                                <div class="absolute absolute-full background-transparent-secondary-80"></div>
-                            </div>
-                        </div>
-                        <div class="grid-cell text-web">
-                            <div class="portfolio-text-box ratio-square relative background-light">
-                                <div class="absolute absolute-full text-left">
-                                    <h3>Web Design</h3>
-                                    <p>I've always found designing and implementing web elements enjoyable.</p>
-                                    <a href="portfolio#web" class="btn btn-link text-accent">Visit Gallery</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-cell text-logo relative">
-                            <div class="portfolio-text-box ratio-square relative background-light">
-                                <div class="absolute absolute-full text-left">
-                                    <h3>Logo design</h3>
-                                    <p>I like to design logos.<br>Have a look on few of my projects.</p>
-                                    <a href="portfolio#logo" class="btn btn-link text-accent">Visit Gallery</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact -->
-            <section class="homepage-contact bg">
-                <h2 class="title text-center will-animate" data-shadow="Contact me">
-                    <span>Now let's discuss about your business</span>
-                </h2>
-                <p class="description text-center will-animate">
-                        Now that I've shared my story, it's time you share yours!
+            </div>
+        </div>
+        <div id="resume" class="resume glass">
+            <div class="resume-title">
+                <p class="resume-title-position">Sr. User Experience Engineer</p>
+                <p class="resume-title-name">Alexandru <span>Gatea</span></p>
+                <p class="resume-title-intro">
+                    Skilled and creative UX Engineer with more than a decade of experience in the design industry. For the past 8 years, I've excelled in web development and map styling, specializing in HTML, SCSS, and JavaScript, becoming an adept at creating captivating CSS animations. 
                 </p>
-                <div class="flex-list flex-center will-animate">
-                    <div class="flex-item">
-                        <a href="contact" class="btn btn-accent" data-ripple>Mail me!</a>
-                    </div>
+                <p class="resume-title-intro">
+                    I also have a strong background in performing UI tasks like wireframing and prototyping. Additionally, I have served as a technical team lead, successfully guiding and collaborating with fellow team members. 
+                </p>
+            </div>
+            <div class="resume-profile">
+                <div class="resume-profile-background"></div>
+                <div class="resume-profile-decorations"></div>
+                <div class="resume-profile-image">
+                    <img src="images/resume-profile.png" alt="">
                 </div>
-            </section>
+            </div>
+            <div class="resume-work">
+                <h3 class="resume-work-title">work experience</h3>
+
+                <div class="resume-work-section">
+                    <p class="resume-work-section-position resume-subtitle">Senior User Experience Engineer   |   Telenav</p>
+                    <p class="resume-work-section-timeframe resume-timeframe">May 2019 - present</p>
+                    <p class="resume-work-section-description">
+                        Main focus was working as an <span>Automotive Map Designer</span>, where I created and maintained <span>navigation map styles</span> for different car manufacturers, through a <span>proprietary styling language</span>, while successfuly collaborating with teams accross sites, specfically from US and China. 
+                    </p>
+                    <p class="resume-work-section-description">
+                        My exact role was to create <span>complete map experiences</span> for drivers, by creating map styles from scratch. The process included defining the map's entire <span>user experience</span>, creating UI elements, making <span>adjustments for various screens</span>, creating complex and <span>engaging 3D animations</span> in Blender  and implementing the styles <span>by writing styling code</span>.
+                    </p>
+                    <p class="resume-work-section-description">
+                        <span>Mastering</span> this language led me on becoming a <span>Technical Lead</span>, offering support to not only to other fellow map designers but also to Project Managers, Developers, and Quality Assurance specialists.
+                    </p>
+                    <p class="resume-work-section-description">
+                        Moreover, I was also involved in coding websites, working with <span>HTML, SCSS and JS</span>. The processes included creating UI elements, <span>animating SVG</span> graphics, creating <span>custom icon fonts</span> and adjusting the entire experience for mobile devices.
+                    </p>
+                </div>
+                <div class="resume-work-section">
+                    <p class="resume-work-section-position resume-subtitle">UI/UX Developer & UI Tech Lead   |   Digital Republic</p>
+                    <p class="resume-work-section-timeframe resume-timeframe">May 2015 - May 2019</p>
+                    <p class="resume-work-section-description">
+                        Main focus was creating <span>complete website experiences</span>, from wireframes up to frontend implementation. 
+                    </p>
+                    <p class="resume-work-section-description">
+                        I gained experience in working with <span>HTML, SCSS and JS</span> and mastered the art of creating <span>my own SCSS frameworks</span>. 
+                    </p>
+                    <p class="resume-work-section-description">
+                        My role also included: atomic design patterns, creating custom icon fonts, create brand identities, coordinate the entire UI team.
+                    </p>
+                </div>
+                <div class="resume-work-section">
+                    <p class="resume-work-section-position resume-subtitle">Graphic Designer   |   Various ONGs</p>
+                    <p class="resume-work-section-timeframe resume-timeframe">Oct 2010 - Mar 2015</p>
+                    <p class="resume-work-section-description">
+                        Created the <span>complete stack</span> of advertising materials for various events and projects, such as: <span>Untold</span>, TiMAF, James Blunt, Absolvire A-Z,  OmniPass, Student Parties.
+                    </p>
+                </div>
+            </div>
+            <div class="resume-other">
+                <div class="resume-other-section contact">
+                    <h4 class="resume-other-section-title">Contact</h4>
+                    <ul class="resume-other-section-description">
+                        <li class="resume-contact-phone">+40 PHLGXKZQ0</li>
+                        <li class="resume-contact-mail">alexandru.gatea@gmail.com</li>
+                    </ul> 
+
+                </div>
+                <div class="resume-other-section education">
+                    <h4 class="resume-other-section-title">Education</h4>
+                    <ul class="resume-other-section-description">
+                        <li>
+                            <p class="resume-subtitle">Master's Degree - USAMV CJ</p>
+                            <p class="resume-timeframe">2013 - 2015</p>
+                        </li>
+                        <li>
+                            <p class="resume-subtitle">Bachelor's Degree - USAMV CJ</p>
+                            <p class="resume-timeframe">2009 - 2013</p>
+                        </li>
+                        <li class="resume-languages">
+                            <p class="resume-subtitle">Spoken Languages: RO, EN</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume-other-section tech-skills">
+                    <h4 class="resume-other-section-title">Tech Stack</h4>
+                    <ul class="resume-other-section-description">
+                        <li>
+                            <p class="resume-subtitle">Web Development</p>
+                            <p class="resume-other-section-description"> HTML, SCSS, Javascript, Git</p>
+
+                        </li>
+                        <li>
+                            <p class="resume-subtitle">Ui / Ux</p>
+                            <p class="resume-other-section-description">Adobe Creative Suite (AI, PS, XD), Figma, IcoMoon, Blender.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume-other-section soft-skills">
+                    <h4 class="resume-other-section-title">Soft Skills</h4>
+                    <p class="resume-other-section-description">
+                        Great collaboration, loyalty, passionate communication and teaching, attention to smallest details, problem-solving mindset, adaptability, constant learner. 
+                    </p>
+                </div>
+            </div>
         </div>
 
     </main>
-
-    <!-- Page footer -->
-    <footer>
-        <div class="main-footer">
-            <div class="logo-container">
-                <a href="/" title="Portfolio | Alexandru Gatea">
-                    <img src="images/logo.svg" class="logo" alt="Portfolio | Alexandru Gatea">
-                </a>
-            </div>
-            <ul class="primary-nav list list-unstyled">
-                <li class="nav-element"> <a href="/">Home</a></li>
-                <li class="nav-element"> <a href="about">About</a></li>
-                <li class="nav-element"> <a href="portfolio">Portfolio</a></li>
-                <li class="nav-element"> <a href="contact">Contact</a></li>
-            </ul>
-            <div class="copyright">
-                <div class="container">
-                    <div class="flex-list flex-space-between">
-                        <div class="flex-item">
-                            <span>© Alexandru Gatea. All rights reserved. 2019.</span>
-                        </div>
-                        <div class="flex-item">
-                            <ul class="flex-list flex-end">
-                                <li class="flex-item">
-                                    <a href="https://www.linkedin.com/in/alexandru-gatea" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                                <li class="flex-item">
-                                    <a href="https://www.instagram.com/alexandrudangatea" target="_blank"><i class="fa fa-instagram"></i></a>
-                                </li>
-                                <li class="flex-item">
-                                    <a href="https://www.facebook.com/gateaalexandrudan" target="_blank"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li class="flex-item">
-                                    <span id="toTop"><i class="fa fa-arrow-up"></i></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- scripts -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/onscreen.js"></script>
+    <!--<script src="js/custom.js"></script>-->
+    <!--<script src="js/onscreen.js"></script>-->
     <script>
+        // smooth scroll to anchor
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-        jQuery(document).ready(function($){
-
-            var wW = $(window).width();
-            $('header').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
-            $('main').onScreen({  doIn: function() {  $(this).addClass('animated fadeIn')} });
-
-            if (wW > 768) {
-
-
-                // hero
-                var heroElDelay= 100;
-                $('.homepage-hero .will-animate').each(function(){
-                    $(this).css('animation-delay', heroElDelay + 'ms');
-                    heroElDelay += 200;
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-                $('.homepage-hero .will-animate').onScreen({
-                    doIn: function() {
-                        $(this).addClass('animated fadeInUp')},
-                        tolerance: 50
-                });
-
-                // about
-                var aboutElDelay= 100;
-                $('.homepage-about .grid-cell').each(function(){
-                    $(this).css('animation-delay', aboutElDelay + 'ms');
-                    aboutElDelay += 200;
-                });
-                $('.homepage-about .grid-cell').onScreen({
-                    doIn: function() {
-                        $(this).addClass('animated fadeInUp')},
-                        tolerance: 50
-                });
-
-                // portfolio
-                var portfolioElDelay= 100;
-                $('.homepage-portfolio .grid-cell').each(function(){
-                    $(this).css({
-                        animationDelay: portfolioElDelay + 'ms',
-                        animationDuration: '0.5s'
-                    });
-                portfolioElDelay += 200;
-                });
-                
-                $('.homepage-portfolio .grid-cell').onScreen({
-                    doIn: function() {
-                        $(this).addClass('animated zoomIn')},
-                        tolerance: 50
-                });
-
-                // contact
-                var contactElDelay= 100;
-                $('.homepage-contact .will-animate').each(function(){
-                    $(this).css('animation-delay', contactElDelay + 'ms');
-                    contactElDelay += 200;
-                });
-                $('.homepage-contact .will-animate').onScreen({
-                    doIn: function() {
-                        $(this).addClass('animated fadeInUp')},
-                        tolerance: 50
-                });
-
-            }
-           
+            });
         });
     </script>
-
 </body>
 
 </html>
+ 
