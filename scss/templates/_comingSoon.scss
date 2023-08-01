@@ -74,10 +74,12 @@ body.soon {
   main {
     position: relative;
     z-index: 2;
-    width: 80%;
+    width: 100%;
     max-width: rem-calc(1440);
     margin: 0 auto;
     padding: rem-calc(0 14);
+
+
 
     .logo-container {
       position: relative;
@@ -117,16 +119,16 @@ body.soon {
 
       .cs-title {
         color: #fff;
-        font-size: rem-calc(56);
         text-align: center;
         width: 100%;
-        margin-top: auto;
+        margin: auto auto rem-calc(28);
+
+        @include font(28px, 56px, 1, 700, normal, 320px, 1200px, $base-font);
 
         a {
-          font-size: inherit;
-          font-weight: inherit;
-          text-decoration: none;
+          font: inherit;
           color: $cs-accent;
+          text-decoration: none;
         }
       }
 
@@ -138,11 +140,8 @@ body.soon {
         p {
 
           color: $cs-text-color;
-          font-size: rem-calc(21);
+          @include font(14px, 21px, 1.4, 600, normal, 320px, 1200px, $text-font);
           letter-spacing: rem-calc(1);
-          font-weight: 600;
-          font-family: $text-font;
-          line-height: rem-calc(28);
         }
 
         ul {
@@ -151,15 +150,17 @@ body.soon {
           grid-template-columns: repeat(4, 1fr);
           grid-gap: rem-calc(21);
 
+          @include breakpoint(small only) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
           li {
 
             a {
-              font-size: rem-calc(14);
+              @include font(12px, 14px, 2, 700, normal, 320px, 1200px, $text-font);
               text-transform: uppercase;
               letter-spacing: rem-calc(1);
-              font-weight: 700;
               font-family: $text-font;
-              line-height: rem-calc(28);
               color: $cs-accent;
               cursor: pointer;
               text-decoration: none;
@@ -186,21 +187,26 @@ body.soon {
     grid-template-columns: 69% auto;
     grid-gap: rem-calc(0);
 
+    @include breakpoint(small only) {
+      display: flex;
+      flex-direction: column;
+      margin-top: rem-calc(35);
+      padding: rem-calc(28);
+      max-width: rem-calc(400);
+    }
+
 
     &-subtitle {
       color: $cs-resume-green;
-      font-size: rem-calc(18);
+      @include font(14px, 18px, 1, 700, normal, 320px, 1200px, $tech-font);
       letter-spacing: rem-calc(0.5);
-      font-weight: 700;
-      font-family: $tech-font;
       margin-bottom: rem-calc(10);
-      line-height: 1;
     }
 
     &-timeframe {
       @extend .resume-subtitle;
-      color: #fff;
-      font-size: rem-calc(14);
+      color: rgba($cs-text-color, 0.91);
+      @include font(12px, 14px, 1, 700, normal, 320px, 1200px, $tech-font);
       margin-bottom: rem-calc(14);
       letter-spacing: rem-calc(0.5);
     }
@@ -211,13 +217,13 @@ body.soon {
       margin-bottom: rem-calc(70);
       &-position {
         font-family: inherit;
-        font-size: rem-calc(21);
+        @include font(14px, 21px, 1, 700, normal, 320px, 1200px, $text-font);
         color: $cs-resume-beige;
         margin-bottom: rem-calc(14);
       }
       &-name {
         font-family: inherit;
-        font-size: rem-calc(42);
+        @include font(28px, 42px, 1, 700, normal, 320px, 1200px, $text-font);
         margin-bottom: rem-calc(28);
         font-weight: 700;
         span {
@@ -232,8 +238,9 @@ body.soon {
         font-size: rem-calc(13);
         letter-spacing: rem-calc(1px);
         line-height: 1.4;
-        font-weight: 600;
+        font-weight: 500;
         margin-bottom: rem-calc(14);
+        color: $cs-text-color;
       }
     }
 
@@ -243,9 +250,17 @@ body.soon {
       display: grid;
       place-content: center;
 
+      @include breakpoint(small only) {
+        order: -1;
+        margin-bottom: rem-calc(28);
+      }
+      @include breakpoint(medium) {
+        margin-left: rem-calc(-140px);
+      }
+
       &-background {        
-        width: rem-calc(500px);
-        height: rem-calc(500px);
+        width: rem-calc(560px);
+        height: rem-calc(560px);
         position: absolute;
         top: rem-calc(-56);
         right: rem-calc(-56);
@@ -253,6 +268,14 @@ body.soon {
         background-position: top right;
         background-size: contain;
         background-repeat: no-repeat;
+
+        @include breakpoint(small only) {
+          width: rem-calc(280px);
+          height: rem-calc(280px);
+          top: rem-calc(-28);
+          right: rem-calc(-28);
+        }
+
       }
       &-image {
         position: relative;
@@ -268,15 +291,24 @@ body.soon {
           max-width: 100%;
         }
 
+        @include breakpoint(small only) {
+          width: rem-calc(210px);
+          height: rem-calc(210px);
+        }
+
       }
     }
 
     &-work {
       position: relative;
       z-index: 1;
-      padding-right: rem-calc(35);
-      margin-right: rem-calc(35);
-      border-right: rem-calc(2px) solid rgba(#fff, 0.07);
+      
+      @include breakpoint(medium) {
+        padding-right: rem-calc(35);
+        margin-right: rem-calc(35);
+        border-right: rem-calc(2px) solid rgba(#fff, 0.07);
+      }
+
 
       &-title {
         text-transform: uppercase;
@@ -299,10 +331,11 @@ body.soon {
           letter-spacing: rem-calc(0.15);
           line-height: 1.7;
           margin-bottom: rem-calc(10);
+          color: rgba($cs-text-color, 0.84);
 
           span {
             font: inherit;
-            color: $cs-resume-beige;
+            color: rgba($cs-resume-beige, 0.84);
           }
         }
       }
@@ -331,13 +364,9 @@ body.soon {
             }
 
             &.resume-languages .resume-subtitle {
-              color: #fff;
+              color: rgba($cs-text-color, 0.91);
             }
           }
-        }
-
-        .resume-languages {
-          color: #fff;
         }
       }
     }
