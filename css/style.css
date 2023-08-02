@@ -8686,7 +8686,6 @@ body.soon {
   position: relative;
   z-index: 0;
   padding-bottom: 8.75rem;
-  min-height: 300vh;
 }
 body.soon .background {
   display: flex;
