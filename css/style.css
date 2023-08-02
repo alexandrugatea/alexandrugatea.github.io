@@ -8817,6 +8817,7 @@ body.soon main .intro .cs-desc {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: auto;
 }
 body.soon main .intro .cs-desc p {
   color: rgba(147, 229, 232, 0.84);
@@ -9032,11 +9033,6 @@ body.soon .resume-profile {
   body.soon .resume-profile {
     order: -1;
     margin-bottom: 1.75rem;
-  }
-}
-@media print, screen and (min-width: 48em) {
-  body.soon .resume-profile {
-    margin-left: -8.75rem;
   }
 }
 body.soon .resume-profile-background {

@@ -134,6 +134,7 @@ body.soon {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-bottom: auto;
         p {
 
           color: $cs-text-color;
@@ -252,7 +253,7 @@ body.soon {
         margin-bottom: rem-calc(28);
       }
       @include breakpoint(medium) {
-        margin-left: rem-calc(-140px);
+        //margin-left: rem-calc(-140px);
       }
 
       &-background {        
