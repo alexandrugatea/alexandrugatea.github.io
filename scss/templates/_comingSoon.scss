@@ -10,7 +10,7 @@ body.soon {
   padding-bottom: rem-calc(140);
 
 
-   .background {
+  .background {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,15 +25,15 @@ body.soon {
     &-top,
     &-bottom {
       &:after {
-            content: "";
-            display: block;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: rem-calc(150px);
-            z-index: 2;
-            background: linear-gradient(0deg, rgba($cs-main-dark, 1), rgba($cs-main-dark, 0) 95%);
+        content: "";
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: rem-calc(150px);
+        z-index: 2;
+        background: linear-gradient(0deg, rgba($cs-main-dark, 1), rgba($cs-main-dark, 0) 95%);
       }
     }
 
@@ -45,6 +45,7 @@ body.soon {
       position: relative;
       height: calc(100vh + 200px);
       width: 100%;
+      opacity: 0.7;
 
       &:after {
         top: auto;
@@ -52,6 +53,7 @@ body.soon {
       }
 
     }
+
     &-bottom {
       background-image: url(../images/aurora.png);
       background-size: cover;
@@ -67,7 +69,7 @@ body.soon {
       }
     }
   }
-  
+
   main {
     position: relative;
     z-index: 2;
@@ -81,8 +83,8 @@ body.soon {
     .logo-container {
       position: relative;
       height: rem-calc(56);
-      width: rem-calc(205);
-      padding: rem-calc(14 28);
+      //width: rem-calc(205);
+      //padding: rem-calc(14 28);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -93,12 +95,12 @@ body.soon {
         display: flex;
         justify-content: center;
         align-items: center;
-        position: absolute;
-        padding: rem-calc(14 28);
+        position: relative;
+        padding: rem-calc(14 32);
         color: #fff;
         text-decoration: none;
         font-family: $base-font;
-        font-size: rem-calc(20);
+        font-size: rem-calc(22);
       }
     }
 
@@ -108,7 +110,7 @@ body.soon {
       justify-content: space-between;
       align-items: center;
       min-height: 100vh;
-      max-width: rem-calc(560);
+
       margin: 0 auto;
       text-align: center;
       padding: rem-calc(70 0);
@@ -135,17 +137,19 @@ body.soon {
         align-items: center;
         justify-content: center;
         margin-bottom: auto;
+
         p {
 
           color: $cs-text-color;
           @include font(14px, 21px, 1.4, 600, normal, 320px, 1200px, $text-font);
-          letter-spacing: rem-calc(1);
+          letter-spacing: rem-calc(0.5);
+          max-width: rem-calc(560);
         }
 
         ul {
           display: grid;
           list-style-type: none;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           grid-gap: rem-calc(21);
 
           @include breakpoint(small only) {
@@ -213,17 +217,20 @@ body.soon {
       font-family: $tech-font;
       max-width: rem-calc(450);
       margin-bottom: rem-calc(70);
+
       &-position {
         font-family: inherit;
         @include font(14px, 21px, 1, 700, normal, 320px, 1200px, $text-font);
         color: $cs-resume-beige;
         margin-bottom: rem-calc(14);
       }
+
       &-name {
         font-family: inherit;
         @include font(28px, 42px, 1, 700, normal, 320px, 1200px, $text-font);
         margin-bottom: rem-calc(28);
         font-weight: 700;
+
         span {
           color: $cs-resume-green;
           font: inherit;
@@ -252,11 +259,12 @@ body.soon {
         order: -1;
         margin-bottom: rem-calc(28);
       }
+
       @include breakpoint(medium) {
         //margin-left: rem-calc(-140px);
       }
 
-      &-background {        
+      &-background {
         width: rem-calc(560px);
         height: rem-calc(560px);
         position: absolute;
@@ -275,19 +283,43 @@ body.soon {
         }
 
       }
+
       &-image {
         position: relative;
         width: rem-calc(280);
         height: rem-calc(280);
         border-radius: rem-calc(210);
         overflow: hidden;
-        padding: rem-calc(6);
+        //padding: rem-calc(6);
         background: linear-gradient(45deg, $cs-resume-green 0%, white 75%);
         box-shadow: rem-calc(7 14 56 0) rgba($cs-main-dark, 0.21);
+
         img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scaleX(-1);
           display: block;
-          max-width: 100%;
+          width: calc(100% - 16px);
+          height: calc(100% - 16px);
+          object-fit: cover;
+          border-radius: rem-calc(1000px);
+
         }
+
+        //&:after {
+        //  content: "";
+        //  display: block;
+        //  position: absolute;
+        //  top: 0; 
+        //  left: 0;
+        //  z-index: 1;
+        //  width: rem-calc(280);
+        //  height: rem-calc(280);
+        //  box-shadow: inset rem-calc(0 0 0 10) $cs-resume-green;
+        //  border-radius: rem-calc(210);
+
+        //}
 
         @include breakpoint(small only) {
           width: rem-calc(210px);
@@ -300,7 +332,7 @@ body.soon {
     &-work {
       position: relative;
       z-index: 1;
-      
+
       @include breakpoint(medium) {
         padding-right: rem-calc(35);
         margin-right: rem-calc(35);
@@ -364,9 +396,96 @@ body.soon {
             &.resume-languages .resume-subtitle {
               color: rgba($cs-text-color, 0.91);
             }
+
+            a {
+              text-decoration: none;
+              color: inherit;
+            }
           }
         }
       }
+    }
+  }
+
+  .gallery {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: rem-calc(10);
+    display: grid;
+    grid-gap: rem-calc(10);
+    //grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+
+
+    .item {
+      display: block;
+      background: $cs-main-dark;
+      margin-bottom: rem-calc(10);
+      //height: 0;
+      //padding-bottom: 56.25%;
+      position: relative;
+
+      a,
+      img {
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        min-height: rem-calc(250px);
+      }
+
+      a {
+        overflow: hidden;
+
+        
+      }
+      p {
+        position: absolute;
+        z-index: 1;
+        bottom: rem-calc(25);
+        left: rem-calc(25);
+        color: $cs-text-color;
+        font-weight: 600;
+        background: $cs-main-dark;
+        padding: rem-calc(8 16);
+        min-width: rem-calc(200);
+        //background: linear-gradient(rgba(#000, 0), rgba(#000, 0.85));
+        margin: 0;
+        width: calc(100% - rem-calc(50));
+        text-align: center;
+        border-radius: rem-calc(100);
+        //transform: translateY(150%);
+        transition: all 0.25s ease-in-out;
+        font-size: rem-calc(12);
+        letter-spacing: rem-calc(1);
+      }
+
+      //&.map {grid-row: span 1;grid-column: span 3;}
+      //&.lp {grid-row: span 1;grid-column: span 4;}
+      ////&.fm {grid-row: span 2;grid-column: span 2;}
+      //&.cs {grid-row: span 1;grid-column: span 2;}
+      //&.tn {grid-row: span 1;grid-column: span 2;}
+      //&.dk {grid-row: span 1;grid-column: span 2;}
+      //&.sy {grid-row: span 1;grid-column: span 2;}
+      //&.ni {grid-row: span 1;grid-column: span 2;}
+      //&.ws {grid-row: span 1;grid-column: span 2;}
+    }
+
+
+  }
+
+  .item.lp {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    img {
+      display: block;
+      width: 90%;
+      max-width: rem-calc(1200);
+      margin: 0 auto;
     }
   }
 }
