@@ -415,7 +415,15 @@ body.soon {
     display: grid;
     grid-gap: rem-calc(10);
     //grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20%,1fr));
+    
+    @include breakpoint (large down) {
+      grid-template-columns: repeat(auto-fill, minmax(40%,1fr));
+    }
+
+    @include breakpoint (small only) {
+      grid-template-columns: repeat(auto-fill, minmax(80%,1fr));
+    }
 
 
     .item {

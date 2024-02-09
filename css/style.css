@@ -9144,7 +9144,17 @@ body.soon .gallery {
   padding: 0.625rem;
   display: grid;
   grid-gap: 0.625rem;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+}
+@media screen and (max-width: 74.9375em) {
+  body.soon .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(80%, 1fr));
+  }
 }
 body.soon .gallery .item {
   display: block;
