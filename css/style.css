@@ -8685,7 +8685,7 @@ body.soon {
   transition: opacity 0.3s ease-in-out;
   animation-duration: 0.7s;
 }
-@media print, screen and (min-width: 48em) {
+@media screen and (min-width: 75em) {
   body.soon:not(.animated) {
     opacity: 0;
   }
@@ -8820,6 +8820,7 @@ body.soon main .intro .cs-desc {
   align-items: center;
   justify-content: center;
   margin-bottom: auto;
+  width: 100%;
 }
 body.soon main .intro .cs-desc p {
   color: rgba(183, 245, 247, 0.84);
@@ -8845,13 +8846,38 @@ body.soon main .intro .cs-desc p {
     font-size: 1.3125rem;
   }
 }
+body.soon main .intro .cs-desc #nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 body.soon main .intro .cs-desc-nav {
   list-style-type: none;
   margin-top: 3.75rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  width: 100%;
   max-width: 75rem;
   grid-gap: 2.625rem;
+}
+@media screen and (max-width: 74.9375em) {
+  body.soon main .intro .cs-desc-nav {
+    grid-gap: 1.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+}
+@media screen and (max-width: 61.9375em) {
+  body.soon main .intro .cs-desc-nav {
+    grid-gap: 0.875rem;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon main .intro .cs-desc-nav {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 0.875rem;
+  }
 }
 body.soon main .intro .cs-desc-nav-item {
   background: rgba(40, 232, 220, 0.07);
@@ -8865,6 +8891,13 @@ body.soon main .intro .cs-desc-nav-item {
   padding-bottom: 100%;
   overflow: hidden;
   transition: transform 0.25s linear;
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon main .intro .cs-desc-nav-item {
+    position: relative;
+    height: auto;
+    padding-bottom: 0;
+  }
 }
 body.soon main .intro .cs-desc-nav-item:nth-child(1) {
   border-radius: 0.4375rem 0.875rem 1.75rem 0.875rem;
@@ -8887,12 +8920,19 @@ body.soon main .intro .cs-desc-nav-item a {
   transition: all 0.15s cubic-bezier(1, 0.64, 0, 0.42);
   cursor: pointer;
   text-decoration: none;
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #28E8DC;
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon main .intro .cs-desc-nav-item a {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
 }
 body.soon main .intro .cs-desc-nav-item a span {
   margin-top: 0.4375rem;
@@ -8928,11 +8968,26 @@ body.soon main .intro .cs-desc-nav-item a img, body.soon main .intro .cs-desc-na
   object-position: top center;
   border-radius: 50%;
 }
+@media screen and (max-width: 61.9375em) {
+  body.soon main .intro .cs-desc-nav-item a img, body.soon main .intro .cs-desc-nav-item a svg {
+    width: 4.375rem;
+    height: auto;
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon main .intro .cs-desc-nav-item a img, body.soon main .intro .cs-desc-nav-item a svg {
+    width: 3.5rem;
+    height: auto;
+    margin-right: 1.3125rem;
+  }
+}
 body.soon main .intro .cs-desc-nav-item a.active {
   pointer-events: none;
 }
-body.soon main .intro .cs-desc-nav-item:hover a {
-  transform: scale(1.05);
+@media screen and (min-width: 75em) {
+  body.soon main .intro .cs-desc-nav-item:hover a {
+    transform: scale(1.05);
+  }
 }
 body.soon .resume {
   padding: 3.5rem;
@@ -9279,7 +9334,7 @@ body.soon .tabs {
   text-align: center;
   display: flex;
   justify-content: center;
-  padding: 3.5rem 0 1.75rem;
+  padding: 1.75rem 0 1.75rem;
   margin: 0 auto;
   border-top: 0.0625rem solid rgba(255, 255, 255, 0.07);
   max-width: 90rem;
@@ -9309,6 +9364,12 @@ body.soon .tabs .tablinks {
   /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
   cursor: pointer;
 }
+@media screen and (max-width: 47.9375em) {
+  body.soon .tabs .tablinks {
+    padding: 0.875rem 0.875rem;
+    margin: 0 0.1875rem;
+  }
+}
 body.soon .tabs .tablinks.active {
   background: rgba(0, 255, 206, 0.3);
   border: 0.06875rem solid rgba(0, 255, 206, 0.14);
@@ -9331,6 +9392,12 @@ body.soon .tabcontent .tab-des {
   margin: 0 auto;
   margin-bottom: 2.1875rem;
   padding: 2.1875rem 0;
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon .tabcontent .tab-des {
+    max-width: 28.125rem;
+    width: 90%;
+  }
 }
 body.soon .tabcontent .tab-des h3 {
   margin-bottom: 1.75rem;

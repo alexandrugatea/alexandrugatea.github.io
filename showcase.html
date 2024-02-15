@@ -273,7 +273,8 @@
       }
 
       // Show the specific tab content
-      document.getElementById(tabName).style.display = "block";
+      var tabContentElement = document.getElementById(tabName);
+      tabContentElement.style.display = "block";
 
       // Activate the button that opened the tab
       if (evt) {
@@ -282,7 +283,14 @@
 
       // Save active tab to local storage
       localStorage.setItem('activeTab', tabName);
-      document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      //document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      var offset = document.querySelector(".tabs").clientHeight;
+      console.log(offset);
+      window.scrollTo({
+        top: tabContentElement.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
     }
 
     fetch('webLayouts/nav.html')

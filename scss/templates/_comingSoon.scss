@@ -11,7 +11,7 @@ body.soon {
   transition: opacity 0.3s ease-in-out;
   animation-duration: 0.7s;
 
-  @include breakpoint(medium) {
+  @include breakpoint(xlarge) {
     &:not(.animated) {
       opacity: 0;
     }
@@ -147,6 +147,7 @@ body.soon {
         align-items: center;
         justify-content: center;
         margin-bottom: auto;
+        width: 100%;
 
         p {
           color: $cs-text-color;
@@ -155,13 +156,37 @@ body.soon {
           max-width: rem-calc(560);
         }
 
+        #nav {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
         &-nav {
           list-style-type: none;
           margin-top: rem-calc(60);
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+          width: 100%;
           max-width: rem-calc(1200);
           grid-gap: rem-calc(42);
+          
+          
+          @include breakpoint(large down) {
+            grid-gap: rem-calc(28);
+            grid-template-columns: repeat(auto-fill, minmax(170px,1fr));
+          }
+
+          @include breakpoint(medium down) {
+            grid-gap: rem-calc(14);
+            grid-template-columns: repeat(5, 1fr);
+          }
+
+          @include breakpoint(small only) {
+            display: flex;
+            flex-direction: column;
+            grid-gap: rem-calc(14);
+          }
   
           &-item {
             @include glass($cs-accent-2, 0.07, 7px, $border-alpha: 0.07, $border-width: 1.4);
@@ -169,6 +194,12 @@ body.soon {
             height: 0;
             padding-bottom: 100%;
             overflow: hidden;
+
+            @include breakpoint(small only) {
+              position: relative;
+              height: auto;
+              padding-bottom: 0;
+            }
 
             transition: transform 0.25s linear; 
 
@@ -197,12 +228,18 @@ body.soon {
 
               cursor: pointer;
               text-decoration: none;
-              position: absolute;
               display: flex;
               flex-direction: column;
               justify-content: center;
               align-items: center;
               color: $cs-accent-2;
+
+              @include breakpoint(small only) {
+                position: relative;
+                flex-direction: row;
+                align-items: center;
+                justify-content: start;
+              }
               
               span {
                 margin-top: rem-calc(7);
@@ -220,6 +257,17 @@ body.soon {
                 object-fit: cover;
                 object-position: top center;
                 border-radius: 50%;
+                
+                @include breakpoint(medium down) {
+                  width: rem-calc(70);
+                  height: auto;
+                }
+
+                @include breakpoint(small only) {
+                  width: rem-calc(56);
+                  height: auto;
+                  margin-right: rem-calc(21);
+                }
               }
 
               &.active {
@@ -228,8 +276,10 @@ body.soon {
             }
 
             &:hover {
-              a {
-                transform: scale(1.05);
+              @include breakpoint(xlarge) {
+                a {
+                  transform: scale(1.05);
+                }
               }
             }
           }
@@ -588,7 +638,7 @@ body.soon {
     text-align: center;
     display: flex;
     justify-content: center;
-    padding: rem-calc(56 0 28);
+    padding: rem-calc(28 0 28);
     margin: 0 auto;
     border-top: rem-calc(1) solid rgba(white, 0.07);
     max-width: rem-calc(1440);
@@ -610,6 +660,11 @@ body.soon {
       font-size: rem-calc(16);
       font-weight: 600;
       letter-spacing: rem-calc(0.3px);
+      
+      @include breakpoint (small only) {
+        padding: rem-calc(14 14);
+        margin: rem-calc(0 3);
+      }
 
       @include glass();
 
@@ -636,12 +691,19 @@ body.soon {
       margin-bottom: rem-calc(35);
       padding: rem-calc(35 0);
 
+      @include breakpoint (small only) {
+        max-width: rem-calc(450);
+        width: 90%;
+      }
+
       h3 {
         margin-bottom: rem-calc(28);
       }
 
       p {
         margin-bottom: rem-calc(14);
+
+
       }
     }
 
