@@ -515,10 +515,7 @@ body.soon {
         min-height: rem-calc(250px);
       }
 
-      iframe {
-        width: 100%!important;
-        height: rem-calc(500)!important;
-      }
+
 
       a {
         overflow: hidden;
@@ -715,5 +712,12 @@ body.soon {
       display: block;
     }
   }
+
+
   
+}
+
+body.soon iframe {
+  width: 100%!important;
+  height: rem-calc(500)!important;
 }
