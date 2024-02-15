@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio | Alexandru Gatea</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/color.js"></script>
 </head>
 
 <body class="soon">
@@ -23,15 +24,9 @@
             </div>
             <h1 class="cs-title">Hello! I'm <a href="#resume">Alex.</a></h1>
             <div class="cs-desc">
-                <p>This website is currently under a heavy rebranding process, but worry not as you can still explore around.</p>
+                <p>This website is currently under rebranding, but worry not as you can still explore around.</p>
                 <p>You can check my:</p>
-                <ul>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="/showcase">Public Portfolio</a></li>
-                    <li><a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank">Linked In</a></li>
-                    <li><a href="https://www.instagram.com/alexandrudangatea/" target="_blank">Instagram</a></li>
-                    <li><a href="/portfolio">old website</a></li>
-                </ul>
+                <div id="nav"></div>
             </div>
         </div>
         <div id="resume" class="resume glass">
@@ -151,11 +146,19 @@
     </main>
     <!-- scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    <!--<script src="js/custom.js"></script>-->
-    <!--<script src="js/onscreen.js"></script>-->
+    <script src="js/onscreen.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+            var wW = $(window).width();
+
+            if (wW > 768) {
+                $('body').addClass('animated fadeIn');
+            }
+        });
+    </script>
     <script>
         // smooth scroll to anchor
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
@@ -164,7 +167,63 @@
                 });
             });
         });
+
+        fetch('webLayouts/nav.html')
+        .then(response => response.text())
+        .then(html => {
+            // Inject the fetched HTML into the DOM
+            document.querySelector('#nav').innerHTML = html;
+
+            var link = $('.link');
+
+            link.on('click', function(e){
+
+                // stop page redirect
+                e.preventDefault();
+
+                // get target url
+                // var host = window.location.host;
+                var goTo = $(this).attr('href');
+                var elColor = $(this).css('backgroundColor');
+
+                if (elColor == "rgba(0, 0, 0, 0)") {
+                    elColor = $(this).css('color');
+                }
+
+
+                var elHex = hexc(elColor);
+                sessionStorage.setItem('colour', '#' + hexc(elColor));
+
+                // create circle
+                $('body').addClass('locked').append('<div class="transition-circle" style="background: #' + elHex + '; top: ' + (e.clientY + document.body.scrollTop) + 'px; left: ' + e.clientX + 'px"></div>');
+
+                setTimeout(function(){
+                    $(location).attr('href', goTo);
+                }, 800);
+
+
+            });
+
+            function hexc(colorval) {
+                var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                delete(parts[0]);
+                for (var i = 1; i <= 3; ++i) {
+                    parts[i] = parseInt(parts[i]).toString(16);
+                    if (parts[i].length == 1) parts[i] = '0' + parts[i];
+                }
+                colorVar = parts.join('');
+
+                return colorVar;
+            }
+
+
+        })
+        .catch(error => {
+            console.error('Error fetching navigation:', error);
+        });
     </script>
+    <script src="js/custom.js"></script>
+
 </body>
 
 </html>

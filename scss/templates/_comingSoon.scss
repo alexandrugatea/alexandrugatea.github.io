@@ -8,6 +8,15 @@ body.soon {
   position: relative;
   z-index: 0;
   padding-bottom: rem-calc(140);
+  transition: opacity 0.3s ease-in-out;
+  animation-duration: 0.7s;
+
+  @include breakpoint(medium) {
+    &:not(.animated) {
+      opacity: 0;
+    }
+  }
+
 
 
   .background {
@@ -21,6 +30,7 @@ body.soon {
     top: 0;
     left: 0;
     z-index: 1;
+    opacity: 0.75;
 
     &-top,
     &-bottom {
@@ -139,36 +149,90 @@ body.soon {
         margin-bottom: auto;
 
         p {
-
           color: $cs-text-color;
           @include font(14px, 21px, 1.4, 600, normal, 320px, 1200px, $text-font);
           letter-spacing: rem-calc(0.5);
           max-width: rem-calc(560);
         }
 
-        ul {
-          display: grid;
+        &-nav {
           list-style-type: none;
-          grid-template-columns: repeat(5, 1fr);
-          grid-gap: rem-calc(21);
+          margin-top: rem-calc(60);
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+          max-width: rem-calc(1200);
+          grid-gap: rem-calc(42);
+  
+          &-item {
+            @include glass($cs-accent-2, 0.07, 7px, $border-alpha: 0.07, $border-width: 1.4);
+            position: relative;
+            height: 0;
+            padding-bottom: 100%;
+            overflow: hidden;
 
-          @include breakpoint(small only) {
-            grid-template-columns: repeat(2, 1fr);
-          }
+            transition: transform 0.25s linear; 
 
-          li {
+            &:nth-child(1) {
+              border-radius: rem-calc(7 14 28 14);
+            }
+            &:nth-child(2) {
+              border-radius: rem-calc(7 28 7 14);
+            }
+            &:nth-child(3) {
+              border-radius: rem-calc(28 7 14 7);
+            }
+            &:nth-child(4) {
+              border-radius: rem-calc(14 7 28 7);
+            }
+            &:nth-child(5) {
+              border-radius: rem-calc(7 14 28 7);
+            }
 
             a {
-              @include font(12px, 14px, 2, 700, normal, 320px, 1200px, $text-font);
-              text-transform: uppercase;
-              letter-spacing: rem-calc(1);
-              font-family: $text-font;
-              color: $cs-accent;
+              @extend .absolute;
+              @extend .absolute-full;
+              overflow: hidden;
+              transform: scale(0.85);
+              transition: all 0.15s cubic-bezier(1, 0.64, 0, 0.42);
+
               cursor: pointer;
               text-decoration: none;
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              color: $cs-accent-2;
+              
+              span {
+                margin-top: rem-calc(7);
+                @include font(12px, 14px, 2, 700, normal, 320px, 1200px, $text-font);
+                text-transform: uppercase;
+                letter-spacing: rem-calc(1);
+                font-family: $text-font;
+                color: $cs-accent-2;
+              }
+
+              img, svg {
+                width: rem-calc(126);
+                height: rem-calc(126);
+                display: block;
+                object-fit: cover;
+                object-position: top center;
+                border-radius: 50%;
+              }
+
+              &.active {
+                pointer-events: none;
+              }
+            }
+
+            &:hover {
+              a {
+                transform: scale(1.05);
+              }
             }
           }
-
         }
       }
     }
@@ -176,7 +240,11 @@ body.soon {
 
 
   .resume {
-    @include glass(#131419, 0.14, 7px, $border-alpha: 0.07);
+
+    &.glass {
+      @include glass(#131419, 0.14, 7px, $border-alpha: 0.07);
+    }
+
     padding: rem-calc(56);
     border-radius: rem-calc(56);
     color: #fff;
@@ -407,13 +475,15 @@ body.soon {
     }
   }
 
-  .gallery {
+  .gallery:not(.masonry) {
     position: relative;
     z-index: 2;
     width: 100%;
     padding: rem-calc(10);
     display: grid;
     grid-gap: rem-calc(10);
+    max-width: rem-calc(1440);
+    margin: 0 auto;
     //grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-columns: repeat(auto-fill, minmax(20%,1fr));
     
@@ -471,15 +541,6 @@ body.soon {
         letter-spacing: rem-calc(1);
       }
 
-      //&.map {grid-row: span 1;grid-column: span 3;}
-      //&.lp {grid-row: span 1;grid-column: span 4;}
-      ////&.fm {grid-row: span 2;grid-column: span 2;}
-      //&.cs {grid-row: span 1;grid-column: span 2;}
-      //&.tn {grid-row: span 1;grid-column: span 2;}
-      //&.dk {grid-row: span 1;grid-column: span 2;}
-      //&.sy {grid-row: span 1;grid-column: span 2;}
-      //&.ni {grid-row: span 1;grid-column: span 2;}
-      //&.ws {grid-row: span 1;grid-column: span 2;}
     }
 
 
@@ -496,4 +557,158 @@ body.soon {
       margin: 0 auto;
     }
   }
+}
+
+
+body.soon.showcase {
+  .intro {
+    min-height: auto;
+
+    .cs-desc {
+
+
+    }
+  }
+}
+
+.tabcontent {
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+
+body.soon {
+
+  .tabs {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: rem-calc(56 0 28);
+    margin: 0 auto;
+    border-top: rem-calc(1) solid rgba(white, 0.07);
+    max-width: rem-calc(1440);
+    margin: 0 auto;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background: $cs-main-dark;
+
+    .tablinks {
+      background: transparent;
+      color: $cs-accent-2;
+      outline: none;
+      border: none;
+      box-shadow: none;
+      margin: rem-calc(0 7);
+      padding: rem-calc(14 28);
+      border-radius: rem-calc(7);
+      font-size: rem-calc(16);
+      font-weight: 600;
+      letter-spacing: rem-calc(0.3px);
+
+      @include glass();
+
+      cursor: pointer;
+
+      &.active {
+        @include glass($cs-accent, 0.3, 14, $cs-accent, 0.14, 1.1);
+        color: $cs-main-dark;
+      }
+    }
+  }
+
+  .tabcontent {
+    max-width: rem-calc(1440);
+    margin: 0 auto;
+    color: $cs-text-color;
+    text-align: center;
+
+    .tab-des {
+      text-align: center;
+      max-width: rem-calc(700);
+      line-height: 1.45;
+      margin: 0 auto;
+      margin-bottom: rem-calc(35);
+      padding: rem-calc(35 0);
+
+      h3 {
+        margin-bottom: rem-calc(28);
+      }
+
+      p {
+        margin-bottom: rem-calc(14);
+      }
+    }
+
+    .gallery:not(.masonry) {
+
+      .item {
+
+        .logo {
+          object-fit: contain;
+          object-position: center;
+          max-width: 80%;
+          
+        }
+      }
+
+      &.of-3 {
+        grid-template-columns: repeat(auto-fill, minmax(25%,1fr));
+    
+        @include breakpoint (large down) {
+          grid-template-columns: repeat(auto-fill, minmax(40%,1fr));
+        }
+    
+        @include breakpoint (small only) {
+          grid-template-columns: repeat(auto-fill, minmax(80%,1fr));
+        }
+      }
+    }
+  }
+}
+
+.item.lp {
+  p {
+    font-size: rem-calc(16);
+    color: $cs-text-color;
+    max-width: rem-calc(700);
+    padding: rem-calc(42 0 21);
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+
+.gallery.masonry {
+  column-count: 4;
+  column-gap: rem-calc(14);
+
+  @include breakpoint(large down) {
+    column-count: 3;
+  }
+  @include breakpoint(medium down) {
+    column-count: 2;
+  }
+  @include breakpoint(small only) {
+    column-count: 1;
+  }
+
+  .item {
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    margin-bottom: rem-calc(14);
+    break-inside: avoid;
+
+    img {
+      grid-row: 1 / -1;
+      grid-column: 1;
+      max-width: 100%;
+      display: block;
+    }
+  }
+  
 }

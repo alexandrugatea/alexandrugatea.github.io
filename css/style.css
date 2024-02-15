@@ -5725,8 +5725,6 @@
 }
 
 @media print, screen and (min-width: 48em) {
-  body:not(.soon) header,
-  body:not(.soon) main,
   #home .homepage-hero .will-animate,
   #home .homepage-about .grid-cell,
   #home .homepage-portfolio .grid-cell,
@@ -5745,8 +5743,6 @@
     opacity: 0;
     transition: all 0.3s ease;
   }
-  body:not(.soon) header.animated,
-  body:not(.soon) main.animated,
   #home .homepage-hero .will-animate.animated,
   #home .homepage-about .grid-cell.animated,
   #home .homepage-portfolio .grid-cell.animated,
@@ -7130,11 +7126,11 @@ section .title:after {
   position: relative;
 }
 
-.absolute {
+.absolute, body.soon main .intro .cs-desc-nav-item a {
   position: absolute;
 }
 
-.absolute-full {
+.absolute-full, body.soon main .intro .cs-desc-nav-item a {
   top: 0;
   left: 0;
   width: 100%;
@@ -8117,7 +8113,7 @@ body::-webkit-scrollbar {
     flex-wrap: wrap;
   }
 }
-#home .homepage-hero .absolute {
+#home .homepage-hero .absolute, #home .homepage-hero body.soon main .intro .cs-desc-nav-item a, body.soon main .intro .cs-desc-nav-item #home .homepage-hero a {
   overflow: hidden;
   z-index: 1;
   display: flex;
@@ -8125,7 +8121,7 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
 }
-#home .homepage-hero .absolute span {
+#home .homepage-hero .absolute span, #home .homepage-hero body.soon main .intro .cs-desc-nav-item a span, body.soon main .intro .cs-desc-nav-item #home .homepage-hero a span {
   font-size: 18vw;
   text-transform: uppercase;
   color: #ffffff;
@@ -8134,7 +8130,7 @@ body::-webkit-scrollbar {
   opacity: 0.1;
 }
 @media screen and (max-width: 47.9375em) {
-  #home .homepage-hero .absolute span {
+  #home .homepage-hero .absolute span, #home .homepage-hero body.soon main .intro .cs-desc-nav-item a span, body.soon main .intro .cs-desc-nav-item #home .homepage-hero a span {
     font-size: 70vw;
   }
 }
@@ -8686,6 +8682,13 @@ body.soon {
   position: relative;
   z-index: 0;
   padding-bottom: 8.75rem;
+  transition: opacity 0.3s ease-in-out;
+  animation-duration: 0.7s;
+}
+@media print, screen and (min-width: 48em) {
+  body.soon:not(.animated) {
+    opacity: 0;
+  }
 }
 body.soon .background {
   display: flex;
@@ -8698,6 +8701,7 @@ body.soon .background {
   top: 0;
   left: 0;
   z-index: 1;
+  opacity: 0.75;
 }
 body.soon .background-top:after, body.soon .background-bottom:after {
   content: "";
@@ -8841,18 +8845,57 @@ body.soon main .intro .cs-desc p {
     font-size: 1.3125rem;
   }
 }
-body.soon main .intro .cs-desc ul {
-  display: grid;
+body.soon main .intro .cs-desc-nav {
   list-style-type: none;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 1.3125rem;
+  margin-top: 3.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  max-width: 75rem;
+  grid-gap: 2.625rem;
 }
-@media screen and (max-width: 47.9375em) {
-  body.soon main .intro .cs-desc ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
+body.soon main .intro .cs-desc-nav-item {
+  background: rgba(40, 232, 220, 0.07);
+  border: 0.0875rem solid rgba(247, 247, 247, 0.07);
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(7px);
+  --webkit-backdrop-filter: blur($blur);
+  /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  transition: transform 0.25s linear;
 }
-body.soon main .intro .cs-desc ul li a {
+body.soon main .intro .cs-desc-nav-item:nth-child(1) {
+  border-radius: 0.4375rem 0.875rem 1.75rem 0.875rem;
+}
+body.soon main .intro .cs-desc-nav-item:nth-child(2) {
+  border-radius: 0.4375rem 1.75rem 0.4375rem 0.875rem;
+}
+body.soon main .intro .cs-desc-nav-item:nth-child(3) {
+  border-radius: 1.75rem 0.4375rem 0.875rem 0.4375rem;
+}
+body.soon main .intro .cs-desc-nav-item:nth-child(4) {
+  border-radius: 0.875rem 0.4375rem 1.75rem 0.4375rem;
+}
+body.soon main .intro .cs-desc-nav-item:nth-child(5) {
+  border-radius: 0.4375rem 0.875rem 1.75rem 0.4375rem;
+}
+body.soon main .intro .cs-desc-nav-item a {
+  overflow: hidden;
+  transform: scale(0.85);
+  transition: all 0.15s cubic-bezier(1, 0.64, 0, 0.42);
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #28E8DC;
+}
+body.soon main .intro .cs-desc-nav-item a span {
+  margin-top: 0.4375rem;
   font-size: calc(12px
     + 2
     * (100vw - 320px)
@@ -8865,27 +8908,33 @@ body.soon main .intro .cs-desc ul li a {
   text-transform: uppercase;
   letter-spacing: 0.0625rem;
   font-family: "Lato", sans-serif;
-  color: #00FFCE;
-  cursor: pointer;
-  text-decoration: none;
+  color: #28E8DC;
 }
 @media screen and (max-width: 320px) {
-  body.soon main .intro .cs-desc ul li a {
+  body.soon main .intro .cs-desc-nav-item a span {
     font-size: 0.75rem;
   }
 }
 @media screen and (min-width: 1200px) {
-  body.soon main .intro .cs-desc ul li a {
+  body.soon main .intro .cs-desc-nav-item a span {
     font-size: 0.875rem;
   }
 }
+body.soon main .intro .cs-desc-nav-item a img, body.soon main .intro .cs-desc-nav-item a svg {
+  width: 7.875rem;
+  height: 7.875rem;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+}
+body.soon main .intro .cs-desc-nav-item a.active {
+  pointer-events: none;
+}
+body.soon main .intro .cs-desc-nav-item:hover a {
+  transform: scale(1.05);
+}
 body.soon .resume {
-  background: rgba(19, 20, 25, 0.14);
-  border: 0.0625rem solid rgba(247, 247, 247, 0.07);
-  /* Note: currently only Safari supports backdrop-filter */
-  backdrop-filter: blur(7px);
-  --webkit-backdrop-filter: blur($blur);
-  /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
   padding: 3.5rem;
   border-radius: 3.5rem;
   color: #fff;
@@ -8897,6 +8946,14 @@ body.soon .resume {
   display: grid;
   grid-template-columns: 69% auto;
   grid-gap: 0;
+}
+body.soon .resume.glass {
+  background: rgba(19, 20, 25, 0.14);
+  border: 0.0625rem solid rgba(247, 247, 247, 0.07);
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(7px);
+  --webkit-backdrop-filter: blur($blur);
+  /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
 }
 @media screen and (max-width: 47.9375em) {
   body.soon .resume {
@@ -9112,7 +9169,7 @@ body.soon .resume-work-section-description, body.soon .resume-other-section-desc
   margin-bottom: 0.625rem;
   color: rgba(183, 245, 247, 0.84);
 }
-body.soon .resume-work-section-description span, body.soon .resume-other-section-description span {
+body.soon .resume-work-section-description span, body.soon .resume-other-section-description li span, body.soon .resume-other-section-description span {
   font: inherit;
   color: rgba(190, 172, 131, 0.84);
 }
@@ -9137,33 +9194,35 @@ body.soon .resume-other-section-description li a {
   text-decoration: none;
   color: inherit;
 }
-body.soon .gallery {
+body.soon .gallery:not(.masonry) {
   position: relative;
   z-index: 2;
   width: 100%;
   padding: 0.625rem;
   display: grid;
   grid-gap: 0.625rem;
+  max-width: 90rem;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
 }
 @media screen and (max-width: 74.9375em) {
-  body.soon .gallery {
+  body.soon .gallery:not(.masonry) {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
   }
 }
 @media screen and (max-width: 47.9375em) {
-  body.soon .gallery {
+  body.soon .gallery:not(.masonry) {
     grid-template-columns: repeat(auto-fill, minmax(80%, 1fr));
   }
 }
-body.soon .gallery .item {
+body.soon .gallery:not(.masonry) .item {
   display: block;
   background: #000E29;
   margin-bottom: 0.625rem;
   position: relative;
 }
-body.soon .gallery .item a,
-body.soon .gallery .item img {
+body.soon .gallery:not(.masonry) .item a,
+body.soon .gallery:not(.masonry) .item img {
   display: block;
   max-width: 100%;
   width: 100%;
@@ -9172,10 +9231,10 @@ body.soon .gallery .item img {
   object-position: top center;
   min-height: 15.625rem;
 }
-body.soon .gallery .item a {
+body.soon .gallery:not(.masonry) .item a {
   overflow: hidden;
 }
-body.soon .gallery .item p {
+body.soon .gallery:not(.masonry) .item p {
   position: absolute;
   z-index: 1;
   bottom: 1.5625rem;
@@ -9203,6 +9262,141 @@ body.soon .item.lp img {
   width: 90%;
   max-width: 75rem;
   margin: 0 auto;
+}
+
+body.soon.showcase .intro {
+  min-height: auto;
+}
+.tabcontent {
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+body.soon .tabs {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 0 1.75rem;
+  margin: 0 auto;
+  border-top: 0.0625rem solid rgba(255, 255, 255, 0.07);
+  max-width: 90rem;
+  margin: 0 auto;
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background: #000E29;
+}
+body.soon .tabs .tablinks {
+  background: transparent;
+  color: #28E8DC;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  margin: 0 0.4375rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.4375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01875rem;
+  background: rgba(147, 229, 232, 0.07);
+  border: 0.0625rem solid rgba(247, 247, 247, 0.14);
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(28px);
+  --webkit-backdrop-filter: blur($blur);
+  /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
+  cursor: pointer;
+}
+body.soon .tabs .tablinks.active {
+  background: rgba(0, 255, 206, 0.3);
+  border: 0.06875rem solid rgba(0, 255, 206, 0.14);
+  /* Note: currently only Safari supports backdrop-filter */
+  backdrop-filter: blur(14);
+  --webkit-backdrop-filter: blur($blur);
+  /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
+  color: #000E29;
+}
+body.soon .tabcontent {
+  max-width: 90rem;
+  margin: 0 auto;
+  color: rgba(183, 245, 247, 0.84);
+  text-align: center;
+}
+body.soon .tabcontent .tab-des {
+  text-align: center;
+  max-width: 43.75rem;
+  line-height: 1.45;
+  margin: 0 auto;
+  margin-bottom: 2.1875rem;
+  padding: 2.1875rem 0;
+}
+body.soon .tabcontent .tab-des h3 {
+  margin-bottom: 1.75rem;
+}
+body.soon .tabcontent .tab-des p {
+  margin-bottom: 0.875rem;
+}
+body.soon .tabcontent .gallery:not(.masonry) .item .logo {
+  object-fit: contain;
+  object-position: center;
+  max-width: 80%;
+}
+body.soon .tabcontent .gallery:not(.masonry).of-3 {
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+}
+@media screen and (max-width: 74.9375em) {
+  body.soon .tabcontent .gallery:not(.masonry).of-3 {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  body.soon .tabcontent .gallery:not(.masonry).of-3 {
+    grid-template-columns: repeat(auto-fill, minmax(80%, 1fr));
+  }
+}
+
+.item.lp p {
+  font-size: 1rem;
+  color: rgba(183, 245, 247, 0.84);
+  max-width: 43.75rem;
+  padding: 2.625rem 0 1.3125rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.gallery.masonry {
+  column-count: 4;
+  column-gap: 0.875rem;
+}
+@media screen and (max-width: 74.9375em) {
+  .gallery.masonry {
+    column-count: 3;
+  }
+}
+@media screen and (max-width: 61.9375em) {
+  .gallery.masonry {
+    column-count: 2;
+  }
+}
+@media screen and (max-width: 47.9375em) {
+  .gallery.masonry {
+    column-count: 1;
+  }
+}
+.gallery.masonry .item {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 0.875rem;
+  break-inside: avoid;
+}
+.gallery.masonry .item img {
+  grid-row: 1/-1;
+  grid-column: 1;
+  max-width: 100%;
+  display: block;
 }
 
 /* Slider */

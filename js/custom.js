@@ -103,18 +103,9 @@ jQuery(document).ready(function(){
             parts[i] = parseInt(parts[i]).toString(16);
             if (parts[i].length == 1) parts[i] = '0' + parts[i];
         }
-        colorVar = parts.join('');
+        colorval = parts.join('');
 
-        return colorVar;
+        return colorval;
     }
 
 });
-
-
-
-
-
-
-
-
-

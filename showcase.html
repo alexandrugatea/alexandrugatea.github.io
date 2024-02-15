@@ -7,13 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Portfolio | Alexandru Gatea</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/color.js"></script>
 </head>
 
-<body class="soon">
-  <div class="background">
-    <div class="background-top"></div>
-    <div class="background-bottom"></div>
-  </div>
+<body class="soon showcase">
   <main>
     <div class="intro">
       <div class="logo-container">
@@ -21,61 +18,47 @@
           alexandru&nbsp;<strong>gatea</strong>
         </a>
       </div>
-      <h1 class="cs-title">Hello! I'm <a href="#resume">Alex.</a></h1>
+      <!--<h1 class="cs-title">Hello! I'm <a href="#resume">Alex.</a></h1>-->
       <div class="cs-desc">
-        <p>This website is currently under a heavy rebranding process, but worry not as you can still explore around.
-        </p>
-        <p>You can still snoop around and check some of my public creations:</p>
-        <ul>
-          <li><a href="/#resume">Resume</a></li>
-          <li><a href="/showcase">Public Portfolio</a></li>
-          <li><a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank">Linked In</a></li>
-          <li><a href="https://www.instagram.com/alexandrudangatea/" target="_blank">Instagram</a></li>
-          <li><a href="/portfolio">old website</a></li>
-        </ul>
+        <div id="nav"></div>
       </div>
     </div>
 
   </main>
-  <div class="gallery">
-    <div class="gallery-column">
+
+  <div class="tabs">
+    <button class="tablinks" data-tab="tab1" onclick="openTab(event, 'tab1')">Web dev</button>
+    <button class="tablinks" data-tab="tab2" onclick="openTab(event, 'tab2')">Logo Design</button>
+    <button class="tablinks" data-tab="tab3" onclick="openTab(event, 'tab3')">Maps</button>
+    <button class="tablinks" data-tab="tab4" onclick="openTab(event, 'tab4')">Other</button>
+  </div>
+
+  <div id="tab1" class="tabcontent">
+    <div class="tab-des">
+      <h3>Web design & development</h3>
+      <p>Throughout my career I've worked as a web-designer and frontend developer for more that 8 years. Please find
+        some of my projects.
+      <p>
+        Some cannot be shared, but I've been part of the team that implemented: BT Leasing and BT Club and Polaris
+        Medical.
+      </p>
+    </div>
+
+    <div class="gallery">
       <div class="item tn">
         <a href="https://www.telenav.com/" target="_blank">
           <img src="images/show/tnv_new.png" alt="">
           <p>Telenav Website US (latest)</p>
         </a>
       </div>
-      <div class="item map">
-        <img src="images/show/blenderMap.png" alt="">
-      </div>
-      <div class="item cs">
-        <img src="images/show/CityScroller_Logo_A_Light.png" alt="">
-      </div>
-      <div class="item fm">
-        <img src="images/show/FantanaMagica_Single_Page_1.png" alt="">
-      </div>
-    </div>
 
-    <div class="gallery-column">
       <div class="item">
         <a href="https://web.archive.org/web/20200308073901/https://www.telenav.com/" target="_blank">
           <img src="images/show/tnv_old.png" alt="">
           <p>Telenav Website US (previous)</p>
         </a>
       </div>
-      <div class="item ">
-        <img src="images/show/EVE_Social_Component.jpg" alt="">
-      </div>
-      <div class="item ni">
-        <img src="images/show/NioMap_After_Day_z16_2D.png" alt="">
-      </div>
-      <div class="item ">
-        <img src="images/show/PortraitMap_924x1642_empty_@2.4.png" alt="">
-      </div>
-    </div>
 
-
-    <div class="gallery-column">
       <div class="item sy">
         <a href="https://www.synpheon.com/" target="_blank">
           <img src="images/show/synpheon.png" alt="">
@@ -83,21 +66,6 @@
         </a>
       </div>
 
-
-      <div class="item ">
-        <img src="images/show/LB_PL_Page_2.png" alt="">
-      </div>
-
-      <div class="item ">
-        <img src="images/show/MovementLogo_COLOR.jpg" alt="">
-      </div>
-
-      <div class="item ">
-        <img src="images/show/paper blocks2.png" alt="">
-      </div>
-    </div>
-
-    <div class="gallery-column">
       <div class="item dk">
         <a href="https://www.autodakar.ro/" target="_blank">
           <img src="images/show/dakar.png" alt="">
@@ -105,37 +73,199 @@
         </a>
       </div>
 
+    </div>
+    <div class="item lp">
+      <p>And this is how my new website is intended to look like</p>
+      <img src="images/show/Landingpage.png" alt="">
+    </div>
+  </div>
 
-      <div class="item ">
-        <img src="images/show/WS_LOGO_WHITE.png" alt="">
+  <div id="tab2" class="tabcontent">
+
+    <div class="tab-des">
+      <h3>Logo Design & Branding</h3>
+      <p>Some of the logos I created
+      <p>
+    </div>
+
+    <div class="gallery">
+      <div class="item">
+        <img src="images/show/logo/CityScroller_Logo_A_Light.png" class="logo" alt="">
       </div>
-
-      <div class="item ws">
-        <img src="images/show/Wanted_Sneakers_Sticker_atipic_3D_shoe.png" alt="">
+      <div class="item">
+        <img src="images/show/logo/AtleticMed_PureWhite.png" class="logo" alt="">
       </div>
-
-
-
-      <div class="item ">
-        <img src="images/show/yep.png" alt="">
+      <div class="item">
+        <img src="images/show/logo/BoardGamesLogo_BGRR-H-White.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/Keytana_Logo_LIGHT.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/LDFS_Pure-White.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/LetsGO_White.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/Logo_Alb.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/MovementLogo_MONO_WHITE.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/OriginalMan_14_Logo_Secondary_White_Transparent.png" class="logo" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/logo/WS_T_LOGO_WHITE.png" class="logo" alt="">
       </div>
     </div>
 
 
-
-
-
-
-
-
   </div>
-  <div class="item lp">
-    <img src="images/show/Landingpage.png" alt="">
+
+  <div id="tab3" class="tabcontent">
+    <div class="tab-des">
+      <h3>Map design</h3>
+      <p>As a map designer at Telenav I've been working on drawing and coding navigation maps.
+      <p>
+    </div>
+
+    <div class="gallery of-3">
+      <div class="item">
+        <img src="images/show/maps/preview_default.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/preview_scout.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/preview_nozomi.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/blenderMap.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/Map_Render_Redesign_1.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/paper blocks2.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/nio_improved_fog_night_3.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/PortraitMap_924x1642_empty_@2.4.png" alt="">
+      </div>
+      <div class="item">
+        <img src="images/show/maps/NioMap_After_Day_z16_2D.png" alt="">
+      </div>
+    </div>
   </div>
+
+  <div id="tab4" class="tabcontent">
+    <div class="tab-des">
+      <h3>Other creations</h3>
+      <p>I'ver also created various digital and print designs, as well as mini components, in JS Fiddle.
+      <p>
+    </div>
+
+    <div class="gallery of-3">
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/geL5k3ov/119/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/hd4p3ny2/25/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/u96rwp48/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/aftgwL9u/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/toxaph0n/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/x4rLfa9q/171/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/fvkhqgam/29/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/epy3wbLr/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/4j3yonqd/352/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/c6ma3yv0/95/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+      <div class="item">
+        <iframe width="100%" height="500" src="//jsfiddle.net/alexandrugatea/ay1qfkLs/embedded/result/dark/"
+          allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+      </div>
+
+    </div>
+
+    <div class="gallery masonry">
+      <div class="item">
+        <img src="images/show/Building Improvements.png" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/EVE_Social_Component.jpg" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/LB_PL_Page_2.png" alt="">
+      </div>
+      <div class="item ws">
+        <img src="images/show/Wanted_Sneakers_Sticker_atipic_3D_shoe.png" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/yep.png" alt="">
+      </div>
+
+      <div class="item">
+        <img src="images/show/Little Daisy Flower Shop.jpg" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/EVE_Social_Component.jpg" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/LB_PL_Page_2.png" alt="">
+      </div>
+      <div class="item ws">
+        <img src="images/show/Wanted_Sneakers_Sticker_atipic_3D_shoe.png" alt="">
+      </div>
+      <div class="item ">
+        <img src="images/show/yep.png" alt="">
+      </div>
+    </div>
+  </div>
+
+
+
   <!-- scripts -->
   <script src="js/jquery-3.3.1.min.js"></script>
-  <!--<script src="js/custom.js"></script>-->
-  <!--<script src="js/onscreen.js"></script>-->
+  <script src="js/custom.js"></script>
+  <script src="js/onscreen.js"></script>
+  <script>
+    jQuery(document).ready(function ($) {
+      var wW = $(window).width();
+      if (wW > 768) {
+        $('body').addClass('animated fadeIn');
+      }
+    });
+  </script>
   <script>
     // smooth scroll to anchor
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -147,6 +277,97 @@
         });
       });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const activeTab = localStorage.getItem('activeTab');
+      if (activeTab) {
+        openTab(null, activeTab); // Pass null as event since it's not coming from a click event
+        // Add "active" class to the tab link associated with the active tab
+        document.querySelector(`[data-tab="${activeTab}"]`).classList.add("active");
+      } else {
+        // If no active tab is stored in local storage, default to the first tab
+        const firstTab = document.querySelector('.tablinks');
+        if (firstTab) {
+          openTab(null, firstTab.getAttribute('data-tab')); // Pass null as event
+          firstTab.classList.add("active"); // Add "active" class to the first tab link
+        }
+      }
+    });
+
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+
+      // Hide all tab content
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Deactivate all tab links
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      // Show the specific tab content
+      document.getElementById(tabName).style.display = "block";
+
+      // Activate the button that opened the tab
+      if (evt) {
+        evt.currentTarget.classList.add("active");
+      }
+
+      // Save active tab to local storage
+      localStorage.setItem('activeTab', tabName);
+      document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+
+    //function openTab(evt, tabName) {
+    //  var i, tabcontent, tablinks;
+
+    //  // Hide all tab content
+    //  tabcontent = document.getElementsByClassName("tabcontent");
+    //  for (i = 0; i < tabcontent.length; i++) {
+    //    tabcontent[i].classList.remove("active");
+    //  }
+
+    //  // Deactivate all tab links
+    //  tablinks = document.getElementsByClassName("tablinks");
+    //  for (i = 0; i < tablinks.length; i++) {
+    //    tablinks[i].classList.remove("active");
+    //  }
+
+    //  // Show the specific tab content
+    //  document.getElementById(tabName).classList.add("active");
+
+    //  // Activate the button that opened the tab
+    //  evt.currentTarget.classList.add("active");
+
+    //  // Scroll to the top of the tab content
+    //  document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //}
+
+
+    fetch('webLayouts/nav.html')
+      .then(response => response.text())
+      .then(html => {
+        // Inject the fetched HTML into the DOM
+        document.querySelector('#nav').innerHTML = html;
+
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.link');
+
+        navLinks.forEach(link => {
+          const linkPath = link.getAttribute('href');
+          if (linkPath === currentPath) {
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching navigation:', error);
+      });
   </script>
 </body>
 
