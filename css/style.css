@@ -8759,7 +8759,7 @@ body.soon main .logo-container {
   background: rgba(0, 14, 41, 0.56);
   border: 0 solid rgba(0, 0, 0, 0);
   /* Note: currently only Safari supports backdrop-filter */
-  backdrop-filter: blur(7);
+  backdrop-filter: blur(7px);
   --webkit-backdrop-filter: blur($blur);
   /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
 }
@@ -9313,7 +9313,7 @@ body.soon .tabs .tablinks.active {
   background: rgba(0, 255, 206, 0.3);
   border: 0.06875rem solid rgba(0, 255, 206, 0.14);
   /* Note: currently only Safari supports backdrop-filter */
-  backdrop-filter: blur(14);
+  backdrop-filter: blur(14px);
   --webkit-backdrop-filter: blur($blur);
   /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
   color: #000E29;

@@ -20,7 +20,39 @@
       </div>
       <!--<h1 class="cs-title">Hello! I'm <a href="#resume">Alex.</a></h1>-->
       <div class="cs-desc">
-        <div id="nav"></div>
+        <ul class="cs-desc-nav">
+          <li class="cs-desc-nav-item cv">
+              <a href="/#resume"> 
+                  <img src="/images/show/port_cv.png" alt="Resume"> 
+                  <span>Resume</span>
+              </a>
+          </li>
+          <li class="cs-desc-nav-item portfolio">
+              <a href="/showcase" class="link">
+                  <img src="/images/show/port_pp.png" alt="Portfolio"> 
+                  <span>Public Portfolio</span>
+              </a>
+          </li>
+          <li class="cs-desc-nav-item old">
+              <a href="/portfolio" class="link">
+                  <img src="/images/show/port_ow.png" alt="Old Portfolio"> 
+                  <span>old website</span>
+              </a>
+          </li>
+          <li class="cs-desc-nav-item linked">
+              <a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank">
+                  <img src="/images/show/port_in.png" alt="Linked In"> 
+                  <span>Linked In</span>        
+              </a>
+          </li>
+          <li class="cs-desc-nav-item instagram">
+              <a href="https://www.instagram.com/alexandrudangatea/" target="_blank">
+                  <img src="/images/show/port_ig.png" alt="Instagram"> 
+                  <span>Instagram</span>                    
+              </a>
+          </li>
+        
+        </ul>
       </div>
     </div>
 
@@ -321,53 +353,6 @@
       localStorage.setItem('activeTab', tabName);
       document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-
-    //function openTab(evt, tabName) {
-    //  var i, tabcontent, tablinks;
-
-    //  // Hide all tab content
-    //  tabcontent = document.getElementsByClassName("tabcontent");
-    //  for (i = 0; i < tabcontent.length; i++) {
-    //    tabcontent[i].classList.remove("active");
-    //  }
-
-    //  // Deactivate all tab links
-    //  tablinks = document.getElementsByClassName("tablinks");
-    //  for (i = 0; i < tablinks.length; i++) {
-    //    tablinks[i].classList.remove("active");
-    //  }
-
-    //  // Show the specific tab content
-    //  document.getElementById(tabName).classList.add("active");
-
-    //  // Activate the button that opened the tab
-    //  evt.currentTarget.classList.add("active");
-
-    //  // Scroll to the top of the tab content
-    //  document.getElementById(tabName).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    //}
-
-
-    fetch('webLayouts/nav.html')
-      .then(response => response.text())
-      .then(html => {
-        // Inject the fetched HTML into the DOM
-        document.querySelector('#nav').innerHTML = html;
-
-        const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('.link');
-
-        navLinks.forEach(link => {
-          const linkPath = link.getAttribute('href');
-          if (linkPath === currentPath) {
-            link.classList.add('active');
-          }
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching navigation:', error);
-      });
   </script>
 </body>
 

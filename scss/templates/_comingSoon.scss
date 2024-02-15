@@ -99,7 +99,7 @@ body.soon {
       justify-content: center;
       align-items: center;
       border-radius: rem-calc(56);
-      @include glass($cs-main-dark, 0.56, 7, #000, 0, 0);
+      @include glass($cs-main-dark, 0.56, 7px, #000, 0, 0);
 
       a {
         display: flex;
@@ -614,7 +614,7 @@ body.soon {
       cursor: pointer;
 
       &.active {
-        @include glass($cs-accent, 0.3, 14, $cs-accent, 0.14, 1.1);
+        @include glass($cs-accent, 0.3, 14px, $cs-accent, 0.14, 1.1);
         color: $cs-main-dark;
       }
     }
@@ -678,7 +678,7 @@ body.soon {
     padding: rem-calc(42 0 21);
     text-align: center;
     margin: 0 auto;
-  }
+  }  
 }
 
 
