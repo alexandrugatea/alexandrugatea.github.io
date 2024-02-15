@@ -9231,6 +9231,10 @@ body.soon .gallery:not(.masonry) .item img {
   object-position: top center;
   min-height: 15.625rem;
 }
+body.soon .gallery:not(.masonry) .item iframe {
+  width: 100% !important;
+  height: 31.25rem !important;
+}
 body.soon .gallery:not(.masonry) .item a {
   overflow: hidden;
 }
