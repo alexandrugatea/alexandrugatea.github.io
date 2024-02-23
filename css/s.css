@@ -1,0 +1,433 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,500;1,500&display=swap");
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS";
+  src: url("../fonts/ProductSans-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+.slab, #nav .nav-list-links .nav-list-link:before {
+  font-family: "Josefin Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+  background: #070707;
+  color: #c7c7c7;
+  font-family: "PS";
+  width: 100%;
+}
+body.locked {
+  overflow: hidden;
+}
+
+section {
+  min-height: 100vh;
+  max-width: 90.125rem;
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4.375rem;
+  font-weight: 700;
+  letter-spacing: -0.03125rem;
+  line-height: 1.4;
+}
+section .title {
+  font: inherit;
+  font-size: 6.125rem;
+  display: block;
+  width: 100%;
+}
+section .text {
+  font: inherit;
+  font-size: 2.1875rem;
+  max-width: 43.75rem;
+  display: block;
+  width: 100%;
+}
+section.text-center .title, section.text-center .text {
+  text-align: center;
+}
+section.text-left {
+  align-items: flex-start;
+}
+section.text-left .title, section.text-left .text {
+  text-align: left;
+}
+section.text-right {
+  align-items: flex-end;
+}
+section.text-right .title, section.text-right .text {
+  text-align: right;
+}
+
+@keyframes noise {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+.button {
+  display: inline;
+  position: relative;
+  z-index: 0;
+  font-family: "PS";
+  font-weight: 900;
+  letter-spacing: 0.125rem;
+  min-height: 3.0625rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.875rem 2.1875rem;
+  box-shadow: inset 0 0 0 0.1875rem rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
+}
+.button span {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-size: 0.875rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.button:hover {
+  transform: scale(1.1);
+  transition: transform 0.25s ease-in-out;
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(7, 7, 7, 0.2);
+}
+#nav .nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  padding: 4.375rem 4.375rem 4.375rem 8.75rem;
+  background-image: linear-gradient(to right, rgba(7, 7, 7, 0.1), rgba(7, 7, 7, 0));
+  backdrop-filter: blur(9px);
+  mask: linear-gradient(to right, #070707 42%, transparent 63%);
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+#nav .nav-list.open {
+  padding: 4.375rem 4.375rem 4.375rem 8.75rem;
+  opacity: 1;
+  pointer-events: all;
+}
+#nav .nav-list-logo .root {
+  text-decoration: none;
+}
+#nav .nav-list-logo .root span {
+  font-size: 2.625rem;
+  font-weight: 300;
+}
+#nav .nav-list-logo .root span:last-child {
+  font-weight: 700;
+}
+#nav .nav-list-links {
+  counter-reset: menuItems;
+}
+#nav .nav-list-links .nav-list-link {
+  position: relative;
+  padding: 0.875rem 0;
+}
+#nav .nav-list-links .nav-list-link:before {
+  counter-increment: menuItems;
+  content: "0" counter(menuItems);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-0.875rem, 2.1875rem);
+  opacity: 0.4;
+  pointer-events: none;
+  letter-spacing: 0.125rem;
+}
+#nav .nav-list-links .nav-list-url {
+  text-decoration: none;
+  font-size: 2.625rem;
+  line-height: 4.375rem;
+  padding: 0.875rem 0.875rem;
+  display: inline-block;
+  position: relative;
+}
+#nav .nav-list-links .nav-list-url span {
+  font-size: 0.875rem;
+  position: absolute;
+  transform: translate(100%, 0);
+  top: 49%;
+  opacity: 0.4;
+}
+#nav .nav-list-footer {
+  display: flex;
+}
+#nav .nav-list-footer .nav-list-link {
+  width: 3.0625rem;
+  height: 3.0625rem;
+  margin-right: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 0.125rem rgba(199, 199, 199, 0.4);
+  border-radius: 0.4375rem;
+}
+#nav .nav-list-footer .nav-list-url {
+  text-decoration: none;
+  display: block;
+  padding: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#nav .nav-list-footer .nav-list-url svg {
+  transform: scale(0.7);
+}
+#nav .nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.0625rem;
+  height: 100%;
+  width: 8.75rem;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4.375rem;
+}
+#nav .nav-bar:before {
+  content: "";
+  width: 0.0625rem;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+#nav .nav-trigger {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #070707;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  cursor: pointer;
+}
+#nav .nav-trigger span {
+  display: block;
+  width: 1.75rem;
+  height: 0.125rem;
+  background: #fff;
+  position: absolute;
+  transition: all 0.25s ease-in-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#nav .nav-trigger span.top {
+  margin-top: -0.5rem;
+  margin-left: 0.4375rem;
+}
+#nav .nav-trigger span.bot {
+  margin-top: 0.5rem;
+  margin-left: 0.4375rem;
+}
+#nav .nav-trigger:hover span.top {
+  margin-left: 0;
+  transform: translate(-50%, -50%);
+}
+#nav .nav-trigger:hover span.mid {
+  border-radius: 0.125rem;
+}
+#nav .nav-trigger:hover span.bot {
+  margin-left: 0;
+  transform: translate(-50%, -50%);
+}
+#nav .nav-trigger.open span.top {
+  margin-top: 0;
+  margin-left: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+#nav .nav-trigger.open span.mid {
+  width: 0.125rem;
+  border-radius: 0.125rem;
+}
+#nav .nav-trigger.open span.bot {
+  margin-top: 0;
+  margin-left: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+#grdbg {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  pointer-events: none;
+  height: 200vh;
+  transform: translate(-50%);
+  z-index: -1;
+}
+#grdbg svg {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+#grdbg .circle {
+  fill: rgba(252, 252, 252, 0.14);
+  transform-box: content-box;
+}
+#grdbg .grid-line {
+  stroke: rgba(252, 252, 252, 0.07);
+  stroke-width: 1;
+}
+
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  pointer-events: none;
+  overflow: hidden;
+  background-image: url(../images/24/bg-noise.png);
+  background-position: 50%;
+  background-size: 6.5625rem;
+  animation: noise 0.2s infinite both;
+  opacity: 0.5;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body, html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.magnet {
+  transition: transform 0.15s ease;
+}
+
+/*# sourceMappingURL=s.css.map */

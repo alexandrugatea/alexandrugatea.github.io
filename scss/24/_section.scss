@@ -1,0 +1,43 @@
+section {
+  min-height: 100vh;
+
+  max-width: rem-calc(1442);
+  margin: 0 auto;
+
+  @include flex-column-center;
+  font-weight: 700;
+  letter-spacing: rem-calc(-0.5);
+  line-height: 1.4;
+
+  .title {
+    font: inherit;
+    font-size: rem-calc($sectionTitleSize);
+    display: block;
+    width: 100%;
+  }
+  .text {
+    font: inherit;
+    font-size: rem-calc($sectionTextSize);
+    max-width: rem-calc(700);
+    display: block;
+    width: 100%;
+  }
+
+  &.text-center {
+    .title, .text {
+      text-align: center;
+    }
+  }
+  &.text-left {
+    align-items: flex-start;
+    .title, .text {
+      text-align: left;
+    }
+  }
+  &.text-right {
+    align-items: flex-end;
+    .title, .text {
+      text-align: right;
+    }
+  }
+}

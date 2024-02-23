@@ -1,0 +1,232 @@
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 9999;
+  background: rgba($bodyBackground, 0.2);
+  //backdrop-filter: blur(21px);
+
+  //transform: translateX(-100%);
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    padding: rem-calc(70 70 70 140);
+    background-image: linear-gradient(to right, rgba($bodyBackground, 0.1), rgba($bodyBackground, 0.0));
+    backdrop-filter: blur(9px);
+    mask: linear-gradient(to right, rgba($bodyBackground, 1) 42%, transparent 63%);
+
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+      padding: rem-calc(70 70 70 140);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &-logo {
+      .root {
+        text-decoration: none;
+
+        span {
+          font-size: rem-calc(42);
+          font-weight: 300;
+
+
+          &:last-child {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    &-links {
+      counter-reset: menuItems;
+
+
+      .nav-list {
+        // nothing to add here, used just for the ease of nesting
+
+        &-link {
+          position: relative;
+          padding: rem-calc(14 0);
+
+          &:before {
+            counter-increment: menuItems;
+            content: "0" counter(menuItems);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(rem-calc(-14), rem-calc(35));
+            opacity: 0.4;
+            @extend .slab;
+            pointer-events: none;
+            letter-spacing: rem-calc(2px);
+          }
+
+
+        }
+
+        &-url {
+          text-decoration: none;
+          font-size: rem-calc(42);
+          line-height: rem-calc(70);
+          padding: rem-calc(14 14);
+          display: inline-block;
+          position: relative;
+
+          span {
+            font-size: rem-calc(14);
+            position: absolute;
+            transform: translate(100%, 0);
+            top: 49%;
+            opacity: 0.4;
+          }
+
+        }
+      }
+
+    }
+
+    &-footer {
+      display: flex;
+
+      .nav-list {
+
+        &-link {
+          width: rem-calc(49);
+          height: rem-calc(49);
+          margin-right: rem-calc(28);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: inset rem-calc(0 0 0 2) rgba($bodyText, 0.4);
+          border-radius: rem-calc(7);
+        }
+
+        &-url {
+          text-decoration: none;
+          display: block;
+          padding: rem-calc(14);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            transform: scale(0.7);
+          }
+        }
+      }
+    }
+  }
+
+  .nav {
+
+    &-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: rem-calc(1);
+      height: 100%;
+      width: rem-calc(140);
+      @include flex-column-center;
+
+      &:before {
+        content: "";
+        width: rem-calc(1);
+        height: 100%;
+        background: #fff;
+        position: absolute;
+        left: 50%;
+        top: 0;
+      }
+
+    }
+
+    &-trigger {
+
+      width: rem-calc($navTrigSize);
+      height: rem-calc($navTrigSize);
+      background: $bodyBackground;
+      position: relative;
+      z-index: 1;
+      align-items: center;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: rem-calc($navSpanWidth);
+        height: rem-calc($navSpanHeight);
+        background: #fff;
+        position: absolute;
+        transition: all 0.25s ease-in-out;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.top {
+          margin-top: rem-calc(-7 - 1);
+          margin-left: rem-calc(7);
+        }
+
+        &.bot {
+          margin-top: rem-calc(7 + 1);
+          margin-left: rem-calc(7);
+        }
+      }
+
+      &:hover {
+        span {
+          &.top {
+            margin-left: 0;
+            transform: translate(-50%, -50%);
+          }
+
+          &.mid {
+            border-radius: rem-calc(2);
+          }
+
+          &.bot {
+            margin-left: 0;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+
+      &.open {
+
+        span {
+          &.top {
+            margin-top: 0;
+            margin-left: 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+
+          &.mid {
+            width: rem-calc(2);
+            border-radius: rem-calc(2);
+          }
+
+          &.bot {
+            margin-top: 0;
+            margin-left: 0;
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+        }
+      }
+
+    }
+  }
+
+}

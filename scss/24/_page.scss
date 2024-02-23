@@ -1,0 +1,11 @@
+body {
+  background: $bodyBackground;
+  color: $bodyText;
+  font-family: "PS";
+  width: 100%;
+
+  &.locked {
+    overflow: hidden;
+    //position: fixed;
+  }
+}

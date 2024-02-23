@@ -1,0 +1,14 @@
+@use "sass:math";
+
+$bodyBackground: #070707;
+$bodyText: #c7c7c7;
+
+$gridBase: 7;
+
+$sectionTitleSize: 14 * $gridBase;
+$sectionTextSize: 5 * $gridBase;
+
+$navTrigSize: 56;
+
+$navSpanWidth: 28;
+$navSpanHeight: 2;
