@@ -12,3 +12,8 @@ a {
   color: inherit;
   //display: inline-block;
 }
+
+::selection {
+  background: rgba($bodyText, 0.7);
+  color: $bodyBackground;
+}

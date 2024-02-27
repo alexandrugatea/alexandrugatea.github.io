@@ -1,19 +1,28 @@
 section {
   min-height: 100vh;
 
-  max-width: rem-calc(1442);
+  max-width: rem-calc(1442 + 140 + 140);
+  padding: rem-calc(0 140);
   margin: 0 auto;
 
-  @include flex-column-center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: rem-calc(70);
   font-weight: 700;
   letter-spacing: rem-calc(-0.5);
   line-height: 1.4;
+
+
+  &.single-column {
+    grid-template-columns: 1fr;
+  }
 
   .title {
     font: inherit;
     font-size: rem-calc($sectionTitleSize);
     display: block;
     width: 100%;
+    line-height: 0.98;
   }
   .text {
     font: inherit;
@@ -23,21 +32,291 @@ section {
     width: 100%;
   }
 
-  &.text-center {
-    .title, .text {
-      text-align: center;
+  .text-block {
+    @include flex-column-center;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .graphic-block {
+    height: rem-calc(630);
+    padding: rem-calc(35);
+    align-self: center;
+    position: relative;
+
+    &-container {
+      width: 100%;
+      max-width: rem-calc(560);
+      height: 100%;
+      position: relative;
+
+      &.move {
+        .card:nth-child(1) {
+          transform: translate(
+            calc(-50% - rem-calc(0.1)), 
+            calc(-50% - rem-calc(0.1))
+          );
+        }
+        .card:nth-child(2) {
+          transform: translate(
+            calc(-50% + rem-calc(42)), 
+            calc(-50% + rem-calc(42))
+          );
+        }
+      }
+
+      .card {
+        position: absolute;
+        
+        
+        .card-image {
+          @include glass($bodyText, 0.14, 21px);
+          overflow: hidden;
+          border-radius: rem-calc(21);
+          @include flex-column-center;
+          font-size: rem-calc(35);
+          position: relative;
+          width: 100%;
+          height: 100%;
+          font-weight: 700;
+          padding: rem-calc(28);
+          transform-style: preserve-3d;
+          transform: perspective(1000px);
+          
+          span {
+            line-height: 5;
+            transform: perspective(1000px) translateZ(100px) scale(0.8);
+          }
+        }
+
+        &.rect {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: rem-calc(490);
+          height: rem-calc(280);
+          transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+          &:nth-child(1) {
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            transform: translate(
+              calc(-50% - rem-calc(42)), 
+              calc(-50% - rem-calc(42))
+            );
+          }
+          &:nth-child(2) {
+            z-index: 2;
+            transform: translate(
+              calc(-50% - rem-calc(0.1)), 
+              calc(-50% - rem-calc(0.1))
+            );
+          }
+          &:nth-child(3) {
+            z-index: 3;
+            transform: translate(
+              calc(-50% + rem-calc(42)), 
+              calc(-50% + rem-calc(42))
+            );
+          }
+        }
+
+        &.circle {
+          top: 50%;
+          left: 50%;
+          border-radius: 50%;
+          width: rem-calc(350);
+          height: rem-calc(350);
+          @include glass($bodyText, 0.2, 7px);
+          transition: all 0.25s ease-out;
+
+          &:nth-child(1) {
+            z-index: 1;
+            top: 0%;
+            left: 0%;
+            transform: translate(
+              calc(0% + rem-calc(28)), 
+              calc(0% + rem-calc(28)) 
+            ) scale(0.8);
+          }
+          &:nth-child(2) {
+            z-index: 2;
+            top: 0%;
+            left: 100%;
+            transform: translate(
+              calc(-100% - rem-calc(28)), 
+              calc(0% + rem-calc(28)) 
+            ) scale(0.8);
+          }
+          &:nth-child(3) {
+            z-index: 3;
+            top: 100%;
+            left: 50%;
+            transform: translate(
+              calc(-50% - rem-calc(0.01)), 
+              calc(-100% - rem-calc(28)) 
+            ) scale(0.8);
+          }
+          &:nth-child(4) {
+            z-index: 4;
+            top: 50%;
+            left: 50%;
+            transform: translate(
+              calc(-50% - rem-calc(0.01)), 
+              calc(-50% - rem-calc(0.01))
+            );
+          }
+          &:nth-child(5) {
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            transition: all 0.3s ease-in;
+            transform: translate(
+              calc(-50% - rem-calc(0.01)), 
+              calc(-50% - rem-calc(0.01))
+            );
+
+            img {
+              opacity: 0;
+              transition: all 0.3s ease-in;
+              transition-delay: 2s;
+            }
+          }
+        }
+
+      }
+
+      &.about-me {
+        transition: transform .25s cubic-bezier(0.25, 0.46, 0.45, 0.94);   
+        
+        .card.circle {
+          overflow: hidden;
+
+          img {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            display: block;
+            object-fit: contain;
+            object-position: center;
+          }
+        }
+
+        &:after {
+          content: attr(data-hover-text);
+          display: block;
+          position: absolute;
+          z-index: 5;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: rem-calc(21);
+          font-weight: 700;
+          color: rgba($bodyText, 0.35);
+          animation: hoverMe 4s linear infinite;
+        }
+
+
+        &:hover {
+          transform: scale(1.2);
+          transition: transform .25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+          &:after {
+            opacity: 0;
+          }
+
+          .card.circle {
+            z-index: 4;
+            top: 50%;
+            left: 50%;
+            backdrop-filter: blur(0px);
+            background: transparent;
+            transform: translate(
+              calc(-50% - rem-calc(0.01)), 
+              calc(-50% - rem-calc(0.01))
+            ) scale(1.1);
+
+            &:nth-child(5) {
+              opacity: 1;
+
+              img {
+                opacity: 1.00;
+              }
+            }
+          }
+        }
+
+        &.hovered:after {
+          display: none;
+        }
+      }
     }
   }
+
+  &.text-center {
+    .text-block {
+      .title, .text {
+        text-align: center;
+      }
+    }
+
+  }
   &.text-left {
-    align-items: flex-start;
-    .title, .text {
-      text-align: left;
+    .text-block {
+      align-items: flex-start;
+      .title, .text {
+        text-align: left;
+      }
     }
   }
   &.text-right {
-    align-items: flex-end;
-    .title, .text {
-      text-align: right;
+    .text-block {
+      align-items: flex-end;
+      .title, .text {
+        text-align: right;
+      }
     }
   }
+}
+
+.out {
+	opacity: 1;
+	transform: translate(calc(-50% + 42px), calc(-50% + 42px));
+	animation: out 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes out {
+	0% {
+		transform: translate(calc(-50% + 42px), calc(-50% + 42px));
+		opacity: 1;
+	}
+  60% {
+    opacity: 0;
+  }
+	100% {
+		transform: translate(calc(-50% + 84px), calc(-50% + 84px));
+		opacity: 0;
+	}
+}
+
+.in {
+	opacity: 0;
+	animation: in 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+	transform: translate(calc(-50% - 84px), calc(-50% - 84px));
+}
+
+@keyframes in {
+	0% {
+		opacity: 0;
+    transform: translate(calc(-50% - 84px), calc(-50% - 84px));
+	}
+	100% {
+		opacity: 1;
+    transform: translate(calc(-50% - 42px), calc(-50% - 42px));
+	}
 }

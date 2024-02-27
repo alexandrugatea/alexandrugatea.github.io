@@ -9,3 +9,14 @@
 		background-position: 100% 100%
 	}
 }
+
+//@keyframes hoverMe {
+//	0%, 20%, 30%, 100%{ transform: scale(1);	}
+//	10%, 20% { transform: scale(1.2);	}
+//}
+
+@keyframes hoverMe {
+	 0%, 20%, 100% {transform: translate(-50%,-50%) scale(0.8);}
+	 5%, 15% {transform: translate(-50%,-50%) scale(1.2);}
+	10% {transform: translate(-50%,-50%) scale(1.0);}
+}

@@ -8,3 +8,8 @@
 
   gap: rem-calc(70);
 }
+
+@mixin glass ($color: $bodyBackground, $alpha: 0.7, $blur: 7px) {
+  backdrop-filter: blur($blur);
+  background-color: rgba($color, $alpha);
+}

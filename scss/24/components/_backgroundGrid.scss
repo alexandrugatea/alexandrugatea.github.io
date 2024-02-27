@@ -16,15 +16,31 @@
 
   .circle {
     fill: rgba(252, 252, 252, 0.14);
-
     transform-box: content-box;
   }
 
   .grid-line {
     stroke: rgba(252, 252, 252, 0.07);
     stroke-width: 1;
+    stroke-dasharray: 4000;
+    stroke-dashoffset: 4000;
+  }
+  
+  &.animate {
+    .grid-line.row-line {
+      animation: svg 0.8s linear forwards;
+      animation-delay: var(--grl);
+    }
+    .grid-line.col-line {
+      animation: svg 0.2s linear forwards;
+      animation-delay: var(--gcl);
+    }
   }
 
+}
+
+@keyframes svg {
+  to {stroke-dashoffset: 0;}
 }
 
 .noise {
