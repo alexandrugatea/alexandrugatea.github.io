@@ -20,7 +20,7 @@ var target =
 const cursor = document.querySelector('#kursor');
 const cursorMessage = cursor.querySelector("#kMessage");
 const trail = document.querySelector('#kursorTrail');
-const hoverElements = document.querySelectorAll('.kursor-hover');
+const hoverElements = document.querySelectorAll('.kursor-hover, .lg-prev, .lg-next');
 
 
 // Get elements for sidebar functionality
@@ -32,6 +32,9 @@ const navList = document.querySelector(".nav-list");
 // Get elements for transition effect on page change
 const pageTransition = document.getElementById("pt");
 
+// Get links for page transitions
+
+var links = document.querySelectorAll('.link');
 
 // ============================================================
 // Create grid on load & resize
@@ -48,7 +51,7 @@ var isScrollEnabled = true;
 // Init Functions
 // ============================================================
 
-smoothScroll(target, 70, 35);
+smoothScroll(target, 98, 14);
 
 
 // ============================================================
@@ -61,11 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Page transition effect
   setTimeout(() => {
     pageTransition.classList.remove("active");
-  }, 1400);
+  }, 1200);
 
   setTimeout(() => {
     container.classList.add("animate");
-  }, 1500);
+  }, 1300);
 
   // Open close navbar
   navTrig.addEventListener("click", function () {
@@ -105,7 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "maps": "explore",
     "hire": "person_add",
     "mail": "mail",
-    "play": "chevron_right"
+    "play": "chevron_right",
+    "phone": "phone",
+    "zoom": "expand_content",
+    "lg-prev": "navigate_before",
+    "lg-next": "navigate_next"
   };
 
   // Function to set cursor message based on element's class
@@ -135,13 +142,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const aboutMeHover = document.querySelector(".about-me");
+
+  const aboutMeHover = document.querySelector(".graphic-block-container.about-me");
   if (aboutMeHover) {
     aboutMeHover.addEventListener('mouseover', function () {
       aboutMeHover.classList.add("hovered");
     });
   }
 
+  const mouse = document.getElementById("mouse-scroll");
+  const wH = window.innerHeight;
 
   // ==========
   // SCROLL
@@ -153,47 +163,50 @@ document.addEventListener("DOMContentLoaded", function () {
     // Do not use Math.floor here or the grid will have a jumpy move
     const scrollPercent = (scrollPosition / totalScrollHeight) * - 50 + 1;
 
+    let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
+    
+    if (mouse) {
+      mouse.style.opacity = windowScrollPercent / 100;
+    }
+
     if (!isScrollEnabled) return;
     container.style.transform = `translateX(-50%) translateY(${scrollPercent}%) `;
   });
 
-});
+  // Redirect links
+  links.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+
+      var goTo = this.getAttribute('href');
+
+      pageTransition.classList.add('active');
+
+      setTimeout(function () {
+        window.location.href = goTo;
+      }, 350);
+    });
+  });
+
+
+  // disable smooth scroll while lightgallery is opened
+		gallery.addEventListener('lgBeforeOpen', function(event) {
+			isScrollEnabled = false;
+      console.log("scroll disabled");
+		});
+
+		gallery.addEventListener('lgAfterClose', function(event) {
+			isScrollEnabled = true;
+      console.log("scroll enabled");
+		});
 
 
 
-const next = document.getElementById("next");
-const holder = document.getElementById("holder");
-
-function nextCard() {
-  const holder = document.getElementById("holder");
-  const lastChild = holder.lastElementChild;
-  lastChild.classList.add("out");
-  holder.classList.add("move");
-
-  setTimeout(function () {
-    holder.removeChild(lastChild);
-  }, 350);
-
-  setTimeout(function () {
-    holder.classList.remove("move");
-    lastChild.classList.remove("out");
-  }, 400);
-
-  setTimeout(function () {
-    lastChild.classList.add("in");
-    holder.prepend(lastChild);
-    
-  }, 450);
-
-  setTimeout(function () {
-    lastChild.classList.remove("in");
-  }, 750);
-
-}
 
 
-holder.addEventListener("click", function () {
-  nextCard();
+
+// END of DomContentLoaded
+
 });
 
 
@@ -300,6 +313,9 @@ function createGrid() {
   svg.setAttribute("id", "jsgrid");
   container.appendChild(svg);
 
+  const middleRow = Math.floor(rowCount / 2);
+  const middleCol = Math.floor(columnCount / 2);
+  const incrementalDelay = 0.7;
   // Creating row lines
   for (let i = 0; i < rowCount; i++) {
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -309,7 +325,12 @@ function createGrid() {
     line.setAttribute("x2", gridWidth);
     line.setAttribute("y2", i * rowGap);
     line.setAttribute("y2", i * rowGap);
-    line.style.setProperty("--grl", i * 0.03 + "s");
+
+    const distanceFromMiddle = Math.abs(i - middleRow);
+    const delay = (distanceFromMiddle / middleRow) * incrementalDelay;
+
+    line.style.setProperty("--grl", delay + "s");
+    //line.style.setProperty("--grl", i * 0.03 + "s");
     svg.appendChild(line);
   }
 
@@ -321,7 +342,12 @@ function createGrid() {
     line.setAttribute("y1", 0);
     line.setAttribute("x2", j * columnGap);
     line.setAttribute("y2", gridHeight);
-    line.style.setProperty("--gcl", j * 0.03 + "s");
+
+    const distanceFromMiddle = Math.abs(j - middleCol);
+    const delay = (distanceFromMiddle / middleCol) * incrementalDelay;
+
+    line.style.setProperty("--gcl", delay + "s");
+    //line.style.setProperty("--gcl", j * 0.03 + "s");
     svg.appendChild(line);
   }
 
@@ -353,7 +379,7 @@ function moveKustomMouse(cursor, trail, x, y) {
   setTimeout(() => {
     trail.style.left = x + 'px';
     trail.style.top = y + 'px';
-  }, 50);
+  }, 35);
 }
 
 function openMenu() {

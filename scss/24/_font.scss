@@ -1,7 +1,23 @@
 $customFontPath: "../fonts/";
 //FONT-STYLE: Normal
+
+$font100: 'PS100';
+$font300: 'PS300';
+$font400: 'PS400';
+$font500: 'PS500';
+$font700: 'PS700';
+$font900: 'PS900';
+
+$font100i: 'PS100i';
+$font300i: 'PS300i';
+$font400i: 'PS400i';
+$font500i: 'PS500i';
+$font700i: 'PS700i';
+$font900i: 'PS900i';
+
+
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS100';
   src: url('#{$customFontPath}ProductSans-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
@@ -9,7 +25,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS300';
   src: url('#{$customFontPath}ProductSans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
@@ -17,7 +33,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS400';
   src: url('#{$customFontPath}ProductSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -25,7 +41,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS500';
   src: url('#{$customFontPath}ProductSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
@@ -33,7 +49,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS700';
   src: url('#{$customFontPath}ProductSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
@@ -41,7 +57,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS900';
   src: url('#{$customFontPath}ProductSans-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
@@ -51,7 +67,7 @@ $customFontPath: "../fonts/";
 //FONT-STYLE: Italic
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS100i';
   src: url('#{$customFontPath}ProductSans-ThinItalic.ttf') format('truetype');
   font-weight: 100;
   font-style: italic;
@@ -59,7 +75,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS300i';
   src: url('#{$customFontPath}ProductSans-LightItalic.ttf') format('truetype');
   font-weight: 300;
   font-style: italic;
@@ -67,7 +83,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS400i';
   src: url('#{$customFontPath}ProductSans-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
@@ -75,7 +91,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS500i';
   src: url('#{$customFontPath}ProductSans-MediumItalic.ttf') format('truetype');
   font-weight: 500;
   font-style: italic;
@@ -83,7 +99,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS700i';
   src: url('#{$customFontPath}ProductSans-BoldItalic.ttf') format('truetype');
   font-weight: 700;
   font-style: italic;
@@ -91,7 +107,7 @@ $customFontPath: "../fonts/";
 }
 
 @font-face {
-  font-family: 'PS';
+  font-family: 'PS900i';
   src: url('#{$customFontPath}ProductSans-BlackItalic.ttf') format('truetype');
   font-weight: 900;
   font-style: italic;
@@ -113,4 +129,31 @@ $customFontPath: "../fonts/";
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+
+
+@mixin font($min-font-size: 12, $max-font-size: 21, $line-height: 1.7, $font-weight: 400, $font-style: normal, $lower-range: 320px, $upper-range: 1400px, $font-family: $base-font) {
+
+  font-size: 
+  calc(#{$min-font-size} 
+  + #{strip-unit($max-font-size) - strip-unit($min-font-size)} 
+  * (100vw - #{$lower-range}) 
+  / #{strip-unit($upper-range) - strip-unit($lower-range)}
+  );
+
+  $lh: calc($line-height / $max-font-size);
+  $lhv: decimal-round($lh, 3, round);
+
+  line-height: $line-height;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: $font-style;
+
+  @media screen and (max-width: $lower-range) {
+    font-size: rem-calc($min-font-size);
+  }
+
+  @media screen and (min-width: $upper-range) {
+    font-size: rem-calc($max-font-size);
+  }
 }

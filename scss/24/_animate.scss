@@ -20,3 +20,38 @@
 	 5%, 15% {transform: translate(-50%,-50%) scale(1.2);}
 	10% {transform: translate(-50%,-50%) scale(1.0);}
 }
+
+@keyframes progressBarAnimation {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes kustom-fade-in {
+	0% {
+		opacity: 0;
+    transform: translate(calc(-50% - 84px), calc(-50% - 84px));
+	}
+	100% {
+		opacity: 1;
+    transform: translate(calc(-50% - 42px), calc(-50% - 42px));
+	}
+}
+
+@keyframes kustom-fade-out {
+	0% {
+		transform: translate(calc(-50% + 42px), calc(-50% + 42px));
+		opacity: 1;
+	}
+  60% {
+    opacity: 0;
+  }
+	100% {
+		transform: translate(calc(-50% + 84px), calc(-50% + 84px));
+		opacity: 0;
+	}
+}

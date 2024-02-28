@@ -183,10 +183,25 @@
         top: 0;
       }
 
+      .logo.outer {
+        position: absolute;
+        top: rem-calc(63);
+        left: 50%;
+        transform: translate(-50%, 0) scale(0.7);
+        width: rem-calc(77);
+        height: rem-calc(77);
+        @include glass($bodyBackground, 0.77, 7px);
+        padding: rem-calc(14);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition-delay: 0.25s;
+        img {
+          width:100%;
+          height:100%;
+        }
+      }
     }
 
     &-trigger {
-
       width: rem-calc($navTrigSize);
       height: rem-calc($navTrigSize);
       background: $bodyBackground;
@@ -256,11 +271,11 @@
           }
         }
       }
-
     }
   }
 
 }
+
 
 #nav .nav-list.open {
     padding: rem-calc(70 70 70 140);
@@ -324,4 +339,9 @@
         }
       }
     }
+}
+
+
+#nav.open .nav-bar .logo.outer {
+  transform: translate(-50%, 0) scale(0.98);
 }

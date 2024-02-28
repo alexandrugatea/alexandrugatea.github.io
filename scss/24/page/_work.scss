@@ -1,0 +1,170 @@
+body.work {
+  padding-bottom: rem-calc(140);
+
+  .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem-calc(350), 1fr));
+    position: relative;
+    grid-gap: rem-calc(98);
+
+    .gallery-item {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      transform: translate(0, 35%) scale(1.1);
+      transition: all 1.2s cubic-bezier(.66,-0.32,.36,1.32);
+      
+      &:after {
+        content: "";
+        display: block;
+        width: 70%;
+        height: rem-calc(21);
+        border-radius: 50%;
+        background: #000;
+        position: absolute;
+        bottom: rem-calc(56);
+        left: 50%;
+        transform: translateX(-50%);
+        filter: blur(10px);
+      }
+
+      &:not(.will-animate){
+        opacity: 0;
+        visibility: hidden;
+      }
+    
+      &.will-animate {
+        visibility: visible;
+        transform: translate(0, 0) scale(1.0);
+    
+        .project-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .project {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.14);
+        @include glass($bodyText, 0.07, 21px);
+        border-radius: rem-calc(21);
+        z-index: 0;
+        overflow: hidden;
+    
+        &-image, {
+          //@extend .projectAbsoluteFullClass;
+          z-index: 1;
+          //background: url("../images/show/maps/Map_Render_Redesign_1.png");
+          background-size: cover;
+          background-position: center;
+          border-radius: rem-calc(21);
+          width: 140%;
+          height: 140%;
+          transition: all 2s ease-out;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          img {
+            position: relative;
+            width: 100%;
+            height: auto;
+          }
+
+        }
+        &-text {
+          z-index: 2;
+          padding: rem-calc(21 0)
+        }
+    
+        &:before {
+          content: "";
+          @extend .projectAbsoluteFullClass;
+          width: 100%;
+          height: 100%;
+          z-index: 10;
+          pointer-events: none;
+          box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.14);
+          display: block;
+          border-radius: rem-calc(21);
+    
+        }
+      }
+    }
+  }
+
+
+}
+
+.projectAbsoluteFullClass {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+
+// lightbox overrides
+
+.lg-backdrop {
+  z-index: 9999;
+  transition: all 333ms ease-in 0s;
+
+  &.in {
+    backdrop-filter: blur(28px);
+    background: rgba($bodyBackground, 0.7);
+  }
+}
+
+.lg-outer {
+  z-index: 9999;
+
+  .lg-prev, .lg-next {
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    
+  }
+
+  .lg-prev {
+    left: 0;
+  }
+
+  .lg-next {
+    right: 0;
+  }
+}
+
+.lg-outer .lg-thumb-item {
+  border-radius: rem-calc(7);
+  border: none;
+  box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.14);
+  -webkit-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  opacity: 0.42;
+
+  &.active {
+    opacity: 1;
+    box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.35);
+  }
+}
+
+.lg-outer .lg-thumb-item img {
+  z-index: -1;
+  position: relative;
+}
+
+.lg-outer .lg-thumb {
+  padding: rem-calc(21 0);
+}
+
+
+#captions {
+  display: none;
+}

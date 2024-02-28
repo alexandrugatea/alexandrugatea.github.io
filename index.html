@@ -7,28 +7,34 @@
   <title>Alexandru Gatea</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="css/s.css">
 </head>
 
-<body>
+<body class="home">
   <div class="noise"></div>
   <div class="grid-background" id="grdbg">
   </div>
 
   <nav id="nav" class="nav">
-    <div class="nav-bar">
-      <div class="nav-trigger kursor-hover" id="navTrigger">
-        <span class="top"></span>
-        <span class="mid"></span>
-        <span class="bot"></span>
-      </div>
-    </div>
+		<div class="nav-bar">
+
+			<div class="logo outer">
+				<a href="/" class="kursor-hover root link">
+					<img src="images/24/logo.svg" alt="Alexandru Gatea">
+				</a>
+			</div>
+
+			<div class="nav-trigger kursor-hover" id="navTrigger">
+				<span class="top"></span>
+				<span class="mid"></span>
+				<span class="bot"></span>
+			</div>
+		</div>
 
     <div class="nav-list">
       <ul class="nav-list-logo">
         <li class="nav-list-link">
-          <a href="/" class="nav-list-url root kursor-hover ">
+          <a href="/" class="nav-list-url root kursor-hover  link">
             <span>alexandru</span>
             <span>gatea</span>
           </a>
@@ -36,25 +42,25 @@
       </ul>
       <ul class="nav-list-links">
         <li class="nav-list-link">
-          <a href="/about.html" class="nav-list-url internal kursor-hover">About<span class="material-symbols-outlined">
+          <a href="/about.html" class="nav-list-url internal kursor-hover link">About<span class="material-symbols-outlined">
               double_arrow
             </span></a>
         </li>
         <li class="nav-list-link">
-          <a href="work.html" class="nav-list-url internal kursor-hover">Projects<span
+          <a href="work.html" class="nav-list-url internal kursor-hover link">Projects<span
               class="material-symbols-outlined">
               double_arrow
             </span></a>
         </li>
         <li class="nav-list-link">
-          <a href="/contact.html" class="nav-list-url internal kursor-hover">Contact<span class="material-symbols-outlined">
+          <a href="/contact.html" class="nav-list-url internal kursor-hover link">Contact<span class="material-symbols-outlined">
               double_arrow
             </span></a>
         </li>
       </ul>
       <ul class="nav-list-footer">
         <li class="nav-list-link">
-          <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank" class="nav-list-url external kursor-hover">
+          <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank" class="nav-list-url mail kursor-hover">
             <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M21.0109 10.7439C21.0109 16.7349 16.8388 20.9979 10.6776 20.9979C9.2863 21.0108 7.90616 20.7493 6.61615 20.2284C5.32614 19.7075 4.1516 18.9374 3.15978 17.9621C2.16796 16.9869 1.37835 15.8257 0.836149 14.5451C0.293948 13.2644 0.00980836 11.8894 0 10.4989C0.00967737 9.10823 0.29372 7.73315 0.835863 6.45238C1.37801 5.17161 2.1676 4.01031 3.15943 3.03497C4.15126 2.05964 5.32584 1.28943 6.61592 0.768446C7.90599 0.247465 9.28622 -0.0140516 10.6776 -0.00112914C13.3278 -0.0345288 15.8901 0.948558 17.8373 2.74587L14.9358 5.49387C11.1338 1.88687 4.06412 4.59387 4.06412 10.4939C4.06411 12.2495 4.76079 13.9334 6.00135 15.1763C7.2419 16.4192 8.92504 17.1196 10.6816 17.1239C14.9098 17.1239 16.4936 14.1429 16.7437 12.5979H10.6776V8.99087H20.8429C20.9557 9.56836 21.012 10.1555 21.0109 10.7439Z"
@@ -95,30 +101,40 @@
         </h1>
         <p class="text">
           I'm an
-          <a href="/about.html" class="kursor-hover internal ">User Experience Engineer</a>
+          <a href="/about.html" class="kursor-hover internal  link">UIUX Engineer</a>
           with a strong devotion to
-          <a href="/work.html" class="kursor-hover gd">graphic design</a>,
-          <a href="/work.html" class="kursor-hover dev ">web development</a>
+          <a href="/work.html" class="kursor-hover dev  link">web development</a>, 
+          <a href="/work.html" class="kursor-hover gd link">graphic design</a>,
           and
-          <a href="/work.html" class="kursor-hover maps ">navigation maps.</a>
+          <a href="/work.html" class="kursor-hover maps  link">navigation maps.</a>
         </p>
       </div>
+      <div id="mouse-scroll">
+				<div class="mouse">
+				  <div class="mouse-in"></div>
+				</div>
+				<div>
+					<span class="down-arrow-1"></span>
+					<span class="down-arrow-2"></span>
+					<span class="down-arrow-3"></span>
+				 </div>
+			  </div>
     </section>
 
     <section class="text-left" id="about">
       <div class="text-block">
         <h1 class="title">
-          I'm Alex.
+          I'm Alex
         </h1>
         <p class="text">
-          an User Experience Engineer with a strong devotion to graphic design, web development and navigation maps
+          a Website Developer and Designer based in Cluj, Romania.
         </p>
 
-        <a href="/about.html" class="button internal kursor-hover">
-          <span>About me</span>
+        <a href="/about.html" class="button internal kursor-hover link">
+          <span>More About me</span>
         </a>
       </div>
-      <div class="graphic-block">
+      <div class="graphic-block about-me">
         <div class="graphic-block-container about-me" data-hover-text="Hover me">
 
           <div class="card circle">
@@ -142,55 +158,61 @@
 
     <section class="text-right">
       <div class="graphic-block kursor-hover play">
-        <div class="graphic-block-container " id="holder">
+        <div class="graphic-block-container" id="holder">
           <div class="card rect">
             <div class="card-image tilt">
-              <span>Card 1</span>
+              <img src="images/24/portfolio/portfolio_sketch_GD.svg" alt="">
+              <span>[ Graphic Design ]</span>
             </div>
           </div>
           <div class="card rect">
             <div class="card-image tilt">
-              <span>Card 2</span>
+              <img src="images/24/portfolio/portfolio_sketch_MD.svg" alt="">
+              <span>[ Automotive Maps ]</span>
             </div>
           </div>
           <div class="card rect">
             <div class="card-image tilt">
-              <span>Card 3</span>
+              <img src="images/24/portfolio/portfolio_sketch_WD.svg" alt="">
+              <span>[ Web Development ]</span>
             </div>
           </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
       </div>
       <div class="text-block">
         <h1 class="title">
-          Experience<br>engineering
+          UIUX<br>Engineer
         </h1>
         <p class="text">
-          I create User experiences through code. My languages of choice are HTML, SCSS and JS. For Graphic Design I use
-          Adobe Illustrator and Figma.
+          I love to code captivating digital experiences, merging various technologies.
+          At the same time I find joy in creating beautiful UI elements.
         </p>
-        <a href="/work.html" class="button internal kursor-hover">
-          <span>Check Portfolio</span>
+        <a href="/work.html" class="button internal kursor-hover link">
+          <span>My Portfolio</span>
         </a>
       </div>
     </section>
-    <section class="text-left">
+    <section class="text-center single-column">
       <div class="text-block">
         <h1 class="title">
           Connect!
         </h1>
         <p class="text">
           Have any questions?
+          <br>
           <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank" class="kursor-hover mail">Drop me a line</a>
           or find me
-          <a href="https://www.linkedin.com/in/alexandru-gatea/" class="kursor-hover external">on the web</a>.
+          <a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank" class="kursor-hover external">on the web</a>.
         </p>
 
         <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank" class="button hire kursor-hover">
           <span>Hire me</span>
         </a>
       </div>
-      <div class="graphic-block"></div>
     </section>
   </main>
 
@@ -203,16 +225,74 @@
   <div id="kursorTrail" class="trail"></div>
   <script src="js/tilt.js"></script>
   <script src="js/scripts.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
   <script type="text/javascript">
     VanillaTilt.init(document.querySelectorAll(".tilt"), {
       max: 14,
-      speed: 200,
-      glare: true,
-      maxGlare: 0.2,
-      perspective: 500,
+      speed: 140,
+      glare: false,
+      perspective: 700,
       scale: 1.07
     });
+  </script>
+  <script type="text/javascript">
+    
+const next = document.getElementById("next");
+const holder = document.getElementById("holder");
+let intervalId;
+
+function switchCard() {
+  const holder = document.getElementById("holder");
+  const lastChild = holder.lastElementChild;
+  lastChild.classList.add("kustom-fade-out");
+  holder.classList.add("move");
+  cardsProgressBar();
+
+  setTimeout(function () {
+    holder.removeChild(lastChild);
+  }, 350);
+
+  setTimeout(function () {
+    holder.classList.remove("move");
+    lastChild.classList.remove("kustom-fade-out");
+  }, 400);
+
+  setTimeout(function () {
+    lastChild.classList.add("kustom-fade-in");
+    holder.prepend(lastChild);
+    
+  }, 450);
+
+  setTimeout(function () {
+    lastChild.classList.remove("kustom-fade-in");
+  }, 750);
+
+
+}
+// Function to start progress bar animation
+function cardsProgressBar() {
+  const progressBar = document.getElementById('progressBar');
+  progressBar.style.visibility = 'visible'; // Make progress bar visible
+  progressBar.style.animation = 'none'; // Reset animation
+  setTimeout(() => {
+      progressBar.style.animation = 'progressBarAnimation 3s linear forwards'; // Restart animation after a short delay
+  }, 10); // Adjust the delay as needed
+}
+
+function autoPlayCards() {
+  switchCard();
+  clearInterval(intervalId);
+  intervalId = setInterval(switchCard, 3000);
+}
+
+intervalId = setInterval(switchCard, 3000);
+
+
+holder.addEventListener("click", function () {
+  autoPlayCards();
+});
   </script>
 </body>
 

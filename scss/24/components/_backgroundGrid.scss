@@ -32,7 +32,7 @@
       animation-delay: var(--grl);
     }
     .grid-line.col-line {
-      animation: svg 0.2s linear forwards;
+      animation: svg 0.8s linear forwards;
       animation-delay: var(--gcl);
     }
   }
@@ -56,5 +56,5 @@
   background-position: 50%;
   background-size: rem-calc(105px);
   animation: noise 0.2s infinite both;
-  opacity: 0.5;
+  opacity: 0.35;
 }
