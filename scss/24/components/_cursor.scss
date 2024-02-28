@@ -1,5 +1,4 @@
 .kursor-hover:hover {
-  //backdrop-filter: opacity(1);
   mix-blend-mode: normal;
 }
 
@@ -43,8 +42,8 @@
   &.hovering {
     width: rem-calc(70);
     height: rem-calc(70);
-    backdrop-filter: invert(100) blur(1px);
-    background: rgba($bodyText, 0.28);
+    backdrop-filter: invert(100) blur(1px) grayscale(100);
+    background: rgba($bodyText, 0.14);
     box-shadow: inset 0 0 0 rem-calc(7) rgba($bodyBackground, 0.1);
 
     span {

@@ -84,8 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-      closeMenu();
-      enableScroll();
+      if (navTrig.classList.contains("open")) {
+        closeMenu();
+        enableScroll();
+      } 
     }
   });
 
@@ -162,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Do not use Math.floor here or the grid will have a jumpy move
     const scrollPercent = (scrollPosition / totalScrollHeight) * - 50 + 1;
-
     let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
     
     if (mouse) {
@@ -190,15 +191,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // disable smooth scroll while lightgallery is opened
-		gallery.addEventListener('lgBeforeOpen', function(event) {
-			isScrollEnabled = false;
-      console.log("scroll disabled");
-		});
 
-		gallery.addEventListener('lgAfterClose', function(event) {
-			isScrollEnabled = true;
+  if(document.body.classList.contains("work")) {
+    gallery.addEventListener('lgBeforeOpen', function(event) {
+      isScrollEnabled = false;
+      console.log("scroll disabled");
+    });
+  
+    gallery.addEventListener('lgAfterClose', function(event) {
+      isScrollEnabled = true;
       console.log("scroll enabled");
-		});
+    });
+  }
+
 
 
 
@@ -372,7 +377,6 @@ function createGrid() {
 }
 
 function moveKustomMouse(cursor, trail, x, y) {
-
   cursor.style.left = x + 'px';
   cursor.style.top = y + 'px';
 

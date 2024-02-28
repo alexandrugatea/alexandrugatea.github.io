@@ -55,24 +55,52 @@ body.work {
         z-index: 0;
         overflow: hidden;
     
-        &-image, {
-          //@extend .projectAbsoluteFullClass;
+        &-image {
           z-index: 1;
-          //background: url("../images/show/maps/Map_Render_Redesign_1.png");
           background-size: cover;
           background-position: center;
           border-radius: rem-calc(21);
-          width: 140%;
-          height: 140%;
+          width: 210%;
+          height: 210%;
           transition: all 2s ease-out;
           display: flex;
           justify-content: center;
           align-items: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           
           img {
-            position: relative;
-            width: 100%;
-            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &[class^='map'] {
+
+              &[class*='landscape'] {
+                width: auto;
+                height: 100%;
+              }
+              &[class*='square'] {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              &[class*='portrait'] {
+
+              }
+            }
+            &[class^='logo'] {
+              width: 84%;
+              height: 84%;
+              object-fit: contain;
+
+              &[class*='landscape'] {}
+              &[class*='square'] {}
+              &[class*='portrait'] {}
+            }
           }
 
         }
@@ -88,7 +116,7 @@ body.work {
           height: 100%;
           z-index: 10;
           pointer-events: none;
-          box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.14);
+          box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.56);
           display: block;
           border-radius: rem-calc(21);
     

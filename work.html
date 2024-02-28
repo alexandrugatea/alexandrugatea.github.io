@@ -23,7 +23,7 @@
 		</script>
 
 	<link rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 	<link rel="stylesheet" href="lib/css/lightgallery.css">
 	<link rel="stylesheet" href="lib/css/lg-autoplay.css">
@@ -135,262 +135,196 @@
 
 			<div id="mouse-scroll">
 				<div class="mouse">
-				  <div class="mouse-in"></div>
+					<div class="mouse-in"></div>
 				</div>
 				<div>
 					<span class="down-arrow-1"></span>
 					<span class="down-arrow-2"></span>
 					<span class="down-arrow-3"></span>
-				 </div>
-			  </div>
+				</div>
+			</div>
 		</section>
 
 		<section class="project-gallery" id="gallery">
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_3d_art.png"
-				data-sub-html="#Project1" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_3d_art.png" alt="">
-					</div>
-				</div>
-				<div class="project-text"></div>
-			</div>
-			<!-- Item End -->
-			
 
 
-			
-			<!-- ----- -->
-			<!-- Design -->
-			<!-- ----- -->
+			<script>
+				function renderPortfolio(portfolioData) {
+					const portfolioContainer = document.getElementById('gallery');
 
+					// Clear existing content
+					portfolioContainer.innerHTML = '';
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_3d_art.png"
-				data-sub-html="#Project1" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_3d_art.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 1</div>
-			</div>
-			<!-- Item End -->
+					// Iterate over portfolio data and generate HTML for each item
+					portfolioData.forEach(item => {
+						const div = document.createElement('div');
+						div.setAttribute('data-lg-size', item['size']);
+						div.setAttribute('data-src', item['src']);
+						div.setAttribute('data-sub-html', item['caption']);
+						div.classList.add('gallery-item', 'kursor-hover', 'zoom');
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_3d_paper.png"
-				data-sub-html="#Project2" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_3d_paper.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 2</div>
-			</div>
-			<!-- Item End -->
+						const projectDiv = document.createElement('div');
+						projectDiv.classList.add('project');
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_blender.png"
-				data-sub-html="#Project3" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_blender.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 3</div>
-			</div>
-			<!-- Item End -->
+						const projectImageDiv = document.createElement('div');
+						projectImageDiv.classList.add('project-image');
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_day.png"
-				data-sub-html="#Project4" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_day.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 4</div>
-			</div>
-			<!-- Item End -->
+						const img = document.createElement('img');
+						img.classList.add(item['type']);
+						img.setAttribute('src', item['src']);
+						img.setAttribute('alt', '');
+						img.setAttribute('loading', 'lazy');
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_night.png"
-				data-sub-html="#Project5" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_night.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 5</div>
-			</div>
-			<!-- Item End -->
+						const projectTextDiv = document.createElement('div');
+						projectTextDiv.classList.add('project-text');
+						projectTextDiv.textContent = item['project-text'];
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_gradient.png"
-				data-sub-html="#Project6" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_gradient.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 6</div>
-			</div>
-			<!-- Item End -->
+						projectImageDiv.appendChild(img);
+						projectDiv.appendChild(projectImageDiv);
+						div.appendChild(projectDiv);
+						div.appendChild(projectTextDiv);
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_detroit1.png"
-				data-sub-html="#Project7" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_detroit1.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 7</div>
-			</div>
-			<!-- Item End -->
+						portfolioContainer.appendChild(div);
+					});
+				}
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_detroit2.png"
-				data-sub-html="#Project8" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_detroit2.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 8</div>
-			</div>
-			<!-- Item End -->
+				// Example usage
+				const portfolioData = [
+					{
+						'size': '1920-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_3d_art.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1920-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_3d_paper.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1080-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_blender.png',
+						'project-text': 'Project 1',
+						'type': 'map_square'
+					},
+					{
+						'size': '1520-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_day.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1520-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_night.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1792-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_gradient.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1920-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_detroit1.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1920-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_detroit2.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					{
+						'size': '1920-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/maps/port_maps_detroit3.png',
+						'project-text': 'Project 1',
+						'type': 'map_landscape'
+					},
+					//brand
+					{
+						'size': '1440-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_atletic.png',
+						'project-text': 'Project 1',
+						'type': 'logo_landscape'
+					},
+					{
+						'size': '1196-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_city.png',
+						'project-text': 'Project 1',
+						'type': 'logo_landscape'
+					},
+					{
+						'size': '1080-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_coop.png',
+						'project-text': 'Project 1',
+						'type': 'logo_square'
+					},
+					{
+						'size': '1440-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_flower.png',
+						'project-text': 'Project 1',
+						'type': 'logo_landscape'
+					},
+					{
+						'size': '1440-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_games.png',
+						'project-text': 'Project 1',
+						'type': 'logo_landscape'
+					},
+					{
+						'size': '1440-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_keytana.png',
+						'project-text': 'Project 1',
+						'type': 'logo_landscape'
+					},
+					
+					{
+						'size': '1080-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_oman.png',
+						'project-text': 'Project 1',
+						'type': 'logo_square'
+					},
+					{
+						'size': '1080-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_reco.png',
+						'project-text': 'Project 1',
+						'type': 'logo_square'
+					},
+					{
+						'size': '1080-1080',
+						'caption': '#Project1',
+						'src': 'images/24/portfolio/brand/port_logo_wanted.png',
+						'project-text': 'Project 1',
+						'type': 'logo_square'
+					},
+					// Add more portfolio items as needed
+				];
 
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/maps/port_maps_detroit3.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/maps/port_maps_detroit3.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
+				// Call the function with your portfolio data
+				renderPortfolio(portfolioData);
 
-			
-			<!-- ----- -->
-			<!-- Logos -->
-			<!-- ----- -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_atletic.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_atletic.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_city.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_city.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_coop.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_coop.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_flower.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_flower.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_games.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_games.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_keytana.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_keytana.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_oman.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_oman.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_reco.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_reco.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- Item -->
-			<div data-lg-size="2160-2160" data-src="images/24/portfolio/brand/port_logo_wanted.png"
-				data-sub-html="#Project9" class="gallery-item kursor-hover zoom">
-				<div class="project">
-					<div class="project-image">
-						<img src="images/24/portfolio/brand/port_logo_wanted.png" alt="">
-					</div>
-				</div>
-				<div class="project-text">Project 9</div>
-			</div>
-			<!-- Item End -->
-
-			<!-- ----- -->
-			<!-- Design -->
-			<!-- ----- -->
-
+			</script>
 
 		</section>
 	</main>
@@ -424,9 +358,7 @@
 
 
 	<script defer>
-
 		const gallery = document.getElementById('gallery');
-
 		lightGallery(gallery, {
 			plugins: [lgZoom, lgThumbnail],
 			thumbnail: true,
@@ -439,13 +371,10 @@
 			download: false,
 			mousewheel: true
 		});
-
 	</script>
 
 
 	<script src="js/scripts.js"></script>
-
-
 	<script type="text/javascript" src="https://unpkg.com/onscreen/dist/on-screen.umd.min.js"></script>
 	<script type="text/javascript">
 		var os = new OnScreen({
@@ -471,5 +400,4 @@
 	</script>
 
 </body>
-
 </html>
