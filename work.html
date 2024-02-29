@@ -35,6 +35,7 @@
 	<link rel="stylesheet" href="lib/css/lg-thumbnail.css">
 	<link rel="stylesheet" href="lib/css/lg-transitions.css">
 	<link rel="stylesheet" href="lib/css/lg-zoom.css">
+	<link rel="stylesheet" href="lib/css/lg-video.css">
 	<link rel="stylesheet" href="css/s.css">
 </head>
 
@@ -144,205 +145,11 @@
 				</div>
 			</div>
 		</section>
-
 		<section class="project-gallery" id="gallery">
-
-
-			<script>
-				function renderPortfolio(portfolioData) {
-					const portfolioContainer = document.getElementById('gallery');
-
-					// Clear existing content
-					portfolioContainer.innerHTML = '';
-
-					// Iterate over portfolio data and generate HTML for each item
-					portfolioData.forEach(item => {
-						const div = document.createElement('div');
-						div.setAttribute('data-lg-size', item['size']);
-						div.setAttribute('data-src', item['src']);
-						div.setAttribute('data-sub-html', item['caption']);
-						div.classList.add('gallery-item', 'kursor-hover', 'zoom');
-
-						const projectDiv = document.createElement('div');
-						projectDiv.classList.add('project');
-
-						const projectImageDiv = document.createElement('div');
-						projectImageDiv.classList.add('project-image');
-
-						const img = document.createElement('img');
-						img.classList.add(item['type']);
-						img.setAttribute('src', item['src']);
-						img.setAttribute('alt', '');
-						img.setAttribute('loading', 'lazy');
-
-						const projectTextDiv = document.createElement('div');
-						projectTextDiv.classList.add('project-text');
-						projectTextDiv.textContent = item['project-text'];
-
-						projectImageDiv.appendChild(img);
-						projectDiv.appendChild(projectImageDiv);
-						div.appendChild(projectDiv);
-						div.appendChild(projectTextDiv);
-
-						portfolioContainer.appendChild(div);
-					});
-				}
-
-				// Example usage
-				const portfolioData = [
-					{
-						'size': '1920-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_3d_art.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1920-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_3d_paper.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1080-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_blender.png',
-						'project-text': 'Project 1',
-						'type': 'map_square'
-					},
-					{
-						'size': '1520-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_day.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1520-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_night.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1792-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_gradient.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1920-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_detroit1.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1920-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_detroit2.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					{
-						'size': '1920-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/maps/port_maps_detroit3.png',
-						'project-text': 'Project 1',
-						'type': 'map_landscape'
-					},
-					//brand
-					{
-						'size': '1440-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_atletic.png',
-						'project-text': 'Project 1',
-						'type': 'logo_landscape'
-					},
-					{
-						'size': '1196-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_city.png',
-						'project-text': 'Project 1',
-						'type': 'logo_landscape'
-					},
-					{
-						'size': '1080-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_coop.png',
-						'project-text': 'Project 1',
-						'type': 'logo_square'
-					},
-					{
-						'size': '1440-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_flower.png',
-						'project-text': 'Project 1',
-						'type': 'logo_landscape'
-					},
-					{
-						'size': '1440-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_games.png',
-						'project-text': 'Project 1',
-						'type': 'logo_landscape'
-					},
-					{
-						'size': '1440-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_keytana.png',
-						'project-text': 'Project 1',
-						'type': 'logo_landscape'
-					},
-					
-					{
-						'size': '1080-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_oman.png',
-						'project-text': 'Project 1',
-						'type': 'logo_square'
-					},
-					{
-						'size': '1080-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_reco.png',
-						'project-text': 'Project 1',
-						'type': 'logo_square'
-					},
-					{
-						'size': '1080-1080',
-						'caption': '#Project1',
-						'src': 'images/24/portfolio/brand/port_logo_wanted.png',
-						'project-text': 'Project 1',
-						'type': 'logo_square'
-					},
-					// Add more portfolio items as needed
-				];
-
-				// Call the function with your portfolio data
-				renderPortfolio(portfolioData);
-
-			</script>
-
 		</section>
 	</main>
-
-	<div id="captions">
-		<div id="Project1">
-			something about 1st project
-		</div>
-		<div id="Project2">
-			something about 2nd project
-		</div>
-		<div id="Project3">
-			something about 3rd project
-		</div>
-		<div id="Project4">
-			something about 4th project
-		</div>
-	</div>
+	<div id="captions"></div>
+	<script type="text/javascript" src="js/portfolio.js"></script>
 
 	<div id="pt" class="page-transitioner active">
 		<div class="loader"></div>
@@ -355,22 +162,23 @@
 	<script src="lib/js/fullscreen/lg-fullscreen.umd.js"></script>
 	<script src="lib/js/thumbnail/lg-thumbnail.umd.js"></script>
 	<script src="lib/js/zoom/lg-zoom.umd.js"></script>
-
-
 	<script defer>
-		const gallery = document.getElementById('gallery');
-		lightGallery(gallery, {
-			plugins: [lgZoom, lgThumbnail],
-			thumbnail: true,
-			mode: 'lg-fade',
-			cssEasing: 'cubic-bezier(.59,-0.31,.64,1.23)',
-			speed: 350,
-			thumbHeight: "70px",
-			thumbMargin: 7,
-			thumbWidth: 110,
-			download: false,
-			mousewheel: true
-		});
+
+			lightGallery(document.getElementById('gallery'), {
+				plugins: [lgZoom, lgThumbnail],
+				thumbnail: true,
+				mode: 'lg-fade',
+				cssEasing: 'cubic-bezier(.59,-0.31,.64,1.23)',
+				speed: 350,
+				thumbHeight: "70px",
+				thumbMargin: 7,
+				thumbWidth: 110,
+				download: false,
+				mousewheel: false,
+				caption: true
+			});
+
+		document.addEventListener('touchstart', function () { }, { passive: true });
 	</script>
 
 
@@ -382,22 +190,21 @@
 			debounce: 1,
 		});
 
-		// Do something when an element enters the viewport
-		os.on('enter', '.title', (element, event) => {
-			// makes's the element's text red
-			setTimeout(() => {
-				element.classList.add("will-animate", "gallery-entry");
-			}, 1500);
-		});
+		//// Do something when an element enters the viewport
+		//os.on('enter', '.title', (element, event) => {
+		//	// makes's the element's text red
+		//	setTimeout(() => {
+		//		element.classList.add("will-animate", "gallery-entry");
+		//	}, 1500);
+		//});
 
 		os.on('enter', '.gallery-item', (element, event) => {
 			// makes's the element's text red
 			element.classList.add("will-animate");
-			setTimeout(() => {
-			}, 1500);
 		});
 
 	</script>
 
 </body>
+
 </html>

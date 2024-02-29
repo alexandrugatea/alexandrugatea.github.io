@@ -1,3 +1,5 @@
+@use "sass:math";
+
 body.work {
   padding-bottom: rem-calc(140);
 
@@ -6,6 +8,7 @@ body.work {
     grid-template-columns: repeat(auto-fill, minmax(rem-calc(350), 1fr));
     position: relative;
     grid-gap: rem-calc(98);
+    width: 100%;
 
     .gallery-item {
       aspect-ratio: 1;
@@ -14,9 +17,12 @@ body.work {
       justify-content: center;
       align-items: flex-start;
       position: relative;
-      transform: translate(0, 35%) scale(1.1);
+      transform: translate(0, 25%) scale(1.2);
       transition: all 1.2s cubic-bezier(.66,-0.32,.36,1.32);
-      
+      transition-delay: 0.25s;
+      width: 100%;
+
+       
       &:after {
         content: "";
         display: block;
@@ -39,6 +45,7 @@ body.work {
       &.will-animate {
         visibility: visible;
         transform: translate(0, 0) scale(1.0);
+        opacity: 1;
     
         .project-image {
           width: 100%;
@@ -60,8 +67,8 @@ body.work {
           background-size: cover;
           background-position: center;
           border-radius: rem-calc(21);
-          width: 210%;
-          height: 210%;
+          width: 140%;
+          height: 140%;
           transition: all 2s ease-out;
           display: flex;
           justify-content: center;
@@ -77,29 +84,62 @@ body.work {
             left: 50%;
             transform: translate(-50%, -50%);
 
-            &[class^='map'] {
+            &.map {
 
-              &[class*='landscape'] {
+              &.landscape {
                 width: auto;
                 height: 100%;
               }
-              &[class*='square'] {
+              &.square {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
               }
-              &[class*='portrait'] {
+              &.portrait {
 
               }
             }
-            &[class^='logo'] {
-              width: 84%;
+            &.logo {
+              width: 84%; 
               height: 84%;
               object-fit: contain;
 
-              &[class*='landscape'] {}
-              &[class*='square'] {}
-              &[class*='portrait'] {}
+              &.landscape {
+                width: 84%;
+                height: auto;
+              }
+              &.square {
+                width: 84%;
+                height: 84%;
+                object-fit: contain;
+              }
+              &.portrait {
+                height: 84%;
+                width: auto;
+              }
+            }
+            &.web {
+              width: 100%; 
+              height: 100%;
+              object-fit: cover;
+
+              &.landscape {
+                width: auto;
+                height: 100%;
+              }
+              &.square {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+              &.portrait {
+                width: 100%;
+                height: auto;
+                top: 0%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+                
+              }
             }
           }
 
@@ -155,8 +195,7 @@ body.work {
     opacity: 0;
     top: 0;
     bottom: 0;
-    width: 30%;
-    
+    width: 18%;
   }
 
   .lg-prev {
@@ -193,6 +232,11 @@ body.work {
 }
 
 
-#captions {
+#captions > div {
   display: none;
+}
+
+
+.lg-outer .lg-video-cont .lg-object {
+  width: 70% !important;
 }

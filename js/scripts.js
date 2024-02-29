@@ -193,25 +193,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // disable smooth scroll while lightgallery is opened
 
   if(document.body.classList.contains("work")) {
-    gallery.addEventListener('lgBeforeOpen', function(event) {
+    gallery.addEventListener('lgBeforeOpen', function() {
       isScrollEnabled = false;
-      console.log("scroll disabled");
     });
   
-    gallery.addEventListener('lgAfterClose', function(event) {
+    gallery.addEventListener('lgAfterClose', function() {
       isScrollEnabled = true;
-      console.log("scroll enabled");
     });
   }
 
 
-
-
-
-
-
 // END of DomContentLoaded
-
 });
 
 
