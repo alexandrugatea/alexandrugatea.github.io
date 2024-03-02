@@ -1,0 +1,136 @@
+.form {
+
+    width: 100%;
+    max-width: rem-calc(420);
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-gap: rem-calc(35);
+
+    &-title {
+        font-size: rem-calc(42);
+        
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    &-field {
+        border-radius: rem-calc(14);
+        background: $bodyBackground;
+        border: none;
+        outline: none;
+        color: $bodyText;
+        box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.35);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: rem-calc(0 28);
+        font-size: rem-calc(21);
+        
+        
+        &[type="text"], &[type="email"] {
+            width: 100%;
+            height: rem-calc(70);
+        }
+        
+        &[name="name"] {
+            text-transform: capitalize;
+        }
+
+        &.error {
+            box-shadow: inset rem-calc(0 0 0 3) rgba(#f00, 0.42);
+        }
+        &.error:hover,
+        &.error:active,
+        &.error:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba(#f00, 0.42),
+                              rem-calc(0 0 0 7) rgba(#f00, 0.21);
+        }
+
+        &.valid {
+            //box-shadow: inset rem-calc(0 0 0 3) rgba(#0f0, 0.42);
+
+            & + label span {
+                color: #0f0;
+            }
+        }
+        &.valid:hover,
+        &.valid:active,
+        &.valid:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba(#0f0, 0.42),
+                              rem-calc(0 0 0 7) rgba(#0f0, 0.21);
+        }
+
+        &.textarea {
+            width: 100%!important;
+            max-width: 100%!important;
+            min-width: 100%!important;
+            padding: rem-calc(28);
+
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0s linear;
+        }
+
+        &:hover {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.42),
+                              rem-calc(0 0 0 7) rgba($bodyText, 0.21);
+        }
+
+        &:focus {
+
+            & + label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+
+        &:not(:placeholder-shown) {
+
+            & + label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+    }
+
+    &-label {
+        position: absolute;
+        transform: translate(0, 50%);
+        top: 0;
+        left: rem-calc(7);
+        padding: rem-calc(0 28);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background: $bodyBackground;
+        display: inline-block;
+        max-width: 77%;
+
+        .form-placeholder {
+            line-height: rem-calc(35);
+        }
+
+        .form-error {
+            display: none;
+            color:#f00;
+
+        }
+    }
+
+    .error + label .form-placeholder {display: none;}
+    .error + label .form-error {display: block;}
+
+    [type="submit"] {
+        
+    }
+}
+
+// override browser
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(7, 7,7), rgba(7, 7, 7, 0.4)) !important!important;
+    
+    color: $bodyText !important;
+}

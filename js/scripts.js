@@ -84,10 +84,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
+      cursor.style.display = 'block';
+      trail.style.display = 'block';
+
       if (navTrig.classList.contains("open")) {
         closeMenu();
         enableScroll();
-      } 
+      }
     }
   });
 
@@ -114,7 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
     "phone": "phone",
     "zoom": "expand_content",
     "lg-prev": "navigate_before",
-    "lg-next": "navigate_next"
+    "lg-next": "navigate_next",
+    "txt": "edit",
+    "send": "send"
   };
 
   // Function to set cursor message based on element's class
@@ -165,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Do not use Math.floor here or the grid will have a jumpy move
     const scrollPercent = (scrollPosition / totalScrollHeight) * - 50 + 1;
     let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
-    
+
     if (mouse) {
       mouse.style.opacity = windowScrollPercent / 100;
     }
@@ -192,18 +197,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // disable smooth scroll while lightgallery is opened
 
-  if(document.body.classList.contains("work")) {
-    gallery.addEventListener('lgBeforeOpen', function() {
+  if (document.body.classList.contains("work")) {
+    gallery.addEventListener('lgBeforeOpen', function () {
       isScrollEnabled = false;
     });
-  
-    gallery.addEventListener('lgAfterClose', function() {
+
+    gallery.addEventListener('lgAfterClose', function () {
       isScrollEnabled = true;
     });
   }
 
 
-// END of DomContentLoaded
+  // END of DomContentLoaded
 });
 
 
@@ -376,6 +381,18 @@ function moveKustomMouse(cursor, trail, x, y) {
     trail.style.left = x + 'px';
     trail.style.top = y + 'px';
   }, 35);
+
+  const iframes = document.querySelectorAll('iframe');
+  iframes.forEach(iframe => {
+    iframe.addEventListener('mouseover', function () {
+      cursor.style.display = 'none';
+      trail.style.display = 'none';
+    });
+    iframe.addEventListener('mouseout', function () {
+      cursor.style.display = 'block';
+      trail.style.display = 'block';
+    });
+  });
 }
 
 function openMenu() {

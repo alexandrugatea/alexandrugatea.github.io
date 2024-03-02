@@ -8,7 +8,7 @@ function renderPortfolio(category) {
     const div = document.createElement('div');
     div.setAttribute('data-lg-size', item['size']);
     div.setAttribute('data-src', item['src']);
-    div.setAttribute('data-sub-html', "#" + item['caption']);
+    div.setAttribute('data-sub-html', "#" + item['captionID']);
     div.classList.add('gallery-item', 'kursor-hover', 'zoom', item['category']);
 
     const projectDiv = document.createElement('div');
@@ -45,7 +45,7 @@ function renderIframes(category) {
     const div = document.createElement('div');
     div.setAttribute('data-lg-size', item['size']);
     div.setAttribute('data-src', item['src']);
-    div.setAttribute('data-sub-html', "#" + item['caption']);
+    div.setAttribute('data-sub-html', "#" + item['captionID']);
     if (item['iframe']) {
       div.setAttribute('data-iframe', item['iframe']);
     }
@@ -80,8 +80,8 @@ function renderCaptions(category) {
   const captionContainer = document.getElementById('captions');
   category.forEach(item => {
     const div = document.createElement('div');
-      div.setAttribute('id', item['caption']);
-      div.innerHTML = item['project-text'];
+      div.setAttribute('id', item['captionID']);
+      div.innerHTML = item['caption-text'];
   
       captionContainer.appendChild(div);
   })
@@ -92,42 +92,47 @@ const webData = [
   {
     'category': 'category-web',
     'size': '1917-913',
-    'caption': 'webTelenavNew',
+    'captionID': 'webTelenavNew',
     'src': 'images/24/portfolio/webs/tnv_new.png',
-    'project-text': "Telenav's website [US]",
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   },
   {
     'category': 'category-web',
     'size': '1904-905',
-    'caption': 'webTelenavOld',
+    'captionID': 'webTelenavOld',
     'src': 'images/24/portfolio/webs/tnv_old.png',
-    'project-text': 'Previous Telenav Website [US]',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   },
   {
     'category': 'category-web',
     'size': '1901-910',
-    'caption': 'webSynpheon',
+    'captionID': 'webSynpheon',
     'src': 'images/24/portfolio/webs/synpheon.png',
-    'project-text': 'Synpheon [DE]',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   },
   {
     'category': 'category-web',
     'size': '1902-909',
-    'caption': 'webDakar',
+    'captionID': 'webDakar',
     'src': 'images/24/portfolio/webs/dakar.png',
-    'project-text': 'AutoDakar [RO]',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   },
   {
     'category': 'category-web',
     'size': '1920-4800',
-    'caption': 'webLandingpage',
+    'captionID': 'webLandingpage',
     'src': 'images/24/portfolio/webs/Landingpage.png',
-    'project-text': 'LandingPage idea for portfolio',
-    'type': ['web', 'portrait']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'portrait'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   }
 ];
 
@@ -135,231 +140,279 @@ const codePenData = [
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenSVGJS',
+    'captionID': 'webCodePenSignInUp',
+    'iframe': true,
+    'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
+    'src': 'https://codepen.io/sgtdangates/embed/QWPwbEr?default-tab=result&theme-id=dark',
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
+  },
+  {
+    'category': 'category-web',
+    'size': '1920-1080',
+    'captionID': 'webCodePenGridList',
+    'iframe': true,
+    'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
+    'src': 'https://codepen.io/sgtdangates/embed/GRLgJgr?default-tab=result&theme-id=dark',
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
+  },
+  {
+    'category': 'category-web',
+    'size': '1920-1080',
+    'captionID': 'webCodePenSVGJS',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/MWxxmyr?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenBlobs',
+    'captionID': 'webCodePenBlobs',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/XWGGRNB?default-tab=result&theme-id=darkk',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenTransparentMenu',
+    'captionID': 'webCodePenTransparentMenu',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/mdoommJ?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenResponsiveTable',
+    'captionID': 'webCodePenResponsiveTable',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/bGZZWzo?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2><p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenFloatingButtons',
+    'captionID': 'webCodePenFloatingButtons',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/OJqqmYg?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenAnimatedMenuInOut',
+    'captionID': 'webCodePenAnimatedMenuInOut',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/NWJJgGM?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenTriangleCarousel',
+    'captionID': 'webCodePenTriangleCarousel',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/poYYwWY?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-web',
     'size': '1920-1080',
-    'caption': 'webCodePenCSSSkeleton',
+    'captionID': 'webCodePenCSSSkeleton',
     'iframe': true,
     'thumb': 'images/24/portfolio/webs/fiddle-loader.png',
     'src': 'https://codepen.io/sgtdangates/embed/PoLLKZX?default-tab=result&theme-id=dark',
-    'project-text': 'Project 1',
-    'type': ['web', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['web', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
 ]
 const mapsData = [
   {
     'category': 'category-maps',
     'size': '1920-1080',
-    'caption': 'mapArt',
+    'captionID': 'mapArt',
     'src': 'images/24/portfolio/maps/port_maps_3d_art.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1920-1080',
-    'caption': 'mapPaper',
+    'captionID': 'mapPaper',
     'src': 'images/24/portfolio/maps/port_maps_3d_paper.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1080-1080',
-    'caption': 'mapBlender',
+    'captionID': 'mapBlender',
     'src': 'images/24/portfolio/maps/port_maps_blender.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'square']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'square'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1520-1080',
-    'caption': 'mapRenderSun',
+    'captionID': 'mapRenderSun',
     'src': 'images/24/portfolio/maps/port_maps_day.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1520-1080',
-    'caption': 'mapRenderMoon',
+    'captionID': 'mapRenderMoon',
     'src': 'images/24/portfolio/maps/port_maps_night.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1792-1080',
-    'caption': 'mapGradients',
+    'captionID': 'mapGradients',
     'src': 'images/24/portfolio/maps/port_maps_gradient.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1920-1080',
-    'caption': 'mapStyle1',
+    'captionID': 'mapStyle1',
     'src': 'images/24/portfolio/maps/port_maps_detroit1.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1920-1080',
-    'caption': 'mapStyle2',
+    'captionID': 'mapStyle2',
     'src': 'images/24/portfolio/maps/port_maps_detroit2.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
   },
   {
     'category': 'category-maps',
     'size': '1920-1080',
-    'caption': 'mapStyle3',
+    'captionID': 'mapStyle3',
     'src': 'images/24/portfolio/maps/port_maps_detroit3.png',
-    'project-text': 'Project 1',
-    'type': ['map', 'landscape']
-  },
+    'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+    'type': ['map', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
+  }
 ];
 const brandData = [
     {
       'category': 'category-brand',
       'size': '1440-1080',
-      'caption': 'logoAtleticMed',
+      'captionID': 'logoAtleticMed',
       'src': 'images/24/portfolio/brand/port_logo_atletic.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'landscape']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1196-1080',
-      'caption': 'logoCityScroller',
+      'captionID': 'logoCityScroller',
       'src': 'images/24/portfolio/brand/port_logo_city.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'landscape']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1080-1080',
-      'caption': 'logoCoop',
+      'captionID': 'logoCoop',
       'src': 'images/24/portfolio/brand/port_logo_coop.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'square']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'square'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1440-1080',
-      'caption': 'logoFlower',
+      'captionID': 'logoFlower',
       'src': 'images/24/portfolio/brand/port_logo_flower.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'landscape']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1440-1080',
-      'caption': 'logoGames',
+      'captionID': 'logoGames',
       'src': 'images/24/portfolio/brand/port_logo_games.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'landscape']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1440-1080',
-      'caption': 'logoKeytana',
+      'captionID': 'logoKeytana',
       'src': 'images/24/portfolio/brand/port_logo_keytana.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'landscape']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'landscape'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
   
     {
       'category': 'category-brand',
       'size': '1080-1080',
-      'caption': 'logoOM',
+      'captionID': 'logoOM',
       'src': 'images/24/portfolio/brand/port_logo_oman.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'square']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'square'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1080-1080',
-      'caption': 'logoRecord',
+      'captionID': 'logoRecord',
       'src': 'images/24/portfolio/brand/port_logo_reco.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'square']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'square'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     {
       'category': 'category-brand',
       'size': '1080-1080',
-      'caption': 'logoWanted',
+      'captionID': 'logoWanted',
       'src': 'images/24/portfolio/brand/port_logo_wanted.png',
-      'project-text': 'Project 1',
-      'type': ['logo', 'square']
+      'project-text': "<h2>Telenav's website [US]</h2><p>web development</p>",
+      'type': ['logo', 'square'],
+    'caption-text': '	<h2 class="galleryitem-caption-title">Project title or what is it for</h2>	<p class="galleryitem-caption-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet consequuntur dolorem dolor asperiores id esse consectetur ut, debitis sed similique incidunt quasi fugiat accusamus quo delectus soluta deleniti eaque? Reiciendis?</p>	'
     },
     // Add more portfolio items as needed
   ];

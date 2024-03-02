@@ -1,63 +1,65 @@
 .button {
 
-  display: inline;
-  position: relative;
-  z-index: 0;
-
-  font-family: $font900;
-  font-weight: 900;
-  letter-spacing: rem-calc(2);
-  min-height: rem-calc(49);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: rem-calc(14 35);
-  overflow: hidden;
-
-  @include glass($bodyBackground, 0.35, 14);
-
-
-
-  box-shadow: inset 0 0 0 rem-calc(3) rgba(255,255,255,0.8),
-                    0 0 0 rem-calc(1) rgba($bodyBackground,0.8);
-  text-decoration: none;
-  transform: scale(1);
-  transition: all 0.25s ease-in-out;
-
-  span {
-    display: inline-block;
+    display: inline;
     position: relative;
-    z-index: 2;
+    z-index: 0;
 
-    font-size: rem-calc(14);
-    line-height: 1;
-    text-transform: uppercase;
+    font-family: $font900;
+    font-weight: 900;
+    letter-spacing: rem-calc(2);
+    min-height: rem-calc(49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem-calc(14 35);
+    overflow: hidden;
+    color: $bodyText;
+    border: none;
+    outline: none;
+    @include glass($bodyBackground, 0.35, 14px);
+
+
+
+    box-shadow: inset 0 0 0 rem-calc(3) rgba(255, 255, 255, 0.8),
+        0 0 0 rem-calc(1) rgba($bodyBackground, 0.8);
+    text-decoration: none;
     transform: scale(1);
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  &:before {
-    content: "";
-    display: block;
-    width: rem-calc(7);
-    transform: rotate(42deg) scale(14);
-    height: 200%;
-    position: absolute;
-    background-color: $bodyBackground;
-    z-index: 1;
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
-  &:hover {
-
-    &:before {
-      transform: rotate(14deg) scale(14);
-      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+    transition: all 0.25s ease-in-out;
 
     span {
-      transform: scale(1.1);
-      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+
+        font-size: rem-calc(14);
+        line-height: 1;
+        text-transform: uppercase;
+        transform: scale(1);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-  }
+
+    &:before {
+        content: "";
+        display: block;
+        width: rem-calc(7);
+        transform: rotate(42deg) scale(14);
+        height: 200%;
+        position: absolute;
+        background-color: $bodyBackground;
+        z-index: 1;
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    &:hover {
+
+        &:before {
+            transform: rotate(14deg) scale(14);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        span {
+            transform: scale(1.1);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    }
 }

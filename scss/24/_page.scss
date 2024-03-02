@@ -5,6 +5,7 @@ body {
   background: $bodyBackground;
   color: $bodyText;
   font-family: $font400, sans-serif;
+  letter-spacing: rem-calc(1);
   width: 100%;
   padding: rem-calc(0 0 0 140);
   margin-left: rem-calc(0);
