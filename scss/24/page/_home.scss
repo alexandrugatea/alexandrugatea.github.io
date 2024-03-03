@@ -114,7 +114,7 @@ body.home {
             border-radius: 50%;
             width: rem-calc(350);
             height: rem-calc(350);
-            @include glass($bodyText, 0.2, 7px);
+            @include glass($bodyText, 0.14, 28px);
             transition: all 0.25s ease-out;
   
             &:nth-child(1) {

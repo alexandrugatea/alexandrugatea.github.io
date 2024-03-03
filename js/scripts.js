@@ -165,10 +165,18 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==========
   window.addEventListener("scroll", function () {
     const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
+
+      let parallaxOffset = 50;
+
+      // edge case for contact page where there are 2 * 100vh sections
+      if (totalScrollHeight == window.innerHeight) {
+        parallaxOffset = 25;
+      }
+
     const scrollPosition = window.scrollY;
 
     // Do not use Math.floor here or the grid will have a jumpy move
-    const scrollPercent = (scrollPosition / totalScrollHeight) * - 50 + 1;
+      const scrollPercent = (scrollPosition / totalScrollHeight) * - parallaxOffset + 1;
     let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
 
     if (mouse) {
@@ -206,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
       isScrollEnabled = true;
     });
   }
-
 
   // END of DomContentLoaded
 });
@@ -317,7 +324,7 @@ function createGrid() {
 
   const middleRow = Math.floor(rowCount / 2);
   const middleCol = Math.floor(columnCount / 2);
-  const incrementalDelay = 0.7;
+  const incrementalDelay = 2;
   // Creating row lines
   for (let i = 0; i < rowCount; i++) {
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -331,8 +338,8 @@ function createGrid() {
     const distanceFromMiddle = Math.abs(i - middleRow);
     const delay = (distanceFromMiddle / middleRow) * incrementalDelay;
 
-    line.style.setProperty("--grl", delay + "s");
-    //line.style.setProperty("--grl", i * 0.03 + "s");
+    //line.style.setProperty("--grl", delay + "s");
+    line.style.setProperty("--grl", i * 0.03 + "s");
     svg.appendChild(line);
   }
 
@@ -348,8 +355,8 @@ function createGrid() {
     const distanceFromMiddle = Math.abs(j - middleCol);
     const delay = (distanceFromMiddle / middleCol) * incrementalDelay;
 
-    line.style.setProperty("--gcl", delay + "s");
-    //line.style.setProperty("--gcl", j * 0.03 + "s");
+    //line.style.setProperty("--gcl", delay + "s");
+    line.style.setProperty("--gcl", j * 0.03 + "s");
     svg.appendChild(line);
   }
 

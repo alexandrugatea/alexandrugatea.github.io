@@ -22,6 +22,7 @@ section {
     display: block;
     width: 100%;
     line-height: 0.98;
+    font-weight: 900;
 
     &.has-subtitle {
       display: block;
@@ -46,6 +47,7 @@ section {
   .text {
     font: inherit;
     font-size: rem-calc($sectionTextSize);
+    font-weight: 600;
     max-width: rem-calc(700);
     display: block;
     width: 100%;

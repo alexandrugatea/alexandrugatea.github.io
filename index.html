@@ -8,7 +8,7 @@
         <link rel="icon" href="light.ico" media="(prefers-color-scheme: dark)">
         <title>Alexandru Gatea</title>
         <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link rel="stylesheet" href="css/s.css">
     </head>
 
@@ -104,19 +104,26 @@
         </nav>
 
         <main>
-            <section class="text-center single-column">
+            <section class="text-center single-column hero">
                 <div class="text-block">
                     <h1 class="title">
                         Hello World!
                     </h1>
                     <p class="text">
+                        Let's bring your ideas to life!<br> 
+                        I craft engaging digital experiences through the power of code and design.
+
+                        <!--<br>
+                        <br>
+                        <br>
+                        <br>
                         I'm an
                         <a href="/about.html" class="kursor-hover internal  link">UIUX Engineer</a>
                         with a strong devotion to
                         <a href="/work.html" class="kursor-hover dev  link">web development</a>,
                         <a href="/work.html" class="kursor-hover gd link">graphic design</a>,
                         and
-                        <a href="/work.html" class="kursor-hover maps  link">navigation maps.</a>
+                        <a href="/work.html" class="kursor-hover maps  link">navigation maps.</a>-->
                     </p>
                 </div>
                 <div id="mouse-scroll">
@@ -137,7 +144,9 @@
                         I'm Alex
                     </h1>
                     <p class="text">
-                        a Website Developer and Designer based in Cluj, Romania.
+                        a UIUX Artist and Engineer based in the city of Cluj-Napoca, Transylvania.
+                        I work in design since 2010 and coding is an important step in my design process.
+                        
                     </p>
 
                     <a href="/about.html" class="button internal kursor-hover link">
@@ -195,11 +204,11 @@
                 </div>
                 <div class="text-block">
                     <h1 class="title">
-                        UIUX<br>Engineer
+                        From Code to Experience
                     </h1>
                     <p class="text">
-                        I love to code captivating digital experiences, merging various technologies.
-                        At the same time I find joy in creating beautiful UI elements.
+                        I blend my coding expertise with design understanding to create seamless digital experiences.
+                        From UIUX to HTML, CSS, and JS, I translate ideas into interactive realities.
                     </p>
                     <a href="/work.html" class="button internal kursor-hover link">
                         <span>My Portfolio</span>
@@ -209,16 +218,15 @@
             <section class="text-center single-column">
                 <div class="text-block">
                     <h1 class="title">
-                        Connect!
+                        Let's Connect!
                     </h1>
                     <p class="text">
-                        Have any questions?
+                        Want to discuss your project?
                         <br>
-                        <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank"
-                            class="kursor-hover mail">Drop me a line</a>
+                        <a href="/contact.html" target="_blank"
+                            class="kursor-hover internal">Drop me a line</a>
                         or find me
-                        <a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank"
-                            class="kursor-hover external">on the
+                        <a href="https://www.linkedin.com/in/alexandru-gatea/" class="kursor-hover external">on the
                             web</a>.
                     </p>
 
@@ -244,48 +252,50 @@
 
         <script type="text/javascript">
             VanillaTilt.init(document.querySelectorAll(".tilt"), {
-                max: 14,
-                speed: 140,
+                max: 7,
+                speed: 96,
                 glare: false,
                 perspective: 700,
                 scale: 1.07
             });
         </script>
-        <script type="text/javascript">
-
-            const next = document.getElementById("next");
+        <script>
+            const next = document.getElementById("next"); // Assuming you don't have this element
             const holder = document.getElementById("holder");
             let intervalId;
+            let isHovered = false; // Flag to track hovering state
 
             function switchCard() {
-                const holder = document.getElementById("holder");
-                const lastChild = holder.lastElementChild;
-                lastChild.classList.add("kustom-fade-out");
-                holder.classList.add("move");
-                cardsProgressBar();
+                if (!isHovered) { // Proceed only if not hovered
+                    const holder = document.getElementById("holder");
+                    const lastChild = holder.lastElementChild;
+                    lastChild.classList.add("kustom-fade-out");
+                    holder.classList.add("move");
+                    cardsProgressBar();
 
-                setTimeout(function () {
-                    holder.removeChild(lastChild);
-                }, 350);
+                    // ... (Replace this comment with your actual code for card switching)
+                    // This should involve removing, prepending, and fading in/out cards as needed.
 
-                setTimeout(function () {
-                    holder.classList.remove("move");
-                    lastChild.classList.remove("kustom-fade-out");
-                }, 400);
+                    setTimeout(function () {
+                        holder.removeChild(lastChild);
+                    }, 350);
 
-                setTimeout(function () {
-                    lastChild.classList.add("kustom-fade-in");
-                    holder.prepend(lastChild);
+                    setTimeout(function () {
+                        holder.classList.remove("move");
+                        lastChild.classList.remove("kustom-fade-out");
+                    }, 400);
 
-                }, 450);
+                    setTimeout(function () {
+                        lastChild.classList.add("kustom-fade-in");
+                        holder.prepend(lastChild);
+                    }, 450);
 
-                setTimeout(function () {
-                    lastChild.classList.remove("kustom-fade-in");
-                }, 750);
-
-
+                    setTimeout(function () {
+                        lastChild.classList.remove("kustom-fade-in");
+                    }, 750);
+                }
             }
-            // Function to start progress bar animation
+
             function cardsProgressBar() {
                 const progressBar = document.getElementById('progressBar');
                 progressBar.style.visibility = 'visible'; // Make progress bar visible
@@ -301,13 +311,37 @@
                 intervalId = setInterval(switchCard, 3000);
             }
 
+            // Start the initial auto-play
             intervalId = setInterval(switchCard, 3000);
 
-
             holder.addEventListener("click", function () {
+                // Allow clicking the holder to restart the interval
+                if (isHovered) {
+                    isHovered = false; // Reset hover flag to allow interval restart
+                    progressBar.style.animationPlayState = 'paused';
+                }
                 autoPlayCards();
+                isHovered = true;
+                clearInterval(intervalId);
+                progressBar.style.animationPlayState = 'paused';
+            });
+
+            holder.addEventListener("mouseenter", function () {
+                isHovered = true;
+                clearInterval(intervalId); // Pause the interval
+                const progressBar = document.getElementById('progressBar');
+                progressBar.style.animationPlayState = 'paused'; // Pause progress bar animation
+            });
+
+            holder.addEventListener("mouseleave", function () {
+                isHovered = false;
+                // Restart the interval with the original delay (3000)
+                intervalId = setInterval(switchCard, 3000);
+                const progressBar = document.getElementById('progressBar');
+                progressBar.style.animationPlayState = 'running'; // Resume progress bar animation
             });
         </script>
+
     </body>
 
 </html>
