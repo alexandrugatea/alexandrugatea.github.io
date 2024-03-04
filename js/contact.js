@@ -115,6 +115,7 @@ function submitForm() {
                     successBox.classList.remove('shown');
                     successBox.classList.add('hidden');
                     form.reset();
+                    
                     sendMessage.innerText = sendMessageOriginal;
                 }, 2000);
 

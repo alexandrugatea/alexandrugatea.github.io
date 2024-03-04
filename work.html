@@ -138,16 +138,7 @@
 				</h1>
 			</div>
 
-			<div id="mouse-scroll">
-				<div class="mouse">
-					<div class="mouse-in"></div>
-				</div>
-				<div>
-					<span class="down-arrow-1"></span>
-					<span class="down-arrow-2"></span>
-					<span class="down-arrow-3"></span>
-				</div>
-			</div>
+            <div class="cube-container" id="cubeContainer"></div>
 		</section>
 		<section class="project-gallery" id="gallery">
 		</section>
@@ -166,10 +157,13 @@
 					<li>yeParking</li>
 					<li>Genuine Origin</li>
 					<li>Banca Transilvania</li>
+					<li>Virtual Truck Manager</li>
 					<li>Board Games Rental</li>
 					<li>Wanted Sneakers</li>
 					<li>U-BT</li>
 					<li>London Barbers</li>
+					<li>Dent Complet</li>
+					<li>L'Atelier Dentaire</li>
 					<li>TIMAF</li>
 					<li>Untold</li>
 					<li>Absolvire A-Z</li>
@@ -188,6 +182,12 @@
 	</div>
 
 	<div id="kursorTrail" class="trail"></div>
+
+    <div id="cookie-banner">
+        <p>This website does not store cookies. However some external services like Google Fonts or LightGallery.js may collect data. By continuing to navigate this website, you consent to the use of these external services.</p>
+        <button id="accept-cookies" class="kursor-hover accept">Accept</button>
+    </div>
+
 	<script src="lib/js/lightgallery.umd.js"></script>
 	<script src="lib/js/fullscreen/lg-fullscreen.umd.js"></script>
 	<script src="lib/js/thumbnail/lg-thumbnail.umd.js"></script>
@@ -205,13 +205,18 @@
 				thumbWidth: 110,
 				download: false,
 				mousewheel: false,
-				caption: true
+				caption: true,
+                mobileSettings: {
+                    showCloseIcon: true
+                }
 			});
 
 		document.addEventListener('touchstart', function () { }, { passive: true });
 	</script>
 
 
+    <script src="js/cookie.js"></script>
+    <script src="js/cube.js"></script>
 	<script src="js/scripts.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/onscreen/dist/on-screen.umd.min.js"></script>
 	<script type="text/javascript">

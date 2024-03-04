@@ -1,224 +1,258 @@
 body.about {
 
-  .resume {
-    @include glass($bodyBackground, 0.28, 3px);
-    box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.14);
-    
-    padding: rem-calc(56);
-    border-radius: rem-calc(56);
-    color: $bodyText;
-    margin: rem-calc(0) auto rem-calc(140) auto;
-    overflow: hidden;
-    position: relative;
-    display: grid;
-    grid-template-columns: 63% auto;
-    grid-gap: rem-calc(0);
+    main {
 
-    @include breakpoint(small only) {
-      display: flex;
-      flex-direction: column;
-      margin-top: rem-calc(35);
-      padding: rem-calc(28);
-      max-width: rem-calc(400);
-    }
+        section {
 
-
-    &-subtitle {
-      color: $bodyText;
-      @include font(14px, 28px, 1, 700, normal, 320px, 1200px, $font700);
-      margin-bottom: rem-calc(10);
-
-      span {
-        color: rgba($bodyText, 0.63);
-      }
-    }
-
-    &-timeframe {
-      @extend .resume-subtitle;
-      color: rgba($bodyText, 0.91);
-      @include font(12px, 21px, 1, 500, normal, 320px, 1200px, $font500);
-      margin-bottom: rem-calc(14);
-    }
-
-    &-title {
-      font-family: $font700;
-      margin-bottom: rem-calc(70);
-      max-width: 90%;
-
-      &-position {
-        font-family: inherit;
-        @include font(14px, 28px, 1, 500, normal, 320px, 1200px, $font400);
-        color: $bodyText;
-        margin-bottom: rem-calc(21);
-      }
-
-      &-name {
-        font-family: inherit;
-        @include font(28px, 70px, 1, 700, normal, 320px, 1200px, $font400);
-        margin-bottom: rem-calc(28);
-        font-weight: 700;
-
-        span {
-          color: rgba($bodyText, 0.7);
-          font: inherit;
-          font-weight: inherit;
-          font-size: inherit;
+            @include breakpoint(medium only) {
+                padding: rem-calc(28 28 28 0);
+            }
         }
-      }
-
-      &-intro {
-        font-size: rem-calc(21);
-        line-height: 1.4;
-        margin-bottom: rem-calc(14);
-        color: $bodyText;
-      }
     }
 
-    &-profile {
-      position: relative;
-      z-index: -1;
-      display: grid;
-      place-content: center;
+    .resume {
+        @include glass($bodyBackground, 0.28, 3px);
+        box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.14);
 
-      @include breakpoint(small only) {
-        order: -1;
-        margin-bottom: rem-calc(28);
-      }
-
-      @include breakpoint(medium) {
-        //margin-left: rem-calc(-140px);
-      }
-
-      &-background {
-        width: rem-calc(560px);
-        height: rem-calc(560px);
-        position: absolute;
-        top: rem-calc(-56);
-        right: rem-calc(-56);
-        background: url(../images/resume_corner.png);
-        background-position: top right;
-        background-size: contain;
-        background-repeat: no-repeat;
-
-        @include breakpoint(small only) {
-          width: rem-calc(280px);
-          height: rem-calc(280px);
-          top: rem-calc(-28);
-          right: rem-calc(-28);
-        }
-
-      }
-
-      &-image {
-        position: relative;
-        width: rem-calc(280);
-        height: rem-calc(280);
-        border-radius: rem-calc(210);
+        padding: rem-calc(56);
+        border-radius: rem-calc(56);
+        color: $bodyText;
+        margin: rem-calc(0) auto rem-calc(140) auto;
         overflow: hidden;
-        //padding: rem-calc(6);
-        background: linear-gradient(45deg, $bodyText 0%, $bodyBackground 75%);
-        box-shadow: rem-calc(7 14 56 0) rgba($bodyBackground, 0.21);
+        position: relative;
+        display: grid;
+        grid-template-columns: 63% auto;
+        grid-gap: rem-calc(0);
 
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) scaleX(-1);
-          display: block;
-          width: calc(100% - 16px);
-          height: calc(100% - 16px);
-          object-fit: cover;
-          border-radius: rem-calc(1000px);
-
+        @include breakpoint(medium down) {
+            display: flex;
+            flex-direction: column;
+            margin-top: rem-calc(35);
+            padding: rem-calc(28);
+            max-width: 100%;
         }
-
+        
         @include breakpoint(small only) {
-          width: rem-calc(210px);
-          height: rem-calc(210px);
+            max-width: rem-calc(400);
         }
 
-      }
-    }
 
-    &-work {
-      position: relative;
-      z-index: 1;
+        &-subtitle {
+            color: $bodyText;
+            @include font(14px, 28px, 1, 700, normal, 320px, 1200px, $font700);
+            margin-bottom: rem-calc(10);
 
-      @include breakpoint(medium) {
-        padding-right: rem-calc(35);
-        margin-right: rem-calc(35);
-        border-right: rem-calc(2px) solid rgba($bodyText, 0.07);
-      }
-
-
-      &-title {
-        text-transform: uppercase;
-        font-family: $font700;
-        line-height: 1;
-        font-size: rem-calc(21);
-        color: rgba($bodyText, .84);
-        margin-bottom: rem-calc(21);
-      }
-
-      &-section {
-        margin-bottom: rem-calc(35);
-
-        &-description {
-          font-family: $font300;
-          font-size: rem-calc(18);
-          line-height: 1.4;
-          margin-bottom: rem-calc(14);
-          color: rgba($bodyText, 0.42);
-          letter-spacing: rem-calc(.77);
-
-          span {
-            font: inherit;
-            color: rgba($bodyText, 0.77);
-          }
+            span {
+                color: rgba($bodyText, 0.63);
+            }
         }
-      }
-    }
 
-
-
-    &-other {
-      &-section {
-        margin-bottom: rem-calc(56);
+        &-timeframe {
+            @extend .resume-subtitle;
+            color: rgba($bodyText, 0.91);
+            @include font(12px, 21px, 1, 500, normal, 320px, 1200px, $font500);
+            margin-bottom: rem-calc(14);
+        }
 
         &-title {
-          @extend .resume-work-title;
-        }
+            font-family: $font700;
+            margin-bottom: rem-calc(70);
+            max-width: 90%;
 
-        &-description {
-          list-style-type: none;
-          @extend .resume-work-section-description;
-
-          li {
-            @extend .resume-work-section-description;
-            margin-bottom: rem-calc(35);
-            font-family: $font400;
-            line-height: 1.4;
-
-            &.resume-languages .resume-subtitle {
-              color: rgba($bodyText, 0.91);
+            &-position {
+                font-family: inherit;
+                @include font(14px, 28px, 1, 500, normal, 320px, 1200px, $font400);
+                color: $bodyText;
+                margin-bottom: rem-calc(21);
             }
 
-            a {
-              text-decoration: none;
-              color: inherit;
+            &-name {
+                font-family: inherit;
+                @include font(28px, 70px, 1, 700, normal, 320px, 1200px, $font400);
+                margin-bottom: rem-calc(28);
+                font-weight: 700;
+
+                span {
+                    color: rgba($bodyText, 0.7);
+                    font: inherit;
+                    font-weight: inherit;
+                    font-size: inherit;
+                }
             }
-          }
+
+            &-intro {
+                font-size: rem-calc(21);
+                line-height: 1.4;
+                margin-bottom: rem-calc(14);
+                color: $bodyText;
+
+                @include breakpoint(medium only) {
+                    &:not(:last-child) {
+                        max-width: 70%;
+                    }
+                }
+            }
         }
 
-        &.education {
-          .resume-other-section-description {
+        &-profile {
+            position: relative;
+            z-index: -1;
+            display: grid;
+            place-content: center;
 
-            .resume-subtitle {
-              font-size: rem-calc(21);
+            @include breakpoint(medium down) {
+                order: -1;
+                margin-bottom: rem-calc(28);
+                place-content: flex-end;
             }
-          }
+
+            @include breakpoint(medium only) {
+                position: absolute;
+                right: 0;
+            }
+
+            &-background {
+                width: rem-calc(560px);
+                height: rem-calc(560px);
+                position: absolute;
+                top: rem-calc(-56);
+                right: rem-calc(-56);
+                background: url(../images/resume_corner.png);
+                background-position: top right;
+                background-size: contain;
+                background-repeat: no-repeat;
+                filter: grayscale(1);
+
+                @include breakpoint(small only) {
+                    width: rem-calc(280px);
+                    height: rem-calc(280px);
+                    top: rem-calc(-28);
+                    right: rem-calc(-28);
+                }
+
+                @include breakpoint(medium only) {
+                    width: rem-calc(420px);
+                    height: rem-calc(420px);
+                }
+
+            }
+
+            &-image {
+                position: relative;
+                width: rem-calc(280);
+                height: rem-calc(280);
+                border-radius: rem-calc(210);
+                overflow: hidden;
+                //padding: rem-calc(6);
+                background: linear-gradient(45deg, $bodyText 0%, $bodyBackground 75%);
+                box-shadow: rem-calc(7 14 56 0) rgba($bodyBackground, 0.21);
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scaleX(-1);
+                    display: block;
+                    width: calc(100% - 16px);
+                    height: calc(100% - 16px);
+                    object-fit: cover;
+                    border-radius: rem-calc(1000px);
+
+                }
+
+                @include breakpoint(medium down) {
+                    width: rem-calc(210px);
+                    height: rem-calc(210px);
+                }
+
+            }
         }
-      }
+
+        &-work {
+            position: relative;
+            z-index: 1;
+
+            @include breakpoint(medium down) {
+                padding-right: rem-calc(21);
+                margin-right: rem-calc(21);
+                border-right: rem-calc(2px) solid rgba($bodyText, 0.07);
+            }
+
+            @include breakpoint(large) {
+                padding-right: rem-calc(35);
+                margin-right: rem-calc(35);
+                border-right: rem-calc(2px) solid rgba($bodyText, 0.07);
+            }
+
+
+            &-title {
+                text-transform: uppercase;
+                font-family: $font700;
+                line-height: 1;
+                font-size: rem-calc(21);
+                color: rgba($bodyText, .84);
+                margin-bottom: rem-calc(21);
+            }
+
+            &-section {
+                margin-bottom: rem-calc(35);
+
+                &-description {
+                    font-family: $font300;
+                    font-size: rem-calc(18);
+                    line-height: 1.4;
+                    margin-bottom: rem-calc(14);
+                    color: rgba($bodyText, 0.42);
+                    letter-spacing: rem-calc(.77);
+
+                    span {
+                        font: inherit;
+                        color: rgba($bodyText, 0.77);
+                    }
+                }
+            }
+        }
+
+
+
+        &-other {
+            &-section {
+                margin-bottom: rem-calc(56);
+
+                &-title {
+                    @extend .resume-work-title;
+                }
+
+                &-description {
+                    list-style-type: none;
+                    @extend .resume-work-section-description;
+
+                    li {
+                        @extend .resume-work-section-description;
+                        margin-bottom: rem-calc(35);
+                        font-family: $font400;
+                        line-height: 1.4;
+
+                        &.resume-languages .resume-subtitle {
+                            color: rgba($bodyText, 0.91);
+                        }
+
+                        a {
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                    }
+                }
+
+                &.education {
+                    .resume-other-section-description {
+
+                        .resume-subtitle {
+                            font-size: rem-calc(21);
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }

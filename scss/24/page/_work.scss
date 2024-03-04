@@ -3,6 +3,10 @@
 body.work {
   padding-bottom: rem-calc(140);
 
+  @include breakpoint(small only) {
+    padding-bottom: rem-calc(28);
+  }
+
   .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(rem-calc(350), 1fr));
@@ -10,6 +14,34 @@ body.work {
     grid-gap: rem-calc(98);
     width: 100%;
     padding-bottom: rem-calc(140);
+    
+    @include breakpoint(small only) {
+        padding-bottom: rem-calc(70);
+        grid-gap: rem-calc(14);
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(100), 1fr));
+    }
+
+    @include breakpoint(medium only) {
+        grid-gap: rem-calc(21);
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(210), 1fr));
+        padding: rem-calc(70 28)
+    }
+
+    @include breakpoint(large only) {
+        grid-gap: rem-calc(35);
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+        padding: rem-calc(70 28)
+    }
+
+    @include breakpoint(xlarge only) {
+        grid-gap: rem-calc(49);
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+        padding: rem-calc(70 28)
+    }
+
+    @include breakpoint(xxlarge only) {
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+    }
 
     .gallery-item {
       aspect-ratio: 1;
@@ -64,6 +96,10 @@ body.work {
         z-index: 0;
         overflow: hidden;
 
+        @include breakpoint(small only) {
+            border-radius: rem-calc(7);
+        }
+
         &-image {
           z-index: 1;
           background-size: cover;
@@ -79,6 +115,10 @@ body.work {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+
+          @include breakpoint(small only) {
+            border-radius: rem-calc(7);
+          }
 
           img {
             position: absolute;
@@ -157,16 +197,24 @@ body.work {
           z-index: 2;
           padding: rem-calc(21 0);
 
+          @include breakpoint(small only) {
+            padding: rem-calc(14 0);
+          }
+
           h2 {
             font-size: rem-calc(21);
             font-family: $font300;
             letter-spacing: rem-calc(1);
             opacity: 0.7;
+
+            @include breakpoint(small only) {
+                font-size: rem-calc(18);
+            }
           }
 
           p {
             font-size: rem-calc(14);
-            font-family: $font100;
+            font-family: $font300;
             position: relative;
             letter-spacing: rem-calc(1);
             opacity: 0.35;
@@ -194,6 +242,10 @@ body.work {
           display: block;
           border-radius: rem-calc(21);
 
+          @include breakpoint(small only) {
+            border-radius: rem-calc(7);
+            box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.56);
+          }
         }
       }
     }
@@ -201,6 +253,10 @@ body.work {
 
   .other-projects {
     padding: rem-calc(140);
+
+    @include breakpoint(large down) {
+        padding: rem-calc(70 28);
+    }
 
     .text-block {
 
@@ -224,6 +280,16 @@ body.work {
       font-size: rem-calc(28);
       letter-spacing: rem-calc(2);
 
+      @include breakpoint(small only) {
+        font-size: rem-calc(14);
+        padding: rem-calc(7);
+      }
+
+      @include breakpoint(medium down) {
+        font-size: rem-calc(21);
+        padding: rem-calc(14);
+      }
+
     }
   }
 }
@@ -245,6 +311,10 @@ body.work {
   &.in {
     backdrop-filter: blur(28px);
     background: rgba($bodyBackground, 0.7);
+
+    @include breakpoint(small only) {
+        background: rgba($bodyBackground, 0.91);
+    }
   }
 }
 
@@ -299,7 +369,8 @@ body.work {
 
 
 .lg-outer .lg-video-cont .lg-object {
-  width: 70% !important;
+     width: 60% !important;
+    height: 80% !important;
 }
 
 .lg-sub-html {
@@ -325,4 +396,8 @@ body.work {
     font-size: rem-calc(14);
     max-width: rem-calc(700);
   }
+}
+
+.lg-sub-html {
+    @include glass($bodyBackground, 0.28, 14px);
 }

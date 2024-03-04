@@ -112,6 +112,10 @@
         font-family: $font500;
         letter-spacing: rem-calc(1);
 
+        @include breakpoint(small only) {
+            max-width: 100%;
+        }
+
         .form-placeholder {
             line-height: rem-calc(35);
 
@@ -121,6 +125,7 @@
         .form-error {
             display: none;
             color: $error;
+            line-height: rem-calc(35);
 
         }
     }
@@ -172,7 +177,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        @include glass($bodyBackground, 0.28, 7px);
+        //@include glass($bodyBackground, 0.28, 7px);
         padding: rem-calc(14 28);
 
         .message {

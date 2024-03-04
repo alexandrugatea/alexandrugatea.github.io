@@ -1,0 +1,53 @@
+ #cookie-banner {
+     position: fixed;
+     bottom: rem-calc(-500px);
+     right: rem-calc(-500px);
+     margin: rem-calc(56);
+     width: 100%;
+     max-width: rem-calc(280);
+     background-color: $bodyBackground;
+     padding: rem-calc(56);
+     z-index: 9997;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     border-radius: rem-calc(21);
+     box-shadow: rem-calc(0 0 21 0) rgba(#000, 0.5),
+         inset rem-calc(0 0 0 3) rgba($bodyText, 0.07);
+
+     &.active {
+         bottom: 0;
+         right: 0;
+     }
+
+     p {
+         font-size: rem-calc(14);
+         margin-bottom: rem-calc(21);
+     }
+
+     a {
+         color: #007bff;
+         text-decoration: none;
+
+         &:hover {
+             text-decoration: underline;
+         }
+     }
+ }
+
+ #accept-cookies {
+     width: 100%;
+     text-align: center;
+     background-color: lighten($bodyBackground, 3%);
+     color: $bodyText;
+     padding: rem-calc(14 21);
+     border: none;
+     border-radius: rem-calc(7);
+     cursor: pointer;
+     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+     &:hover {
+         background-color: lighten($bodyBackground, 7%);
+     }
+ }

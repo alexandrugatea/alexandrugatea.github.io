@@ -14,9 +14,8 @@
 
     <body class="home">
         <div class="noise"></div>
-        <div class="grid-background" id="grdbg">
-        </div>
-
+        <div class="grid-background" id="grdbg"></div>
+        
         <nav id="nav" class="nav">
             <div class="nav-bar">
 
@@ -126,16 +125,8 @@
                         <a href="/work.html" class="kursor-hover maps  link">navigation maps.</a>-->
                     </p>
                 </div>
-                <div id="mouse-scroll">
-                    <div class="mouse">
-                        <div class="mouse-in"></div>
-                    </div>
-                    <div>
-                        <span class="down-arrow-1"></span>
-                        <span class="down-arrow-2"></span>
-                        <span class="down-arrow-3"></span>
-                    </div>
-                </div>
+                <div class="cube-container" id="cubeContainer"></div>
+
             </section>
 
             <section class="text-left" id="about">
@@ -172,11 +163,12 @@
                             <img src="images/24/about/abtm_inv.png" class="kursor-hover invertedImage" alt="">
                         </div>
                     </div>
+                    <img src="images/24/about/abtm.png" class="mobile-only" alt="">
                 </div>
             </section>
 
             <section class="text-right">
-                <div class="graphic-block kursor-hover play">
+                <div class="graphic-block kursor-hover play portfolio">
                     <div class="graphic-block-container" id="holder">
                         <div class="card rect">
                             <div class="card-image tilt">
@@ -202,7 +194,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="text-block">
+                <div class="text-block portfolio">
                     <h1 class="title">
                         From Code to Experience
                     </h1>
@@ -230,9 +222,9 @@
                             web</a>.
                     </p>
 
-                    <a href="mailto:alexandru.gatea@gmail.com?subject=Hello%20Alex" target="_blank"
+                    <a href="/contact" target="_blank"
                         class="button hire kursor-hover">
-                        <span>Hire me</span>
+                        <span>Contact me</span>
                     </a>
                 </div>
             </section>
@@ -245,8 +237,17 @@
             <span id="kMessage" class="material-symbols-outlined"></span>
         </div>
         <div id="kursorTrail" class="trail"></div>
+
+        <div id="cookie-banner">
+            <p>This website does not store cookies. However some external services like Google Fonts or LightGallery.js may
+                collect data. By continuing to navigate this website, you consent to the use of these external services.</p>
+            <button id="accept-cookies" class="kursor-hover accept">Accept</button>
+        </div>
+        <script src="js/cookie.js"></script>
         <script src="js/tilt.js"></script>
+        <script src="js/cube.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/homeCarousel.js"></script>
 
 
 
@@ -259,89 +260,5 @@
                 scale: 1.07
             });
         </script>
-        <script>
-            const next = document.getElementById("next"); // Assuming you don't have this element
-            const holder = document.getElementById("holder");
-            let intervalId;
-            let isHovered = false; // Flag to track hovering state
-
-            function switchCard() {
-                if (!isHovered) { // Proceed only if not hovered
-                    const holder = document.getElementById("holder");
-                    const lastChild = holder.lastElementChild;
-                    lastChild.classList.add("kustom-fade-out");
-                    holder.classList.add("move");
-                    cardsProgressBar();
-
-                    // ... (Replace this comment with your actual code for card switching)
-                    // This should involve removing, prepending, and fading in/out cards as needed.
-
-                    setTimeout(function () {
-                        holder.removeChild(lastChild);
-                    }, 350);
-
-                    setTimeout(function () {
-                        holder.classList.remove("move");
-                        lastChild.classList.remove("kustom-fade-out");
-                    }, 400);
-
-                    setTimeout(function () {
-                        lastChild.classList.add("kustom-fade-in");
-                        holder.prepend(lastChild);
-                    }, 450);
-
-                    setTimeout(function () {
-                        lastChild.classList.remove("kustom-fade-in");
-                    }, 750);
-                }
-            }
-
-            function cardsProgressBar() {
-                const progressBar = document.getElementById('progressBar');
-                progressBar.style.visibility = 'visible'; // Make progress bar visible
-                progressBar.style.animation = 'none'; // Reset animation
-                setTimeout(() => {
-                    progressBar.style.animation = 'progressBarAnimation 3s linear forwards'; // Restart animation after a short delay
-                }, 10); // Adjust the delay as needed
-            }
-
-            function autoPlayCards() {
-                switchCard();
-                clearInterval(intervalId);
-                intervalId = setInterval(switchCard, 3000);
-            }
-
-            // Start the initial auto-play
-            intervalId = setInterval(switchCard, 3000);
-
-            holder.addEventListener("click", function () {
-                // Allow clicking the holder to restart the interval
-                if (isHovered) {
-                    isHovered = false; // Reset hover flag to allow interval restart
-                    progressBar.style.animationPlayState = 'paused';
-                }
-                autoPlayCards();
-                isHovered = true;
-                clearInterval(intervalId);
-                progressBar.style.animationPlayState = 'paused';
-            });
-
-            holder.addEventListener("mouseenter", function () {
-                isHovered = true;
-                clearInterval(intervalId); // Pause the interval
-                const progressBar = document.getElementById('progressBar');
-                progressBar.style.animationPlayState = 'paused'; // Pause progress bar animation
-            });
-
-            holder.addEventListener("mouseleave", function () {
-                isHovered = false;
-                // Restart the interval with the original delay (3000)
-                intervalId = setInterval(switchCard, 3000);
-                const progressBar = document.getElementById('progressBar');
-                progressBar.style.animationPlayState = 'running'; // Resume progress bar animation
-            });
-        </script>
-
     </body>
-
 </html>

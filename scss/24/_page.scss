@@ -11,6 +11,10 @@ body {
   margin-left: rem-calc(0);
   transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
 
+  @include breakpoint(small only) {
+    padding: rem-calc(0 0 0 0);
+  }
+
   &.locked {
     overflow: hidden;
     position: fixed;
@@ -87,4 +91,10 @@ body {
   :root {
     font-size: 19px;
   }
+}
+
+
+// cookies
+.freeprivacypolicy-com---pc-overlay {
+    z-index: 999!important;
 }

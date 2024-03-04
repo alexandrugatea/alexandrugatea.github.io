@@ -7,6 +7,10 @@
   flex-direction: column;
 
   gap: rem-calc(70);
+
+  @include breakpoint(small only) {
+    gap: rem-calc(42);
+  }
 }
 
 @mixin glass ($color: $bodyBackground, $alpha: 0.7, $blur: 7px) {

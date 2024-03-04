@@ -12,6 +12,32 @@ section {
   line-height: 1.4;
   position: relative;
 
+  @include breakpoint(small only) {
+    padding: rem-calc(70 28);
+    grid-template-columns: 1fr;
+    grid-gap: rem-calc(0);
+  }
+
+  @include breakpoint(medium only) {
+        padding: rem-calc(70 28);
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(0);
+  }
+
+  @include breakpoint(large only) {
+        padding: rem-calc(98 42);
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(0);
+  }
+
+  @include breakpoint(xlarge only) {
+        padding: rem-calc(98 56);
+  }
+
+  @include breakpoint(xxlarge only) {
+        padding: rem-calc(119 70);
+  }
+
   &.single-column {
     grid-template-columns: 1fr;
   }
@@ -23,6 +49,22 @@ section {
     width: 100%;
     line-height: 0.98;
     font-weight: 900;
+    letter-spacing: rem-calc(1);
+
+    @include breakpoint(small only) {
+        font-size: rem-calc(49);
+    }
+    @include breakpoint(medium only) {
+        font-size: rem-calc(77);
+    }
+
+    @include breakpoint(large only) {
+        font-size: rem-calc(77);
+    }
+
+    @include breakpoint(xlarge only) {
+        font-size: rem-calc(84);
+    }
 
     &.has-subtitle {
       display: block;
@@ -39,8 +81,12 @@ section {
         font-size: rem-calc(21);
         position: absolute;
         letter-spacing: rem-calc(2px);
-
+        
         font-family: $font300;
+        
+        @include breakpoint(small only) {
+            font-size: rem-calc(14);
+        }
       }
     }
   }
@@ -52,6 +98,10 @@ section {
     display: block;
     width: 100%;
     letter-spacing: rem-calc(0.2);
+
+    @include breakpoint(small only) {
+        font-size: rem-calc(21);
+    }
   }
 
   .text-block {
@@ -71,16 +121,33 @@ section {
   &.text-left {
     .text-block {
       align-items: flex-start;
+      
+      @include breakpoint(large down) {
+          align-items: center;
+      }
+      
       .title, .text {
         text-align: left;
+
+        @include breakpoint(large down) {
+            text-align: center;
+        }
       }
     }
   }
   &.text-right {
     .text-block {
       align-items: flex-end;
+
+      @include breakpoint(large down) {
+        align-items: center;
+      }
       .title, .text {
         text-align: right;
+
+        @include breakpoint(large down) {
+            text-align: center;
+        }
       }
     }
   }

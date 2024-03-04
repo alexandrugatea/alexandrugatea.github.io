@@ -17,3 +17,8 @@ a {
   background: rgba($bodyText, 0.7);
   color: $bodyBackground;
 }
+
+img {
+    display: block;
+    max-width: 100%;
+}

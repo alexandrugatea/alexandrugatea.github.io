@@ -83,3 +83,9 @@
     box-shadow: 0 0 0 0 rgba($bodyText, 0.0);
   }
 }
+
+@include breakpoint(medium down) {
+    #kursorTrail, #kursor {
+        display: none!important;
+    }
+}
