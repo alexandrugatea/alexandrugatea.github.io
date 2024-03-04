@@ -221,6 +221,7 @@ section {
     padding: 4.375rem 1.75rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
+    min-height: calc(100vh - 70px);
   }
 }
 @media screen and (min-width: 48em) and (max-width: 63.9375em) {
@@ -228,6 +229,7 @@ section {
     padding: 4.375rem 1.75rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
+    min-height: calc(100vh - 70px);
   }
 }
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
@@ -235,6 +237,7 @@ section {
     padding: 6.125rem 2.625rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
+    min-height: calc(100vh - 70px);
   }
 }
 @media screen and (min-width: 75em) and (max-width: 87.4375em) {
