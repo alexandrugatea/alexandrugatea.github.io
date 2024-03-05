@@ -140,6 +140,8 @@
                     <h1 class="title" title="About me">
                         About me
                     </h1>
+                    <a class="button download-resume kursor-hover download" href="media/24/CV_Alexandru_Gatea_SrUXE_Dark.pdf"
+                        download="CV_Alexandru_Gatea_SrUXE.pdf" title="Download Print Resume"><span>Download Resume</span></a>
                 </div>
                 <div class="cube-container" id="cubeContainer"></div>
             </section>
@@ -378,6 +380,13 @@
                     setTimeout(() => {
                         element.classList.add("animated", "fadeInUp");
                     }, 300);
+                });
+
+                os.on('enter', 'section .button', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 350);
                 });
 
                 os.on('enter', 'section .resume-title', (element, event) => {

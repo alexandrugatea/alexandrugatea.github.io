@@ -3226,10 +3226,10 @@ body.work.locked {
 }
 
 .will-animate {
-  opacity: 0;
+  opacity: 0 !important;
 }
 .will-animate.animated {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 @keyframes loader {
@@ -3861,7 +3861,6 @@ input.valid:-webkit-autofill:active {
   }
 }
 .button {
-  display: inline;
   position: relative;
   z-index: 0;
   font-family: "PS900";
