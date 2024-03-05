@@ -86,6 +86,12 @@ window.addEventListener('load', function () {
     }, 1300);
 });
 
+window.addEventListener('popstate', function (event) {
+    // Call the removeLoaderAndAnimate function when navigating back
+    pageTransition.classList.remove("active");
+    container.classList.add("animate");
+});
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // Open close navbar
