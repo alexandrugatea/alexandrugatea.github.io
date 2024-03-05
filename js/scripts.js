@@ -56,19 +56,19 @@ var windowWidth = window.innerWidth
     || document.body.clientWidth;
 
 
-    if (windowWidth > 1200) {
-        smoothScroll(target, 91, 14);
-    }
+//    if (windowWidth > 1200) {
+//        smoothScroll(target, 91, 14);
+//    }
 
-window.addEventListener("resize", function () {
-    var windowWidth = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
+//window.addEventListener("resize", function () {
+//    var windowWidth = window.innerWidth
+//        || document.documentElement.clientWidth
+//        || document.body.clientWidth;
 
-    if (windowWidth > 1200) {
-        smoothScroll(target, 91, 14);
-    }
-});
+//    if (windowWidth > 1200) {
+//        smoothScroll(target, 91, 14);
+//    }
+//});
 
 
 
