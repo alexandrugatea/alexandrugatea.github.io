@@ -76,19 +76,6 @@ window.addEventListener("resize", function () {
 // Events
 // ============================================================
 
-// Back button functionality
-window.addEventListener('popstate', function (event) {
-    console.log("back was pressed");
-    // Remove the transition class
-    pageTransition.classList.remove('active');
-
-    // Go back to the previous page
-    setTimeout(function () {
-        history.back();
-    }, 2350);
-});
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Page transition effect
     setTimeout(() => {
