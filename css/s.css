@@ -3201,11 +3201,6 @@ body.work.locked {
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width: 47.9375em) {
-  .page-transitioner {
-    display: none !important;
-  }
-}
 .page-transitioner .loader {
   width: 3.0625rem;
   height: 3.0625rem;

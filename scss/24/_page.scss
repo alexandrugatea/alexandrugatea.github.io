@@ -45,7 +45,7 @@ body {
     align-items: center;
 
     @include breakpoint(small only) {
-        display: none!important;
+        //display: none!important;
     }
 
 

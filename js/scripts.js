@@ -230,21 +230,16 @@ document.addEventListener("DOMContentLoaded", function () {
     links.forEach(function (link) {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-
             var goTo = this.getAttribute('href');
-
             pageTransition.classList.add('active');
 
-            if (navTrig.classList.contains("open")) {
-                closeMenu();
-            }
-
             setTimeout(function () {
+                if (navTrig.classList.contains("open")) {
+                    closeMenu();
+                }
+                pageTransition.classList.remove('active');
                 window.location.href = goTo;
             }, 350);
-
-            // Add the current page to the browser's history
-            history.pushState(null, null, window.location.href);
         });
     });
 
