@@ -221,9 +221,9 @@ document.addEventListener("DOMContentLoaded", function () {
             pageTransition.classList.add('active');
 
             setTimeout(function () {
-                if (navTrig.classList.contains("open")) {
-                    closeMenu();
-                }
+                closeMenu();
+                enableScroll();
+                
                 pageTransition.classList.remove('active');
                 window.location.href = goTo;
             }, 350);
