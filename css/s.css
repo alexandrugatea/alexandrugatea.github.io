@@ -4817,6 +4817,10 @@ body.home section .graphic-block-container.about-me.hovered:after {
     padding: 1.75rem 1.75rem 1.75rem 0;
   }
 }
+body.about main section .download-resume {
+  max-width: 17.5rem;
+  margin: 0 auto;
+}
 body.about .resume {
   backdrop-filter: blur(3px);
   background-color: rgba(7, 7, 7, 0.28);
@@ -4824,7 +4828,7 @@ body.about .resume {
   padding: 3.5rem;
   border-radius: 3.5rem;
   color: #c7c7c7;
-  margin: 0 auto 8.75rem auto;
+  margin: 0 auto;
   overflow: hidden;
   position: relative;
   display: grid;

@@ -141,7 +141,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "lg-close": "close",
         "txt": "edit",
         "send": "send",
-        "accept": "done"
+        "accept": "done",
+        "download": "download"
     };
 
     // Function to set cursor message based on element's class

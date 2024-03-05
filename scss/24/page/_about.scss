@@ -7,6 +7,11 @@ body.about {
             @include breakpoint(medium only) {
                 padding: rem-calc(28 28 28 0);
             }
+
+            .download-resume {
+                max-width: rem-calc(280);
+                margin: 0 auto;
+            }
         }
     }
 
@@ -17,7 +22,7 @@ body.about {
         padding: rem-calc(56);
         border-radius: rem-calc(56);
         color: $bodyText;
-        margin: rem-calc(0) auto rem-calc(140) auto;
+        margin: rem-calc(0) auto;
         overflow: hidden;
         position: relative;
         display: grid;
