@@ -75,10 +75,7 @@ window.addEventListener("resize", function () {
 // ============================================================
 // Events
 // ============================================================
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
+window.addEventListener('load', function () {
     // Page transition effect
     setTimeout(() => {
         pageTransition.classList.remove("active");
@@ -87,6 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         container.classList.add("animate");
     }, 1300);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
 
     // Open close navbar
     navTrig.addEventListener("click", function () {
