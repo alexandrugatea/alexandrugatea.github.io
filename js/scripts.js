@@ -78,14 +78,16 @@ window.addEventListener("resize", function () {
 
 // Back button functionality
 window.addEventListener('popstate', function (event) {
+    console.log("back was pressed");
     // Remove the transition class
     pageTransition.classList.remove('active');
 
     // Go back to the previous page
     setTimeout(function () {
         history.back();
-    }, 350);
+    }, 2350);
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Page transition effect
@@ -93,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pageTransition.classList.remove("active");
     }, 1200);
 
+    // animate the background grid
     setTimeout(() => {
         container.classList.add("animate");
     }, 1300);
@@ -231,6 +234,10 @@ document.addEventListener("DOMContentLoaded", function () {
             var goTo = this.getAttribute('href');
 
             pageTransition.classList.add('active');
+
+            if (navTrig.classList.contains("open")) {
+                closeMenu();
+            }
 
             setTimeout(function () {
                 window.location.href = goTo;
