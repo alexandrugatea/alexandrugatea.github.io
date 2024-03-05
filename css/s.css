@@ -5189,7 +5189,6 @@ body.work .project-gallery .gallery-item {
   position: relative;
   transform: translate(0, 25%) scale(1.2);
   transition: all 1.2s cubic-bezier(0.66, -0.32, 0.36, 1.32);
-  transition-delay: 0.25s;
   width: 100%;
 }
 body.work .project-gallery .gallery-item:after {
