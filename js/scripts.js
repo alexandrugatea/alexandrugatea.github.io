@@ -75,7 +75,19 @@ window.addEventListener("resize", function () {
 // ============================================================
 // Events
 // ============================================================
-window.addEventListener('load', function () {
+
+// Back button functionality
+window.addEventListener('popstate', function (event) {
+    // Remove the transition class
+    pageTransition.classList.remove('active');
+
+    // Go back to the previous page
+    setTimeout(function () {
+        history.back();
+    }, 350);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     // Page transition effect
     setTimeout(() => {
         pageTransition.classList.remove("active");
@@ -84,15 +96,6 @@ window.addEventListener('load', function () {
     setTimeout(() => {
         container.classList.add("animate");
     }, 1300);
-});
-
-window.addEventListener('popstate', function (event) {
-    // Call the removeLoaderAndAnimate function when navigating back
-    pageTransition.classList.remove("active");
-    container.classList.add("animate");
-});
-
-document.addEventListener("DOMContentLoaded", function () {
 
     // Open close navbar
     navTrig.addEventListener("click", function () {
@@ -232,6 +235,9 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
                 window.location.href = goTo;
             }, 350);
+
+            // Add the current page to the browser's history
+            history.pushState(null, null, window.location.href);
         });
     });
 
