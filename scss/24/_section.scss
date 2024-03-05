@@ -1,5 +1,6 @@
 section {
   min-height: 100vh;
+  min-height: 100dvh;
 
   max-width: rem-calc(1442 + 140 + 140);
   padding: rem-calc(0 140);
@@ -17,21 +18,22 @@ section {
     grid-template-columns: 1fr;
     grid-gap: rem-calc(0);
 
-    min-height: calc(100vh - 70px);
+    min-height: 100dvh;
+    min-height: calc(100dvh - 70px);
   }
 
   @include breakpoint(medium only) {
         padding: rem-calc(70 28);
         grid-template-columns: 1fr;
         grid-gap: rem-calc(0);
-        min-height: calc(100vh - 70px);
+        min-height: calc(100dvh - 70px);
   }
 
   @include breakpoint(large only) {
         padding: rem-calc(98 42);
         grid-template-columns: 1fr;
         grid-gap: rem-calc(0);
-        min-height: calc(100vh - 70px);
+        min-height: calc(100dvh - 70px);
   }
 
   @include breakpoint(xlarge only) {
