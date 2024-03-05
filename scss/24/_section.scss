@@ -3,7 +3,7 @@ section {
     min-height: 100dvh;
 
     max-width: rem-calc(1442 + 140 + 140);
-    padding: rem-calc(0 140);
+    padding: rem-calc(70 140);
     margin: 0 auto;
 
     display: grid;
@@ -81,17 +81,6 @@ section {
             font-size: rem-calc(49);
         }
 
-        &.will-animate {
-            visibility: hidden;
-            opacity: 0;
-
-
-            &.animated {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-
         &.has-subtitle {
             display: block;
             position: relative;
@@ -127,17 +116,6 @@ section {
         max-width: rem-calc(490);
         letter-spacing: rem-calc(0.2);
 
-        &.will-animate {
-            visibility: hidden;
-            opacity: 0;
-
-
-            &.animated {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-
         @include breakpoint(small only) {
             font-size: rem-calc(21);
         }
@@ -145,11 +123,6 @@ section {
         @media only screen and (max-height: 768px) and (orientation: landscape) {
             font-size: rem-calc(24);
         }
-    }
-
-    .button {
-
-
     }
 
     .text-block {

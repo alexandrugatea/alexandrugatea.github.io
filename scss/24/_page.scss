@@ -73,11 +73,29 @@ body {
     }
 }
 
-.will-animate {
-    opacity: 0!important;
-
+section .title,
+section .text,
+section .resume-title,
+section .resume-profile-image,
+section .resume-work-title,
+section .resume-work-section,
+section .resume-other-section,
+section .section-inline-list,
+section .form-title,
+section .form-group,
+section .nav-list-link,
+section .button{
+    &:not(.will-animate) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    &.will-animate {
+        opacity: 0;
+        visibility: hidden;
+    }
     &.animated {
-        opacity: 1!important;
+        opacity: 1;
+        visibility: visible;
     }
 }
 

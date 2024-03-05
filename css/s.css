@@ -3225,11 +3225,56 @@ body.work.locked {
   transition-delay: 0.35s;
 }
 
-.will-animate {
-  opacity: 0 !important;
+section .title:not(.will-animate),
+section .text:not(.will-animate),
+section .resume-title:not(.will-animate),
+section .resume-profile-image:not(.will-animate),
+section .resume-work-title:not(.will-animate),
+section body.about .resume-other-section-title:not(.will-animate),
+body.about section .resume-other-section-title:not(.will-animate),
+section .resume-work-section:not(.will-animate),
+section .resume-other-section:not(.will-animate),
+section .section-inline-list:not(.will-animate),
+section .form-title:not(.will-animate),
+section .form-group:not(.will-animate),
+section .nav-list-link:not(.will-animate),
+section .button:not(.will-animate) {
+  opacity: 0;
+  visibility: hidden;
 }
-.will-animate.animated {
-  opacity: 1 !important;
+section .title.will-animate,
+section .text.will-animate,
+section .resume-title.will-animate,
+section .resume-profile-image.will-animate,
+section .resume-work-title.will-animate,
+section body.about .will-animate.resume-other-section-title,
+body.about section .will-animate.resume-other-section-title,
+section .resume-work-section.will-animate,
+section .resume-other-section.will-animate,
+section .section-inline-list.will-animate,
+section .form-title.will-animate,
+section .form-group.will-animate,
+section .nav-list-link.will-animate,
+section .button.will-animate {
+  opacity: 0;
+  visibility: hidden;
+}
+section .title.animated,
+section .text.animated,
+section .resume-title.animated,
+section .resume-profile-image.animated,
+section .resume-work-title.animated,
+section body.about .animated.resume-other-section-title,
+body.about section .animated.resume-other-section-title,
+section .resume-work-section.animated,
+section .resume-other-section.animated,
+section .section-inline-list.animated,
+section .form-title.animated,
+section .form-group.animated,
+section .nav-list-link.animated,
+section .button.animated {
+  opacity: 1;
+  visibility: visible;
 }
 
 @keyframes loader {
@@ -3256,7 +3301,7 @@ section {
   min-height: 100vh;
   min-height: 100dvh;
   max-width: 107.625rem;
-  padding: 0 8.75rem;
+  padding: 4.375rem 8.75rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3342,14 +3387,6 @@ section .title {
     font-size: 3.0625rem;
   }
 }
-section .title.will-animate {
-  visibility: hidden;
-  opacity: 0;
-}
-section .title.will-animate.animated {
-  visibility: visible;
-  opacity: 1;
-}
 section .title.has-subtitle {
   display: block;
   position: relative;
@@ -3381,14 +3418,6 @@ section .text {
   width: 100%;
   max-width: 30.625rem;
   letter-spacing: 0.0125rem;
-}
-section .text.will-animate {
-  visibility: hidden;
-  opacity: 0;
-}
-section .text.will-animate.animated {
-  visibility: visible;
-  opacity: 1;
 }
 @media screen and (max-width: 47.9375em) {
   section .text {

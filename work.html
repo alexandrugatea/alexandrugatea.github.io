@@ -263,7 +263,6 @@
                     debounce: 1,
                 });
 
-                // Do something when an element enters the viewport
                 os.on('enter', 'section .title', (element, event) => {
                     element.classList.add("will-animate");
                     setTimeout(() => {
@@ -286,7 +285,6 @@
                 });
 
                 os.on('enter', '.gallery-item', (element, event) => {
-                    // makes's the element's text red
                     element.classList.add("will-animate");
                 });
             }
