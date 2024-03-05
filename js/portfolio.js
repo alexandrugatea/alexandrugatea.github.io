@@ -19,7 +19,7 @@ function renderPortfolio(category) {
 
         const img = document.createElement('img');
         img.setAttribute('src', item['src']);
-        img.setAttribute('alt', '');
+        img.setAttribute('alt', item['alt']);
         classes.forEach(className => {
             img.classList.add(className);
         });
@@ -107,7 +107,8 @@ const webData = [
         <p class="galleryitem-caption-text">
             After receiving the design from the Principal UI Designer I coded the entire website on top of Webflow platform. Only used webflow to create the basic grid layouts, then used Custom CSS and JS snippets to create animations and interractivity.
         </p>
-        <a href="https://www.telenav.com/" target="_blank">Visit site</a>`
+        <a href="https://www.telenav.com/" target="_blank">Visit site</a>`,
+        'alt':  "Telenav's website [US]"
     },
     {
         'category': 'category-web',
@@ -127,7 +128,8 @@ const webData = [
         <p class="galleryitem-caption-text">
              What I am the most proud of on this project are the animated SVG background graphics, which was 100% my idea and effort.
         </p>
-        <a href="https://web.archive.org/web/20200308073901/https://www.telenav.com/" target="_blank">Visit site</a>`
+        <a href="https://web.archive.org/web/20200308073901/https://www.telenav.com/" target="_blank">Visit site</a>`,
+        'alt': "Telenav's website [US]"
     },
     {
         'category': 'category-web',
@@ -148,7 +150,8 @@ const webData = [
             Client came with the design for the landingpage. Then it was up to me tu adapt and create other pages while respecting the brand identity.
             The connectors [animated lines] between cards were generated with JS for full responsiveness. Contact me for more technical details.
         </p>
-        <a href="https://www.synpheon.com/" target="_blank">Visit site</a>`
+        <a href="https://www.synpheon.com/" target="_blank">Visit site</a>`,
+        'alt': "Synpheon [DE]"
     },
     {
         'category': 'category-web',
@@ -168,7 +171,8 @@ const webData = [
         <p class="galleryitem-caption-text">
             Created the entire brand image, starting with the Logo, then moved into creating the UIUX for entire website, including the admin dashboards. Created from scratch an entire custom SCSS framework for the project.
         </p>
-        <a href="https://www.autodakar.ro/" target="_blank">Visit site</a>`
+        <a href="https://www.autodakar.ro/" target="_blank">Visit site</a>`,
+        'alt': "AutoDakar [RO]"
     },
     {
         'category': 'category-web',
@@ -187,7 +191,8 @@ const webData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Prior to implementing this website I had this design in mind. 
-        </p>`
+        </p>`,
+        'alt': "UX portfolio Idea"
     }
 ];
 
@@ -210,7 +215,9 @@ const codePenData = [
             SignIn / SignUp animated form switch
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea SignIn SignUp Animated Switch"
     },
     {
         'category': 'category-web',
@@ -230,9 +237,11 @@ const codePenData = [
             Animated switch for Grid / List view
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             I'm using JS to control the states of the cards, for creating an interesting animation.
             upon changing the view mode, the cards fade out smoothly then fade back in with the selected view mode.
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Grid List Switch"
     },
     {
         'category': 'category-web',
@@ -252,8 +261,10 @@ const codePenData = [
             JS generated SVG loader
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             Stroke animations were made with the power of SCSS functions and a little bit of trigonometry.
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea SVG Loader"
     },
     {
         'category': 'category-web',
@@ -273,8 +284,10 @@ const codePenData = [
             JS generated and animated concentric blobs
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             Had an idea to "create" the looks of an AI assistant. Immagined the blobs randomly spinning and rotating, until a human interraction occurs, and the blobs react by moving or changing color. Currently it only floats.
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Animated Blobs"
     },
     {
         'category': 'category-web',
@@ -294,7 +307,9 @@ const codePenData = [
             Transparent & Blury Multilevel menu
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Blurry Transparent Menu"
     },
     {
         'category': 'category-web',
@@ -314,8 +329,10 @@ const codePenData = [
             From Table to Cards
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             I'm using lists with items, instead of the classic table element. The with just plain CSS I switch the view from tabelar to cards on mobile devices.
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Responsive Table"
     },
     {
         'category': 'category-web',
@@ -335,8 +352,10 @@ const codePenData = [
             Floating Buttons, floating in a circle
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             Interesting animation for displaying multiple CTAs. The JS function can be adjusted to display content on either full circle or coarters/halves. 
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Floating Buttons"
     },
     {
         'category': 'category-web',
@@ -356,7 +375,9 @@ const codePenData = [
             Incremental animated menu items
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Animated Menu"
     },
     {
         'category': 'category-web',
@@ -376,8 +397,10 @@ const codePenData = [
             JS Carousel
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             Interesting carousel arranged in a triangle. All slides are always visible, 2 in the front, one in the back. Slides are transparent and have depth-of-field, which gives the carousel an interesting effect.
-        </p>`
+        </p>`,
+        'alt': "CodePen Portfolio Alexandru Gatea Triangle Carousel"
     },
     {
         'category': 'category-web',
@@ -397,8 +420,10 @@ const codePenData = [
             HTML & CSS skeleton 
         </h2>	
         <p class="galleryitem-caption-text">
+            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
             Useful for displaying the content of a page during page load.
-        </p>`
+        </p>`,
+        'alt':  "CodePen Portfolio Alexandru Gatea CSS Skeleton"
     },
 ]
 const mapsData = [
@@ -419,7 +444,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Used BlenderOSM plugin to import real map-data into blender, then styled the entire environment. Route was added in Photoshop.
-        </p>`
+        </p>`,
+        'alt': "3D Map Design"
     },
     {
         'category': 'category-maps',
@@ -438,7 +464,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Used Blender OSM to import real map-data form downtown Los Angels. Created the "paperly" effect on buildings by applying texture and dark wireframes. The red lines were road curves, which I styled to glow, like congested traffic. Used this idea to ask Telenav developers to implement building gradients and reflections.
-        </p>`
+        </p>`,
+        'alt': "3D Map Design"
     },
     {
         'category': 'category-maps',
@@ -457,7 +484,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Worked in Blender to create new efects for the actual navigation systems. Used the Blender renders to create interesting animated movies for Marketing presentations.
-        </p>`
+        </p>`,
+        'alt':  "3D Map Design"
     },
     {
         'category': 'category-maps',
@@ -476,7 +504,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Successfully pursued PMs POs and developers into implementing a world-space Sun inside the navigation engine. Used custom properties to code and animate the movement of the Sun based on time-of-day. The sky object also emits light, that affects the reflections on the 3D buildings.
-        </p>`
+        </p>`,
+        'alt':  "Map Design"
     },
     {
         'category': 'category-maps',
@@ -495,7 +524,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Successfully pursued PMs POs and developers into implementing a world-space Moon inside the navigation engine. Used custom properties to code and animate the movement of the Moon based on time-of-day. The sky object also emits light, that affects the reflections on the 3D buildings.
-        </p>`
+        </p>`,
+        'alt':  "Map Design"
     },
     {
         'category': 'category-maps',
@@ -514,7 +544,8 @@ const mapsData = [
         </h2>	
         <p class="galleryitem-caption-text">
             Collaborated with dev teams in order to create special styling properties that allowed me to apply gradients on the 3D building's sides and rooftop. 
-        </p>`
+        </p>`,
+        'alt':  "Map Design"
     },
     {
         'category': 'category-maps',
@@ -532,7 +563,8 @@ const mapsData = [
             Map style preview
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Map Design"
     },
     {
         'category': 'category-maps',
@@ -550,7 +582,8 @@ const mapsData = [
             Map style preview
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Map Design"
     },
     {
         'category': 'category-maps',
@@ -568,7 +601,8 @@ const mapsData = [
             Map style preview
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt': "Map Design"
     }
 ];
 const brandData = [
@@ -587,7 +621,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Atletic Med"
     },
     {
         'category': 'category-brand',
@@ -604,7 +639,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "City Scroller"
     },
     {
         'category': 'category-brand',
@@ -621,7 +657,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Cooperativa Agricola"
     },
     {
         'category': 'category-brand',
@@ -638,7 +675,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Little Daisy Flower Shop"
     },
     {
         'category': 'category-brand',
@@ -655,7 +693,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Board Games Rental"
     },
     {
         'category': 'category-brand',
@@ -672,7 +711,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Keytana"
     },
 
     {
@@ -690,7 +730,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Original Man"
     },
     {
         'category': 'category-brand',
@@ -707,7 +748,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Movement Records"
     },
     {
         'category': 'category-brand',
@@ -724,7 +766,8 @@ const brandData = [
         <h2 class="galleryitem-caption-title">
         </h2>	
         <p class="galleryitem-caption-text">
-        </p>`
+        </p>`,
+        'alt':  "Wanted Sneakers"
     },
     // Add more portfolio items as needed
 ];

@@ -387,6 +387,10 @@
     opacity: 1;
     pointer-events: all;
 
+    @include breakpoint(large down) {
+        overflow: auto;
+    }
+
     .nav-list {
 
         &-logo {

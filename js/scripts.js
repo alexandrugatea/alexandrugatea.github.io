@@ -20,7 +20,7 @@ var target =
 const cursor = document.querySelector('#kursor');
 const cursorMessage = cursor.querySelector("#kMessage");
 const trail = document.querySelector('#kursorTrail');
-const hoverElements = document.querySelectorAll('.kursor-hover, .lg-prev, .lg-next');
+const hoverElements = document.querySelectorAll('.kursor-hover, .lg-prev, .lg-next, .lg-close, .lg-zoom-in, .lg-zoom-out');
 
 
 // Get elements for sidebar functionality
@@ -57,7 +57,7 @@ var windowWidth = window.innerWidth
 
 
     if (windowWidth > 1200) {
-        smoothScroll(target, 98, 14);
+        smoothScroll(target, 91, 14);
     }
 
 window.addEventListener("resize", function () {
@@ -66,7 +66,7 @@ window.addEventListener("resize", function () {
         || document.body.clientWidth;
 
     if (windowWidth > 1200) {
-        smoothScroll(target, 98, 14);
+        smoothScroll(target, 91, 14);
     }
 });
 
@@ -136,6 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
         "zoom": "expand_content",
         "lg-prev": "navigate_before",
         "lg-next": "navigate_next",
+        "lg-zoom-in": "zoom_out_map",
+        "lg-zoom-out": "zoom_in_map",
+        "lg-close": "close",
         "txt": "edit",
         "send": "send",
         "accept": "done"

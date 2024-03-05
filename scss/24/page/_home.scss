@@ -47,6 +47,10 @@ body.home {
                 height: 100%;
                 position: relative;
 
+                @include breakpoint(small only) {
+                    margin: 0 auto;
+                }
+
                 &.about-me {
                     @include breakpoint(large down) {
                         display: none;
@@ -289,6 +293,14 @@ body.home {
             @include breakpoint(large down) {
                 order: -1;
             }
+        }
+
+        &.contact {
+
+            @include breakpoint(medium down) {
+                min-height: calc(70dvh - 70px);
+            }
+
         }
     }
 }

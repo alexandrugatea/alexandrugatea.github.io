@@ -20,6 +20,10 @@ $cubeFace: 7px;
             height: rem-calc(28);
         }
 
+        @media only screen and (max-height: 768px) and (orientation: landscape) {
+            bottom: rem-calc(-21);
+        }
+
         .scroll-text {
             position: absolute;
             bottom: rem-calc(-35);
