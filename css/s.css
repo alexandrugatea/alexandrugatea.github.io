@@ -90,8 +90,28 @@
   font-style: normal;
 }
 
-.material-symbols-outlined {
+/* fallback */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v166/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format("woff2");
+}
+.material-symbols-outlined, .button span:after {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
 }
 
 /*!
@@ -3132,7 +3152,7 @@
     transition: none !important;
   }
 }
-* {
+*, *:before, *:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -3192,11 +3212,15 @@ body.work.locked {
   position: fixed;
   width: 100%;
   height: 0%;
-  top: 0;
+  height: 0vh;
+  height: 0dvh;
+  top: -10%;
+  top: -10vh;
+  top: -10dvh;
   left: 0;
   background: #0f0f0f;
   z-index: 9999;
-  transition: height 0.35s ease-in;
+  transition: all 0.28s linear;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3215,10 +3239,14 @@ body.work.locked {
   transition-delay: 0.35s;
 }
 .page-transitioner.active {
-  height: 100vh;
-  transition: height 0.35s ease-out;
+  height: 120%;
+  height: 120vh;
+  height: 120dvh;
+  transition: all 0.28s linear;
   top: auto;
-  bottom: 0;
+  bottom: -10%;
+  bottom: -10vh;
+  bottom: -10dvh;
 }
 .page-transitioner.active .loader {
   opacity: 1;
@@ -3841,7 +3869,8 @@ input.valid:-webkit-autofill:active {
   color: #070707;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition-delay: transform 0.5s, opacity 1s;
+  transition-property: transform, opacity;
+  transition-duration: 0.5s, 1s;
 }
 @media screen and (max-width: 47.9375em) {
   #kursor span {
@@ -3897,6 +3926,7 @@ input.valid:-webkit-autofill:active {
   font-weight: 900;
   letter-spacing: 0.125rem;
   min-height: 3.0625rem;
+  min-width: 13.125rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3905,41 +3935,58 @@ input.valid:-webkit-autofill:active {
   color: #c7c7c7;
   border: none;
   outline: none;
-  backdrop-filter: blur(14px);
-  background-color: rgba(7, 7, 7, 0.35);
-  box-shadow: inset 0 0 0 0.1875rem rgba(255, 255, 255, 0.8), 0 0 0 0.0625rem rgba(7, 7, 7, 0.8);
+  backdrop-filter: blur(7px);
+  background-color: rgba(7, 7, 7, 0.28);
+  box-shadow: inset 0 0 0 0.1875rem rgba(199, 199, 199, 0.8), inset 0 0 0 6.25rem #070707, 0 0 0 0.1875rem rgba(7, 7, 7, 0.8);
   text-decoration: none;
   transform: scale(1);
   transition: all 0.25s ease-in-out;
+  border-radius: 0.4375rem;
 }
 .button span {
-  display: inline-block;
+  display: grid;
+  grid-template-columns: auto 2.1875rem;
+  place-items: center;
   position: relative;
   z-index: 2;
   font-size: 0.875rem;
   line-height: 1;
   text-transform: uppercase;
-  transform: scale(1);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.button span:after {
+  box-sizing: border-box;
+  position: relative;
+  content: "trending_flat";
+  font-size: 1.3125rem;
+  left: 0.4375rem;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .button:before {
   content: "";
   display: block;
-  width: 0.4375rem;
-  transform: rotate(42deg) scale(14);
+  width: 56%;
+  transform: skew(-35deg);
   height: 200%;
   position: absolute;
-  background-color: #070707;
+  background: #070707;
   z-index: 1;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .button:hover:before {
-  transform: rotate(14deg) scale(14);
+  width: 42%;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .button:hover span {
-  transform: scale(1.1);
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.button:hover span:after {
+  left: 0.875rem;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button[download] span:after {
+  content: "download";
 }
 
 #nav {
@@ -4880,11 +4927,7 @@ body.about .resume {
 }
 body.about .resume-subtitle, body.about .resume-timeframe {
   color: #c7c7c7;
-  font-size: calc(14px
-  + 14
-  * (100vw - 320px)
-  / 880
-  );
+  font-size: calc(14px + 14 * (100vw - 320px) / 880);
   line-height: 1;
   font-family: "PS700";
   font-weight: 700;
@@ -4906,11 +4949,7 @@ body.about .resume-subtitle span, body.about .resume-timeframe span {
 }
 body.about .resume-timeframe {
   color: rgba(199, 199, 199, 0.91);
-  font-size: calc(12px
-  + 9
-  * (100vw - 320px)
-  / 880
-  );
+  font-size: calc(12px + 9 * (100vw - 320px) / 880);
   line-height: 1;
   font-family: "PS500";
   font-weight: 500;
@@ -4934,11 +4973,7 @@ body.about .resume-title {
 }
 body.about .resume-title-position {
   font-family: inherit;
-  font-size: calc(14px
-  + 14
-  * (100vw - 320px)
-  / 880
-  );
+  font-size: calc(14px + 14 * (100vw - 320px) / 880);
   line-height: 1;
   font-family: "PS400";
   font-weight: 500;
@@ -4958,11 +4993,7 @@ body.about .resume-title-position {
 }
 body.about .resume-title-name {
   font-family: inherit;
-  font-size: calc(28px
-  + 42
-  * (100vw - 320px)
-  / 880
-  );
+  font-size: calc(28px + 42 * (100vw - 320px) / 880);
   line-height: 1;
   font-family: "PS400";
   font-weight: 700;

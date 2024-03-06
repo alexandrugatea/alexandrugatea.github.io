@@ -35,11 +35,15 @@ body {
     position: fixed;
     width: 100%;
     height: 0%;
-    top: 0;
+    height: 0vh;
+    height: 0dvh;
+    top: -10%;
+    top: -10vh;
+    top: -10dvh;
     left: 0;
     background: lighten($bodyBackground, 3%);
     z-index: 9999;
-    transition: height 0.35s ease-in;
+    transition: all 0.28s linear;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,10 +68,14 @@ body {
     }
 
     &.active {
-        height: 100vh;
-        transition: height 0.35s ease-out;
+        height: 120%;
+        height: 120vh;
+        height: 120dvh;
+        transition: all 0.28s linear;
         top: auto;
-        bottom: 0;
+        bottom: -10%;
+        bottom: -10vh;
+        bottom: -10dvh;
 
         .loader {
             opacity: 1;

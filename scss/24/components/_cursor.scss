@@ -29,13 +29,11 @@
     @include flex-column-center;
     text-align: center;
     font-size: rem-calc(35);
-    //font-weight: 600;
-    //text-transform: uppercase;
-    //letter-spacing: rem-calc(0.7px);
     color: $bodyBackground;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition-delay: transform 0.5s, opacity 1s;
+    transition-property: transform, opacity;
+    transition-duration: 0.5s, 1s;
 
   }
 
