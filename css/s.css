@@ -3221,6 +3221,7 @@ body.work.locked {
   background: #0f0f0f;
   z-index: 9999;
   transition: all 0.28s linear;
+  transition-delay: 0.1s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3247,6 +3248,7 @@ body.work.locked {
   bottom: -10%;
   bottom: -10vh;
   bottom: -10dvh;
+  transition-delay: 0.1s;
 }
 .page-transitioner.active .loader {
   opacity: 1;
