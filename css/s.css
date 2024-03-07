@@ -3680,11 +3680,6 @@ section.text-right .text-block .text {
 }
 .form [type=submit] {
   display: inline-flex;
-  width: 13.125rem;
-}
-.form [type=submit] span {
-  display: block;
-  position: relative;
 }
 .form .content-right {
   width: 100%;
