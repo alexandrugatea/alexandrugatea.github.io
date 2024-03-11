@@ -1,0 +1,93 @@
+.button {
+
+    position: relative;
+    z-index: 0;
+
+    font-family: $font900;
+    font-weight: 900;
+    letter-spacing: rem-calc(2);
+    min-height: rem-calc(49);
+    min-width: rem-calc(210);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: rem-calc(14 35);
+    overflow: hidden;
+    color: $bodyText;
+    border: none;
+    outline: none;
+    //@include glass($bodyBackground, 0.28, 7px);
+
+    box-shadow: 
+    inset 0 0 0 rem-calc(3) accent(1),
+    inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1),
+        0 0 0 rem-calc(3) rgba($bodyBackground, 0.8);
+    text-decoration: none;
+    //transform: scale(1);
+    transition: all 0.25s ease-in-out;
+    border-radius: var(--radius);
+    transform-style: preserve-3d;
+    transform: perspective(700px);
+
+    span {
+        display: grid;
+        grid-template-columns: auto rem-calc(35);
+        place-items: center;
+        position: relative;
+        z-index: 2;
+
+        font-size: rem-calc(14);
+        line-height: 1;
+        text-transform: uppercase;
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateZ(20px);
+
+        &:after {
+            @extend .material-symbols-outlined;
+            box-sizing: border-box;
+            position: relative;
+            content: "trending_flat";
+            font-size: rem-calc(21);
+            left: rem-calc(7);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: accent(0.77);
+        }
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        width: 56%;
+        transform: skew(-35deg);
+        height: 200%;
+        position: absolute;
+        background: rgba($bodyBackground, 1);
+        z-index: 1;
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    &:hover {
+
+        &:before {
+            width: 42%;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        span {
+            //transform: scale(1.1);
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            &:after {
+                left: rem-calc(14);
+                transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+        }
+    }
+}
+
+.button[download] {
+    span:after {
+        content: "download";
+    }
+}

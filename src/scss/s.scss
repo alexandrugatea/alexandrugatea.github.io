@@ -1,0 +1,45 @@
+// ===============================================
+// Style for 2024
+// ===============================================
+
+
+// +++++ Import Partials +++++
+
+// Get the dependencies needed for styling the website
+@import "base/font";
+@import "base/var.scss";
+@import "base/animate.scss";
+
+
+// Get Mixins and functions
+@import "base/mixins.scss";
+@import "base/functions.scss";
+
+// Reset browser defaults
+@import "base/reset";
+
+// Get media queries mixins
+@import "base/foundationMQ.scss";
+
+// Get global styles
+@import "base/page";
+@import "base/section";
+@import "base/animate";
+@import "base/forms";
+@import "base/cookies";
+@import "base/scroll";
+
+// Get component styles
+@import "components/cursor";
+@import "components/buttons";
+@import "components/nav";
+@import "components/backgroundGrid";
+@import "components/mouse";
+@import "components/animate";
+
+// Get page styles
+@import "page/home";
+@import "page/about";
+@import "page/work";
+@import "page/blog";
+@import "page/contact";

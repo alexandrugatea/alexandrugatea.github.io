@@ -1,0 +1,130 @@
+$cubeSize: 42px;
+$offset: 28px;
+$cubeFace: 7px;
+
+.cube {
+
+    &-container {
+        position: absolute;
+        bottom: rem-calc(70);
+        left: 50%;
+        transform: translate(-50%);
+        width: $cubeSize;
+        height: $cubeSize;
+        perspective: rem-calc(77);
+        pointer-events: none;
+
+        @include breakpoint(small only) {
+            bottom: rem-calc(21);
+            width: rem-calc(28);
+            height: rem-calc(28);
+        }
+
+        @media only screen and (max-height: 768px) and (orientation: landscape) {
+            bottom: rem-calc(-21);
+        }
+
+        .scroll-text {
+            position: absolute;
+            bottom: rem-calc(-35);
+            left: 50%;
+            transform: translate(-50%, 0);
+            white-space: nowrap;
+            font-family: $font700;
+            text-transform: uppercase;
+            letter-spacing: rem-calc(2);
+            font-size: rem-calc(7);
+        }
+    }
+
+    &-scroll {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: translateZ(-$cubeFace);
+        animation: spin 2.1s cubic-bezier(0.14, 0.84, 0.35, 1.630) infinite;
+
+        .side {
+            position: absolute;
+            width: $cubeSize;
+            height: $cubeSize;
+            box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.21);
+            border-radius: rem-calc(3);
+            @include glass($bodyText, 0.07, 7px);
+
+            @supports (-moz-appearance: none) {
+                background: lighten($bodyBackground, 7%);
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: rem-calc(14);
+
+            @include breakpoint(small only) {
+                width: rem-calc(28);
+                height: rem-calc(28);
+            }
+
+            &.right {
+                transform: rotateY(90deg) translateZ($offset + 3px);
+                span {display: none;}
+                @include breakpoint(small only) {
+                    transform: rotateY(90deg) translateZ(19px);
+                }
+            }
+
+            &.left {
+                transform: rotateY(-90deg) translateZ($offset + 3px);
+                span {display: none;}
+                @include breakpoint(small only) {
+                    transform: rotateY(-90deg) translateZ(19px);
+                }
+            }
+
+            &.front {
+                transform: rotateY(0deg) translateZ($offset);
+                @include breakpoint(small only) {
+                    transform: rotateY(0deg) translateZ(17px);
+                }
+            }
+
+            &.back {
+                transform: rotateY(180deg) translateZ($offset) rotateZ(180deg);
+                @include breakpoint(small only) {
+                    transform: rotateY(180deg) translateZ(17px) rotateZ(180deg);
+                }
+            }
+
+            &.top {
+                transform: rotateX(90deg) translateZ($offset);
+                @include breakpoint(small only) {
+                    transform: rotateX(90deg) translateZ(17px);
+                }
+            }
+
+            &.bottom {
+                transform: rotateX(-90deg) translateZ($offset);
+                @include breakpoint(small only) {
+                    transform: rotateX(-90deg) translateZ(17px);
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes spin {
+
+    0%,
+    50% {
+        transform: translateZ(-$cubeFace) rotateX(180deg);
+    }
+
+    100% {
+        transform: translateZ(-$cubeFace) rotateX(0);
+    }
+}

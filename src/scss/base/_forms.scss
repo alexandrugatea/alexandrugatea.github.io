@@ -1,0 +1,290 @@
+.form {
+
+    width: 100%;
+    max-width: rem-calc(420);
+    display: grid;
+    grid-template-columns: 1fr;
+
+    grid-gap: rem-calc(35);
+
+    &-title {
+        font-size: rem-calc(42);
+
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+
+        //&:nth-child(1 of .form-group) {animation-delay: 0.2s}
+        //&:nth-child(2 of .form-group) {animation-delay: 0.4s}
+        //&:nth-child(3 of .form-group) {animation-delay: 0.6s}
+        //&:nth-child(4 of .form-group) {animation-delay: 0.8s}
+        //&:nth-child(5 of .form-group) {animation-delay: 1.0s}
+
+        &:nth-of-type(1) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-of-type(2) {
+            animation-delay: 0.4s;
+        }
+
+        &:nth-of-type(3) {
+            animation-delay: 0.6s;
+        }
+
+        &:nth-of-type(4) {
+            animation-delay: 0.8s;
+        }
+
+        &:nth-of-type(5) {
+            animation-delay: 1.0s;
+        }
+    }
+
+    &-field:not(.no-style) {
+        border-radius: rem-calc(14);
+        background: $bodyBackground;
+        border: none;
+        outline: none;
+        color: $bodyText;
+        box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.35);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: rem-calc(0 28);
+        font-size: rem-calc(21);
+        position: relative;
+
+
+        &[type="text"],
+        &[type="email"] {
+            width: 100%;
+            height: rem-calc(70);
+        }
+
+        &[name="name"] {
+            text-transform: capitalize;
+        }
+
+        &.error {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42);
+        }
+
+        &.error:hover,
+        &.error:active,
+        &.error:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42),
+                rem-calc(0 0 0 7) rgba($error, 0.21);
+        }
+
+        &.valid {
+
+
+            &+label span {
+                color: $success;
+            }
+        }
+
+        &.valid:hover,
+        &.valid:active,
+        &.valid:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($success, 0.42),
+                rem-calc(0 0 0 7) rgba($success, 0.21);
+        }
+
+        &.textarea {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 100% !important;
+            padding: rem-calc(28);
+
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0s linear;
+        }
+
+        &:hover {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.42),
+                rem-calc(0 0 0 7) rgba($bodyText, 0.21);
+        }
+
+        &:focus {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+
+        &:not(:placeholder-shown) {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+    }
+
+    &-label {
+        position: absolute;
+        transform: translate(0, 50%);
+        top: 0;
+        left: rem-calc(7);
+        padding: rem-calc(0 28);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background: $bodyBackground;
+        display: inline-block;
+        max-width: 77%;
+        font-family: $font500;
+        letter-spacing: rem-calc(1);
+
+        @include breakpoint(small only) {
+            max-width: 100%;
+        }
+
+        .form-placeholder {
+            line-height: rem-calc(35);
+
+            span {}
+        }
+
+        .form-error {
+            display: none;
+            color: $error;
+            line-height: rem-calc(35);
+
+        }
+    }
+
+    .error+label .form-placeholder {
+        display: none;
+    }
+
+    .error+label .form-error {
+        display: block;
+    }
+
+    [type="submit"] {
+        display: inline-flex;
+
+    }
+
+    .content-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .loader {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(calc(-100% - rem-calc(21)), -50%);
+        border: rem-calc(3) solid $bodyText;
+        border-radius: 50%;
+        border-top: rem-calc(3) solid $bodyBackground;
+        width: rem-calc(14);
+        height: rem-calc(14);
+        z-index: 2;
+        animation: spin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+    }
+
+    .message-box {
+        position: relative;
+        overflow: hidden;
+        height: rem-calc(70);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //@include glass($bodyBackground, 0.28, 7px);
+        padding: rem-calc(14 28);
+
+        .message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            font-family: $font700;
+            font-size: rem-calc(21);
+            letter-spacing: rem-calc(1);
+            text-align: center;
+            line-height: rem-calc(21);
+
+            &.success {
+                color: $success;
+            }
+
+            &.err {
+                color: $error;
+            }
+
+            &.shown {
+                top: 0;
+            }
+
+            &.hidden {
+                top: 100%;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(calc(-100% - rem-calc(21)), -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(calc(-100% - rem-calc(21)), -50%) rotate(360deg);
+    }
+}
+
+// override browser
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(7, 7, 7), rgba(7, 7, 7, 0.4))!important;
+
+    color: $bodyText !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}
+
+input.error:-webkit-autofill,
+input.error:-webkit-autofill:hover,
+input.error:-webkit-autofill:focus,
+input.error:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}
+
+input.valid:-webkit-autofill,
+input.valid:-webkit-autofill:hover,
+input.valid:-webkit-autofill:focus,
+input.valid:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}

@@ -1,0 +1,146 @@
+*,
+*:hover,
+*:active,
+*:focus {
+    @include breakpoint(large) {
+        cursor: none !important;
+    }
+}
+
+:root {
+    --accent: #b4997f;
+    --accent-r: 199;
+    --accent-g: 199;
+    --accent-b: 199;
+    --radius: 0.4375rem;
+    --radius-circle: 100rem;
+}
+
+body {
+    background: $bodyBackground;
+    color: $bodyText;
+    font-family: $font400, sans-serif;
+    letter-spacing: rem-calc(1);
+    width: 100%;
+    padding: rem-calc(0 0 0 140);
+    margin-left: rem-calc(0);
+    transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    @include breakpoint(small only) {
+        padding: rem-calc(0 0 0 0);
+    }
+
+    &.locked {
+        overflow: hidden;
+        position: fixed;
+        margin-left: rem-calc(140);
+        transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    &.work.locked {
+        margin-left: 0;
+    }
+}
+
+.page-transitioner {
+    position: fixed;
+    width: 100%;
+    height: 0%;
+    height: 0vh;
+    height: 0dvh;
+    top: -10%;
+    top: -10vh;
+    top: -10dvh;
+    left: 0;
+    background: lighten($bodyBackground, 3%);
+    z-index: 9999;
+    transition: all 0.28s linear;
+    transition-delay: 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(small only) {
+        //display: none!important;
+    }
+
+
+    .loader {
+        width: rem-calc(49px);
+        height: rem-calc(49px);
+        display: block;
+        position: relative;
+        background: transparent;
+        box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.7);
+        animation: loader 1s linear infinite;
+        pointer-events: none;
+        opacity: 0;
+        transform: scale(0);
+        transition-delay: 0.35s;
+    }
+
+    &.active {
+        height: 120%;
+        height: 120vh;
+        height: 120dvh;
+        transition: all 0.28s linear;
+        transition-delay: 0.3s;
+
+        .loader {
+            opacity: 1;
+            transform: scale(1);
+            transition-delay: 0.35s;
+        }
+    }
+}
+
+section .title,
+section .text,
+section .abtm,
+section .resume-title,
+section .resume-profile-image,
+section .resume-work-title,
+section .resume-work-section,
+section .resume-other-section,
+section .section-inline-list,
+section .form-title,
+section .form-group,
+section .nav-list-link,
+section .button{
+    &:not(.will-animate) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    &.will-animate {
+        opacity: 0;
+        visibility: hidden;
+    }
+    &.animated {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+
+@keyframes loader {
+    0% {
+        transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+    }
+
+    50% {
+        transform: perspective(200px) rotateX(-180deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(200px) rotateX(-180deg) rotateY(-180deg);
+    }
+}
+
+
+@media screen and (min-width: rem-calc(1921)) {
+    :root {
+        font-size: 18px;
+    }
+}

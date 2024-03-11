@@ -1,0 +1,42 @@
+{
+  "name": "alexandrugatea",
+  "version": "1.0.0",
+  "description": "Personal Portfolio",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrugatea/alexandrugatea.github.io"
+  },
+  "author": "Alexandru Gatea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandrugatea/alexandrugatea.github.io/issues"
+  },
+  "homepage": "https://github.com/alexandrugatea/alexandrugatea.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.18",
+    "browser-sync": "^3.0.2",
+    "cssnano": "^6.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.4.35",
+    "sass": "^1.71.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ]
+}

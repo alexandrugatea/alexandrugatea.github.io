@@ -1,0 +1,248 @@
+section {
+
+    @media screen and (orientation: landscape) {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: rem-calc(70 140);
+    }
+
+    @media screen and (orientation: portrait) {
+        min-height: auto;
+        min-height: auto;
+        padding: rem-calc(210 140);
+    }
+
+
+    max-width: rem-calc(1442 + 140 + 140);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: rem-calc(70);
+    letter-spacing: rem-calc(-0.5);
+    line-height: 1.4;
+    position: relative;
+    
+
+    @include breakpoint(small only) {
+        padding: rem-calc(70 28);
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(0);
+        min-height: auto;
+        place-items: center;
+        
+        &.hero {
+            min-height: calc(100dvh - 70px);
+        }
+    }
+
+    @include breakpoint(medium only) {
+        padding: rem-calc(70 28);
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(0);
+        place-items: center;
+        min-height: calc(100dvh - 0px);
+    }
+
+    @include breakpoint(large only) {
+        padding: rem-calc(98 42);
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(0);
+        min-height: calc(100dvh - 70px);
+        place-items: center;
+    }
+
+    @include breakpoint(xlarge only) {
+        padding: rem-calc(98 56);
+    }
+
+    @include breakpoint(xxlarge only) {
+        padding: rem-calc(119 70);
+    }
+
+    &.single-column {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font: inherit;
+        font-size: rem-calc($sectionTitleSize);
+        display: inline-block;
+        width: 100%;
+        line-height: 0.98;
+        font-weight: 900;
+        letter-spacing: rem-calc(1);
+        position: relative;
+
+        span {
+            display: inline-block;
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -25%;
+                left: 0;
+                width: 100%;
+                height: 400%;
+                background-image: linear-gradient(0deg, $bodyBackground 50%, rgba($bodyBackground, 1.0) 75%);
+                transition: all 0.5s ease;
+            }
+
+            &:nth-child(2) {
+                color: var(--accent);
+            }
+        }
+
+        &.animated {
+
+            span:after {
+                height: 100%;
+                background-image: linear-gradient(0deg, $bodyBackground 20%, rgba($bodyBackground, 0.0) 91%);
+            }
+        }   
+
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(49);
+        }
+
+        @include breakpoint(medium only) {
+            font-size: rem-calc(63);
+        }
+
+        @include breakpoint(large only) {
+            font-size: rem-calc(70);
+        }
+
+        @include breakpoint(xlarge only) {
+            font-size: rem-calc(70);
+        }
+
+        @include breakpoint(xxlarge only) {
+            font-size: rem-calc(77);
+        }
+
+        @media only screen and (max-height: 768px) and (orientation: landscape) {
+            font-size: rem-calc(49);
+        }
+
+        &.has-subtitle {
+            display: block;
+            position: relative;
+
+            &:after {
+                content: attr(data-subtitle);
+                top: 100%;
+                display: inline-block;
+                left: 50%;
+                transform: translate(-50%, 140%);
+                text-align: center;
+                color: var(--accent);
+                font-size: rem-calc(21);
+                position: absolute;
+                letter-spacing: rem-calc(2px);
+
+                font-family: $font300;
+                white-space: nowrap;
+
+                @include breakpoint(small only) {
+                    font-size: rem-calc(14);
+                }
+            }
+        }
+    }
+
+    .text {
+        width: 100%;
+        max-width: rem-calc(490);
+        font: inherit;
+        
+        span {
+            font: inherit;
+            font-size: rem-calc($sectionTextSize);
+            font-weight: 600;
+            letter-spacing: rem-calc(0.2);
+            color: rgba($bodyText, 0.28);
+            background-clip: text;
+            background-size: 0% 100%;
+            display: inline;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(90deg, rgba($bodyText, 0.84), rgba($bodyText, 0.84));
+            animation: reveal linear forwards;
+            animation-timeline: view(y);
+            animation-range-start: cover 21vh;
+            animation-range-end: cover 56vh;
+
+            @include breakpoint(small only) {
+                font-size: rem-calc(21);
+            }
+    
+            @media only screen and (max-height: 768px) and (orientation: landscape) {
+                font-size: rem-calc(24);
+            }
+        }
+
+    }
+
+    .text-block {
+        @include flex-column-center;
+        flex-shrink: 0;
+        align-self: center;
+    }
+
+    &.text-center {
+        .text-block {
+
+            .title,
+            .text {
+                text-align: center;
+            }
+        }
+
+    }
+
+    &.text-left {
+        .text-block {
+            align-items: flex-start;
+
+            @include breakpoint(large down) {
+                align-items: center;
+            }
+
+            .title,
+            .text {
+                text-align: left;
+
+                @include breakpoint(large down) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.text-right {
+        .text-block {
+            align-items: flex-end;
+
+            @include breakpoint(large down) {
+                align-items: center;
+            }
+
+            .title,
+            .text {
+                text-align: right;
+
+                @include breakpoint(large down) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@keyframes reveal {
+    to {
+        background-size: 100% 100%;
+    }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        @@include('head.html', {
+        "title": "AG | Portfolio"
+        })
+        <link rel="stylesheet" href="lib/css/lightgallery.css">
+        <link rel="stylesheet" href="lib/css/lg-autoplay.css">
+        <link rel="stylesheet" href="lib/css/lg-comments.css">
+        <link rel="stylesheet" href="lib/css/lg-fullscreen.css">
+        <link rel="stylesheet" href="lib/css/lg-medium-zoom.css">
+        <link rel="stylesheet" href="lib/css/lg-pager.css">
+        <link rel="stylesheet" href="lib/css/lg-relative-caption.css">
+        <link rel="stylesheet" href="lib/css/lg-thumbnail.css">
+        <link rel="stylesheet" href="lib/css/lg-transitions.css">
+        <link rel="stylesheet" href="lib/css/lg-zoom.css">
+        <link rel="stylesheet" href="lib/css/lg-video.css">
+        <link rel="stylesheet" href="css/s.css">
+    </head>
+
+    <body class="work">
+        @@include('nav.html')
+        <main>
+            <section class="text-center single-column hero">
+                <div class="text-block">
+                    <h1 class="title has-subtitle" title="Projects" data-subtitle="Selected Works">
+                        <span>Projects</span>
+                    </h1>
+                </div>
+                @@include('scroll.html')
+            </section>
+            <section class="project-gallery" id="gallery">
+            </section>
+
+            <section class="text-center single-column other-projects">
+                <div class="text-block">
+                    <h2 class="title" title="Projects I've worked on'">
+                        <span>Other&nbsp;</span><span>projects</span>
+                    </h2>
+                    <p class="text">
+                        <span>
+                            Throughout my career, I've honed my skills in map design, graphic design, web development, UI/UX
+                            design, working with diverse global clients. These experiences have shaped me into the versatile
+                            UX engineer I am today: sketching, designing, and coding.
+                        </span>
+                    </p>
+
+                    <ul class="section-inline-list">
+                        <li>Polaris Medical</li>
+                        <li>yeParking</li>
+                        <li>Genuine Origin</li>
+                        <li>Banca Transilvania</li>
+                        <li>Virtual Truck Manager</li>
+                        <li>Board Games Rental</li>
+                        <li>Wanted Sneakers</li>
+                        <li>U-BT</li>
+                        <li>London Barbers</li>
+                        <li>Dent Complet</li>
+                        <li>L'Atelier Dentaire</li>
+                        <li>TIMAF</li>
+                        <li>Untold</li>
+                        <li>Absolvire A-Z</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <div id="captions"></div>
+        <script type="text/javascript" src="js/portfolio.js"></script>
+        @@include('comps.html')
+        @@include('cookie.html')
+        <script src="js/lib/js/lightgallery.umd.js"></script>
+        <script src="js/lib/js/fullscreen/lg-fullscreen.umd.js"></script>
+        <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
+        <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
+        <script defer>
+            lightGallery(document.getElementById('gallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                thumbnail: true,
+                mode: 'lg-fade',
+                cssEasing: 'cubic-bezier(.59,-0.31,.64,1.23)',
+                speed: 350,
+                thumbHeight: "70px",
+                thumbMargin: 7,
+                thumbWidth: 110,
+                download: false,
+                mousewheel: false,
+                caption: true,
+                mobileSettings: {
+                    showCloseIcon: true
+                }
+            });
+            document.addEventListener('touchstart', function () { }, { passive: true });
+        </script>
+        <script src="js/cookie.js"></script>
+        <script src="js/cube.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/os.js"></script>
+        <script type="text/javascript">
+
+            // Select the element you want to observe
+            const loadingPage = document.querySelector('.page-transitioner');
+
+            // Create a new MutationObserver instance
+            const observer = new MutationObserver((mutationsList, observer) => {
+                // Loop through all mutations in the mutations list
+                mutationsList.forEach(mutation => {
+                    
+                    // Check if the class attribute was removed from the loading page element
+                    if (!mutation.target.classList.contains('active')) {
+                        addAnimations();
+                    }
+                });
+            });
+
+            function addAnimations() {
+                var os = new OnScreen({
+                    tolerance: -49,
+                    debounce: 1,
+                });
+
+                os.on('enter', 'section .title', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 300);
+                });
+
+                os.on('enter', 'section .text', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 350);
+                });
+
+                os.on('enter', 'section .section-inline-list', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 400);
+                });
+
+                os.on('enter', '.gallery-item', (element, event) => {
+                    element.classList.add("will-animate");
+                });
+            }
+
+            // Define the options for the MutationObserver
+            const config = { attributes: true, attributeFilter: ['class'] };
+
+            // Start observing the loading page element for attribute changes
+            observer.observe(loadingPage, config);
+        </script>
+    </body>
+</html>

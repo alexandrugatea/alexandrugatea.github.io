@@ -3,3 +3,4 @@
 css/telenav.css.map
 css/telenav.css
 *.log
+node_modules

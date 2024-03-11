@@ -1,0 +1,462 @@
+@use "sass:math";
+
+body.work {
+    //padding-bottom: rem-calc(140);
+
+    @include breakpoint(large down) {
+        padding-bottom: rem-calc(28);
+    }
+
+    .project-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(rem-calc(350), 1fr));
+        position: relative;
+        grid-gap: rem-calc(98);
+        width: 100%;
+        padding-bottom: rem-calc(140);
+
+        @include breakpoint(small only) {
+            padding-bottom: rem-calc(70);
+            grid-gap: rem-calc(14);
+            grid-template-columns: repeat(auto-fill, minmax(rem-calc(140), 1fr));
+        }
+
+        @include breakpoint(medium only) {
+            grid-gap: rem-calc(21);
+            grid-template-columns: repeat(auto-fill, minmax(rem-calc(210), 1fr));
+            padding: rem-calc(70 28)
+        }
+
+        @include breakpoint(large only) {
+            grid-gap: rem-calc(35);
+            grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+            padding: rem-calc(70 28)
+        }
+
+        @include breakpoint(xlarge only) {
+            grid-gap: rem-calc(49);
+            grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+            padding: rem-calc(70 28)
+        }
+
+        @include breakpoint(xxlarge only) {
+            grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            transform: translate(0, 25%) scale(1.2);
+            transition: all 1.2s cubic-bezier(.66, -0.32, .36, 1.32);
+            width: 100%;
+
+
+            &:after {
+                content: "";
+                display: block;
+                width: 70%;
+                height: rem-calc(21);
+                border-radius: 50%;
+                background: #000;
+                position: absolute;
+                bottom: rem-calc(56);
+                left: 50%;
+                transform: translateX(-50%);
+                filter: blur(10px);
+            }
+
+            &:not(.will-animate) {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &.will-animate {
+                visibility: visible;
+                transform: translate(0, 0) scale(1.0);
+                opacity: 1;
+
+                .project-image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .project {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 4 / 3;
+                box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.14);
+                @include glass($bodyText, 0.07, 21px);
+                border-radius: rem-calc(21);
+                z-index: 0;
+                overflow: hidden;
+
+                @include breakpoint(small only) {
+                    border-radius: rem-calc(7);
+                }
+
+                &-image {
+                    z-index: 1;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: rem-calc(21);
+                    width: 210%;
+                    height: 210%;
+                    transition: all 2s ease-out;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    @include breakpoint(small only) {
+                        border-radius: rem-calc(7);
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        &.map {
+
+                            &.landscape {
+                                width: auto;
+                                height: 100%;
+                            }
+
+                            &.square {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                            &.portrait {}
+                        }
+
+                        &.logo {
+                            width: 84%;
+                            height: 84%;
+                            object-fit: contain;
+
+                            &.landscape {
+                                width: 84%;
+                                height: auto;
+                            }
+
+                            &.square {
+                                width: 84%;
+                                height: 84%;
+                                object-fit: contain;
+                            }
+
+                            &.portrait {
+                                height: 84%;
+                                width: auto;
+                            }
+                        }
+
+                        &.web {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+
+                            &.landscape {
+                                width: auto;
+                                height: 100%;
+                            }
+
+                            &.square {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                            &.portrait {
+                                width: 100%;
+                                height: auto;
+                                top: 0%;
+                                left: 50%;
+                                transform: translate(-50%, 0%);
+
+                            }
+                        }
+                    }
+
+                }
+
+                &-text {
+                    z-index: 2;
+                    padding: rem-calc(21 0);
+
+                    @include breakpoint(small only) {
+                        padding: rem-calc(14 0);
+                    }
+
+                    h2 {
+                        font-size: rem-calc(21);
+                        font-family: $font300;
+                        letter-spacing: rem-calc(1);
+                        opacity: 0.7;
+
+                        @include breakpoint(small only) {
+                            font-size: rem-calc(14);
+                        }
+                        @media only screen and (max-height: 768px) and (orientation: landscape) {
+                            font-size: rem-calc(14);
+                        }
+                    }
+
+                    .txt-grid {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        p {
+                            margin-right: rem-calc(7);
+                        }
+                    }
+
+                    p {
+                        font-size: rem-calc(14);
+                        font-family: $font300;
+                        position: relative;
+                        letter-spacing: rem-calc(1);
+                        opacity: 0.35;
+
+                        &:before {
+                            content: "[ ";
+                            display: inline-block;
+                        }
+
+                        &:after {
+                            content: " ]";
+                            display: inline-block;
+                        }
+                    }
+                }
+
+                &:before {
+                    content: "";
+                    @extend .projectAbsoluteFullClass;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+                    pointer-events: none;
+                    box-shadow: inset rem-calc(0 0 0 7) rgba($bodyText, 0.56);
+                    display: block;
+                    border-radius: rem-calc(21);
+
+                    @include breakpoint(small only) {
+                        border-radius: rem-calc(7);
+                        box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.56);
+                    }
+                }
+            }
+        }
+    }
+
+    .other-projects {
+        padding: rem-calc(140);
+
+        @include breakpoint(large down) {
+            padding: rem-calc(70 28);
+        }
+
+        .text-block {
+
+            .text {
+                max-width: rem-calc(1050);
+            }
+        }
+    }
+
+    .section-inline-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: rem-calc(1050);
+
+        li {
+            display: inline-block;
+            padding: rem-calc(28 28);
+            font-family: $font400;
+            font-size: rem-calc(28);
+            letter-spacing: rem-calc(2);
+
+            @include breakpoint(small only) {
+                font-size: rem-calc(14);
+                padding: rem-calc(7);
+            }
+
+            @include breakpoint(medium down) {
+                font-size: rem-calc(21);
+                padding: rem-calc(14);
+            }
+
+        }
+    }
+}
+
+.projectAbsoluteFullClass {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+
+// lightbox overrides
+
+.lg-backdrop {
+    z-index: 9999;
+    transition: all 333ms ease-in 0s;
+
+    &.in {
+        backdrop-filter: blur(28px);
+        background: rgba($bodyBackground, 0.7);
+
+        @include breakpoint(small only) {
+            background: rgba($bodyBackground, 0.91);
+        }
+    }
+}
+
+.lg-outer {
+    z-index: 9999;
+
+    .lg-prev,
+    .lg-next {
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        width: 18%;
+    }
+
+    .lg-prev {
+        left: 0;
+    }
+
+    .lg-next {
+        right: 0;
+    }
+}
+
+.lg-outer .lg-thumb-item {
+    border-radius: rem-calc(7);
+    border: none;
+    box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.14);
+    -webkit-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    opacity: 0.42;
+
+    &.active {
+        opacity: 1;
+        box-shadow: inset 0 0 0 rem-calc(3) rgba($bodyText, 0.35);
+    }
+}
+
+.lg-outer .lg-thumb-item img {
+    z-index: -1;
+    position: relative;
+}
+
+.lg-outer .lg-thumb {
+    padding: rem-calc(21 0);
+}
+
+
+#captions>div {
+    display: none;
+}
+
+
+.lg-outer .lg-video-cont .lg-object {
+    width: 60% !important;
+    height: 80% !important;
+}
+
+.lg-sub-html {
+    color: $bodyText;
+    font-size: rem-calc(21);
+    padding: rem-calc(14 28);
+    text-align: center;
+    z-index: 1080;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-out 0s;
+    -o-transition: opacity 0.2s ease-out 0s;
+    transition: opacity 0.2s ease-out 0s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .galleryitem-caption-title {
+        font-size: rem-calc(21);
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(18);
+        }
+    }
+
+    .galleryitem-caption-text {
+        font-size: rem-calc(14);
+        max-width: rem-calc(700);
+
+        span.hint {
+
+            display: none;
+
+            @include breakpoint(large down) {
+                display: block;
+                max-width: 70%;
+                margin: 0 auto;
+                text-align: center;
+                font-size: rem-calc(14);
+                padding: rem-calc(7 0 14);
+                font-family: $font400i;
+                position: relative;
+            }
+        }
+    }
+}
+
+.lg-sub-html {
+    @include glass($bodyBackground, 0.28, 14px);
+}
+
+.lg-outer {
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.lg-outer .lg-prev,
+.lg-outer .lg-next {
+    opacity: 0;
+    top: 50%;
+    bottom: 0;
+    width: 18%;
+    height: 85%;
+    transform: translateY(-50%);
+}
+
+.lg-counter {
+    font-family: $font400;
+
+    .lg-counter-current {
+        font-family: $font700;
+    }
+    .lg-counter-all {
+        font-family: $font300;
+    }
+}

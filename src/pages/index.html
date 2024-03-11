@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        @@include('head.html', {
+        "title": "AG | Sr UX Engineer"
+        })
+        <link rel="stylesheet" href="css/s.css">
+    </head>
+
+    <body class="home">
+        @@include('nav.html')
+        <main>
+            <section class="text-center single-column hero">
+                <div class="text-block">
+                    <h1 class="title" id="mainTitle" title="Alexandru Gatea | Sr UX Engineer">
+                        <span>Hello&nbsp;</span><span id="visitor">Stranger!</span>
+                    </h1>
+                    <p class="text">
+                        <span>
+                            Let's bring your ideas to life!<br>
+                            I craft engaging digital experiences through the power of code and design.
+                        </span>
+                    </p>
+                </div>
+                @@include('scroll.html')
+            </section>
+
+            <section class="text-left" id="about">
+                <div class="text-block">
+                    <h2 class="title" title="I am Alexandru Gatea, a UX Engineer">
+                        <span>My Name</span>
+                        <span>Is Alex</span>
+                    </h2>
+                    <p class="text">
+                        <span>
+                            I'm a UIUX Artist and Engineer based in the city of Cluj-Napoca, Transylvania.
+                            I work in design since 2010 and coding is an important step in my design process.
+                        </span>
+
+                    </p>
+
+                    <a href="/about" title="Alexandru Gatea | About me" class="button internal kursor-hover link">
+                        <span>Read More</span>
+                    </a>
+                </div>
+                <div class="graphic-block about-me">
+                    <div class="graphic-block-container about-me">
+                        <img src="images/about/about_me.png" class="abtm" alt="Alexandru Gatea's Profile Picture">
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-right">
+                <div class="graphic-block kursor-hover play portfolio">
+                    <div class="graphic-block-container" id="holder">
+                        <div class="card rect">
+                            <div class="card-image tilt">
+                                <img src="images/portfolio/portfolio_sketch_GD.svg" alt="Portfolio | Graphic Design">
+                                <span>[ Graphic Design ]</span>
+                            </div>
+                        </div>
+                        <div class="card rect">
+                            <div class="card-image tilt">
+                                <img src="images/portfolio/portfolio_sketch_MD.svg" alt="Portfolio | Map Design">
+                                <span>[ Automotive Maps ]</span>
+                            </div>
+                        </div>
+                        <div class="card rect">
+                            <div class="card-image tilt">
+                                <img src="images/portfolio/portfolio_sketch_WD.svg" alt="Portfolio | Website Design">
+                                <span>[ Web Development ]</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+                </div>
+                <div class="text-block portfolio">
+                    <h2 class="title" title="Portfolio">
+                        <span>Engineering</span><span>&nbsp;Experiences</span>
+                    </h2>
+                    <p class="text">
+                        <span>
+                            I blend my coding expertise with design understanding to create seamless digital experiences.
+                            From UIUX to HTML, CSS, and JS, I translate ideas into interactive realities.
+                        </span>
+                    </p>
+                    <a href="work" title="Portfolio" class="button internal kursor-hover link">
+                        <span>Read More</span>
+                    </a>
+                </div>
+            </section>
+            <section class="text-center single-column contact">
+                <div class="text-block">
+                    <h2 class="title" title="Contact me">
+                        <span>Let's&nbsp;</span><span>Connect!</span>
+                    </h2>
+                    <p class="text">
+                        <span>
+                            Want to discuss your project?
+                            <br>
+                            <a href="/contact.html" title="Send me an email" class="kursor-hover internal link">Drop me a
+                                line</a>
+                            or find me
+                            <a href="https://www.linkedin.com/in/alexandru-gatea/" target="_blank"
+                                title="Find me on LinkedIn" class="kursor-hover external link">on the
+                                web</a>.
+                        </span>
+                    </p>
+
+                    <a href="/contact.html" title="Contact me" class="button hire kursor-hover link">
+                        <span>Contact me</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+        @@include('comps.html')
+        @@include('cookie.html')
+        <!--Scripts-->
+        <script src="js/cookie.js"></script>
+        <script src="js/tilt.js"></script>
+        <script src="js/cube.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/homeCarousel.js"></script>
+        <script src="js/os.js"></script>
+        <script>
+            // JavaScript to check local storage and update the title accordingly
+            document.addEventListener("DOMContentLoaded", function () {
+                var title = document.getElementById("visitor");
+                var visited = localStorage.getItem("visited");
+                if (visited) {
+                    title.textContent = "Friend!";
+                } else {
+                    localStorage.setItem("visited", true);
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            VanillaTilt.init(document.querySelectorAll(".tilt"), {
+                max: 7,
+                speed: 96,
+                glare: false,
+                perspective: 700,
+                scale: 1.07
+            });
+        </script>
+
+        <script type="text/javascript">
+
+            // Select the element you want to observe
+            const loadingPage = document.querySelector('.page-transitioner');
+
+            // Create a new MutationObserver instance
+            const observer = new MutationObserver((mutationsList, observer) => {
+                // Loop through all mutations in the mutations list
+                mutationsList.forEach(mutation => {
+
+                    // Check if the class attribute was removed from the loading page element
+                    if (!mutation.target.classList.contains('active')) {
+                        addAnimations();
+                    }
+                });
+            });
+
+            function addAnimations() {
+                var os = new OnScreen({
+                    tolerance: -49,
+                    debounce: 1,
+                });
+
+                // Do something when an element enters the viewport
+                os.on('enter', 'section .title', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 300);
+                });
+
+                os.on('enter', 'section .text', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 400);
+                });
+
+                os.on('enter', 'section .button', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 500);
+                });
+                os.on('enter', 'section .abtm', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 500);
+                });
+            }
+
+            // Define the options for the MutationObserver
+            const config = { attributes: true, attributeFilter: ['class'] };
+
+            // Start observing the loading page element for attribute changes
+            observer.observe(loadingPage, config);
+        </script>
+
+    </body>
+
+</html>

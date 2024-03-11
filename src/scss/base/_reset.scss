@@ -1,0 +1,24 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: accent(0.65);
+}
+
+::selection {
+  background: accent(0.77);
+  color: $bodyBackground;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
