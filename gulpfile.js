@@ -1,6 +1,5 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const cleanCSS = require('gulp-clean-css');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
@@ -16,7 +15,6 @@ gulp.task('scss', function () {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()])) 
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(destination + '/css'))
         .pipe(browserSync.stream());
