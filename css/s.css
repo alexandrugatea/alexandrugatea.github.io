@@ -2590,7 +2590,7 @@ body.home section.hero .text.animated span {
           animation-delay: 1s;
 }
 body.home section.hero .written .Typewriter__cursor {
-  display: none;
+  visibility: hidden;
 }
 body.home section.contact .text.animated span {
   -webkit-animation: reveal 1.77s ease-in-out forwards;

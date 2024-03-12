@@ -106,7 +106,7 @@ section .section-inline-list,
 section .form-title,
 section .form-group,
 section .nav-list-link,
-section .button{
+section .button {
     &:not(.will-animate) {
         opacity: 0;
         visibility: hidden;

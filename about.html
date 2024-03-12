@@ -369,7 +369,7 @@
                             <ul class="resume-other-section-description">
                                 <li>
                                     <p class="resume-subtitle">Web Development</p>
-                                    <p class="resume-other-section-description"> HTML, SCSS, Javascript, jQuery, Git, Jira</p>
+                                    <p class="resume-other-section-description">HTML, SCSS, Javascript, jQuery, Git, Github, Confluence, Webflow, Gulp, Jira</p>
                                 </li>
                                 <li>
                                     <p class="resume-subtitle">Ui / Ux</p>
@@ -484,6 +484,12 @@
                 });
 
                 os.on('enter', 'section .resume-other-section', (element, event) => {
+                    element.classList.add("will-animate");
+                    setTimeout(() => {
+                        element.classList.add("animated", "fadeInUp");
+                    }, 300);
+                });
+                os.on('enter', 'section .resume-other-section-title', (element, event) => {
                     element.classList.add("will-animate");
                     setTimeout(() => {
                         element.classList.add("animated", "fadeInUp");
