@@ -156,6 +156,7 @@ $fontSlab: 'Slab';
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
+    font-feature-settings: 'liga';
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
@@ -171,7 +172,7 @@ $fontSlab: 'Slab';
     line-height: $line-height;
     font-family: $font-family;
     font-weight: $font-weight;
-    font-style: $font-style;
+    font-style: $font-style; 
 
     @media screen and (max-width: $lower-range) {
         font-size: rem-calc($min-font-size);

@@ -126,14 +126,37 @@
         <script src="js/scripts.js"></script>
         <script src="js/homeCarousel.js"></script>
         <script src="js/os.js"></script>
+        <script src="js/type.js"></script>
         <script>
             // JavaScript to check local storage and update the title accordingly
             document.addEventListener("DOMContentLoaded", function () {
                 var title = document.getElementById("visitor");
                 var visited = localStorage.getItem("visited");
+
+                var typewriter = new Typewriter(title, {
+                    loop: false,
+                    delay: 77
+                });
+
                 if (visited) {
-                    title.textContent = "Friend!";
+                    typewriter
+                        .pauseFor(10)
+                        .typeString('Stranger')
+                        .pauseFor(1000)
+                        .deleteChars(8)
+                        .typeString('Friend')
+                        .callFunction(() => {
+                            title.classList.add("written");
+                        })
+                        .start();
                 } else {
+                    typewriter
+                        .pauseFor(10)
+                        .typeString('Stranger')
+                        .callFunction(() => {
+                            title.classList.add("written");
+                        })
+                        .start();
                     localStorage.setItem("visited", true);
                 }
             });

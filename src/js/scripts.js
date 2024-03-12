@@ -46,6 +46,10 @@ var windowWidth = window.innerWidth
 
 let lastWindowWidth = windowWidth; 
 
+if (windowWidth > 1200) {
+    smoothScroll(target, 91, 14);
+}
+
 window.addEventListener('resize', () => {
     const currentWindowWidth = window.innerWidth;
 
@@ -55,9 +59,6 @@ window.addEventListener('resize', () => {
         lastWindowWidth = currentWindowWidth; 
     }
 
-    if (windowWidth > 1200) {
-        smoothScroll(target, 91, 14);
-    }
 });
 
 var isScrollEnabled = true;
@@ -164,45 +165,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    const aboutMeHover = document.querySelector(".graphic-block-container.about-me");
-    if (aboutMeHover) {
-        aboutMeHover.addEventListener('mouseover', function () {
-            aboutMeHover.classList.add("hovered");
-        });
-    }
-
     const mouse = document.getElementById("cubeContainer");
     const wH = window.innerHeight;
 
     // ==========
     // SCROLL
     // ==========
+
+    let isScrolling = false;
+
     window.addEventListener("scroll", function () {
-        const totalScrollHeight = document.body.scrollHeight - window.innerHeight;
 
-        let parallaxOffset = 50;
+        if (!isScrolling) {
+            window.requestAnimationFrame(function () {
+                const totalScrollHeight = document.body.scrollHeight - wH;
 
-        // edge case for contact page where there are 2 * 100vh sections
-        if (totalScrollHeight == window.innerHeight) {
-            parallaxOffset = 25;
+                let parallaxOffset = 50;
+
+                // edge case for contact page where there are 2 * 100vh sections
+                if (totalScrollHeight == wH) {
+                    parallaxOffset = 25;
+                }
+
+                const scrollPosition = window.scrollY;
+
+                // Do not use Math.floor here or the grid will have a jumpy move
+                const scrollPercent = (scrollPosition / totalScrollHeight) * - parallaxOffset + 1;
+                let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
+
+                if (mouse) {
+                    if (windowScrollPercent <= 0) {
+                        mouse.style.transform = `translateX(-50%) translateY(${scrollPercent}%) scale(0)`;
+                    } else {
+                        mouse.style.transform = `translateX(-50%) translateY(${-scrollPercent}%) scale(${windowScrollPercent / 100})`;
+                    }
+                }
+
+                if (!isScrollEnabled) return;
+                container.style.transform = `translateX(-50%) translateY(${scrollPercent}%) `;
+
+                isScrolling = false;
+            });
+
+            isScrolling = true;
         }
-
-        const scrollPosition = window.scrollY;
-
-        // Do not use Math.floor here or the grid will have a jumpy move
-        const scrollPercent = (scrollPosition / totalScrollHeight) * - parallaxOffset + 1;
-        let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
-
-        if (mouse) {
-            if (windowScrollPercent <= 0) {
-                mouse.style.transform = `translateX(-50%) translateY(${scrollPercent}%) scale(0)`;
-            } else {
-                mouse.style.transform = `translateX(-50%) translateY(${-scrollPercent}%) scale(${windowScrollPercent / 100})`;
-            }
-        }
-
-        if (!isScrollEnabled) return;
-        container.style.transform = `translateX(-50%) translateY(${scrollPercent}%) `;
     });
 
     // Redirect links
@@ -252,7 +258,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function updateCurrentNavItem() {
     // Get the current path from the URL, consider root as '/' or just the domain
     const currentPath = window.location.pathname === '/' ? '/' : window.location.pathname;
-    console.log(currentPath);
 
     // Select all li elements with the class 'nav-list-link'
     const navItems = document.querySelectorAll('li.nav-list-link');

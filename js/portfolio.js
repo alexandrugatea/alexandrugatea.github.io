@@ -92,7 +92,7 @@ function renderCaptions(category) {
 const webData = [
     {
         'category': 'category-web',
-        'size': '1917-913',
+        'size': '1440-686',
         'captionID': 'webTelenavNew',
         'src': 'images/portfolio/webs/tnv_new.png',
         'project-text': `
@@ -113,7 +113,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1904-905',
+        'size': '1440-685',
         'captionID': 'webTelenavOld',
         'src': 'images/portfolio/webs/tnv_old.png',
         'project-text': `
@@ -134,7 +134,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1901-910',
+        'size': '1440-689',
         'captionID': 'webSynpheon',
         'src': 'images/portfolio/webs/synpheon.png',
         'project-text': `
@@ -156,7 +156,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1902-909',
+        'size': '1440-688',
         'captionID': 'webDakar',
         'src': 'images/portfolio/webs/dakar.png',
        'project-text': `
@@ -177,7 +177,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-4800',
+        'size': '1440-3138',
         'captionID': 'webLandingpage',
         'src': 'images/portfolio/webs/Landingpage.png',
         'project-text': `
@@ -200,7 +200,7 @@ const webData = [
 const codePenData = [
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-352',
         'captionID': 'webCodePenSignInUp',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_signInUp.png',
@@ -222,7 +222,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-274',
         'captionID': 'webCodePenGridList',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_grid_list.png',
@@ -246,7 +246,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-283',
         'captionID': 'webCodePenSVGJS',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_svg_circles.png',
@@ -269,7 +269,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-202',
         'captionID': 'webCodePenBlobs',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_blob.png',
@@ -292,7 +292,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-769',
         'captionID': 'webCodePenTransparentMenu',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_blur_menu.png',
@@ -314,7 +314,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-309',
         'captionID': 'webCodePenResponsiveTable',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_table.png',
@@ -337,7 +337,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-327',
         'captionID': 'webCodePenFloatingButtons',
         'iframe': true,
         'thumb': 'images/portfolio/webs/fiddle-float.png',
@@ -360,7 +360,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-263',
         'captionID': 'webCodePenAnimatedMenuInOut',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_animated_menu.png',
@@ -382,7 +382,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-272',
         'captionID': 'webCodePenTriangleCarousel',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_carousel_triangle.png',
@@ -405,7 +405,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '1920-1080',
+        'size': '420-270',
         'captionID': 'webCodePenCSSSkeleton',
         'iframe': true,
         'thumb': 'images/portfolio/webs/codepen_skeleton.png',
@@ -430,7 +430,7 @@ const codePenData = [
 const mapsData = [
     {
         'category': 'category-maps',
-        'size': '1920-1080',
+        'size': '1440-810',
         'captionID': 'mapArt',
         'src': 'images/portfolio/maps/port_maps_3d_art.png',
        'project-text': `
@@ -450,7 +450,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1920-1080',
+        'size': '1440-810',
         'captionID': 'mapPaper',
         'src': 'images/portfolio/maps/port_maps_3d_paper.png',
        'project-text': `
@@ -490,7 +490,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1520-1080',
+        'size': '1200-853',
         'captionID': 'mapRenderSun',
         'src': 'images/portfolio/maps/port_maps_day.png',
        'project-text': `
@@ -510,7 +510,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1520-1080',
+        'size': '1200-853',
         'captionID': 'mapRenderMoon',
         'src': 'images/portfolio/maps/port_maps_night.png',
        'project-text': `
@@ -530,7 +530,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1792-1080',
+        'size': '1440-868',
         'captionID': 'mapGradients',
         'src': 'images/portfolio/maps/port_maps_gradient.png',
        'project-text': `
@@ -550,7 +550,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1920-1080',
+        'size': '1440-810',
         'captionID': 'mapStyle1',
         'src': 'images/portfolio/maps/port_maps_detroit1.png',
        'project-text': `
@@ -569,7 +569,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1920-1080',
+        'size': '1440-810',
         'captionID': 'mapStyle2',
         'src': 'images/portfolio/maps/port_maps_detroit2.png',
        'project-text': `
@@ -588,7 +588,7 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1920-1080',
+        'size': '1440-810',
         'captionID': 'mapStyle3',
         'src': 'images/portfolio/maps/port_maps_detroit3.png',
        'project-text': `

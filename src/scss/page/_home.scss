@@ -64,7 +64,6 @@ body.home {
                         @include flex-column-center;
                         position: relative;
                         width: 100%;
-                        height: 100%;
                         padding: rem-calc(28);
                         transform-style: preserve-3d;
                         transform: perspective(1000px);
@@ -174,17 +173,16 @@ body.home {
                 }
             }
         }
+
+        .written .Typewriter__cursor {
+            display: none;
+        }
     }
 
     section.contact {
-        .text span {
-            animation-range-start: cover 21vh;
-            animation-range-end: cover 42vh;
-            
-            @include breakpoint(medium only) {
-                animation-range-start: cover 10vh;
-                animation-range-end: contain 20vh;
-            }
+        .text.animated span {
+            animation: reveal 1.77s ease-in-out forwards;
+            animation-delay: 1s;
         }
     }
 }
