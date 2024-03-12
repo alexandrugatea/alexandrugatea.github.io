@@ -2956,6 +2956,9 @@ body.about .resume-other-section.education .resume-other-section-description .re
 }
 body.work .project-gallery {
   display: grid;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   grid-template-columns: repeat(auto-fill, minmax(21.875rem, 1fr));
   position: relative;
   grid-gap: 6.125rem;
@@ -2992,7 +2995,7 @@ body.work .project-gallery {
 }
 @media screen and (min-width: 87.5em) and (max-width: 118.6875em) {
   body.work .project-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   }
 }
 body.work .project-gallery .gallery-item {
