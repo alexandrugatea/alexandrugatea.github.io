@@ -1716,7 +1716,7 @@ body, html {
 @media screen and (max-width: 47.9375em) {
   #nav .nav-list .nav-settings-radius .nav-corner-list {
     padding: 0;
-    grid-gap: 1.75rem;
+    grid-gap: 1.3125rem;
   }
 }
 #nav .nav-list .nav-settings-radius .nav-corner-list .nav-corner-item {
