@@ -8,6 +8,7 @@
 <meta name="keywords"
     content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
 <meta name="robots" content="index, follow">
+
 <meta property="og:title" content="Alexandru Gatea | Sr UX Engineer">
 <meta property="og:description" content="I craft engaging digital experiences through the power of code and design.">
 <meta property="og:url" content="https://www.alexandrugatea.com">
@@ -15,6 +16,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
 <meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="Alexandru Gatea | Sr UX Engineer">
+<meta property="twitter:description" content="I craft engaging digital experiences through the power of code and design.">
+<meta property="twitter:url" content="https://www.alexandrugatea.com">
+<meta property="twitter:image" content="https://alexandrugatea.com/images/meta.png">
+<meta property="twitter:type" content="website">
+<meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+<meta property="twitter:locale" content="en_US">
+
+
 <link rel="shortcut icon" href="dark.ico" media="(prefers-color-scheme: light)">
 <link rel="shortcut icon" href="light.ico" media="(prefers-color-scheme: dark)">
 <link rel="apple-touch-icon" href="dark.ico" media="(prefers-color-scheme: light)">
@@ -112,7 +123,7 @@
     <div class="nav-list">
         <ul class="nav-list-logo">
             <li class="nav-list-link">
-                <a href="/" class="nav-list-url root kursor-hover link" title="Alexandru Gatea | Sr UX Engineer">
+                <a href="./" class="nav-list-url root kursor-hover link" title="Alexandru Gatea | Sr UX Engineer">
                     <span>alexandru</span>
                     <span>gatea</span>
                 </a>
@@ -120,19 +131,19 @@
         </ul>
         <ul class="nav-list-links">
             <li class="nav-list-link">
-                <a href="about.html" title="Alexandru Gatea | About me"
+                <a href="./about" title="Alexandru Gatea | About me"
                     class="nav-list-url internal kursor-hover link">About<span class="material-symbols-outlined">
                         double_arrow
                     </span></a>
             </li>
             <li class="nav-list-link">
-                <a href="work.html" title="Alexandru Gatea | Portfolio"
+                <a href="./work" title="Alexandru Gatea | Portfolio"
                     class="nav-list-url internal kursor-hover link">Projects<span class="material-symbols-outlined">
                         double_arrow
                     </span></a>
             </li>
             <li class="nav-list-link">
-                <a href="contact.html" title="Alexandru Gatea | Contact"
+                <a href="./contact" title="Alexandru Gatea | Contact"
                     class="nav-list-url internal kursor-hover link">Contact<span class="material-symbols-outlined">
                         double_arrow
                     </span></a>
@@ -291,19 +302,23 @@
         <script src="js/lib/js/fullscreen/lg-fullscreen.umd.js"></script>
         <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
         <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
+        <script src="js/lib/js/hash/lg-hash.umd.js"></script>
         <script defer>
             lightGallery(document.getElementById('gallery'), {
-                plugins: [lgZoom, lgThumbnail],
+                plugins: [lgZoom, lgThumbnail, lgHash],
                 thumbnail: true,
                 mode: 'lg-fade',
                 cssEasing: 'cubic-bezier(.59,-0.31,.64,1.23)',
                 speed: 350,
                 thumbHeight: "70px",
                 thumbMargin: 7,
+                galleryId: "AG_Portfolio_",
                 thumbWidth: 110,
                 download: false,
                 mousewheel: false,
                 caption: true,
+                hash: true,
+                customSlideName: true,
                 mobileSettings: {
                     showCloseIcon: true
                 }

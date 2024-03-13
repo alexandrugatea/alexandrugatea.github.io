@@ -73,19 +73,23 @@
         <script src="js/lib/js/fullscreen/lg-fullscreen.umd.js"></script>
         <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
         <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
+        <script src="js/lib/js/hash/lg-hash.umd.js"></script>
         <script defer>
             lightGallery(document.getElementById('gallery'), {
-                plugins: [lgZoom, lgThumbnail],
+                plugins: [lgZoom, lgThumbnail, lgHash],
                 thumbnail: true,
                 mode: 'lg-fade',
                 cssEasing: 'cubic-bezier(.59,-0.31,.64,1.23)',
                 speed: 350,
                 thumbHeight: "70px",
                 thumbMargin: 7,
+                galleryId: "AG_Portfolio_",
                 thumbWidth: 110,
                 download: false,
                 mousewheel: false,
                 caption: true,
+                hash: true,
+                customSlideName: true,
                 mobileSettings: {
                     showCloseIcon: true
                 }

@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const fileInclude = require('gulp-file-include');
 const browserSync = require('browser-sync').create();
+var historyApiFallback = require('connect-history-api-fallback');
 
 
 let source = "src";
@@ -53,7 +54,19 @@ gulp.task('html', function () {
 // Serve and Watch Task
 gulp.task('serve', function () {
     browserSync.init({
-        server: { baseDir: destination }
+        server: {
+            baseDir: destination, 
+            middleware: [historyApiFallback({
+                rewrites: [
+                    { from: /\/$/, to: '/index.html' }, // Rewrite root requests to '/index.html'
+                    {
+                        from: /\/[a-zA-Z0-9_\-]+$/, to: function (context) {
+                            return context.parsedUrl.pathname + ".html";
+                        }
+                    } // Append '.html' to any other path
+                ]
+            })]
+        }
     });
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('src/js/**/*.js', gulp.series('js'));

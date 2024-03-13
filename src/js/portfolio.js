@@ -9,6 +9,7 @@ function renderPortfolio(category) {
         div.setAttribute('data-lg-size', item['size']);
         div.setAttribute('data-src', item['src']);
         div.setAttribute('data-sub-html', "#" + item['captionID']);
+        div.setAttribute('data-slide-name', item['captionID']);
         div.classList.add('gallery-item', 'kursor-hover', 'zoom', item['category']);
 
         const projectDiv = document.createElement('div');
@@ -666,7 +667,7 @@ const brandData = [
         'size': '1440-1080',
         'captionID': 'logoFlower',
         'src': 'images/portfolio/brand/port_logo_flower.png',
-       'project-text': `
+        'project-text': `
         <h2>
             Logo Design
         </h2>
