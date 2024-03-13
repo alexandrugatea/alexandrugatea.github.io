@@ -128,7 +128,6 @@
         <script src="js/os.js"></script>
         <script src="js/type.js"></script>
         <script>
-            // JavaScript to check local storage and update the title accordingly
             document.addEventListener("DOMContentLoaded", function () {
                 var title = document.getElementById("visitor");
                 var visited = localStorage.getItem("visited");
@@ -153,7 +152,7 @@
                         .start();
                     } else {
                         typewriter
-                        .pauseFor(1000)
+                        .pauseFor(2000)
                         .typeString('Stranger')
                         .pauseFor(1000)
                         .callFunction(() => {
