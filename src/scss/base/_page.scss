@@ -1,11 +1,17 @@
-*,
-*:hover,
-*:active,
-*:focus {
-    @include breakpoint(large) {
-        cursor: none !important;
+
+body:not(.default-cursor) {
+    *,
+    *:hover,
+    *:before,
+    *:after,
+    *:active,
+    *:focus {
+        @include breakpoint(large) {
+            cursor: none !important;
+        }
     }
 }
+
 
 :root {
     --accent: #b4997f;
@@ -59,10 +65,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @include breakpoint(small only) {
-        //display: none!important;
-    }
 
 
     .loader {

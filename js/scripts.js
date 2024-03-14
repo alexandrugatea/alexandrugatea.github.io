@@ -137,7 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "color-pick": "colorize",
         "range": "arrow_range",
         "nav-corner-item": "rounded_corner",
-        "nav-trigger": "menu_open"
+        "nav-trigger": "menu_open",
+        "form-toggle": "toggle_on"
     };
 
     function setCursorMessage(element) {
@@ -251,50 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
             trail.style.display = 'block';
         });
     }
-
-    // END of DomContentLoaded
-});
-
-function updateCurrentNavItem() {
-    // Get the current path from the URL, consider root as '/' or just the domain
-    const currentPath = window.location.pathname === '/' ? '/' : window.location.pathname;
-
-    // Select all li elements with the class 'nav-list-link'
-    const navItems = document.querySelectorAll('li.nav-list-link');
-
-    // Flag to check if any nav item matches the current URL
-    let isAnyNavItemCurrent = false;
-
-    // Remove the 'current' class from all nav items and check for a match with the current URL
-    navItems.forEach(item => {
-        item.classList.remove('current');
-        const anchor = item.querySelector('a.nav-list-url');
-        const anchorPath = anchor.getAttribute('href');
-        // Adjusting for root URL comparison
-        const formattedAnchorPath = anchorPath === '/' ? '/' : `/${anchorPath}`;
-        if (formattedAnchorPath === currentPath) {
-            item.classList.add('current');
-            isAnyNavItemCurrent = true;
-        }
-    });
-
-    // If no nav items match and the current path is the root, set 'current' on 'nav-list-logo'
-    if (!isAnyNavItemCurrent && currentPath === '/') {
-        const logoItem = document.querySelector('.nav-list-logo');
-        if (logoItem) {
-            logoItem.classList.add('current');
-        }
-    }
-}
-
-// Call the function to update the nav items based on the current URL
-updateCurrentNavItem();
-
-// Optionally, call this function on window load or hashchange if your site uses hash-based navigation
-window.addEventListener('load', updateCurrentNavItem);
-
-
-document.addEventListener("DOMContentLoaded", function () {
     
     var colorList = document.getElementById('colorList');
     colorList.addEventListener('click', handleColorClick);
@@ -399,33 +356,34 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // Check if 'defaultCursor' is set in localStorage and update checkbox accordingly
+    const defaultCursorSetting = localStorage.getItem('defaultCursor') === 'true';
+    const checkbox = document.getElementById('pointerType');
+    checkbox.checked = defaultCursorSetting;
+
+    // Apply the 'default-cursor' class to the body if checkbox is checked
+    updateCursor(defaultCursorSetting);
+
+    // Listen for changes on the checkbox to update local storage and body class
+    checkbox.addEventListener('change', function () {
+        localStorage.setItem('defaultCursor', checkbox.checked);
+        updateCursor(checkbox.checked);
+    });
 });
-
-//const slider = document.getElementById('FontSize');
-//const root = document.documentElement;
-//const rootSize = parseInt(window.getComputedStyle(root).fontSize);
-
-
-//let savedScale = window.localStorage.getItem('scale');
-//console.log(savedScale);
-
-//if (savedScale) {
-//    root.style.fontSize = savedScale + "px";
-//    slider.value = savedScale;
-//}
-
-//slider.addEventListener('input', () => {
-//    setTimeout(() => {
-//        let uiScale = slider.value;
-//        root.style.fontSize = uiScale + "px";
-//        window.localStorage.setItem('scale', uiScale);
-//    }, 300);
-//});
-
 
 // ============================================================
 // Functions
 // ============================================================
+
+// Function to add/remove 'default-cursor' class based on the checkbox state
+function updateCursor(checked) {
+    if (checked) {
+        document.body.classList.add('default-cursor');
+    } else {
+        document.body.classList.remove('default-cursor');
+    }
+}
 
 function disableScroll() {
     if (!isScrollEnabled) return;
@@ -461,8 +419,8 @@ function smoothScroll(target, speed, smooth) {
     }
 
     function scrolled(e) {
-        e.preventDefault();
         if (!isScrollEnabled) return; // Don't scroll if scrolling is disabled
+        e.preventDefault();
         initScrollPosition(); // Ensure the initial position is set
         var delta = normalizeWheelDelta(e);
         pos += -delta * speed;
@@ -598,7 +556,7 @@ function moveKustomMouse(cursor, trail, x, y) {
     setTimeout(() => {
         trail.style.left = x + 'px';
         trail.style.top = y + 'px';
-    }, 35);
+    }, 14);
 
     const iframes = document.querySelectorAll('iframe');
     iframes.forEach(iframe => {

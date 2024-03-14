@@ -99,3 +99,8 @@
             display: none !important;
         }
 }
+
+body.default-cursor #kursor,
+body.default-cursor #kursorTrail {
+    display: none !important;
+}

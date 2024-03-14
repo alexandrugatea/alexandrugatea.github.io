@@ -5,8 +5,9 @@
   left: 50%;
   pointer-events: none;
   height: 200vh;
-  transform: translate(-50%);
+  transform: translate(-50%, 0);
   z-index: -1;
+  will-change: transform;
 
   svg {
     position: absolute;

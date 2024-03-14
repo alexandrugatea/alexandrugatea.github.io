@@ -54,6 +54,7 @@ body.work {
             transform: translate(0, 25%) scale(1.2);
             transition: all 1.2s cubic-bezier(.66, -0.32, .36, 1.32);
             width: 100%;
+            cursor: pointer;
 
 
             &:after {
@@ -333,21 +334,7 @@ body.work {
 .lg-outer {
     z-index: 9999;
 
-    .lg-prev,
-    .lg-next {
-        opacity: 0;
-        top: 0;
-        bottom: 0;
-        width: 18%;
-    }
 
-    .lg-prev {
-        left: 0;
-    }
-
-    .lg-next {
-        right: 0;
-    }
 }
 
 .lg-outer .lg-thumb-item {
@@ -441,14 +428,10 @@ body.work {
     height: 100dvh;
 }
 
+
 .lg-outer .lg-prev,
 .lg-outer .lg-next {
-    opacity: 0;
-    top: 50%;
-    bottom: 0;
-    width: 18%;
-    height: 85%;
-    transform: translateY(-50%);
+
 }
 
 .lg-counter {
@@ -460,4 +443,25 @@ body.work {
     .lg-counter-all {
         font-family: $font300;
     }
+}
+
+body:not(.default-cursor) {
+
+    .lg-prev,
+        .lg-next {
+            opacity: 0;
+            bottom: 0;
+            top: 50%;
+            width: 18%;
+            height: 85%;
+            transform: translateY(-50%);
+        }
+    
+        .lg-prev {
+            left: 0;
+        }
+    
+        .lg-next {
+            right: 0;
+        }
 }

@@ -3,6 +3,7 @@ $offset: 28px;
 $cubeFace: 7px;
 
 .cube {
+    will-change: transform;
 
     &-container {
         position: absolute;
@@ -13,6 +14,7 @@ $cubeFace: 7px;
         height: $cubeSize;
         perspective: rem-calc(77);
         pointer-events: none;
+        will-change: transform;
 
         @include breakpoint(small only) {
             bottom: rem-calc(21);
@@ -44,7 +46,8 @@ $cubeFace: 7px;
         transform-style: preserve-3d;
         transform: translateZ(-$cubeFace);
         animation: spin 2.1s cubic-bezier(0.14, 0.84, 0.35, 1.630) infinite;
-
+        will-change: transform;
+        
         .side {
             position: absolute;
             width: $cubeSize;

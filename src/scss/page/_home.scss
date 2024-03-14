@@ -36,6 +36,7 @@ body.home {
                 max-width: rem-calc(560);
                 height: 100%;
                 position: relative;
+                cursor: pointer;
 
                 @include breakpoint(small only) {
                     margin: 0 auto;
@@ -181,8 +182,8 @@ body.home {
 
     section.contact {
         .text.animated span {
-            animation: reveal 1.77s ease-in-out forwards;
-            animation-delay: 1s;
+            animation: reveal 1.357s ease-in-out forwards;
+            animation-delay: 0.56s;
         }
     }
 }
