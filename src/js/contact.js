@@ -12,7 +12,7 @@ const minLength = 2;
 const minWords = 2;
 
 const sendMessage = document.getElementById("sendMessage");
-const sendMessageOriginal = sendMessage.innerText;
+const sendMessageOriginal = sendMessage.innerHTML;
 
 // Function to validate email using regular expression
 function isValidEmail(email) {
@@ -170,7 +170,6 @@ messageInput.addEventListener('input', () => {
 
 function hideErrorMessageIfAllValid() {
     const errorInputs = form.querySelectorAll('.error');
-    console.log(errorInputs.length);
     if (errorInputs.length === 0) {
         errorBox.classList.remove("shown");
         errorBox.classList.add("hidden");

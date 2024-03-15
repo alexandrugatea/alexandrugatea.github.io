@@ -33,8 +33,7 @@
 <link rel="icon" href="dark.ico" media="(prefers-color-scheme: light)">
 <link rel="icon" href="light.ico" media="(prefers-color-scheme: dark)">
 <title>AG | Portfolio</title>
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -212,7 +211,6 @@
                                 <span class="label-for-toggle" id="pointerToggleText">Default pointer</span>
                             </label>
                         </div>
-                        </label>
                     </div>
                 </div>
                 <div class="nav-settings-color">
@@ -263,8 +261,8 @@
                 </div>
                 <div class="cube-container" id="cubeContainer"></div>
             </section>
-            <section class="project-gallery" id="gallery">
-            </section>
+            <div class="section project-gallery" id="gallery">
+            </div>
 
             <section class="text-center single-column other-projects">
                 <div class="text-block">
@@ -317,7 +315,7 @@
         <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
         <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
         <script src="js/lib/js/hash/lg-hash.umd.js"></script>
-        <script defer>
+        <script>
             lightGallery(document.getElementById('gallery'), {
                 plugins: [lgZoom, lgThumbnail, lgHash],
                 thumbnail: true,
@@ -343,7 +341,7 @@
         <script src="js/cube.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/os.js"></script>
-        <script type="text/javascript">
+        <script>
 
             // Select the element you want to observe
             const loadingPage = document.querySelector('.page-transitioner');

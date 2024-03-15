@@ -22,7 +22,7 @@
             </section>
             <section class="text-center contact-section">
                 <div class="text-block">
-                    <form class="form" id="contactMe" novalidate autocomplete="off" autofill="none">
+                    <form class="form" id="contactMe" novalidate autocomplete="off">
 
                         <input type="hidden" name="accessKey" style="display: none;"
                             value="7bdf36fb-68eb-4411-9b74-f85832d7c76c">
@@ -42,7 +42,7 @@
                         <!-- Email -->
                         <div class="form-group kursor-hover txt">
                             <input class="form-field" type="email" name="email" id="formEmail" placeholder="&nbsp;"
-                                required />
+                                required>
                             <label class="form-label" for="formEmail">
                                 <span class="form-placeholder">Email Address <span>*</span></span>
                                 <span class="form-error">Email address is not valid</span>
@@ -51,7 +51,7 @@
 
                         <div class="form-group kursor-hover txt">
                             <input class="form-field" type="text" name="$subject" id="formSubject"
-                                placeholder="&nbsp;" />
+                                placeholder="&nbsp;">
                             <label class="form-label" for="formSubject">
                                 <span class="form-placeholder">What should we talk about? <span>*</span></span>
                                 <span class="form-error">Subject min length = 2</span>
@@ -75,7 +75,7 @@
                         <div class="no-style content-right">
                             <button class="button kursor-hover send" type="submit" value="Submit">
                                 <span id="sendMessage">Send Message</span>
-                                <div class="loader" id="loader"></div>
+                                <span class="loader" id="loader"></span>
                             </button>
                         </div>
                         <div class="message-box">
@@ -84,7 +84,7 @@
                                 submitting your message</div>
                         </div>
                     </form>
-                    <script src="js/contact.js"></script>
+                    
                 </div>
                 <div class="graphic-block">
                     <h3 class="title" title="Contact me">Or use these direct links</h3>
@@ -128,11 +128,12 @@
         </main>
         @@include('comps.html')
         @@include('cookie.html')
+        <script src="js/contact.js"></script>
         <script src="js/cookie.js"></script>
         <script src="js/cube.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/os.js"></script>
-        <script type="text/javascript">
+        <script>
             const loadingPage = document.querySelector('.page-transitioner');
             const observer = new MutationObserver((mutationsList, observer) => {
                 mutationsList.forEach(mutation => {

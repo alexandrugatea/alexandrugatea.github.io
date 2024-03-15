@@ -456,7 +456,7 @@ section .button.animated {
     font-size: 18px;
   }
 }
-section {
+section, .section {
   max-width: 107.625rem;
   margin: 0 auto;
   display: grid;
@@ -467,32 +467,32 @@ section {
   position: relative;
 }
 @media screen and (orientation: landscape) {
-  section {
+  section, .section {
     min-height: 100vh;
     min-height: 100dvh;
     padding: 4.375rem 8.75rem;
   }
 }
 @media screen and (orientation: portrait) {
-  section {
+  section, .section {
     min-height: auto;
     padding: 13.125rem 8.75rem;
   }
 }
 @media screen and (max-width: 47.9375em) {
-  section {
+  section, .section {
     padding: 4.375rem 1.75rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
     min-height: auto;
     place-items: center;
   }
-  section.hero {
+  section.hero, .section.hero {
     min-height: calc(100dvh - 70px);
   }
 }
 @media screen and (min-width: 48em) and (max-width: 63.9375em) {
-  section {
+  section, .section {
     padding: 4.375rem 1.75rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
@@ -501,7 +501,7 @@ section {
   }
 }
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
-  section {
+  section, .section {
     padding: 6.125rem 2.625rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
@@ -510,19 +510,19 @@ section {
   }
 }
 @media screen and (min-width: 75em) and (max-width: 87.4375em) {
-  section {
+  section, .section {
     padding: 6.125rem 3.5rem;
   }
 }
 @media screen and (min-width: 87.5em) and (max-width: 118.6875em) {
-  section {
+  section, .section {
     padding: 7.4375rem 4.375rem;
   }
 }
-section.single-column {
+section.single-column, .section.single-column {
   grid-template-columns: 1fr;
 }
-section .title {
+section .title, .section .title {
   font: inherit;
   font-size: 6.125rem;
   display: inline-block;
@@ -532,11 +532,11 @@ section .title {
   letter-spacing: 0.0625rem;
   position: relative;
 }
-section .title span {
+section .title span, .section .title span {
   display: inline-block;
   position: relative;
 }
-section .title span:after {
+section .title span:after, .section .title span:after {
   content: "";
   position: absolute;
   bottom: -25%;
@@ -548,49 +548,49 @@ section .title span:after {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-section .title span:nth-child(2) {
+section .title span:nth-child(2), .section .title span:nth-child(2) {
   color: var(--accent);
 }
-section .title.animated span:after {
+section .title.animated span:after, .section .title.animated span:after {
   height: 100%;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(20%, #070707), color-stop(91%, rgba(7, 7, 7, 0)));
   background-image: linear-gradient(0deg, #070707 20%, rgba(7, 7, 7, 0) 91%);
 }
 @media screen and (max-width: 47.9375em) {
-  section .title {
+  section .title, .section .title {
     font-size: 3.0625rem;
   }
 }
 @media screen and (min-width: 48em) and (max-width: 63.9375em) {
-  section .title {
+  section .title, .section .title {
     font-size: 3.9375rem;
   }
 }
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
-  section .title {
+  section .title, .section .title {
     font-size: 4.375rem;
   }
 }
 @media screen and (min-width: 75em) and (max-width: 87.4375em) {
-  section .title {
+  section .title, .section .title {
     font-size: 4.375rem;
   }
 }
 @media screen and (min-width: 87.5em) and (max-width: 118.6875em) {
-  section .title {
+  section .title, .section .title {
     font-size: 4.8125rem;
   }
 }
 @media only screen and (max-height: 768px) and (orientation: landscape) {
-  section .title {
+  section .title, .section .title {
     font-size: 3.0625rem;
   }
 }
-section .title.has-subtitle {
+section .title.has-subtitle, .section .title.has-subtitle {
   display: block;
   position: relative;
 }
-section .title.has-subtitle:after {
+section .title.has-subtitle:after, .section .title.has-subtitle:after {
   content: attr(data-subtitle);
   top: 100%;
   display: inline-block;
@@ -606,16 +606,16 @@ section .title.has-subtitle:after {
   white-space: nowrap;
 }
 @media screen and (max-width: 47.9375em) {
-  section .title.has-subtitle:after {
+  section .title.has-subtitle:after, .section .title.has-subtitle:after {
     font-size: 0.875rem;
   }
 }
-section .text {
+section .text, .section .text {
   width: 100%;
   max-width: 30.625rem;
   font: inherit;
 }
-section .text span {
+section .text span, .section .text span {
   font: inherit;
   font-size: 2.1875rem;
   font-weight: 600;
@@ -635,16 +635,16 @@ section .text span {
   animation-range-end: cover 56vh;
 }
 @media screen and (max-width: 47.9375em) {
-  section .text span {
+  section .text span, .section .text span {
     font-size: 1.3125rem;
   }
 }
 @media only screen and (max-height: 768px) and (orientation: landscape) {
-  section .text span {
+  section .text span, .section .text span {
     font-size: 1.5rem;
   }
 }
-section .text-block {
+section .text-block, .section .text-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -666,55 +666,60 @@ section .text-block {
       align-self: center;
 }
 @media screen and (max-width: 47.9375em) {
-  section .text-block {
+  section .text-block, .section .text-block {
     gap: 2.625rem;
   }
 }
 section.text-center .text-block .title,
-section.text-center .text-block .text {
+section.text-center .text-block .text, .section.text-center .text-block .title,
+.section.text-center .text-block .text {
   text-align: center;
 }
-section.text-left .text-block {
+section.text-left .text-block, .section.text-left .text-block {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
 @media screen and (max-width: 74.9375em) {
-  section.text-left .text-block {
+  section.text-left .text-block, .section.text-left .text-block {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
 }
 section.text-left .text-block .title,
-section.text-left .text-block .text {
+section.text-left .text-block .text, .section.text-left .text-block .title,
+.section.text-left .text-block .text {
   text-align: left;
 }
 @media screen and (max-width: 74.9375em) {
   section.text-left .text-block .title,
-  section.text-left .text-block .text {
+  section.text-left .text-block .text, .section.text-left .text-block .title,
+  .section.text-left .text-block .text {
     text-align: center;
   }
 }
-section.text-right .text-block {
+section.text-right .text-block, .section.text-right .text-block {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
 }
 @media screen and (max-width: 74.9375em) {
-  section.text-right .text-block {
+  section.text-right .text-block, .section.text-right .text-block {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
 }
 section.text-right .text-block .title,
-section.text-right .text-block .text {
+section.text-right .text-block .text, .section.text-right .text-block .title,
+.section.text-right .text-block .text {
   text-align: right;
 }
 @media screen and (max-width: 74.9375em) {
   section.text-right .text-block .title,
-  section.text-right .text-block .text {
+  section.text-right .text-block .text, .section.text-right .text-block .title,
+  .section.text-right .text-block .text {
     text-align: center;
   }
 }
@@ -949,17 +954,20 @@ section.text-right .text-block .text {
   display: none;
   position: absolute;
   top: 50%;
-  left: 100%;
-  -webkit-transform: translate(calc(-100% - 1.3125rem), -50%);
-          transform: translate(calc(-100% - 1.3125rem), -50%);
+  right: 2.625rem;
+  margin-top: -0.6875rem;
   border: 0.1875rem solid #c7c7c7;
   border-radius: 50%;
   border-top: 0.1875rem solid #070707;
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 1.3125rem;
+  height: 1.3125rem;
   z-index: 2;
-  -webkit-animation: spin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
-          animation: spin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  background: #070707;
+  -webkit-animation: loaderSpin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+          animation: loaderSpin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+.form .loader:after {
+  display: none;
 }
 .form .message-box {
   position: relative;
@@ -1012,25 +1020,25 @@ section.text-right .text-block .text {
   top: 100%;
 }
 
-@-webkit-keyframes spin {
+@-webkit-keyframes loaderSpin {
   0% {
-    -webkit-transform: translate(calc(-100% - 1.3125rem), -50%) rotate(0deg);
-            transform: translate(calc(-100% - 1.3125rem), -50%) rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(calc(-100% - 1.3125rem), -50%) rotate(360deg);
-            transform: translate(calc(-100% - 1.3125rem), -50%) rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
-@keyframes spin {
+@keyframes loaderSpin {
   0% {
-    -webkit-transform: translate(calc(-100% - 1.3125rem), -50%) rotate(0deg);
-            transform: translate(calc(-100% - 1.3125rem), -50%) rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(calc(-100% - 1.3125rem), -50%) rotate(360deg);
-            transform: translate(calc(-100% - 1.3125rem), -50%) rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 input:-internal-autofill-selected {
@@ -2423,6 +2431,17 @@ body.default-cursor #kursorTrail {
   .cube-scroll .side.bottom {
     -webkit-transform: rotateX(-90deg) translateZ(17px);
             transform: rotateX(-90deg) translateZ(17px);
+  }
+}
+
+@-webkit-keyframes spin {
+  0%, 50% {
+    -webkit-transform: translateZ(-7px) rotateX(180deg);
+            transform: translateZ(-7px) rotateX(180deg);
+  }
+  100% {
+    -webkit-transform: translateZ(-7px) rotateX(0);
+            transform: translateZ(-7px) rotateX(0);
   }
 }
 

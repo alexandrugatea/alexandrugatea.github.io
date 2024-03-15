@@ -125,7 +125,7 @@
         }
     }
 
-    &-label {
+    &-label { 
         position: absolute;
         transform: translate(0, 50%);
         top: 0;
@@ -144,8 +144,6 @@
 
         .form-placeholder {
             line-height: rem-calc(35);
-
-            span {}
         }
 
         .form-error {
@@ -180,15 +178,20 @@
         display: none;
         position: absolute;
         top: 50%;
-        left: 100%;
-        transform: translate(calc(-100% - rem-calc(21)), -50%);
+        right: rem-calc(42);
+        margin-top: rem-calc(-11);
         border: rem-calc(3) solid $bodyText;
         border-radius: 50%;
         border-top: rem-calc(3) solid $bodyBackground;
-        width: rem-calc(14);
-        height: rem-calc(14);
+        width: rem-calc(21);
+        height: rem-calc(21);
         z-index: 2;
-        animation: spin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+        background: $bodyBackground;
+        animation: loaderSpin 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+
+        &:after {
+            display: none;
+        }
     }
 
     .message-box {
@@ -236,13 +239,13 @@
     }
 }
 
-@keyframes spin {
+@keyframes loaderSpin {
     0% {
-        transform: translate(calc(-100% - rem-calc(21)), -50%) rotate(0deg);
+        transform: rotate(0deg);
     }
 
     100% {
-        transform: translate(calc(-100% - rem-calc(21)), -50%) rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 

@@ -32,8 +32,8 @@
                 </div>
                 @@include('scroll.html')
             </section>
-            <section class="project-gallery" id="gallery">
-            </section>
+            <div class="section project-gallery" id="gallery">
+            </div>
 
             <section class="text-center single-column other-projects">
                 <div class="text-block">
@@ -76,7 +76,7 @@
         <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
         <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
         <script src="js/lib/js/hash/lg-hash.umd.js"></script>
-        <script defer>
+        <script>
             lightGallery(document.getElementById('gallery'), {
                 plugins: [lgZoom, lgThumbnail, lgHash],
                 thumbnail: true,
@@ -102,7 +102,7 @@
         <script src="js/cube.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/os.js"></script>
-        <script type="text/javascript">
+        <script>
 
             // Select the element you want to observe
             const loadingPage = document.querySelector('.page-transitioner');
