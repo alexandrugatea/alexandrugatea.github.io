@@ -311,6 +311,17 @@
     </p>
     <button id="accept-cookies" class="kursor-hover accept">Accept</button>
 </div>
+
+<div id="cookiebanner" lang="[#LANGUAGE#]" dir="[#TEXTDIRECTION#]" ng-non-bindable>
+  <div id="c-left">
+    <p class="c-header">[#TITLE#]</p>
+    <p class="c-message">[#TEXT#]</p>
+  </div>
+  <div id="c-right">
+    <a href="javascript:void(0)" onclick="Cookiebot.dialog.submitConsent()" class="c-button">OK</a>
+  </div>
+  <div style="clear:both"></div>
+</div>
         <script src="js/lib/js/lightgallery.umd.js"></script>
         <script src="js/lib/js/fullscreen/lg-fullscreen.umd.js"></script>
         <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
