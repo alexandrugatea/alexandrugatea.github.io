@@ -182,6 +182,10 @@ body.home {
     }
 
     section.contact {
+
+        .text {
+            max-width: rem-calc(490);
+        }
         .text.animated span {
             animation: reveal 1.357s ease-in-out forwards;
             animation-delay: 0.56s;

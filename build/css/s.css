@@ -2794,7 +2794,7 @@ body.default-cursor #kursorTrail {
   -webkit-animation: noise 0.2s infinite both;
        -o-animation: noise 0.2s infinite both;
           animation: noise 0.2s infinite both;
-  opacity: 0.45;
+  opacity: 0.35;
 }
 
 .cube {
@@ -3257,6 +3257,9 @@ body.home section.hero .text.animated span {
 }
 body.home section.hero .written .Typewriter__cursor {
   visibility: hidden;
+}
+body.home section.contact .text {
+  max-width: 30.625rem;
 }
 body.home section.contact .text.animated span {
   -webkit-animation: reveal 1.357s ease-in-out forwards;
