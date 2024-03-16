@@ -4,7 +4,7 @@
         @@include('head.html', {
         "title": "AG | Contact Me"
         })
-        <link rel="stylesheet" href="css/s.css">
+        <link rel="stylesheet" href="build/css/s.css">
     </head>
 
     <body class="contact">
@@ -128,11 +128,8 @@
         </main>
         @@include('comps.html')
         @@include('cookie.html')
-        <script src="js/contact.js"></script>
-        <script src="js/cookie.js"></script>
-        <script src="js/cube.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/os.js"></script>
+        @@include('scripts.html')
+        <script src="build/js/contact.js"></script>
         <script>
             const loadingPage = document.querySelector('.page-transitioner');
             const observer = new MutationObserver((mutationsList, observer) => {

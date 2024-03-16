@@ -87,7 +87,8 @@
     "image": "https://alexandrugatea.com/images/about/abtm.png"
 }
 </script>
-        <link rel="stylesheet" href="css/s.css">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ab12bcd5-fcff-4a12-9833-fa1372d43ce9" data-blockingmode="auto" type="text/javascript"></script>
+        <link rel="stylesheet" href="build/css/s.css">
     </head>
 
     <body class="contact">
@@ -96,7 +97,7 @@
 
         <div class="logo outer">
             <a href="/" class="kursor-hover root link" title="Alexandru Gatea | Sr UX Engineer">
-                <img src="images/logo.svg" alt="Alexandru Gatea">
+                <img src="build/images/logo.svg" alt="Alexandru Gatea">
             </a>
         </div>
 
@@ -360,16 +361,7 @@
 <div id="pt" class="page-transitioner active"><div class="loader"></div></div>
 <div id="kursor"><span id="kMessage" class="material-symbols-outlined"></span></div>
 <div id="kursorTrail" class="trail"></div>
-        <div id="cookie-banner">
-    <p>This is a static website and it does not store cookies. I do not collect any data other than customization options that are stored in your local storage, to enhance your experience.
-        <br>
-        However some external services like Google Fonts or LightGallery.js
-        may collect data. By continuing to navigate this website, you consent to the use of these external services.
-    </p>
-    <button id="accept-cookies" class="kursor-hover accept">Accept</button>
-</div>
-
-<div id="cookiebanner" lang="[#LANGUAGE#]" dir="[#TEXTDIRECTION#]" ng-non-bindable>
+        <div id="cookiebanner" lang="[#LANGUAGE#]" dir="[#TEXTDIRECTION#]" ng-non-bindable>
   <div id="c-left">
     <p class="c-header">[#TITLE#]</p>
     <p class="c-message">[#TEXT#]</p>
@@ -379,11 +371,10 @@
   </div>
   <div style="clear:both"></div>
 </div>
-        <script src="js/contact.js"></script>
-        <script src="js/cookie.js"></script>
-        <script src="js/cube.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/os.js"></script>
+        <script src="build/js/cube.js"></script>
+<script src="build/js/os.js"></script>
+<script src="build/js/scripts.js"></script>
+        <script src="build/js/contact.js"></script>
         <script>
             const loadingPage = document.querySelector('.page-transitioner');
             const observer = new MutationObserver((mutationsList, observer) => {

@@ -1,46 +1,60 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const sourcemaps = require('gulp-sourcemaps');
-const fileInclude = require('gulp-file-include');
-const browserSync = require('browser-sync').create();
-var historyApiFallback = require('connect-history-api-fallback');
+const gulp                = require('gulp');
+const sass                = require('gulp-sass')(require('sass'));
+const postcss             = require('gulp-postcss');
+const autoprefixer        = require('autoprefixer');
+const sourcemaps          = require('gulp-sourcemaps');
+const fileInclude         = require('gulp-file-include');
+const browserSync         = require('browser-sync').create();
+var historyApiFallback    = require('connect-history-api-fallback');
 
 
 let source = "src";
 let destination = "./";
 
+
+// Compile SCSS
 gulp.task('scss', function () {
     return gulp.src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(destination + '/css'))
+        .pipe(gulp.dest(destination + 'build/css'))
         .pipe(browserSync.stream());
 });
 
-// JavaScript Task
+// Move JS files
 gulp.task('js', function () {
     return gulp.src(source + '/js/**/*.js')
-        .pipe(gulp.dest( destination + '/js'))
+        .pipe(gulp.dest( destination + 'build/js'))
         .pipe(browserSync.stream());
 });
 
-// Task for copying fonts
+// Copy fonts to Build
 gulp.task('fonts', function () {
     return gulp.src(source + '/fonts/**/*') 
-        .pipe(gulp.dest(destination + '/fonts')); 
+        .pipe(gulp.dest(destination + 'build/fonts')); 
 });
 
-// Task for copying images
+// Copy Vendor Libraries to Build
+gulp.task('libs', function () {
+    return gulp.src(source + '/lib/**/*') 
+        .pipe(gulp.dest(destination + 'build/lib')); 
+});
+
+// Copy media files to Build
+gulp.task('media', function () {
+    return gulp.src(source + '/media/**/*') 
+        .pipe(gulp.dest(destination + 'build/media')); 
+});
+
+// Copy images to Build
 gulp.task('images', function () {
     return gulp.src(source + '/images/**/*') 
-        .pipe(gulp.dest(destination + '/images')); 
+        .pipe(gulp.dest(destination + 'build/images')); 
 });
 
-// HTML Task
+// Combine HTML and place in :root
 gulp.task('html', function () {
     return gulp.src(source + '/pages/**/*.html')
         .pipe(fileInclude({
@@ -51,7 +65,7 @@ gulp.task('html', function () {
         .pipe(browserSync.stream());
 });
 
-// Serve and Watch Task
+// Serve and Watch
 gulp.task('serve', function () {
     browserSync.init({
         server: {
@@ -70,6 +84,8 @@ gulp.task('serve', function () {
     });
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('src/js/**/*.js', gulp.series('js'));
+    gulp.watch('src/lib/**/*.*', gulp.series('libs'));
+    gulp.watch('src/media/**/*.*', gulp.series('media'));
     gulp.watch(['src/pages/**/*.html', 'src/layouts/**/*.html'], gulp.series('html'));
     gulp.watch('src/fonts/**/*', gulp.series('fonts'));
     gulp.watch('src/images/**/*', gulp.series('images'));
@@ -77,4 +93,4 @@ gulp.task('serve', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series(gulp.parallel('html', 'scss', 'js', 'fonts', 'images'), 'serve'));
+gulp.task('default', gulp.series(gulp.parallel('html', 'scss', 'js', 'libs', 'fonts', 'images', 'media'), 'serve'));

@@ -5,7 +5,7 @@
         @@include('head.html', {
         "title": "AG | Sr UX Engineer"
         })
-        <link rel="stylesheet" href="css/s.css">
+        <link rel="stylesheet" href="build/css/s.css">
     </head>
 
     <body class="home">
@@ -24,6 +24,9 @@
                             I craft engaging digital experiences through the power of code and design.
                         </span>
                     </p>
+                    <a href="./contact" title="Alexandru Gatea | About me" class="button internal kursor-hover link">
+                        <span>Request a quote</span>
+                    </a>
                 </div>
                 @@include('scroll.html')
             </section>
@@ -48,7 +51,7 @@
                 </div>
                 <div class="graphic-block about-me">
                     <div class="graphic-block-container about-me">
-                        <img src="images/about/about_me.png" class="abtm" alt="Alexandru Gatea's Profile Picture">
+                        <img src="build/images/about/about_me.png" class="abtm" alt="Alexandru Gatea's Profile Picture">
                     </div>
                 </div>
             </section>
@@ -58,19 +61,19 @@
                     <div class="graphic-block-container" id="holder">
                         <div class="card rect">
                             <div class="card-image tilt">
-                                <img src="images/portfolio/portfolio_sketch_GD.svg" alt="Portfolio | Graphic Design">
+                                <img src="build/images/portfolio/portfolio_sketch_GD.svg" alt="Portfolio | Graphic Design">
                                 <span>[ Graphic Design ]</span>
                             </div>
                         </div>
                         <div class="card rect">
                             <div class="card-image tilt">
-                                <img src="images/portfolio/portfolio_sketch_MD.svg" alt="Portfolio | Map Design">
+                                <img src="build/images/portfolio/portfolio_sketch_MD.svg" alt="Portfolio | Map Design">
                                 <span>[ Automotive Maps ]</span>
                             </div>
                         </div>
                         <div class="card rect">
                             <div class="card-image tilt">
-                                <img src="images/portfolio/portfolio_sketch_WD.svg" alt="Portfolio | Website Design">
+                                <img src="build/images/portfolio/portfolio_sketch_WD.svg" alt="Portfolio | Website Design">
                                 <span>[ Web Development ]</span>
                             </div>
                         </div>
@@ -121,13 +124,11 @@
         @@include('comps.html')
         @@include('cookie.html')
         <!--Scripts-->
-        <script src="js/cookie.js"></script>
-        <script src="js/tilt.js"></script>
-        <script src="js/cube.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/homeCarousel.js"></script>
-        <script src="js/os.js"></script>
-        <script src="js/type.js"></script>
+        <script src="build/js/tilt.js"></script>
+        <script src="build/js/homeCarousel.js"></script>
+        <script src="build/js/type.js"></script>
+        @@include('scripts.html')
+        <!-- Typewriter Effect on First Title -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 var title = document.getElementById("visitor");
@@ -164,6 +165,7 @@
                 }
             });
         </script>
+        <!-- Tilt effect on Portfolio carousel -->
         <script>
             VanillaTilt.init(document.querySelectorAll(".tilt"), {
                 max: 7,
@@ -173,7 +175,8 @@
                 scale: 1.07
             });
         </script>
-
+        
+        <!-- On Scroll Animations -->
         <script>
 
             // Select the element you want to observe
@@ -232,7 +235,5 @@
             // Start observing the loading page element for attribute changes
             observer.observe(loadingPage, config);
         </script>
-
     </body>
-
 </html>

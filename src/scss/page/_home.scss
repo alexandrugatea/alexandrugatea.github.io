@@ -160,6 +160,7 @@ body.home {
 
     section.hero {
         .text {
+            max-width: rem-calc(630);
 
             span {
                 animation: none;

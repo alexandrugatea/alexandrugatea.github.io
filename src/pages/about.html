@@ -5,7 +5,7 @@
         @@include('head.html', {
         "title": "AG | About Me"
         })
-        <link rel="stylesheet" href="css/s.css">
+        <link rel="stylesheet" href="build/css/s.css">
     </head>
 
     <body class="about">
@@ -18,7 +18,7 @@
                     <h1 class="title" title="About me">
                         <span>About&nbsp;</span><span>me</span>
                     </h1>
-                    <a class="button download-resume kursor-hover download" href="media/CV_Alexandru_Gatea_SrUXE_Dark.pdf"
+                    <a class="button download-resume kursor-hover download" href="build/media/CV_Alexandru_Gatea_SrUXE_Dark.pdf"
                         download="CV_Alexandru_Gatea_SrUXE.pdf" title="Download Print Resume"><span>Download Resume</span></a>
                 </div>
                 @@include('scroll.html')
@@ -44,7 +44,7 @@
                         <div class="resume-profile-background"></div>
                         <div class="resume-profile-decorations"></div>
                         <div class="resume-profile-image">
-                            <img src="images/Alexandru_Gatea_profile_AI.jpg" alt="">
+                            <img src="build/images/Alexandru_Gatea_profile_AI.jpg" alt="">
                         </div>
                     </div>
                     <div class="resume-work">
@@ -186,16 +186,15 @@
                         </div>
                     </div>
                 </div>
-                <a class="button download-resume kursor-hover download" href="media/CV_Alexandru_Gatea_SrUXE_Dark.pdf" 
+                <a class="button download-resume kursor-hover download" href="build/media/CV_Alexandru_Gatea_SrUXE_Dark.pdf" 
                 download="CV_Alexandru_Gatea_SrUXE.pdf"
                     title="Download Print Resume"><span>Download</span></a>
             </section>
         </main>
         @@include('comps.html')
         @@include('cookie.html')
-        <script src="js/cookie.js"></script>
-        <script src="js/cube.js"></script>
-        <script src="js/scripts.js"></script>
+        @@include('scripts.html')
+
         <script>
             let expContainer = document.getElementById("expYears");
             calculateYearsOfExperience(2015, expContainer);
@@ -206,7 +205,6 @@
                 target.innerText = expYears;
             }
         </script>
-        <script src="js/os.js"></script>
         <script>
 
             // Select the element you want to observe

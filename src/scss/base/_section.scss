@@ -18,7 +18,7 @@ section, .section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: rem-calc(70);
-    letter-spacing: rem-calc(-0.5);
+    letter-spacing: rem-calc(-0.3);
     line-height: 1.4;
     position: relative;
     
@@ -154,14 +154,14 @@ section, .section {
 
     .text {
         width: 100%;
-        max-width: rem-calc(490);
+        max-width: rem-calc(539);
         font: inherit;
         
         span {
             font: inherit;
             font-size: rem-calc($sectionTextSize);
             font-weight: 600;
-            letter-spacing: rem-calc(0.2);
+            letter-spacing: rem-calc(0.3);
             color: rgba($bodyText, 0.28);
             background-clip: text;
             background-size: 0% 100%;

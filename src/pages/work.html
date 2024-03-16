@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="lib/css/lg-transitions.css">
         <link rel="stylesheet" href="lib/css/lg-zoom.css">
         <link rel="stylesheet" href="lib/css/lg-video.css">
-        <link rel="stylesheet" href="css/s.css">
+        <link rel="stylesheet" href="build/css/s.css">
     </head>
 
     <body class="work">
@@ -68,14 +68,22 @@
             </section>
         </main>
         <div id="captions"></div>
-        <script src="js/portfolio.js"></script>
+
+        <!-- Script that generates all Portfolio items based on a JS object -->
+        <script src="build/js/portfolio.js"></script>
+
         @@include('comps.html')
         @@include('cookie.html')
-        <script src="js/lib/js/lightgallery.umd.js"></script>
-        <script src="js/lib/js/fullscreen/lg-fullscreen.umd.js"></script>
-        <script src="js/lib/js/thumbnail/lg-thumbnail.umd.js"></script>
-        <script src="js/lib/js/zoom/lg-zoom.umd.js"></script>
-        <script src="js/lib/js/hash/lg-hash.umd.js"></script>
+        @@include('scripts.html')
+        
+        <!--  JS Libs for LightGallery -->
+        <script src="lib/js/lightgallery.umd.js"></script>
+        <script src="lib/js/fullscreen/lg-fullscreen.umd.js"></script>
+        <script src="lib/js/thumbnail/lg-thumbnail.umd.js"></script>
+        <script src="lib/js/zoom/lg-zoom.umd.js"></script>
+        <script src="lib/js/hash/lg-hash.umd.js"></script>
+        
+        <!--  Initialize Light Gallery -->
         <script>
             lightGallery(document.getElementById('gallery'), {
                 plugins: [lgZoom, lgThumbnail, lgHash],
@@ -97,11 +105,9 @@
                 }
             });
             document.addEventListener('touchstart', function () { }, { passive: true });
-        </script>
-        <script src="js/cookie.js"></script>
-        <script src="js/cube.js"></script>
-        <script src="js/scripts.js"></script>
-        <script src="js/os.js"></script>
+        </script>        
+        
+        <!--  On Scroll Animations -->
         <script>
 
             // Select the element you want to observe

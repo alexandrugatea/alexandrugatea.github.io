@@ -24,11 +24,13 @@
     "browser-sync": "^3.0.2",
     "connect-history-api-fallback": "^2.0.0",
     "cssnano": "^6.1.0",
+    "del": "^7.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-connect": "^5.7.0",
     "gulp-file-include": "^2.3.0",
+    "gulp-html-beautify": "^1.0.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
@@ -38,7 +40,7 @@
     "sass": "^1.71.1"
   },
   "browserslist": [
-    "last 2 versions",
-    "> 1%"
+    "last 100 versions",
+    "> 0.1%"
   ]
 }

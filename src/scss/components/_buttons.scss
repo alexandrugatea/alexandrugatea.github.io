@@ -19,15 +19,13 @@
     //@include glass($bodyBackground, 0.28, 7px);
 
     box-shadow: 
+    rem-calc(0 0 0 0) accent(0),
     inset 0 0 0 rem-calc(3) accent(1),
-    inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1),
-        0 0 0 rem-calc(3) rgba($bodyBackground, 0.8);
+    inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
     text-decoration: none;
     //transform: scale(1);
-    transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out!important; 
     border-radius: var(--radius);
-    transform-style: preserve-3d;
-    transform: perspective(700px);
 
     span {
         display: grid;
@@ -67,6 +65,10 @@
     }
 
     &:hover {
+        box-shadow: 
+         rem-calc(0 0 7 0) accent(0.63),
+        inset 0 0 0 rem-calc(3) accent(1),
+        inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
 
         &:before {
             width: 42%;
