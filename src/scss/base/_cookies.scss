@@ -59,21 +59,48 @@
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-    background-color: $bodyText!important;
-    border-color: $bodyText!important;
+    background-color: accent(1)!important;
+    border-color: accent(1)!important;
     color: $bodyBackground!important;
    }
 
    #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
-    border-color: $bodyText!important;
+    border-color: accent(1)!important;
+    color: $bodyBackground!important;
    }
+ }
+
+ #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogBodyEdgeMoreDetails a {
+  color: accent(1)!important;
  }
 
  #CookiebotWidget {
   z-index: 9999 !important;
  }
 
+ #CookiebotWidget-btn-withdraw {
+  border-color: accent(1)!important;
+  color: $bodyBackground!important;
+ }
 
+ #CookiebotWidget-btn-change {
+  background-color: accent(1)!important;
+  border-color: accent(1)!important;
+  color: $bodyBackground!important;
+ }
+
+ #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
+  border-bottom: 1px solid accent(1)!important;
+  color: accent(1)!important;
+}
+
+#CookiebotWidget .CookiebotWidget-body .CookiebotWidget-consents-list li.CookiebotWidget-approved svg {
+  fill: accent(1)!important;
+}
+
+#CookiebotWidget .CookiebotWidget-consent-details button {
+  color: accent(1)!important;
+}
 
  // cokiebot
  @media screen and (max-width:720px) {

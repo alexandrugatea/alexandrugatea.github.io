@@ -1417,16 +1417,45 @@ input.valid:-webkit-autofill:active {
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
-  background-color: #c7c7c7 !important;
-  border-color: #c7c7c7 !important;
+  background-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
   color: #070707 !important;
 }
 #CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
-  border-color: #c7c7c7 !important;
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  color: #070707 !important;
+}
+
+#CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogBodyEdgeMoreDetails a {
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
 }
 
 #CookiebotWidget {
   z-index: 9999 !important;
+}
+
+#CookiebotWidget-btn-withdraw {
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  color: #070707 !important;
+}
+
+#CookiebotWidget-btn-change {
+  background-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  color: #070707 !important;
+}
+
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
+  border-bottom: 1px solid rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+}
+
+#CookiebotWidget .CookiebotWidget-body .CookiebotWidget-consents-list li.CookiebotWidget-approved svg {
+  fill: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+}
+
+#CookiebotWidget .CookiebotWidget-consent-details button {
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
 }
 
 @media screen and (max-width: 720px) {
