@@ -719,7 +719,7 @@ section .title.has-subtitle:after, .section .title.has-subtitle:after {
 }
 section .text, .section .text {
   width: 100%;
-  max-width: 33.6875rem;
+  max-width: 36.75rem;
   font: inherit;
 }
 section .text span, .section .text span {
@@ -3259,7 +3259,7 @@ body.home section.hero .written .Typewriter__cursor {
   visibility: hidden;
 }
 body.home section.contact .text {
-  max-width: 30.625rem;
+  max-width: 39.375rem;
 }
 body.home section.contact .text.animated span {
   -webkit-animation: reveal 1.357s ease-in-out forwards;
