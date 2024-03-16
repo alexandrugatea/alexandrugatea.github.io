@@ -104,6 +104,20 @@
   color: accent(1)!important;
 }
 
+button.CookiebotWidget-logo svg {
+  display: none!important;
+}
+
+button.CookiebotWidget-logo {
+  background-color: #070707!important;
+  width: rem-calc(49);
+  height: rem-calc(49);
+  background-image: url("../images/cookie.png");
+  background-size: rem-calc(28 28)!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+}
+
  // cokiebot
  @media screen and (max-width:720px) {
    #cookiebanner a.c-button {

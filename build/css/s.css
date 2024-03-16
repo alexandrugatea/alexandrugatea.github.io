@@ -1458,6 +1458,22 @@ input.valid:-webkit-autofill:active {
   color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
 }
 
+button.CookiebotWidget-logo svg {
+  display: none !important;
+}
+
+button.CookiebotWidget-logo {
+  background-color: #070707 !important;
+  width: 3.0625rem;
+  height: 3.0625rem;
+  background-image: url("../images/cookie.png");
+  -webkit-background-size: 1.75rem 1.75rem !important;
+       -o-background-size: 1.75rem 1.75rem !important;
+          background-size: 1.75rem 1.75rem !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
 @media screen and (max-width: 720px) {
   #cookiebanner a.c-button {
     width: 100%;
