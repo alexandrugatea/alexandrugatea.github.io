@@ -1411,6 +1411,24 @@ input.valid:-webkit-autofill:active {
   background-color: #191919;
 }
 
+#CybotCookiebotDialog {
+  z-index: 9999 !important;
+}
+#CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
+#CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
+#CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+  background-color: #c7c7c7 !important;
+  border-color: #c7c7c7 !important;
+  color: #070707 !important;
+}
+#CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+  border-color: #c7c7c7 !important;
+}
+
+#CookiebotWidget {
+  z-index: 9999 !important;
+}
+
 @media screen and (max-width: 720px) {
   #cookiebanner a.c-button {
     width: 100%;
