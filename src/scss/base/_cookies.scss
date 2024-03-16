@@ -110,9 +110,9 @@ button.CookiebotWidget-logo svg {
 
 button.CookiebotWidget-logo {
   background-color: #070707!important;
-  width: rem-calc(49);
-  height: rem-calc(49);
-  background-image: url("../images/cookie.png");
+  width: rem-calc(49)!important;
+  height: rem-calc(49)!important;
+  background-image: url("../images/cookie.png")!important;
   background-size: rem-calc(28 28)!important;
   background-position: center!important;
   background-repeat: no-repeat!important;

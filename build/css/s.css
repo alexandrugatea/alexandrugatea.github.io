@@ -1464,9 +1464,9 @@ button.CookiebotWidget-logo svg {
 
 button.CookiebotWidget-logo {
   background-color: #070707 !important;
-  width: 3.0625rem;
-  height: 3.0625rem;
-  background-image: url("../images/cookie.png");
+  width: 3.0625rem !important;
+  height: 3.0625rem !important;
+  background-image: url("../images/cookie.png") !important;
   -webkit-background-size: 1.75rem 1.75rem !important;
        -o-background-size: 1.75rem 1.75rem !important;
           background-size: 1.75rem 1.75rem !important;
