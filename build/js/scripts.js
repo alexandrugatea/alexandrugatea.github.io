@@ -489,7 +489,12 @@ function createGrid() {
     svg.setAttribute("width", gridWidth);
     svg.setAttribute("height", gridHeight);
     svg.setAttribute("id", "jsgrid");
-    container.appendChild(svg);
+
+    if(container.children.length === 0 || !container.querySelector('svg')) {
+        container.appendChild(svg);
+    } else {
+        return;
+    }
 
     const middleRow = Math.floor(rowCount / 2);
     const middleCol = Math.floor(columnCount / 2);
@@ -502,12 +507,6 @@ function createGrid() {
         line.setAttribute("y1", i * rowGap);
         line.setAttribute("x2", gridWidth);
         line.setAttribute("y2", i * rowGap);
-        line.setAttribute("y2", i * rowGap);
-
-        const distanceFromMiddle = Math.abs(i - middleRow);
-        const delay = (distanceFromMiddle / middleRow) * incrementalDelay;
-
-        //line.style.setProperty("--grl", delay + "s");
         line.style.setProperty("--grl", i * 0.03 + "s");
         svg.appendChild(line);
     }
@@ -520,11 +519,6 @@ function createGrid() {
         line.setAttribute("y1", 0);
         line.setAttribute("x2", j * columnGap);
         line.setAttribute("y2", gridHeight);
-
-        const distanceFromMiddle = Math.abs(j - middleCol);
-        const delay = (distanceFromMiddle / middleCol) * incrementalDelay;
-
-        //line.style.setProperty("--gcl", delay + "s");
         line.style.setProperty("--gcl", j * 0.03 + "s");
         svg.appendChild(line);
     }
@@ -535,15 +529,12 @@ function createGrid() {
     for (let m = 0; m < columnCount; m++) {
         for (let n = 0; n < rowCount; n++) {
             const radius = Math.floor(Math.random() * circles.length);
-
-            const circle = document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "circle"
-            );
+    
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             circle.setAttribute("class", "circle");
             circle.setAttribute("r", circles[radius]);
-            circle.setAttribute("cx", m * rowGap);
-            circle.setAttribute("cy", n * columnGap);
+            circle.setAttribute("cx", m * columnGap); // Corrected to columnGap
+            circle.setAttribute("cy", n * rowGap); // Corrected to rowGap
             svg.appendChild(circle);
         }
     }
