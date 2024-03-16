@@ -8,3 +8,16 @@ body, html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
+
+
+#CybotCookiebotDialog::-webkit-scrollbar, 
+#CybotCookiebotDialog *::-webkit-scrollbar {
+  display: block; /* Re-enable scrollbars for Chrome, Safari */
+}
+
+#CybotCookiebotDialog, #CybotCookiebotDialog * {
+  -ms-overflow-style: auto; 
+  scrollbar-width: auto; 
+}

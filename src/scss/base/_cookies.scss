@@ -56,6 +56,11 @@
  #CybotCookiebotDialog {
    z-index: 9999 !important;
 
+   #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+    border-color: accent(1)!important;
+    color: accent(1)!important;
+   }
+
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
@@ -64,10 +69,7 @@
     color: $bodyBackground!important;
    }
 
-   #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
-    border-color: accent(1)!important;
-    color: $bodyBackground!important;
-   }
+
  }
 
  #CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogBodyEdgeMoreDetails a {
@@ -80,7 +82,7 @@
 
  #CookiebotWidget-btn-withdraw {
   border-color: accent(1)!important;
-  color: $bodyBackground!important;
+  color: accent(1)!important;
  }
 
  #CookiebotWidget-btn-change {

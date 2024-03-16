@@ -1414,14 +1414,14 @@ input.valid:-webkit-autofill:active {
 #CybotCookiebotDialog {
   z-index: 9999 !important;
 }
+#CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
+  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+}
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
   background-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
-  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
-  color: #070707 !important;
-}
-#CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
   border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
   color: #070707 !important;
 }
@@ -1436,7 +1436,7 @@ input.valid:-webkit-autofill:active {
 
 #CookiebotWidget-btn-withdraw {
   border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
-  color: #070707 !important;
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
 }
 
 #CookiebotWidget-btn-change {
@@ -1559,6 +1559,16 @@ input.valid:-webkit-autofill:active {
 body, html {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+#CybotCookiebotDialog::-webkit-scrollbar,
+#CybotCookiebotDialog *::-webkit-scrollbar {
+  display: block; /* Re-enable scrollbars for Chrome, Safari */
+}
+
+#CybotCookiebotDialog, #CybotCookiebotDialog * {
+  -ms-overflow-style: auto;
+  scrollbar-width: auto;
 }
 
 .kursor-hover:hover {
