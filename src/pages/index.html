@@ -42,9 +42,7 @@
                             I'm a UIUX Artist and Engineer based in the city of Cluj-Napoca, Transylvania.
                             I work in design since 2010 and coding is an important step in my design process.
                         </span>
-
                     </p>
-
                     <a href="./about" title="Alexandru Gatea | About me" class="button internal kursor-hover link">
                         <span>Read More</span>
                     </a>
@@ -132,14 +130,14 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 var title = document.getElementById("visitor");
-                var visited = localStorage.getItem("visited");
+                var friend = localStorage.getItem("friend");
 
                 var typewriter = new Typewriter(title, {
                     loop: false,
                     delay: 35
                 });
 
-                if (visited) {
+                if (friend) {
                     typewriter
                         .pauseFor(1000)
                         .typeString('Stranger')
@@ -161,7 +159,7 @@
                             title.classList.add("written");
                         })
                         .start();
-                    localStorage.setItem("visited", true);
+                    localStorage.setItem("friend", true);
                 }
             });
         </script>
