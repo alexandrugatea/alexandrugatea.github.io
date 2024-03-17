@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Adding recipe Name as page title -->
+    <title>TOP | Asgardian Root Vegetables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Import Custom CSS -->
+    <link rel="stylesheet" href="../css/recipes.css">
+</head>
+
+<!-- Adding a class to the body so we can apply certain stiles only to recipes pages -->
+<body class="recipe-page">
+    <div id="odinRecipes" class="odin-recipes">
+        <div class="wrapper">
+
+            <!-- Back button, for easier navigation -->
+            <a href="../index.html" class="back"> &Precedes; Back to recipes</a>
+
+            <!-- Using CSS Grid to align the contents -->
+            <!-- Each direct child of the grid wrapper will be aligned according to "grid-template-columns" property, in css -->
+            <div class="recipe-grid">
+
+                <!-- Intro container, containing Title and Description -->
+                <div class="recipe-intro">
+                    <h1 class="page-title">Asgardian <br> Root Vegetables</h1>
+                    <p class="description">
+                        A heavenly side dish featuring root vegetables with a sweet honey glaze, invoking the richness of Asgardian soils.
+                    </p>
+                </div>
+
+                <!--  A representative image for the dish -->
+                <img class="recipe-image" src="../images/vegies.png" alt="">
+    
+                <!-- Container for Ingredients: Title + Ingredients Unordered List -->
+                <div class="ingredients">
+                    <h2 class="section-title">Ingredients</h2>
+                    <ul class="ingredients-list">
+                        <li>2 large sweet potatoes, cubed</li>
+                        <li>2 parsnips, sliced</li>
+                        <li>3 carrots, sliced</li>
+                        <li>1/4 cup oil</li>
+                        <li>1/4 cup honey</li>
+                        <li>2 tablespoons vinegar</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>Fresh parsley, chopped for garnish</li>
+                    </ul>
+                </div>
+    
+                <!-- Container for Steps: Title + Steps Ordered List -->
+                <div class="steps">
+                    <h2 class="section-title">Steps</h2>
+                    <ol class="steps-list">
+                        <li>Preheat your oven to 400°F (200°C).</li>
+                        <li>Toss the sweet potatoes, parsnips, and carrots with olive oil, honey, balsamic vinegar, salt, and pepper.</li>
+                        <li>Spread the vegetables on a baking sheet in a single layer.</li>
+                        <li>Roast for 25-30 minutes, or until tender and caramelized.</li>
+                        <li>Garnish with fresh parsley before serving.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Same Back button, again, for easier navigation -->
+            <a href="../index.html" class="back"> &Precedes; Back to recipes</a>
+        </div>
+    </div>
+</body>
+</html>
