@@ -1,0 +1,383 @@
+@charset "UTF-8";
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Josefin Slab";
+  position: relative;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.odin-recipes-hero {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media screen and (max-width: 767px) {
+  .odin-recipes-hero {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .odin-recipes-hero {
+    height: 420px;
+  }
+}
+.odin-recipes-hero img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.odin-recipes-hero .page-title {
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
+  margin: 20px 0;
+  font-size: 90px;
+}
+@media screen and (max-width: 767px) {
+  .odin-recipes-hero .page-title {
+    font-size: 40px;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back {
+  color: #1046a8;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 50px 0;
+  display: block;
+}
+
+.recipe-list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 0;
+}
+@media screen and (max-width: 767px) {
+  .recipe-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 40px;
+  }
+}
+.recipe-list-item {
+  margin: 0 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 7px;
+          border-radius: 7px;
+  position: relative;
+  z-index: 0;
+  background: #fff;
+}
+@media screen and (max-width: 767px) {
+  .recipe-list-item {
+    margin: 20px 0;
+    width: 100%;
+  }
+}
+.recipe-list-item:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0%;
+  background: white;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  -webkit-box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 7px;
+          border-radius: 7px;
+}
+.recipe-list-item:after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 5px);
+      -ms-transform: translate(-50%, 5px);
+       -o-transform: translate(-50%, 5px);
+          transform: translate(-50%, 5px);
+  background: black;
+  width: 75%;
+  height: 10px;
+  z-index: -1;
+  -webkit-filter: blur(13px);
+          filter: blur(13px);
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+}
+.recipe-list-item a {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  cursor: pointer;
+  display: block;
+  padding: 25px;
+  text-align: center;
+  font-family: "Josefin Slab";
+  font-weight: 700;
+  font-size: 21px;
+  display: grid;
+  text-align: center;
+}
+.recipe-list-item a img {
+  max-width: 150px;
+  display: block;
+  margin-bottom: 21px;
+}
+@media screen and (max-width: 767px) {
+  .recipe-list-item a img {
+    max-width: 100%;
+  }
+}
+
+body.recipe-page {
+  padding: 0 150px 0 350px;
+}
+@media screen and (max-width: 767px) {
+  body.recipe-page {
+    padding: 0 50px 0 80px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  body.recipe-page {
+    padding: 0 100px 0 160px;
+  }
+}
+body.recipe-page:before, body.recipe-page:after {
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  background-repeat: repeat-y;
+  background-image: url("../images/vikipattern.svg");
+  background-position: top center;
+}
+body.recipe-page:before {
+  -webkit-background-size: 200px 200px;
+       -o-background-size: 200px;
+          background-size: 200px;
+  width: 300px;
+  left: 0;
+  opacity: 0.56;
+}
+@media screen and (max-width: 767px) {
+  body.recipe-page:before {
+    -webkit-background-size: 50px 50px;
+         -o-background-size: 50px;
+            background-size: 50px;
+    width: 70px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  body.recipe-page:before {
+    -webkit-background-size: 100px 100px;
+         -o-background-size: 100px;
+            background-size: 100px;
+    width: 140px;
+  }
+}
+body.recipe-page:after {
+  width: 100px;
+  -webkit-background-size: 75px 75px;
+       -o-background-size: 75px;
+          background-size: 75px;
+  right: 50px;
+  opacity: 0.1;
+}
+@media screen and (max-width: 767px) {
+  body.recipe-page:after {
+    right: 0px;
+    width: 50px;
+    -webkit-background-size: 30px 30px;
+         -o-background-size: 30px;
+            background-size: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  body.recipe-page:after {
+    right: 0px;
+    width: 80px;
+    -webkit-background-size: 60px 60px;
+         -o-background-size: 60px;
+            background-size: 60px;
+  }
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  max-width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .recipe-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.recipe-intro {
+  padding: 50px 0;
+}
+@media screen and (max-width: 1199px) {
+  .recipe-intro {
+    padding: 20px 0;
+  }
+}
+.recipe-intro .page-title {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 60px;
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 767px) {
+  .recipe-intro .page-title {
+    font-size: 22px;
+  }
+  .recipe-intro .page-title br {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .recipe-intro .page-title {
+    font-size: 30px;
+  }
+}
+
+.description {
+  font-weight: 500;
+  font-style: italic;
+  font-size: 35px;
+  max-width: 700px;
+  margin-bottom: 50px;
+  line-height: 1.34;
+  color: #777;
+}
+@media screen and (max-width: 1199px) {
+  .description {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  .section-title {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+}
+
+.recipe-page [class*=-list] {
+  list-style-type: none;
+}
+.recipe-page [class*=-list] li {
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  font-size: 21px;
+  margin-bottom: 14px;
+  font-weight: 500;
+  color: #555;
+}
+@media screen and (max-width: 767px) {
+  .recipe-page [class*=-list] li {
+    font-size: 16px;
+  }
+}
+.recipe-page [class*=-list] li:before {
+  content: "›";
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 21px;
+  line-height: 21px;
+}
+.recipe-page [class*=-list].steps-list {
+  counter-reset: steps;
+}
+.recipe-page [class*=-list].steps-list li {
+  counter-increment: steps;
+}
+.recipe-page [class*=-list].steps-list li:before {
+  content: counter(steps);
+}
+/*# sourceMappingURL=recipes.css.map */
