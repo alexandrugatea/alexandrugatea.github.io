@@ -1,0 +1,21 @@
+.quote {
+    background: $colorLightText;
+    padding: rem-calc(130 0 100);
+
+    &-content {
+        max-width: rem-calc(840);
+        margin: 0 auto;
+    }
+
+    &-title {
+        @include text($textSizeQuoteText, 300, 1.1);
+        font-style: italic;
+    }
+
+    &-author {
+        text-align: right;
+        margin-top: rem-calc(20);
+        padding-right: rem-calc(50);
+        @include text(18, 600)
+    }
+}

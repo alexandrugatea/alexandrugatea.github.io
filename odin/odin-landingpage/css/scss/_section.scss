@@ -10,15 +10,16 @@
     &-list {
         display: grid;
         grid-gap: rem-calc(50);
-
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        max-width: rem-calc(840);
+        margin: 0 auto;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 
         &-item {
             text-align: center;
 
             &-image {
                 width: 100%;
-                max-width: rem-calc(180);
+                max-width: rem-calc(169);
                 margin: 0 auto rem-calc(10);
                 aspect-ratio: 1 / 1;
                 box-shadow: inset rem-calc(0 0 0 5) $colorCta;

@@ -1,8 +1,13 @@
 .cta {
    background: $colorCta;
-   border-radius: rem-calc(4); 
+   border-radius: rem-calc(8); 
    padding: rem-calc(10 30);
    min-width: rem-calc(130);
    text-align: center;
    display: inline-block;
+
+   &.secondary {
+      color: $colorLight;
+      box-shadow: inset rem-calc(0 0 0 2) $colorLight;
+   }
 }
