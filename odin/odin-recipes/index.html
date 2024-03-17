@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP | Odin's Recipes</title>
+
+    <!-- Import google Fonts -->
+    <!-- 
+        Go to https://fonts.google.com/ and choose desired font
+        Open font's page,a nd click on "Get Font" on top right
+        Clicik on "Get embeded code"
+        Copy code for <link> and implemented same as on this page,
+        or with "@import" for loading it thtough CSS
+     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Import Custom CSS -->
+    <link rel="stylesheet" href="css/recipes.css">
+</head>
+
+<body>
+    <!-- main wrapper of the page -->
+    <div id="odinRecipes" class="odin-recipes">
+
+        <!-- Image section -->
+        <div class="odin-recipes-hero">
+            <img src="images/odinsfeast.png" alt="Odin's Recipes image">
+            <h1 class="page-title">Odin's Recipes</h1>
+        </div>
+
+        <!-- Container -->
+        <div class="wrapper">
+            <!-- The list of Recipes -->
+            <ul class="recipe-list">
+                
+                <!-- Recipe item -->
+                <li class="recipe-list-item">
+                    <!-- Wrapping Image and Recipe name in a link tag so we can click anywhere to navigate -->
+                    <a href="recipes/ValhallasVictoryRoast.html">
+                        <img src="images/roast.png" alt="">
+                        
+                        <!-- The Break tag is not really needed, it's just for aesthetics -->
+                        Valhalla's <br>Victory Roast
+                    <br>&Succeeds;</a>
+                </li>
+                
+                <!-- Recipe item -->
+                <li class="recipe-list-item">
+                    <a href="recipes/LokisMeadPudding.html">
+                        <img src="images/puding.png" alt="">
+                        Loki's <br>Mead Pudding
+                    <br>&Succeeds;</a> 
+                </li>
+                
+                <!-- Recipe item -->
+                <li class="recipe-list-item">
+                    <a href="recipes/AsgardianRootVegetables.html">
+                        <img src="images/vegies.png" alt="">
+                        Asgardian <br> Root Vegetables
+                    <br>&Succeeds;</a> 
+                </li>
+            </ul>
+            <!-- End of Recipes list -->
+
+        </div>
+        <!-- End of container -->
+
+    </div>
+</body>
+
+</html>
