@@ -1,0 +1,9 @@
+.footer {
+    background: $colorDark;
+    padding: rem-calc(40 0);
+    color: $colorLight;
+
+    &-content {
+        text-align: center;
+    }
+}
