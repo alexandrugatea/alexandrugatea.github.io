@@ -3,7 +3,6 @@
 *:before,
 *:after {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,8 +35,7 @@ a {
 
 .cta {
   background: #3882f6;
-  -webkit-border-radius: 0.5rem;
-          border-radius: 0.5rem;
+  border-radius: 0.5rem;
   padding: 0.625rem 1.875rem;
   min-width: 8.125rem;
   text-align: center;
@@ -59,15 +57,12 @@ a {
 }
 .nav-content {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
@@ -81,7 +76,6 @@ a {
 }
 .nav-list {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -95,7 +89,6 @@ a {
 .nav-list-link-url {
   padding: 1.25rem;
   -webkit-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
 }
 .nav-list-link-url:hover {
@@ -141,15 +134,12 @@ a {
   width: 100%;
   height: 100%;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   top: 0;
@@ -184,8 +174,7 @@ a {
   aspect-ratio: 1/1;
   -webkit-box-shadow: inset 0 0 0 0.3125rem #3882f6;
           box-shadow: inset 0 0 0 0.3125rem #3882f6;
-  -webkit-border-radius: 1.25rem;
-          border-radius: 1.25rem;
+  border-radius: 1.25rem;
 }
 .random-list-item-text {
   padding: 0 1.875rem;
@@ -221,23 +210,19 @@ a {
 }
 .call-action-content {
   background-color: #3882f6;
-  -webkit-border-radius: 1.25rem;
-          border-radius: 1.25rem;
+  border-radius: 1.25rem;
   padding: 3.125rem 0;
 }
 .call-action-box {
   max-width: 52.5rem;
   margin: 0 auto;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
