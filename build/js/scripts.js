@@ -418,8 +418,12 @@ function smoothScroll(target, speed, smooth) {
         }
     }
 
+    function isCookiebotDialogOpen() {
+        return !!document.querySelector('.CybotCookiebotDialogActive');
+    }
+
     function scrolled(e) {
-        if (!isScrollEnabled) return; // Don't scroll if scrolling is disabled
+        if (!isScrollEnabled || isCookiebotDialogOpen()) return; // Don't scroll if scrolling is disabled
         e.preventDefault();
         initScrollPosition(); // Ensure the initial position is set
         var delta = normalizeWheelDelta(e);
