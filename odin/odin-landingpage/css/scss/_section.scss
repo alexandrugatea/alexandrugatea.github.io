@@ -3,7 +3,7 @@
 
     &-title {
         text-align: center;
-        @include text(36, 800);
+        @include text($textSizeSectionTitle, 800);
         margin-bottom: rem-calc(55);
     }
 

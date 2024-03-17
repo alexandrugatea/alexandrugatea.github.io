@@ -11,6 +11,7 @@
 body {
     position: relative;
     @include text();
+    color: $colorDark;
 }
 ul, ol {
     list-style-type: none;

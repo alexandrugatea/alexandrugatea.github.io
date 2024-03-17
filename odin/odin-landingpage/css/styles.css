@@ -15,6 +15,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
+  color: #1f2937;
 }
 
 ul, ol {
@@ -180,5 +181,17 @@ a {
 }
 .random-list-item-text {
   padding: 0 1.875rem;
+}
+
+.quote {
+  background: #e5e7eb;
+  padding: 8.125rem 0 6.25rem;
+}
+.quote-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.25rem;
+  font-weight: 300;
+  line-height: 1.1;
+  font-style: italic;
 }
 /*# sourceMappingURL=styles.css.map */
