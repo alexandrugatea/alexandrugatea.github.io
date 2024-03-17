@@ -15,7 +15,7 @@ let destination = "./";
 
 // Compile SCSS
 gulp.task('scss', function () {
-    return gulp.src('[src/scss/**/*.scss]')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
