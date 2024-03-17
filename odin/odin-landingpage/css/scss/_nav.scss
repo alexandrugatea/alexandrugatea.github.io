@@ -1,0 +1,40 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $colorDark;
+    z-index: 999;
+
+    &-content {
+        @extend .container;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-logo {
+        @include text($textSizeNavLogo, 700, 1.34);
+        color: $colorLight;
+        padding: rem-calc(20 0);
+    }
+
+    &-list {
+        display: flex;
+
+        &-link {
+            color: $colorLightText;
+            @include text(18, 400, 1);
+            
+            &-url {
+                padding: rem-calc(20);
+                transition: all 0.25s ease-out;
+
+                &:hover {
+                    color: $colorCta;
+                }
+            }
+        }
+    }
+}
