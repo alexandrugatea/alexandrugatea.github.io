@@ -1,9 +1,13 @@
-// Select anything and anything's before and after pseudo-elements
-// and reset their default behaviour
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import "mixins";
+@import "func";
+@import "reset";
+
+@import "vars";
+@import "helper";
+@import "buttons";
+@import "nav";
+@import "hero";
+@import "section";
+@import "quote";
+@import "cta";
+@import "footer";

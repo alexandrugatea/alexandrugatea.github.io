@@ -1,0 +1,9 @@
+// Select anything and anything's before and after pseudo-elements
+// and reset their default behaviour
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} 

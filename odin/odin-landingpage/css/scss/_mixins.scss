@@ -1,0 +1,18 @@
+// create a mixin that will include all font properties so we code faster
+@mixin font(
+    // assign a default font-size as the smallest size in our page
+    // so if we just @include font(), it will already have all we need.
+    $size: 16, 
+
+    $weight: 400, 
+    
+    $lh: 1,
+    // assigning a parameter of family with a default value
+    // we're putting it last as it's less likely to change it accross pages
+    $family: #{"Roboto", sans-serif}
+    ) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $lh;
+}
