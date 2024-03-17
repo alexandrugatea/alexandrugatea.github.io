@@ -6,6 +6,7 @@ const sourcemaps          = require('gulp-sourcemaps');
 const fileInclude         = require('gulp-file-include');
 const browserSync         = require('browser-sync').create();
 var historyApiFallback    = require('connect-history-api-fallback');
+var rename                = require('gulp-rename');
 
 
 let source = "src";
@@ -23,13 +24,16 @@ gulp.task('scss', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('odin-recipes', function () {
-    return gulp.src('odin/odin-recipes/css/**/*.scss')
+gulp.task('odin-scss', function () {
+    return gulp.src('odin/**/css/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('odin/odin-recipes/css'))
+        .pipe(rename(function (path) {
+            path.dirname = path.dirname.replace('scss', '');
+        }))
+        .pipe(gulp.dest('odin'))
         .pipe(browserSync.stream());
 });
 
@@ -93,7 +97,7 @@ gulp.task('serve', function () {
         }
     });
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
-    gulp.watch('odin/odin-recipes/css/**/*.scss', gulp.series('odin-recipes'));
+    gulp.watch('odin/**/css/scss/**/*.scss', gulp.series('odin-scss'));
     gulp.watch('src/js/**/*.js', gulp.series('js'));
     gulp.watch('src/lib/**/*.*', gulp.series('libs'));
     gulp.watch('src/media/**/*.*', gulp.series('media'));
@@ -104,4 +108,4 @@ gulp.task('serve', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series(gulp.parallel('html', 'scss', 'odin-recipes', 'js', 'libs', 'fonts', 'images', 'media'), 'serve'));
+gulp.task('default', gulp.series(gulp.parallel('html', 'scss', 'odin-scss', 'js', 'libs', 'fonts', 'images', 'media'), 'serve'));
