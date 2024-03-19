@@ -1,0 +1,194 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+    background: #070707;
+    color: #c7c7c7;
+    font-family: "Roboto Slab", serif;
+}
+
+.game {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 70px 0;
+    text-align: center;
+    
+    @media screen and (max-width: 767px) {
+        padding: 50px 0;   
+    }
+
+    &-title {
+        font-size: 60px;
+        margin-bottom: 100px;
+        
+        @media screen and (max-width: 767px) {
+            font-size: 30px;
+            margin-bottom: 50px;
+            
+        }
+        span {
+            display: block;
+        }
+    }
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    list-style-type: none;
+
+    .choice {
+        margin: 0 15px;
+
+        @media screen and (max-width: 767px) {
+            margin: 5px;
+        }
+
+        .player-choice {
+
+            padding: 20px 10px;
+            min-width: 120px;
+            border: none;
+            outline: 0;
+            border-radius: 8px;
+            background: #c7c7c7;
+            color: #070707;
+            font-weight: 700;
+            font-size: 21px;
+            font-family: inherit;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(1);
+            cursor: pointer;
+            box-shadow: 0 0 0 0px rgba(#c7c7c7, 0.21);
+            user-select: none;
+
+            @media screen and (max-width: 767px) {
+                font-size: 16px;
+                min-width: 100px;
+            }
+
+            &:hover {
+                background: lighten(#c7c7c7, 10%);
+                box-shadow: 0 0 0 4px rgba(#c7c7c7, 0.21);
+            }
+
+            &:active {
+                background: lighten(#c7c7c7, 10%);
+                transform: scale(0.98);
+                box-shadow: 0 0 0 7px rgba(#c7c7c7, 0.42);
+            }
+
+            &.selected {
+                background: #ffc300;
+
+                &:hover {
+                    background: lighten(#ffc300, 10%);
+                    box-shadow: 0 0 0 4px rgba(#ffc300, 0.21);
+                }
+    
+                &:active {
+                    background: lighten(#ffc300, 10%);
+                    transform: scale(0.98);
+                    box-shadow: 0 0 0 7px rgba(#ffc300, 0.42);
+                }
+            }
+
+            &[disabled="true"] {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+        }
+    }
+}
+
+.game-task {
+    font-size: 30px;
+
+    @media screen and (max-width: 767px) {
+        font-size: 20px;
+    }
+}
+
+.game-score {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .colon {
+        padding: 14px 50px;
+    }
+
+    .score-title {
+        font-size: 14px;
+        margin-bottom: 14px;
+        letter-spacing: 0.35px;
+    }
+
+    .score {
+        font-size: 42px;
+    }
+}
+
+.message {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .result {
+        padding: 30px 0;
+        font-size: 28px;
+
+        @media screen and (max-width: 767px) {
+            font-size: 21px;
+        }
+
+        &.victory {
+            color: #46af46;
+        }
+
+        &.defeat {
+            color: #dd2a2a;
+        }
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+#computerChoice {
+    text-transform: uppercase;
+    color: #ffc300;
+}
+
+#resetGame {
+    display: none;
+    padding: 20px 30px;
+    min-width: 150px;
+    border: none;
+    outline: 0;
+    border-radius: 8px;
+    background: #ffc300;
+    color: #070707;
+    font-weight: 700;
+    font-size: 21px;
+    font-family: inherit;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(1);
+    cursor: pointer;
+    box-shadow: 0 0 0 0px rgba(#c7c7c7, 0.21);
+    user-select: none;
+
+    @media screen and (max-width: 767px) {
+        padding: 15px 20px;
+    }
+}

@@ -99,6 +99,7 @@ gulp.task('serve', function () {
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('odin/**/css/scss/**/*.scss', gulp.series('odin-scss'));
     gulp.watch('src/js/**/*.js', gulp.series('js'));
+    gulp.watch('odin/**/*.js', gulp.series('js'));
     gulp.watch('src/lib/**/*.*', gulp.series('libs'));
     gulp.watch('src/media/**/*.*', gulp.series('media'));
     gulp.watch(['src/pages/**/*.html', 'src/layouts/**/*.html'], gulp.series('html'));
