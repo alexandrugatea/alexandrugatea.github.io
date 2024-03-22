@@ -41,7 +41,6 @@ $sidebarWidth: 490px;
 
         .grid-outer {
             width: 100%;
-            overflow: hidden;
             position: relative;
             display: flex;
             align-items: center;
@@ -242,6 +241,10 @@ $sidebarWidth: 490px;
     color: $bodyText;
     box-shadow: inset 0px 0px 0px 3px rgba($bodyText, 0.14);
     cursor: pointer;
+}
+
+#grid {
+    box-shadow: 0 0 0 7px rgba($bodyText, 0.14);
 }
 
 
