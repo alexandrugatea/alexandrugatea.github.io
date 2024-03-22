@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rock, Paper, Scissors, part of Odin Project Curriculum">
+    <meta name="keywords"
+        content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Play Rock Paper Scissors">
+    <meta property="og:description" content="Rock, Paper, Scissors, part of Odin Project Curriculum">
+    <meta property="og:url" content="https://www.alexandrugatea.com">
+    <meta property="og:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:title" content="Play Rock Paper Scissors">
+    <meta property="twitter:description" content="Rock, Paper, Scissors, part of Odin Project Curriculum">
+    <meta property="twitter:url" content="https://www.alexandrugatea.com">
+    <meta property="twitter:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="twitter:type" content="website">
+    <meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:locale" content="en_US">
+
+
+    <link rel="shortcut icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+
+    <title>Etch a Sketch</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="game">
+        <div class="game-sidebar">
+            <h1 class="game-title">
+                Pixel<br>Avatars
+            </h1>
+            <div class="game-options">
+                <div class="game-options-grid-size">
+                    <span>Grid size: <span id="currentGridSize"></span></span>
+                    <label for="gridSize">
+                        <input type="range" min="4" max="48" step="4" value="24" id="gridSize">
+                        <button class="action-btn" id="changeGrid">Apply <span id="selectedSize">36x36</span></button>
+                    </label>
+                </div>
+                <div class="game-options-background">
+                    <h2 class="option-category-title">Background Color</h2>
+                    <ul class="background-list">
+                        <li class="background-list-item"><button class="background white"
+                                data-color="#ffffff"><span>White</span></button></li>
+                        <li class="background-list-item"><button class="background black"
+                                data-color="#000000"><span>Black</span></button></li>
+                        <li class="background-list-item"><button class="background transparent selected"
+                                data-color=""><span>Transparent</span></button></li>
+                    </ul>
+                </div>
+                <div class="game-options-pencil-color">
+                    <h2 class="option-category-title">Pencil Color</h2>
+
+                    <ul class="color-list">
+                        <li class="color-list-item"><button class="color selected white"
+                                data-color="#ffffff"><span>White</span></button></li>
+                        <li class="color-list-item"><button class="color black"
+                                data-color="#000000"><span>Black</span></button></li>
+                        <li class="color-list-item"><button class="color red"
+                                data-color="#E06C75"><span>Red</span></button></li>
+                        <li class="color-list-item"><button class="color orange"
+                                data-color="#E69038"><span>Orange</span></button></li>
+                        <li class="color-list-item"><button class="color yellow"
+                                data-color="#F9C859 "><span>Yellow</span></button></li>
+                        <li class="color-list-item"><button class="color green"
+                                data-color="#2AA198 "><span>Green</span></button></li>
+                        <li class="color-list-item"><button class="color blue"
+                                data-color="#3B83C0 "><span>Blue</span></button></li>
+                        <li class="color-list-item"><button class="color indigo"
+                                data-color="#5E81AC "><span>Indigo</span></button></li>
+                        <li class="color-list-item"><button class="color violet"
+                                data-color="#B48EAD "><span>Violet</span></button></li>
+                        <li class="color-list-item"><button class="color clear"
+                                data-color="transparent"><span>Erase</span></button></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="grid-outer">
+                <div class="grid-container" id="grid"></div>
+            </div>
+            <div class="actions">
+                <button class="action-btn" id="showGuides">Toggle Guides</button>
+                <button class="action-btn" id="clearDrawing">Clear Drawing</button>
+                <button class="action-btn" id="exportDrawing">Download</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mobile-notice">
+        <span>
+            Pixel Avatars <br>is only suported on desktop browsers with a resolution of at least 1920x1080.
+            <br> 
+            <br> 
+            Thank you for understanding!
+        </span>
+
+    </div>
+    <!-- javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

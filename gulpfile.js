@@ -86,20 +86,29 @@ gulp.task('serve', function () {
             baseDir: destination, 
             middleware: [historyApiFallback({
                 rewrites: [
-                    { from: /\/$/, to: '/index.html' }, // Rewrite root requests to '/index.html'
                     {
-                        from: /\/[a-zA-Z0-9_\-]+$/, to: function (context) {
-                            return context.parsedUrl.pathname + ".html";
-                        }
-                    } // Append '.html' to any other path
-                ]
+                      from: /^\/$/, to: '/index.html'  // Root path
+                    },
+                    {
+                      from: /^\/[a-zA-Z0-9\-_\/]+\/$/,
+                      to: function(context) {
+                        return context.parsedUrl.pathname + "index.html";
+                      }  // Directory path ends with a slash
+                    },
+                    {
+                      from: /^\/[a-zA-Z0-9\-_]+$/,
+                      to: function(context) {
+                        return context.parsedUrl.pathname + ".html";
+                      }  // File path without extension
+                    }
+                  ]
             })]
         }
     });
-    gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('odin/**/css/scss/**/*.scss', gulp.series('odin-scss'));
-    gulp.watch('src/js/**/*.js', gulp.series('js'));
     gulp.watch('odin/**/*.js', gulp.series('js'));
+    gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
+    gulp.watch('src/js/**/*.js', gulp.series('js'));
     gulp.watch('src/lib/**/*.*', gulp.series('libs'));
     gulp.watch('src/media/**/*.*', gulp.series('media'));
     gulp.watch(['src/pages/**/*.html', 'src/layouts/**/*.html'], gulp.series('html'));
