@@ -225,25 +225,25 @@ body {
   background: #000000;
 }
 .game-options-pencil-color .color-list-item button.red {
-  background: #E06C75;
+  background: #C62828;
 }
 .game-options-pencil-color .color-list-item button.orange {
-  background: #E69038;
+  background: #F57C00;
 }
 .game-options-pencil-color .color-list-item button.yellow {
-  background: #F9C859;
+  background: #FDD835;
 }
 .game-options-pencil-color .color-list-item button.green {
-  background: #2AA198;
+  background: #8BC34A;
 }
 .game-options-pencil-color .color-list-item button.blue {
-  background: #3B83C0;
+  background: #1976D2;
 }
 .game-options-pencil-color .color-list-item button.indigo {
-  background: #5E81AC;
+  background: #AB47BC;
 }
 .game-options-pencil-color .color-list-item button.violet {
-  background: #B48EAD;
+  background: #673AB7;
 }
 .game-options-pencil-color .color-list-item button.clear {
   background: -webkit-gradient(linear, left top, right top, color-stop(49%, rgba(199, 199, 199, 0.14)), color-stop(50%, transparent)), -webkit-gradient(linear, left bottom, left top, color-stop(49%, rgba(199, 199, 199, 0.14)), color-stop(50%, transparent));
