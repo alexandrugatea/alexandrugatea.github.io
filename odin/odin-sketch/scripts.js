@@ -1,16 +1,18 @@
 
 let gridSize = document.getElementById("gridSize").value;
-let gridContainer = document.getElementById("grid");
+const gridContainer = document.getElementById("grid");
 let currentGridSize = document.getElementById("currentGridSize");
 let selectedSize = document.getElementById("selectedSize");
 let rangeSlider = document.getElementById("gridSize");
-let applySize = document.getElementById("changeGrid");
+const applySize = document.getElementById("changeGrid");
 let drawingColor = document.querySelector(".color-list .selected").getAttribute("data-color");
 let availableColors = document.querySelectorAll(".color-list li button.color");
 let currentBackgroundColor = document.querySelector(".background-list-item button.background.selected").getAttribute("data-color");
 let bgBtn = document.querySelectorAll("button.background");
 let showGuides = document.querySelector("#showGuides");
-let clearDrawing = document.getElementById("clearDrawing");
+const clearDrawing = document.getElementById("clearDrawing");
+const toggleOptions = document.getElementById("toggleMobileSettings");
+const optionsPanel = document.querySelector(".game-options");
 
 
 // Init functions
@@ -18,7 +20,6 @@ updateCurrentGridSize(gridSize);
 generateGrid(gridSize);
 drawOnDrag();
 changeBackgroundColor(currentBackgroundColor);
-
 
 // Event Listeners
 rangeSlider.addEventListener("input", function(){
@@ -57,9 +58,7 @@ bgBtn.forEach(function(item) {
 
 clearDrawing.addEventListener("click", clearBoard);
 
-showGuides.addEventListener("click", function() {
-    gridContainer.classList.toggle("no-guides");
-});
+showGuides.addEventListener("click", () => gridContainer.classList.toggle("no-guides"));
 
 
 // Functions
@@ -167,3 +166,28 @@ function generateGrid (gridSize) {
 function destroyGrid() {
     gridContainer.innerHTML= "";
 }
+
+
+let startY = 0; 
+let moveY = 0; 
+let isOpening = false;
+
+toggleOptions.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+    isOpening = false;
+}, { passive: true });
+
+toggleOptions.addEventListener('touchmove', (e) => {
+    moveY = e.touches[0].clientY;
+    if (startY > moveY) {
+        isOpening = true;
+    }
+}, { passive: true });
+
+toggleOptions.addEventListener('touchend', () => {
+    if (isOpening) {
+        optionsPanel.classList.add('opened');
+    } else {
+        optionsPanel.classList.remove('opened'); 
+    }
+});

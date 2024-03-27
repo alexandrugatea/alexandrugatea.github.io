@@ -209,6 +209,10 @@
                     @include breakpoint(small only) {
                         margin-right: rem-calc(21);
                     }
+
+                    @include breakpoint(medium only) {
+                        margin-right: rem-calc(21);
+                    }
                 }
 
                 &-url {
@@ -221,42 +225,45 @@
                     justify-content: center;
 
                     svg {
-                        transform: scale(0.7);
+                        transform: scale(0.8);
+                        width: 100%;
+                        height: 100%;
+
+                        path {
+                            fill: var(--accent);
+                        }
                     }
                 }
             }
         }
 
         .nav-settings {
+            opacity: 0;
+            grid-gap: rem-calc(56);
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-            @include breakpoint(medium) {
-                position: absolute;
-                top: 0;
-                right: rem-calc(-700);
-                opacity: 0;
-                text-align: right;
-                width: 100%;
-                max-width: rem-calc(630);
-                transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                padding: rem-calc(70 98);
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-gap: rem-calc(56);
-                //height: 100%;
-                overflow: auto;
-            }
-
-            @include breakpoint(large) {
-                grid-gap: rem-calc(35);
-            }
-
-            @include breakpoint(small only) {
+            @include breakpoint(medium down) {
                 position: relative;
                 max-width: none;
                 padding: rem-calc(70 0 0 0);
                 text-align: left;
                 display: block;
+                transform: translateY(20%);
             }
+
+            @include breakpoint(large) {
+                position: absolute;
+                top: 0;
+                right: rem-calc(-700);
+                text-align: right;
+                max-width: rem-calc(630);
+                padding: rem-calc(70 98);
+                display: grid;
+                grid-template-columns: 1fr;
+                overflow: auto;
+                grid-gap: rem-calc(35);
+            }
+
 
             .nav-title {
                 font-size: rem-calc(49);
@@ -289,10 +296,7 @@
                 grid-template-columns: 1fr;
                 grid-gap: rem-calc(56);
 
-                @include breakpoint(small only) {
-                    grid-gap: rem-calc(28);
-                }
-                @include breakpoint(medium only) {
+                @include breakpoint(medium down) {
                     grid-gap: rem-calc(28);
                 }
 
@@ -301,7 +305,7 @@
                     flex-direction: column;
                     align-items: flex-end;
 
-                    @include breakpoint(small only) {
+                    @include breakpoint(medium down) {
                         align-items: flex-start;
                     }
                 }
@@ -397,7 +401,7 @@
             }
 
             .nav-group-text {
-                max-width: rem-calc(350);
+                max-width: rem-calc(280);
                 margin-bottom: rem-calc(21);
 
                 @include breakpoint(small only) {
@@ -704,6 +708,10 @@
                 &:nth-child(3) {
                     transition-delay: 0.49s
                 }
+
+                &:nth-child(4) {
+                    transition-delay: 0.56s
+                }
             }
         }
 
@@ -713,16 +721,7 @@
         right: 0;
         opacity: 1;
         transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        
-        //@include breakpoint(medium) {
-        //    overflow: auto;
-        //    align-content: flex-start;
-        //}
-
-        //@include breakpoint(medium down) {
-        //    transform: translate(0, 0%);
-        //    width: auto;
-        //}
+        transform: translateY(0%);
     }
 }
 

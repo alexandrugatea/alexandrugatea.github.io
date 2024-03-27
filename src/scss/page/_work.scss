@@ -1,7 +1,6 @@
 @use "sass:math";
 
 body.work {
-    //padding-bottom: rem-calc(140);
 
     @include breakpoint(large down) {
         padding-bottom: rem-calc(28);
@@ -140,7 +139,6 @@ body.work {
                                 object-fit: cover;
                             }
 
-                            &.portrait {}
                         }
 
                         &.logo {
@@ -426,12 +424,6 @@ body.work {
     height: 100%;
     height: 100vh;
     height: 100dvh;
-}
-
-
-.lg-outer .lg-prev,
-.lg-outer .lg-next {
-
 }
 
 .lg-counter {
