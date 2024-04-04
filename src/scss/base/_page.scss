@@ -1,5 +1,7 @@
-
 body:not(.default-cursor) {
+    @include breakpoint(large) {
+        cursor: none !important;
+    }
     *,
     *:hover,
     *:before,
@@ -31,6 +33,7 @@ body {
     padding: rem-calc(0 0 0 140);
     margin-left: rem-calc(0);
     transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    min-height: 100dvh;
 
     @include breakpoint(small only) {
         padding: rem-calc(0 0 0 0);

@@ -1,0 +1,135 @@
+@charset "UTF-8";
+.js30-content .project-wrapper svg {
+  fill: white;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: 50px;
+}
+.js30-content .project-wrapper .wrapper {
+  padding: 20px;
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.js30-content .project-wrapper h2 {
+  text-align: center;
+  margin: 0;
+  font-weight: 200;
+}
+.js30-content .project-wrapper .plates {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+.js30-content .project-wrapper .plates li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  font-weight: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.js30-content .project-wrapper .plates label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #070707;
+}
+.js30-content .project-wrapper .plates input {
+  display: none;
+}
+.js30-content .project-wrapper .plates input + label:before {
+  content: "⬜️";
+  margin-right: 10px;
+}
+.js30-content .project-wrapper .plates input:checked + label:before {
+  content: "🌮";
+}
+.js30-content .project-wrapper .add-items {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.js30-content .project-wrapper .add-items input[type=text] {
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+.js30-content .project-wrapper .add-items input[type=submit] {
+  padding: 10px;
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.js30-content .project-wrapper .form-buttons {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+  -webkit-box-flex: 10;
+      -ms-flex: 10;
+          flex: 10;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .project-wrapper .form-buttons {
+    gap: 5px;
+  }
+}
+.js30-content .project-wrapper .form-buttons button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.js30-content .project-wrapper .form-group .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.js30-content .project-wrapper .btn {
+  padding: 10px 25px;
+  background: #070707;
+  color: #c7c7c7;
+  border: none;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.js30-content .project-wrapper .btn:active {
+  -webkit-transform: scale(0.96);
+      -ms-transform: scale(0.96);
+          transform: scale(0.96);
+}
+.js30-content .project-wrapper .btn:nth-child(2) {
+  -webkit-box-shadow: inset 0 0 0 2px #070707;
+          box-shadow: inset 0 0 0 2px #070707;
+  color: #070707;
+  background: transparent;
+}

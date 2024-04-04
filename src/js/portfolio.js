@@ -94,6 +94,30 @@ const webData = [
     {
         'category': 'category-web',
         'size': '1440-686',
+        'captionID': 'js30',
+        'src': 'build/images/portfolio/webs/jsch.png',
+        'project-text': `
+        <h2>
+            30Day JS challenge byWesBos
+        </h2>
+        <p>JS course</p>`,
+        'type': ['web', 'landscape'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            Built 30 mini JavaScript projects
+        </h2>	
+        <p class="galleryitem-caption-text">
+        <br>
+        <a href="https://www.wesbos.com/" target="_blank">wesbos.com</a>
+        <br>
+        <br>
+        </p>
+        <a href="/js30" target="_blank">View completed projects</a>`,
+        'alt':  "WesBos"
+    },
+    {
+        'category': 'category-web',
+        'size': '1440-686',
         'captionID': 'webTelenavNew',
         'src': 'build/images/portfolio/webs/tnv_new.png',
         'project-text': `

@@ -1,5 +1,6 @@
 // Select the parent element
 const cubeContainer = document.getElementById('cubeContainer');
+const wH = window.innerHeight;
 
 // Create text element
 const txt = document.createElement('span');
@@ -29,3 +30,42 @@ sides.forEach(side => {
 
 // Append cube-scroll to cube-container
 cubeContainer.appendChild(cubeScroll);
+
+let isScrolling = false;
+
+window.addEventListener("scroll", function () {
+
+    if (!isScrolling) {
+        window.requestAnimationFrame(function () {
+            const totalScrollHeight = document.body.scrollHeight - wH;
+
+            let parallaxOffset = 50;
+
+            // edge case for contact page where there are 2 * 100vh sections
+            if (totalScrollHeight == wH) {
+                parallaxOffset = 25;
+            }
+
+            const scrollPosition = window.scrollY;
+
+            // Do not use Math.floor here or the grid will have a jumpy move
+            const scrollPercent = (scrollPosition / totalScrollHeight) * - parallaxOffset + 1;
+            let windowScrollPercent = 100 - (scrollPosition / wH) * 200;
+
+            if (cubeContainer) {
+                if (windowScrollPercent <= 0) {
+                    cubeContainer.style.transform = `translateX(-50%) translateY(${scrollPercent}%) scale(0)`;
+                } else {
+                    cubeContainer.style.transform = `translateX(-50%) translateY(${-scrollPercent}%) scale(${windowScrollPercent / 100})`;
+                }
+            }
+
+            if (!isScrollEnabled) return;
+            container.style.transform = `translateX(-50%) translateY(${scrollPercent}%) `;
+
+            isScrolling = false;
+        });
+
+        isScrolling = true;
+    }
+});

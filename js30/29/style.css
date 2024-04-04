@@ -1,0 +1,146 @@
+.js30-content .project-wrapper .lesson {
+  width: 100%;
+}
+.js30-content .project-wrapper .display__time-left {
+  font-weight: 100;
+  font-size: 10vw;
+  margin: 0;
+  color: white;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "PS900";
+}
+.js30-content .project-wrapper .timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 70vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.js30-content .project-wrapper .timer__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.js30-content .project-wrapper .timer__controls > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.js30-content .project-wrapper .timer__controls form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.js30-content .project-wrapper .timer__controls input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 0;
+  padding: 1rem;
+}
+.js30-content .project-wrapper .timer__button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: #c7c7c7;
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  font-family: "PS700";
+}
+.js30-content .project-wrapper .timer__button:hover,
+.js30-content .project-wrapper .timer__button:focus {
+  background: var(--accent);
+  color: #070707;
+  outline: 0;
+}
+.js30-content .project-wrapper .display {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.js30-content .project-wrapper .display__end-time {
+  font-size: 4rem;
+  color: white;
+  margin-top: 30px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .project-wrapper .display__end-time {
+    font-size: 1rem;
+  }
+}
+.js30-content .project-wrapper .display__time-left span {
+  line-height: 1;
+  text-align: center;
+}
+@media screen and (min-width: 1200px) {
+  .js30-content .project-wrapper .display__time-left span {
+    min-width: 265px;
+  }
+}
+.js30-content .project-wrapper .display__time-left .caret {
+  opacity: 1;
+  vertical-align: top;
+  min-width: 0;
+}
+@media screen and (min-width: 1200px) {
+  .js30-content .project-wrapper .display__time-left .caret {
+    margin: -40px 10px 0;
+  }
+}
+.js30-content .project-wrapper .display__time-left.start .caret {
+  -webkit-animation: blink 2s linear infinite;
+          animation: blink 2s linear infinite;
+}
+@-webkit-keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+.js30-content .project-wrapper #currentTime {
+  font-size: 21px;
+  margin-bottom: 28px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .project-wrapper #currentTime {
+    font-size: 14px;
+  }
+}

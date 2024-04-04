@@ -1,0 +1,61 @@
+.js30-content {
+  .project-wrapper  {
+
+    .lesson {
+      .voiceinator {
+        padding: 30px;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 21px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+        background: #222;
+      }
+      .voiceinator input,
+      .voiceinator button,
+      .voiceinator select,
+      .voiceinator textarea {
+        width: 100%;
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        border: 0;
+        font-size: 21px;
+        background: #070707;
+        color: #c7c7c7;
+        outline: 0;
+      }
+    
+      textarea {
+        height: 20rem;
+        max-width: 100%;
+        min-width: 100%;
+      }
+
+      .voiceinator button {
+        background: #070707;
+        color: var(--accent);
+        border: 0;
+        width: 49%;
+        float: left;
+        margin-bottom: 0;
+        font-size: 21px;
+        cursor: pointer;
+        position: relative;
+      }
+    
+      .voiceinator button:active {
+        top: 2px;
+      }
+    
+      .voiceinator button:nth-of-type(1) {
+        margin-right: 2%;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,127 @@
+.js30-content {
+  .project-wrapper {
+
+    .lesson {
+      width: 100%;
+    }
+
+    .display__time-left {
+      font-weight: 100;
+      font-size: 10vw;
+      margin: 0;
+      color: white;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      font-family: "PS900";
+    }
+
+    .timer {
+      display: flex;
+      min-height: 70vh;
+      flex-direction: column;
+    }
+
+    .timer__controls {
+      display: flex;
+    }
+
+    .timer__controls>* {
+      flex: 1;
+    }
+
+    .timer__controls form {
+      flex: 1;
+      display: flex;
+    }
+
+    .timer__controls input {
+      flex: 1;
+      border: 0;
+      padding: 1rem;
+    }
+
+    .timer__button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      color: #c7c7c7;
+      font-size: 18px;
+      background: rgba(0, 0, 0, 0.1);
+      border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+      border-right: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      font-family: "PS700";
+    }
+
+    .timer__button:hover,
+    .timer__button:focus {
+      background: var(--accent);
+      color: #070707;
+      outline: 0;
+    }
+
+    .display {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .display__end-time {
+      font-size: 4rem;
+      color: white;
+      margin-top: 30px;
+
+      @media screen and (max-width: 767px) {
+        font-size: 1rem;
+      }
+    }
+
+    .display__time-left span {
+      line-height: 1;
+      text-align: center;
+
+      @media screen and (min-width: 1200px) {
+        min-width: 265px;
+      }
+    }
+
+    .display__time-left .caret {
+      opacity: 1;
+      vertical-align: top;
+      min-width: 0;
+
+      @media screen and (min-width: 1200px) {
+        margin: -40px 10px 0;
+      }
+    }
+
+    .display__time-left.start .caret {
+      animation: blink 2s linear infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        opacity: 1
+      }
+
+      51%,
+      100% {
+        opacity: 0
+      }
+    }
+
+    #currentTime {
+      font-size: 21px;
+      margin-bottom: 28px;
+
+      @media screen and (max-width: 767px) {
+        font-size: 14px;
+      }
+    }
+  }
+}

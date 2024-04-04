@@ -1,0 +1,50 @@
+.js30-content .project-wrapper .lesson {
+  text-align: center;
+  /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
+}
+.js30-content .project-wrapper .lesson .arrow {
+  width: 250px;
+  overflow: hidden;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  display: inline-block;
+}
+.js30-content .project-wrapper .lesson h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.js30-content .project-wrapper .lesson p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 24px;
+  color: #c7c7c7;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .project-wrapper .lesson p {
+    font-size: 17px;
+  }
+}
+.js30-content .project-wrapper .lesson p span {
+  padding: 0 10px;
+}
+.js30-content .project-wrapper .lesson .units {
+  font-size: 15px;
+}

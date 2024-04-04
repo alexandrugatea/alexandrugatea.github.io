@@ -1,0 +1,32 @@
+
+  <div class="project-wrapper">
+    <div class='title-box'>
+      <h1>CountDown Timer</h1>
+      <p>Set a timer</p>
+    </div>
+    <div class="lesson">
+      <div class="timer">
+        <div class="timer__controls">
+          <button data-time="60" class="timer__button">1 Min</button>
+          <button data-time="300" class="timer__button">Work 5'</button>
+          <button data-time="900" class="timer__button">Quick 15'</button>
+          <button data-time="1200" class="timer__button">Snack 20'</button>
+          <button data-time="3600" class="timer__button">Lunch Break</button>
+          <form name="customForm" id="custom">
+            <input type="text" name="minutes" placeholder="Enter Minutes">
+          </form>
+        </div>
+        <div class="display">
+          <span id="currentTime"></span>
+          <h1 class="display__time-left">
+            <span class="hours">00</span>
+            <span class="caret">:</span>
+            <span class="minutes">00</span>
+            <span class="caret">:</span>
+            <span class="seconds">00</span>
+          </h1>
+          <p class="display__end-time"></p>
+        </div>
+      </div>
+    </div>
+  </div>

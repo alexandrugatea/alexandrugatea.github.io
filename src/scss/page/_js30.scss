@@ -1,0 +1,211 @@
+body.js30 {
+    padding: 0;
+}
+
+.js30 {
+    &-page-container {
+        display: grid;
+        grid-template-columns: rem-calc(350) auto;
+
+        @include breakpoint(medium down) {
+            grid-template-columns: 1fr;
+        }
+
+        @include breakpoint(large) {
+            height: 100dvh;
+            overflow: hidden;
+        }
+    }
+
+    &-side {
+        background: $bodyBackground;
+        padding: rem-calc(35);
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+
+        @include breakpoint(large) {
+            box-shadow: inset rem-calc(-3 0 0 2) rgba($bodyText, 0.35);
+        }
+    }
+
+    &-title {
+        margin-bottom: rem-calc(35);
+
+        h1 {
+            margin: rem-calc(14 0 7);
+
+
+        }
+
+        @include breakpoint(medium down) {
+            br {
+                display: none
+            }
+        }
+    }
+
+    &-content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        .project-wrapper {
+            display: block;
+            width: 100%;
+            padding: 0 20px 20px 20px;
+
+            @include breakpoint(large) {
+                padding: rem-calc(35);
+                overflow-y: auto;
+                height: 100dvh;
+            }
+        }
+    }
+
+    &-projects {
+        height: 100%;
+        overflow-y: auto;
+        flex: 1;
+        counter-reset: projects;
+
+        @include breakpoint(medium down) {
+            display: flex;
+        }
+
+        .project {
+            position: relative;
+            width: 100%;
+            margin-bottom: rem-calc(3);
+            counter-increment: projects;
+
+            @include breakpoint(small only) {
+                min-width: calc(100vw / 5 - 10px);
+                margin-right: 5px;
+            }
+
+            @include breakpoint(medium only) {
+                min-width: calc(100vw / 7 - 25px);
+                margin-right: 5px;
+            }
+
+            a {
+                padding: rem-calc(14);
+                display: block;
+                overflow: hidden;
+                width: 100%;
+                max-width: 100%;
+                text-decoration: none;
+                font-family: $font700;
+                background: rgba($bodyText, 0.07);
+
+                @include breakpoint(medium down) {
+                    span {
+                        display: none;
+                    }
+                }
+
+                @include breakpoint(large) {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                &:before {
+                    content: counters(projects, ".", decimal-leading-zero);
+                    display: inline-block;
+                    margin-right: 20px;
+                    font-size: rem-calc(14);
+
+                    @include breakpoint(medium down) {
+                        text-align: center;
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+
+                &.active {
+                    color: $bodyBackground;
+                    background: accent(1);
+                }
+            }
+        }
+    }
+}
+
+.js30-content {
+    .project-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+
+        button.butt {
+            border: none;
+            padding: 14px 21px;
+            background: #c7c7c7;
+            color: #070707;
+            border-radius: 8px;
+            margin: 0 7px;
+            font-family: "PS700", sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+
+            &[disabled] {
+                pointer-events: none;
+                opacity: 0.3;
+            }
+
+            @media screen and (max-width: 767px) {
+                padding: 7px 10px;
+                font-size: 14px;
+                margin: 4px;
+            }
+        }
+
+        .lesson {
+            max-width: 100%;
+        }
+
+        .title-box {
+            margin-bottom: 30px;
+            text-align: center;
+
+            @include breakpoint(medium down) {
+                width: 100%;
+                padding: 30px 0 14px;
+            }
+
+            h1 {
+                margin-bottom: 30px;
+            }
+
+            .desktop-required {
+                display: none;
+                text-align: center;
+                color: red;
+                margin: 14px 0;
+                font-size: 21px;
+
+                @include breakpoint(large down) {
+                    display: block;
+                }
+            }
+        }
+    }
+}

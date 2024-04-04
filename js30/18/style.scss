@@ -1,0 +1,44 @@
+.js30-content {
+
+    .lesson {
+        width: 100%;
+    }
+    .videos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 14px;
+        
+        @media screen and (max-width: 767px) {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-gap: 4px;
+        }
+
+        li {
+            position: relative;
+            width: 100%;
+            padding: 14px 21px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(209, 209, 209, 0.07);
+
+            &:after {
+                content: attr(data-time);
+                color: var(--accent);
+                font-family: "PS700", sans-serif;
+                font-weight: 700;
+            }
+        }
+    }
+
+    #totalTime {
+        font-size: 28px;
+        width: 100%;
+        padding: 20px 0;
+        border-top: 2px solid #333;
+
+        span {
+            font-size: 14px;
+        }
+    }
+}

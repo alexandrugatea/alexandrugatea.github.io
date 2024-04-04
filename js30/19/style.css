@@ -1,0 +1,96 @@
+.js30-content .project-wrapper .lesson {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.js30-content .project-wrapper .photobooth {
+  background: #333;
+  width: 100%;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+.js30-content .project-wrapper .photobooth:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.js30-content .project-wrapper .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.js30-content .project-wrapper .controls .butt {
+  margin-left: 0;
+}
+.js30-content .project-wrapper .controls .butt[disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.js30-content .project-wrapper .photo {
+  width: 100%;
+}
+.js30-content .project-wrapper .player {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 200px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .project-wrapper .player {
+    display: none;
+  }
+}
+.js30-content .project-wrapper .strip {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.js30-content .project-wrapper .strip img {
+  width: 100px;
+  overflow-x: scroll;
+  padding: 0.8rem 0.8rem 2.5rem 0.8rem;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+.js30-content .project-wrapper .strip a:nth-child(5n+1) img {
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+.js30-content .project-wrapper .strip a:nth-child(5n+2) img {
+  -webkit-transform: rotate(-2deg);
+      -ms-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+}
+.js30-content .project-wrapper .strip a:nth-child(5n+3) img {
+  -webkit-transform: rotate(8deg);
+      -ms-transform: rotate(8deg);
+          transform: rotate(8deg);
+}
+.js30-content .project-wrapper .strip a:nth-child(5n+4) img {
+  -webkit-transform: rotate(-11deg);
+      -ms-transform: rotate(-11deg);
+          transform: rotate(-11deg);
+}
+.js30-content .project-wrapper .strip a:nth-child(5n+5) img {
+  -webkit-transform: rotate(12deg);
+      -ms-transform: rotate(12deg);
+          transform: rotate(12deg);
+}

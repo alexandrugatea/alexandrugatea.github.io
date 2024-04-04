@@ -1,0 +1,36 @@
+.js30-content .inbox {
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.js30-content .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #444;
+}
+.js30-content .item:last-child {
+  border-bottom: 0;
+}
+.js30-content input:checked + p {
+  text-decoration: line-through;
+}
+.js30-content input[type=checkbox] {
+  margin: 20px;
+}
+.js30-content p {
+  margin: 0;
+  padding: 20px;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 20px;
+  font-weight: 200;
+}

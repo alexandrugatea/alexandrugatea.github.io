@@ -1,0 +1,46 @@
+@media screen and (max-width: 1023px) {
+  .js30-content .project-wrapper {
+    min-height: calc(100dvh - 250px);
+  }
+}
+.js30-content .title-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  padding: 50px 0;
+  pointer-events: none;
+}
+.js30-content .hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100dvh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #c7c7c7;
+}
+.js30-content .hero h1 {
+  text-shadow: 10px 10px 0 rgb(0, 0, 0);
+  font-size: 100px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .hero h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .js30-content .hero h1 {
+    font-size: 60px;
+  }
+}

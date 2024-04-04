@@ -77,7 +77,7 @@
   z-index: 99998; 
   transform: translate(-50%, -50%);
   transition-property: transform, width, height, background-color, opacity;
-  transition-duration: 0.4s;
+  transition-duration: 0.25s;
   transition-timing-function: ease-in-out;
 
   &.hovering {

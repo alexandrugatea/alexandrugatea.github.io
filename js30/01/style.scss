@@ -1,0 +1,59 @@
+.js30-content {
+
+  .keys {
+    padding-top: 70px;
+  }
+  .keys,
+  .keys>div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .key {
+    box-shadow: inset 0 0 0 4px black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 .5rem black;
+    cursor: pointer;
+
+    @media screen and (max-width: 767px) {
+      width: 30%;
+      margin: 10px 5px;
+    }
+  }
+
+  .playing {
+    transform: scale(1.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 1rem var(--accent);
+  }
+
+  kbd {
+    display: block;
+    font-size: 4rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: var(--accent);
+    user-select: none;
+    pointer-events: none;
+  }
+}

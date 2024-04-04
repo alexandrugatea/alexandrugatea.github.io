@@ -1,0 +1,20 @@
+.js30-content {
+    .project-wrapper {
+        padding: 0;
+        position: relative;
+    }
+
+    .title-box {
+        display: inline-flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 50px 0;
+        text-align: center;
+        user-select: none;
+        pointer-events: none;
+    }
+    
+}

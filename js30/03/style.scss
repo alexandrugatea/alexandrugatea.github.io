@@ -1,0 +1,40 @@
+.js30-content {
+  --base: var(--accent);
+  --spacing: 20px;
+  --invert: 0%;
+  --radius: 5px;
+
+  .lesson {
+    h2 {
+      margin-bottom: 30px;
+    }
+  }
+  .controls {
+    margin-bottom: 50px;
+
+    @media screen and (max-width: 767px) {
+      label, input {
+        display: inline-block;
+        width: 45%;
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  input {
+    width: 100px;
+  }
+
+  img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: invert(var(--invert));
+    border-radius: var(--radius);
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .hl {
+    color: var(--base)
+  }
+}

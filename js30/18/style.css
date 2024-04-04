@@ -1,0 +1,44 @@
+.js30-content .lesson {
+  width: 100%;
+}
+.js30-content .videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 14px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .videos {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 4px;
+  }
+}
+.js30-content .videos li {
+  position: relative;
+  width: 100%;
+  padding: 14px 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(209, 209, 209, 0.07);
+}
+.js30-content .videos li:after {
+  content: attr(data-time);
+  color: var(--accent);
+  font-family: "PS700", sans-serif;
+  font-weight: 700;
+}
+.js30-content #totalTime {
+  font-size: 28px;
+  width: 100%;
+  padding: 20px 0;
+  border-top: 2px solid #333;
+}
+.js30-content #totalTime span {
+  font-size: 14px;
+}

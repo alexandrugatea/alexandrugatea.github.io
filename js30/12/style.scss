@@ -1,0 +1,24 @@
+.js30-content {
+    .lesson {
+        width: 100%;
+    }
+    
+    .secret-image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        width: 100%;
+
+        img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+    
+}

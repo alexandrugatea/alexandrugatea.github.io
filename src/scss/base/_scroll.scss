@@ -1,5 +1,5 @@
 /* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
+*:not(pre)::-webkit-scrollbar {
   display: none;
 }
 
@@ -11,10 +11,9 @@ body, html {
 
 
 
-
 #CybotCookiebotDialog::-webkit-scrollbar, 
 #CybotCookiebotDialog *::-webkit-scrollbar {
-  display: block; /* Re-enable scrollbars for Chrome, Safari */
+  display: block; 
 }
 
 #CybotCookiebotDialog, #CybotCookiebotDialog * {

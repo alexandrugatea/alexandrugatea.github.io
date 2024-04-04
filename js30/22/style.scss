@@ -1,0 +1,54 @@
+.js30-content {
+
+  .lesson {
+    position: relative;
+  }
+  .wrapper {
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 20px;
+    line-height: 2;
+    position: relative;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--accent);
+    background: rgba(0,0,0,0.05);
+    border-radius: 20px;
+  }
+  
+  .highlight {
+    transition: all 0.2s;
+    position: absolute;
+    top: 0;
+    background: rgba(209,209,209,0.28);
+    left: 0;
+    z-index: -1;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0px 0px 0px 3px rgba(209, 209, 209, 0.56);
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+  
+  .menu {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin:100px 0;
+  }
+  
+  .menu a {
+    display: inline-block;
+    padding: 5px;
+    margin: 0 20px;
+    color: var(--accent);
+  }
+}
+
+

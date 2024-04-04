@@ -1,0 +1,47 @@
+.js30-content {
+    .project-wrapper {
+        .lesson {
+            text-align: center;
+
+            .arrow {
+                width: 250px;
+                overflow: hidden;
+                transition: all 0.2s;
+                transform: rotate(0deg);
+                display: inline-block;
+            }
+
+            h1 {
+                color: white;
+                font-weight: 100;
+                font-size: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            p {
+                display: flex;
+                justify-content: center;
+                font-size: 24px;
+                color: #c7c7c7;
+                margin-bottom: 30px;
+
+                @media screen and (max-width: 767px) {
+                    font-size: 17px;
+                }
+            }
+
+            p span {
+                padding: 0 10px;
+            }
+
+            .units {
+                font-size: 15px;
+            }
+
+            /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
+        }
+    }
+
+}

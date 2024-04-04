@@ -110,7 +110,7 @@
 
                     &.current {
                         a {
-                            color: accent(0.65);
+                            color: accent(0.91);
                         }
                     }
                 }
@@ -130,9 +130,8 @@
 
                     span {
                         font-size: rem-calc(14);
-                        transform: translate(100%, 0);
-                        top: 49%;
-                        opacity: 0.77;
+                        transform: translate(50%, -10%);
+                        opacity: 0.84;
                     }
 
                     &:before {

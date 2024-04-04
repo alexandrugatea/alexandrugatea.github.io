@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I craft engaging digital experiences through the power of code and design.">
+    <meta name="keywords"
+        content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:description"
+        content="I craft engaging digital experiences through the power of code and design.">
+    <meta property="og:url" content="https://www.alexandrugatea.com">
+    <meta property="og:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:title" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:description"
+        content="I craft engaging digital experiences through the power of code and design.">
+    <meta property="twitter:url" content="https://www.alexandrugatea.com">
+    <meta property="twitter:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="twitter:type" content="website">
+    <meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:locale" content="en_US">
+
+
+    <link rel="shortcut icon" href="dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" href="dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" href="light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="light.ico" media="(prefers-color-scheme: dark)">
+    <title>AG | JS challenge</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Alexandru Dan Gatea",
+    "url": "http://www.alexandrugatea.com",
+    "jobTitle": [
+        "User Experience Engineer",
+        "User Interface Engineer",
+        "UX Designer",
+        "UX Engineer",
+        "UI Designer",
+        "UI Engineer",
+        "Web Designer",
+        "Web Developer",
+        "Graphic Designer"
+    ],
+    "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universitatea de Stiinte Agricole si Medicina Veterinara Cluj-Napoca",
+        "sameAs": "https://www.usamvcluj.ro/"
+    },
+    "worksFor": [
+        {
+            "@type": "Organization",
+            "name": "Stromer",
+            "sameAs": "https://www.stromerbike.com"
+        },
+        {
+            "@type": "Organization",
+            "name": "Telenav",
+            "sameAs": "https://www.telenav.com"
+        }
+    ],
+    "sameAs": [
+        "https://www.linkedin.com/in/alexandru-gatea/",
+        "https://github.com/alexandrugatea",
+        "https://github.com/alexandrugatea"
+    ],
+    "homeLocation": {
+        "@type": "Place",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cluj-Napoca",
+            "addressRegion": "Cluj",
+            "addressCountry": "RO"
+        }
+    },
+    "knowsLanguage": ["English", "Romanian"],
+    "knowsAbout": ["Web Development", "UX/UI Design", "Figma", "Prototyping", "Map Styling", "3D Animation", "SCSS", "JavaScript", "Logo Design", "Graphic Design", "Photoshop", "Illustrator", "Web Design", "Git", "Jira", "Confluence", "Microsoft Office", "Word", "PowerPoint", "Excel", "Adobe XD", "CSS", "Animations", "JavaScript Interractions"],
+    "description": "I craft engaging digital experiences through the power of code and design.",
+    "image": "https://alexandrugatea.com/build/images/about/abtm.png"
+}
+</script>
+    <link rel="stylesheet" href="build/css/s.css">
+    <link rel="stylesheet" href="build/css/prism.css">
+</head>
+
+<body class="js30 default-cursor">
+
+    <div class="js30-page-container">
+        <div class="js30-side">
+            <div class="js30-title">
+                <a href="/work" class="back">Back to Projects</a>
+                <h1 class="page-title">JS30 Challenges</h1>
+                <p>by <a href="https://javascript30.com/" target="_blank">Wes Bos.</a> <br>No libraries. Just plain Javascript</p>
+            </div>
+            <div class="js30-projects" id="js30Projects"></div>
+        </div>
+        <div class="js30-content" id="js30ProjectContent"></div>
+    </div>
+
+    <div class="noise"></div>
+
+    <script>
+        const projects = document.getElementById('js30Projects');
+        const content = document.getElementById('js30ProjectContent');
+
+        const projectsList = [
+            { href: '/js30/01/index.html', text: 'JavaScript Drum Kit' },
+            { href: '/js30/02/index.html', text: 'JS and CSS Clock' },
+            { href: '/js30/03/index.html', text: 'CSS Variables' },
+            { href: '/js30/04/index.html', text: 'Array Cardio Day 1' },
+            { href: '/js30/05/index.html', text: 'Flex Panel Gallery' },
+            { href: '/js30/06/index.html', text: 'Type Ahead' },
+            { href: '/js30/07/index.html', text: 'Array Cardio Day 2' },
+            { href: '/js30/08/index.html', text: 'Fun with HTML5 Canvas' },
+            { href: '/js30/09/index.html', text: 'Dev Tools Domination' },
+            { href: '/js30/10/index.html', text: 'Hold Shift and Check Checkboxes' },
+            { href: '/js30/11/index.html', text: 'Custom Video Player' },
+            { href: '/js30/12/index.html', text: 'Key Sequence Detection' },
+            { href: '/js30/13/index.html', text: 'Slide in on Scroll' },
+            { href: '/js30/14/index.html', text: 'JavaScript References VS Copying' },
+            { href: '/js30/15/index.html', text: 'LocalStorage' },
+            { href: '/js30/16/index.html', text: 'Mouse Move Shadow' },
+            { href: '/js30/17/index.html', text: 'Sort Without Articles' },
+            { href: '/js30/18/index.html', text: 'Adding Up Times with Reduce' },
+            { href: '/js30/19/index.html', text: 'Webcam Fun' },
+            { href: '/js30/20/index.html', text: 'Speech Detection' },
+            { href: '/js30/21/index.html', text: 'Geolocation' },
+            { href: '/js30/22/index.html', text: 'Follow Along Link Highlighter' },
+            { href: '/js30/23/index.html', text: 'Speech Synthesis' },
+            { href: '/js30/24/index.html', text: 'Sticky Nav' },
+            { href: '/js30/25/index.html', text: 'Event Capture, Propagation, Bubbling and Once' },
+            { href: '/js30/26/index.html', text: 'Stripe Follow Along Nav' },
+            { href: '/js30/27/index.html', text: 'Click and Drag' },
+            { href: '/js30/28/index.html', text: 'Video Speed Controller' },
+            { href: '/js30/29/index.html', text: 'Countdown Timer' },
+            { href: '/js30/30/index.html', text: 'Whack A Mole' }
+        ];
+
+        loadProject('01');
+        projectsList.forEach((project, index) => {
+            // Create a new div element
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('project');
+
+            const link = document.createElement('a');
+            link.href = project.href;
+            link.title = project.text;
+            link.innerHTML = `<span>${project.text}</span>`;
+            const projectName = (index + 1).toString().padStart(2, '0');
+            
+            console.log(projectName);
+
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.project a').forEach(el => {
+                    el.classList.remove('active');
+                });
+
+                this.classList.add('active');
+                
+                loadProject(projectName);
+            });
+
+            if (index === 0) {
+                link.classList.add('active');
+            }
+            // Append the anchor to the div
+            wrapper.appendChild(link);
+
+            // Append the div to the body or another container element
+            projects.appendChild(wrapper);
+        });
+
+        // Function to load a project
+        function loadProject(projectName) {
+            // Cleanup before loading new content
+            content.innerHTML = '';
+            content.removeAttribute("style");
+
+            // Fetch and display the HTML
+            fetch(`js30/${projectName}/index.html`)
+                .then(response => response.text())
+                .then(html => {
+                    content.innerHTML = html;
+                    // After the HTML is inserted, load CSS and JS
+                    loadCSS(`js30/${projectName}/style.css`);
+                    loadJS(`js30/${projectName}/script.js`);
+                });
+        }
+
+        // Function to dynamically load CSS with identifier
+        function loadCSS(href) {
+            const link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = href;
+            content.appendChild(link);
+        }
+
+        // Function to dynamically load JavaScript with identifier
+        function loadJS(src) {
+            const script = document.createElement('script');
+            script.src = src;
+            content.appendChild(script);
+        }
+    </script>
+    <script src="/build/js/prism.js"></script>
+</body>
+
+</html>

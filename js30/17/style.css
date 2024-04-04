@@ -1,0 +1,51 @@
+.js30-content .bands-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+.js30-content ul {
+  list-style: inside square;
+  font-size: 14px;
+  max-width: 400px;
+  margin: auto;
+  padding: 0;
+  -webkit-box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+  padding-left: 50px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content ul {
+    padding-left: 0;
+  }
+}
+.js30-content ul:before {
+  content: attr(data-title);
+  display: block;
+  font-weight: 700;
+  font-size: 21px;
+}
+.js30-content ul li {
+  border-bottom: 1px solid #333;
+  padding: 20px;
+  position: relative;
+}
+.js30-content ul li span.article {
+  text-decoration: line-through;
+  position: absolute;
+  left: 0;
+  text-align: right;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.js30-content ul li b {
+  font-size: 16px;
+}
+.js30-content ul li:last-child {
+  border-bottom: 0;
+}
+.js30-content a {
+  color: #ffc600;
+  text-decoration: none;
+}

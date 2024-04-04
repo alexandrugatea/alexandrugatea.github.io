@@ -1,0 +1,124 @@
+.js30-content {
+  .project-wrapper {
+
+    svg {
+      fill: white;
+      background: rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 50%;
+      width: 100px;
+      margin-bottom: 50px;
+    }
+    
+    .wrapper {
+      padding: 20px;
+      width: 100%;
+      max-width: 550px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+      margin: 0;
+      font-weight: 200;
+    }
+    
+    .plates {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      list-style: none;
+    }
+    
+    .plates li {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      padding: 10px 0;
+      font-weight: 100;
+      display: flex;
+    }
+    
+    .plates label {
+      flex: 1;
+      cursor: pointer;
+      user-select: none;
+      color: #070707;
+    }
+    
+    .plates input {
+      display: none;
+    }
+    
+    .plates input + label:before {
+      content: "⬜️";
+      margin-right: 10px;
+    }
+    
+    .plates input:checked + label:before {
+      content: "🌮";
+    }
+    
+    .add-items {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .add-items input[type=text] {
+      padding: 10px;
+      outline: 0;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      flex: 3;
+    }
+    .add-items input[type=submit] {
+      padding: 10px;
+      outline: 0;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+    
+    .form-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex: 10;
+
+      @media screen and (max-width: 767px) {
+        gap: 5px;
+      }
+  
+      button {
+        flex: 1;
+      }
+    }
+    
+    .form-group .btn {
+      flex: 1;
+    }
+    
+    .btn {
+      padding: 10px 25px;
+      background: #070707;
+      color: #c7c7c7;
+      border: none;
+      cursor: pointer;
+      transform: scale(1);
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    }
+    
+    .btn:active {
+      transform: scale(0.96);
+    }
+    
+    .btn:nth-child(2) {
+      box-shadow: inset 0 0 0 2px #070707;
+      color: #070707;
+      background: transparent;
+    }
+  }
+  
+}
+

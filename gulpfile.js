@@ -37,6 +37,17 @@ gulp.task('odin-scss', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task('js30-scss', function () {
+    return gulp.src('js30/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([autoprefixer()]))
+        .pipe(rename(function (path) {
+            path.dirname = path.dirname.replace('scss', '');
+        }))
+        .pipe(gulp.dest('js30'))
+        .pipe(browserSync.stream());
+});
+
 // Move JS files
 gulp.task('js', function () {
     return gulp.src(source + '/js/**/*.js')
@@ -105,6 +116,7 @@ gulp.task('serve', function () {
             })]
         }
     });
+    gulp.watch('js30/**/*.scss', gulp.series('js30-scss'));
     gulp.watch('odin/**/css/scss/**/*.scss', gulp.series('odin-scss'));
     gulp.watch('odin/**/*.js', gulp.series('js'));
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
@@ -118,4 +130,14 @@ gulp.task('serve', function () {
 });
 
 // Default Task
-gulp.task('default', gulp.series(gulp.parallel('html', 'scss', 'odin-scss', 'js', 'libs', 'fonts', 'images', 'media'), 'serve'));
+gulp.task('default', gulp.series(gulp.parallel(
+    'html', 
+    'fonts', 
+    'media',
+    'images', 
+    'js', 
+    'libs', 
+    'scss', 
+    'odin-scss', 
+    'js30-scss' 
+    ), 'serve'));

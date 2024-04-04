@@ -1,0 +1,56 @@
+  <div class="project-wrapper">
+    <div class='title-box'>
+      <h1>Understanding JavaScript's Capture</h1>
+      <p>Click any of the Boxes below to check the bubbling effect</p>
+    </div>
+    <div class="lesson">
+      <div class="grid">
+        <div class="item">
+          <h3>Demonstration of <span>Bubbling Events</span></h3>
+          <p>When you click inside one of several nested elements (like boxes within boxes), you trigger a "click" event on the
+          specific element you clicked. This event then bubbles up to each parent element in turn, all the way up the hierarchy
+          until it can't go any higher.</p>
+          <div class="family" id="family1">
+            <div class="grandparent" id="grandParent1">
+              <div class="parent" id="parent1">
+                <div class="child" id="child1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fam1Output"></div>
+        </div>
+        <div class="item">
+          <h3>Demonstration of <span>Capturing Events</span></h3>
+          <p>Event capturing is essentially the flip side of bubbling. Instead of starting at the clicked element and moving outward,
+          capturing begins at the top of the hierarchy and works its way down to the target element.</p>
+          <div class="family" id="family2">
+            <div class="grandparent" id="grandParent2">
+              <div class="parent" id="parent2">
+                <div class="child" id="child2">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fam2Output"></div>
+        </div>
+        <div class="item">
+          <h3>Demonstration of <span>stopping</span> bubbling/capturing</h3>
+          <p>If you need to prevent an event from bubbling up or capturing down, you can use the "stopPropagation" method within an
+          event handler. This stops the event in its tracks, meaning it won't continue to propagate through other elements.</p>
+          <div class="family" id="family3">
+            <div class="grandparent" id="grandParent3">
+              <div class="parent" id="parent3">
+                <div class="child" id="child3">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="fam3Output"></div>
+        </div>
+      </div>
+      
+      <button class="butt" id="buttonOnce">I will execute my function only once</button>
+    </div>
+  </div>
+

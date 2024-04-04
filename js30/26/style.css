@@ -1,0 +1,136 @@
+@media screen and (max-width: 1023px) {
+  .js30-content .project-wrapper {
+    min-height: calc(100dvh - 250px);
+  }
+}
+.js30-content .project-wrapper nav {
+  position: relative;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+}
+.js30-content .project-wrapper .cool > li > a {
+  color: #c7c7c7;
+  text-decoration: none;
+  font-size: 21px;
+  letter-spacing: -0.2px;
+  font-family: "PS700";
+  background: #333;
+  padding: 14px 21px;
+  display: block;
+  margin: 20px;
+  border-radius: 8px;
+}
+.js30-content .project-wrapper nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.js30-content .project-wrapper .cool > li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.js30-content .project-wrapper .dropdown {
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  padding: 20px;
+  top: -20px;
+  border-radius: 2px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateY(100px);
+      -ms-transform: translateY(100px);
+          transform: translateY(100px);
+  will-change: opacity;
+  display: none;
+}
+.js30-content .project-wrapper .trigger-enter .dropdown {
+  display: block;
+}
+.js30-content .project-wrapper .trigger-enter-active .dropdown {
+  opacity: 1;
+}
+.js30-content .project-wrapper .dropdownBackground {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: #333;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s, opacity 0.1s, -webkit-transform 0.2s;
+  transition: all 0.3s, opacity 0.1s, -webkit-transform 0.2s;
+  transition: all 0.3s, opacity 0.1s, transform 0.2s;
+  transition: all 0.3s, opacity 0.1s, transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform-origin: 50% 0;
+      -ms-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+}
+.js30-content .project-wrapper .dropdownBackground.open {
+  opacity: 1;
+}
+.js30-content .project-wrapper .arrow {
+  position: absolute;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: #333;
+  -webkit-transform: translateY(-50%) rotate(45deg);
+      -ms-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+}
+.js30-content .project-wrapper .bio {
+  min-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.7;
+}
+.js30-content .project-wrapper .bio img {
+  margin-right: 20px;
+  max-width: 150px;
+}
+.js30-content .project-wrapper .courses {
+  min-width: 300px;
+}
+.js30-content .project-wrapper .courses li {
+  padding: 10px 0;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.js30-content .project-wrapper .dropdown a {
+  text-decoration: none;
+  color: var(--accent);
+}
+.js30-content .project-wrapper a.button {
+  background: black;
+  display: block;
+  padding: 10px;
+  color: white;
+  margin-bottom: 10px;
+}

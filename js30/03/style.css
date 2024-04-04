@@ -1,0 +1,34 @@
+.js30-content {
+  --base: var(--accent);
+  --spacing: 20px;
+  --invert: 0%;
+  --radius: 5px;
+}
+.js30-content .lesson h2 {
+  margin-bottom: 30px;
+}
+.js30-content .controls {
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 767px) {
+  .js30-content .controls label, .js30-content .controls input {
+    display: inline-block;
+    width: 45%;
+    margin-bottom: 25px;
+  }
+}
+.js30-content input {
+  width: 100px;
+}
+.js30-content img {
+  padding: var(--spacing);
+  background: var(--base);
+  -webkit-filter: invert(var(--invert));
+          filter: invert(var(--invert));
+  border-radius: var(--radius);
+  max-width: 700px;
+  width: 100%;
+}
+.js30-content .hl {
+  color: var(--base);
+}

@@ -1,0 +1,41 @@
+.js30-content {
+
+    .project-wrapper {
+        @media screen and (max-width: 1023px) {
+            min-height: calc(100dvh - 250px);
+        }
+    }
+    .title-box {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 50px 0;
+        pointer-events: none;
+    }
+    
+        .hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-height: 100dvh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #c7c7c7;
+            h1 {
+                text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+                font-size: 100px;
+
+                @media screen and (max-width: 767px) {
+                    font-size: 30px;
+                }
+                
+                @media screen and (min-width: 768px) and (max-width: 1023px) {
+                    font-size: 60px;
+                }
+            }
+        }
+    
+}
