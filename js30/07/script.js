@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
 
     // ## Array Cardio Day 2
 

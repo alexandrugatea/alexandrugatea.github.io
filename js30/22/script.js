@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const triggers = document.querySelectorAll('#follow .lesson a');
     const container = document.querySelector("#follow .lesson");
 
@@ -7,16 +6,12 @@
     highlight.classList.add('highlight');
     container.appendChild(highlight);
     
-    console.log(container.getBoundingClientRect());
 
     function highlightLink() {
         const linkCoords = this.getBoundingClientRect(); // the magic of getting the coordinates
-        // console.log(linkCoords);
         const containerCoords = container.getBoundingClientRect(); // the magic of getting
-        console.log(containerCoords);
 
 
-        console.log(`Link top ${linkCoords.top}, Container top ${containerCoords.top}`)
 
         let styles = {
             top: linkCoords.top - containerCoords.top,

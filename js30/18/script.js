@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const totalTimeContainer = document.getElementById('totalTime');
     const timeNodes = Array.from(document.querySelectorAll("[data-time]"));
 

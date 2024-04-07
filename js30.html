@@ -116,61 +116,64 @@
         const content = document.getElementById('js30ProjectContent');
 
         const projectsList = [
-            { href: '/js30/01/index.html', text: 'JavaScript Drum Kit' },
-            { href: '/js30/02/index.html', text: 'JS and CSS Clock' },
-            { href: '/js30/03/index.html', text: 'CSS Variables' },
-            { href: '/js30/04/index.html', text: 'Array Cardio Day 1' },
-            { href: '/js30/05/index.html', text: 'Flex Panel Gallery' },
-            { href: '/js30/06/index.html', text: 'Type Ahead' },
-            { href: '/js30/07/index.html', text: 'Array Cardio Day 2' },
-            { href: '/js30/08/index.html', text: 'Fun with HTML5 Canvas' },
-            { href: '/js30/09/index.html', text: 'Dev Tools Domination' },
-            { href: '/js30/10/index.html', text: 'Hold Shift and Check Checkboxes' },
-            { href: '/js30/11/index.html', text: 'Custom Video Player' },
-            { href: '/js30/12/index.html', text: 'Key Sequence Detection' },
-            { href: '/js30/13/index.html', text: 'Slide in on Scroll' },
-            { href: '/js30/14/index.html', text: 'JavaScript References VS Copying' },
-            { href: '/js30/15/index.html', text: 'LocalStorage' },
-            { href: '/js30/16/index.html', text: 'Mouse Move Shadow' },
-            { href: '/js30/17/index.html', text: 'Sort Without Articles' },
-            { href: '/js30/18/index.html', text: 'Adding Up Times with Reduce' },
-            { href: '/js30/19/index.html', text: 'Webcam Fun' },
-            { href: '/js30/20/index.html', text: 'Speech Detection' },
-            { href: '/js30/21/index.html', text: 'Geolocation' },
-            { href: '/js30/22/index.html', text: 'Follow Along Link Highlighter' },
-            { href: '/js30/23/index.html', text: 'Speech Synthesis' },
-            { href: '/js30/24/index.html', text: 'Sticky Nav' },
-            { href: '/js30/25/index.html', text: 'Event Capture, Propagation, Bubbling and Once' },
-            { href: '/js30/26/index.html', text: 'Stripe Follow Along Nav' },
-            { href: '/js30/27/index.html', text: 'Click and Drag' },
-            { href: '/js30/28/index.html', text: 'Video Speed Controller' },
-            { href: '/js30/29/index.html', text: 'Countdown Timer' },
-            { href: '/js30/30/index.html', text: 'Whack A Mole' }
+            { text: 'JavaScript Drum Kit' },
+            { text: 'JS and CSS Clock' },
+            { text: 'CSS Variables' },
+            { text: 'Array Cardio Day 1' },
+            { text: 'Flex Panel Gallery' },
+            { text: 'Type Ahead' },
+            { text: 'Array Cardio Day 2' },
+            { text: 'Fun with HTML5 Canvas' },
+            { text: 'Dev Tools Domination' },
+            { text: 'Hold Shift and Check Checkboxes' },
+            { text: 'Custom Video Player' },
+            { text: 'Key Sequence Detection' },
+            { text: 'Slide in on Scroll' },
+            { text: 'JavaScript References VS Copying' },
+            { text: 'LocalStorage' },
+            { text: 'Mouse Move Shadow' },
+            { text: 'Sort Without Articles' },
+            { text: 'Adding Up Times with Reduce' },
+            { text: 'Webcam Fun' },
+            { text: 'Speech Detection' },
+            { text: 'Geolocation' },
+            { text: 'Follow Along Link Highlighter' },
+            { text: 'Speech Synthesis' },
+            { text: 'Sticky Nav' },
+            { text: 'Event Capture, Propagation, Bubbling and Once' },
+            { text: 'Stripe Follow Along Nav' },
+            { text: 'Click and Drag' },
+            { text: 'Video Speed Controller' },
+            { text: 'Countdown Timer' },
+            { text: 'Whack A Mole' }
         ];
 
-        loadProject('01');
+        // loadProject('01');
         projectsList.forEach((project, index) => {
+            const projectName = (index + 1).toString().padStart(2, '0');
             // Create a new div element
             const wrapper = document.createElement('div');
             wrapper.classList.add('project');
 
-            const link = document.createElement('a');
-            link.href = project.href;
+            const link = document.createElement('div');
+            // link.href = project.href;
+            link.classList.add("project-link");
             link.title = project.text;
             link.innerHTML = `<span>${project.text}</span>`;
-            const projectName = (index + 1).toString().padStart(2, '0');
-            
-            console.log(projectName);
+            link.setAttribute('id', `project${projectName}`)
 
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
+            link.addEventListener('click', function (e) {
+                // e.preventDefault();
 
-                document.querySelectorAll('.project a').forEach(el => {
+                document.querySelectorAll('.project .project-link').forEach(el => {
                     el.classList.remove('active');
                 });
 
                 this.classList.add('active');
-                
+
+                history.pushState(null, '', `#${`project${projectName}`}`);
+
+                console.clear();
                 loadProject(projectName);
             });
 
@@ -216,6 +219,23 @@
             script.src = src;
             content.appendChild(script);
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const hash = window.location.hash;
+            if (hash.startsWith('#project')) {
+                const projectNumber = hash.replace('#project', '');
+                loadProject(projectNumber);
+
+                document.querySelectorAll('.project .project-link').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.getElementById(`project${projectNumber}`).classList.add('active');
+
+
+            } else {
+                loadProject('01');
+            }
+        });
     </script>
     <script src="/build/js/prism.js"></script>
 </body>

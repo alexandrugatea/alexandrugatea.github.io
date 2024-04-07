@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const pressed = [];
 
     const words = ['Quixotic', 'Jazz', 'Gymkhana', 'Flyovers', 'Brick', 'Waldorf', 'Mumps', 'Synchronize', 'Liquid', 'Vex'];
@@ -12,10 +11,8 @@
     function keyUpHandler(e) {
         pressed.push(e.key);
         pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-        // console.log(pressed);
 
         if (pressed.join("").includes(secretCode)) {
-            // console.log("You did it");
             prize.classList.add("active");
             window.removeEventListener('keyup', keyUpHandler);
 

@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const slider = document.querySelector('.items');
 
     let isDown = false; // flag variable to indicate wether the slider is clicked or not

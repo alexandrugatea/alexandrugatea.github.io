@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
 
     const secondsHand = document.querySelector(".second-hand");
     const minutesHand = document.querySelector(".min-hand");
@@ -23,7 +22,6 @@
 
         let numbers = document.querySelectorAll(".wf");
         let faceSize = face.clientWidth;
-        console.log(faceSize);
         semiCircle(numbers, 0, 0, faceSize / 2, faceSize / 2, -60, 300, 0);
 
         let dots = document.querySelectorAll(".dot");

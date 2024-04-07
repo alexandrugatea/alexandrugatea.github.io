@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
 
     window[`01`] = function () {
         // Perform cleanup tasks here, e.g., remove event listeners

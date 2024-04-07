@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     let lat = document.querySelector('.coord-lat');
     let lon = document.querySelector('.coord-lon');
     const getCoordsBtn = document.getElementById('getCoords')

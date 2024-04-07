@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const navbar = document.querySelector("#main");
     const body = document.querySelector(".project-wrapper");
     let navbarHeight = navbar.clientHeight;
@@ -8,7 +7,6 @@
 
 
     function fixNav() {
-        console.log(body.scrollTop)
         body.scrollTop >= topOfnav ? setFixed(body) : removeFixed(body);
     }
 

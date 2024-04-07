@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
 
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
@@ -37,7 +36,6 @@
     ];
 
     
-    console.clear();
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 

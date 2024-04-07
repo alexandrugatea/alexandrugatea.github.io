@@ -18,7 +18,6 @@
     family3Members.forEach((member) => member.addEventListener("transitionend", removeAnimation));
 
     function removeAnimation(e) {
-        console.log(e);
         if (e.propertyName !== "box-shadow") return;
         e.target.classList.remove("animate");
     }

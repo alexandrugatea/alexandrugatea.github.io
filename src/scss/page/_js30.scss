@@ -95,7 +95,7 @@ body.js30 {
                 margin-right: 5px;
             }
 
-            a {
+            .project-link {
                 padding: rem-calc(14);
                 display: block;
                 overflow: hidden;
@@ -104,6 +104,7 @@ body.js30 {
                 text-decoration: none;
                 font-family: $font700;
                 background: rgba($bodyText, 0.07);
+                cursor: pointer;
 
                 @include breakpoint(medium down) {
                     span {

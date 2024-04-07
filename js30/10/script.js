@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const checkboxes = document.querySelectorAll('.inbox [type=checkbox]');
     let lastChecked;
     checkboxes.forEach(checkbox => checkbox.addEventListener("click", handleCheck));
@@ -12,10 +11,8 @@
             // select all in between
             // loop over evesy single checkbox
             checkboxes.forEach(checkbox => {
-                // console.log(checkbox);
                 if (checkbox === this || checkbox === lastChecked) {
                     inBetween = !inBetween;
-                    // console.log("Starting to check in between");
                 }
 
                 if (inBetween) {

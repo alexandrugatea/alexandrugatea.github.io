@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
 
     const inputs = document.querySelectorAll(".controls input");
     

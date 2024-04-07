@@ -3973,7 +3973,7 @@ body.js30 {
     margin-right: 5px;
   }
 }
-.js30-projects .project a {
+.js30-projects .project .project-link {
   padding: 0.875rem;
   display: block;
   overflow: hidden;
@@ -3982,32 +3982,33 @@ body.js30 {
   text-decoration: none;
   font-family: "PS700";
   background: rgba(199, 199, 199, 0.07);
+  cursor: pointer;
 }
 @media screen and (max-width: 63.9375em) {
-  .js30-projects .project a span {
+  .js30-projects .project .project-link span {
     display: none;
   }
 }
 @media print, screen and (min-width: 64em) {
-  .js30-projects .project a {
+  .js30-projects .project .project-link {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 }
-.js30-projects .project a:before {
+.js30-projects .project .project-link:before {
   content: counters(projects, ".", decimal-leading-zero);
   display: inline-block;
   margin-right: 20px;
   font-size: 0.875rem;
 }
 @media screen and (max-width: 63.9375em) {
-  .js30-projects .project a:before {
+  .js30-projects .project .project-link:before {
     text-align: center;
     margin: 0;
     width: 100%;
   }
 }
-.js30-projects .project a.active {
+.js30-projects .project .project-link.active {
   color: #070707;
   background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
 }

@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     const scrollImages = document.querySelectorAll('.slide-in');
     const scrollableContainer = document.querySelector(".site-wrap");
     scrollableContainer.addEventListener("scroll", debounce(checkSlide));

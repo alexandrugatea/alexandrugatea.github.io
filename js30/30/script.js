@@ -1,5 +1,4 @@
 (function () {
-    console.clear();
     
     const holes = document.querySelectorAll('.hole');
     const scoreBoard = document.querySelector('.score');
@@ -12,7 +11,6 @@
     let bestScore = 0;
 
     bestScore = localStorage.getItem('score');
-    if (bestScore) console.log(bestScore);
 
     bestScore ? bestScoreContainer.innerHTML = bestScore : bestScoreContainer.innerHTML = "0";
 
