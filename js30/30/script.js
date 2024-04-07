@@ -43,13 +43,16 @@
     }
 
     function startGame() {
+
+        document.getElementById("startGame").setAttribute("disabled", true);
         scoreBoard.textContent = 0;
         timeUp = false;
         score = 0;
         playTime = 10; // seconds
         peep();
         setTimeout(() => {
-            timeUp = true
+            timeUp = true;
+            document.getElementById("startGame").removeAttribute("disabled");
         }, playTime * 1000)
 
         timerContainer.textContent = playTime
@@ -75,8 +78,11 @@
             bestScoreContainer.innerHTML = bestScore;
             localStorage.setItem('score', bestScore);
         }
-
-        this.parentElement.classList.remove('up');
+        this.classList.add("hit");
+        setTimeout(() => {
+            this.classList.remove("hit");
+            this.parentElement.classList.remove('up');
+        }, 390);
         scoreBoard.textContent = score;
     }
 
