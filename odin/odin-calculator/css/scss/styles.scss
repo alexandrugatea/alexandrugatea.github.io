@@ -1,0 +1,171 @@
+@use 'sass:math';
+$customFontPath: "../../../build/fonts/";
+@import "../../../../src/scss/base/var";
+@import "../../../../src/scss/base/reset";
+@import "../../../../src/scss/base/font";
+@import "../../../../src/scss/base/foundationMQ.scss";
+
+$accent: #ffc300;
+
+body {
+    background: $bodyBackground;
+    height: 100dvh;
+    overflow: hidden;
+    color: $bodyText;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: rem-calc(7);
+    background: darken($bodyBackground, 5%);
+    box-shadow: 
+    rem-calc(0 0 2 4) rgba(darken($bodyBackground, 10%), 1),
+    rem-calc(0 0 0 21) rgba(lighten($bodyBackground, 30%), 1)
+    ;
+
+
+    &-display {
+        width: 100%;
+        border-radius: rem-calc(8);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: rem-calc(3);
+        margin-bottom: rem-calc(7);
+        position: relative;
+        background: lighten($bodyBackground, 5%);
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+            linear-gradient(to left, transparent 97%, $bodyText 97%),
+            linear-gradient(to top, transparent 97%, $bodyText 97%);
+            background-size: rem-calc(28 28);
+            background-position: bottom right;
+            background-repeat: repeat;
+            pointer-events: none;
+            user-select: none;
+            opacity: 0.1;
+        }
+
+        &-top {
+            height: rem-calc(42px);
+            font-size: rem-calc(21);
+            font-family: $font300;
+        }
+        
+        &-current {
+            height: rem-calc(56px);
+            font-size: rem-calc(42);
+            font-family: $font500;
+        }
+        
+        &-top, &-current {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: rem-calc(0 14);
+            width: 100%;
+            text-overflow: ellipsis;
+            max-width: rem-calc(295);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+    &-keys {
+        display: inline-grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            'ac ac del divide' 
+            'seven eight nine multiply'
+            'four five six substract'
+            'one two three add'
+            'zero zero digit total';
+        place-content: center;
+        grid-gap: rem-calc(5);
+        place-items: center;
+
+            .key {
+                width: 70px;
+                height: 70px;
+                border-radius: rem-calc(4);
+                border: none;
+                font-family: $font700;
+                font-size: rem-calc(35);
+                position: relative;
+                overflow: hidden;
+                z-index: 0;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: rem-calc(28);
+                    height: auto;
+                    pointer-events: none;
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    transform: scale(1);
+                    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    background: darken($bodyText, 2%);
+                    border-radius: rem-calc(4px);
+                }
+
+                &.pressed, &:active::before {
+                    transform: scale(0.96);
+                }
+
+                &.operator {
+
+                    &:before {
+                        background: $accent;
+                    }
+                }
+            }
+
+            [data-key="0"] {grid-area: zero; width: 100%}
+            [data-key="1"] {grid-area: one;}
+            [data-key="2"] {grid-area: two;}
+            [data-key="3"] {grid-area: three;}
+            [data-key="4"] {grid-area: four;}
+            [data-key="5"] {grid-area: five;}
+            [data-key="6"] {grid-area: six;}
+            [data-key="7"] {grid-area: seven;}
+            [data-key="8"] {grid-area: eight;}
+            [data-key="9"] {grid-area: nine;}
+            [data-key="+"] {grid-area: add;}
+            [data-key="-"] {grid-area: substract;}
+            [data-key="*"] {grid-area: multiply;}
+            [data-key="/"] {grid-area: divide;}
+            [data-key="."] {grid-area: digit;}
+            [data-key="="] {grid-area: total;}
+            [data-key="Backspace"] {grid-area: del;}
+            [data-key="Delete"] {grid-area: ac; width: 100%}
+            [data-key="Mod"] {grid-area: mod;}
+        
+    }
+}

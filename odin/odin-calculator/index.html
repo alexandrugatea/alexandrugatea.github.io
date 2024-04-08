@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+    <div id="calculator" class="calculator">
+        <div class="calculator-display">
+            <div class="calculator-display-top" data-equation >2 + 2</div>
+            <div class="calculator-display-current" data-total>4</div>
+        </div>
+        <div class="calculator-keys">
+            <button type = "button" data-key = "Delete"    data-clear    class = "key">AC</button>
+            <button type = "button" data-key = "Backspace" data-delete   class = "key"><img src = "images/backspace.svg" alt  = ""></button>
+            <button type = "button" data-key = "/"         data-operator class = "key operator"><img src = "images/divide.svg" alt = ""></button>
+            <button type = "button" data-key = "*"         data-operator class = "key operator"><img src = "images/multiply.svg" alt = ""></button>
+            <button type = "button" data-key = "-"         data-operator class = "key operator"><img src = "images/substract.svg" alt = ""></button>
+            <button type = "button" data-key = "+"         data-operator class = "key operator"><img src = "images/add.svg" alt = ""></button>
+            <button type = "button" data-key = "="         data-totals   class = "key operator"><img src = "images/equals.svg" alt = ""></button>
+            <button type = "button" data-key = "9"         data-number   class = "key">9</button>
+            <button type = "button" data-key = "8"         data-number   class = "key">8</button>
+            <button type = "button" data-key = "7"         data-number   class = "key">7</button>
+            <button type = "button" data-key = "6"         data-number   class = "key">6</button>
+            <button type = "button" data-key = "5"         data-number   class = "key">5</button>
+            <button type = "button" data-key = "4"         data-number   class = "key">4</button>
+            <button type = "button" data-key = "3"         data-number   class = "key">3</button>
+            <button type = "button" data-key = "2"         data-number   class = "key">2</button>
+            <button type = "button" data-key = "1"         data-number   class = "key">1</button>
+            <button type = "button" data-key = "0"         data-number   class = "key">0</button>
+            <button type = "button" data-key = "."         data-digit   class = "key">.</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
