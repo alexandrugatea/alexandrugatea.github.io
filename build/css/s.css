@@ -349,13 +349,14 @@ body.work.locked {
           box-shadow: inset 0 0 0 0.1875rem rgba(199, 199, 199, 0.7);
   -webkit-animation: loader 1s linear infinite;
           animation: loader 1s linear infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
   pointer-events: none;
   opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition-delay: 0.35s;
-          transition-delay: 0.35s;
+  -webkit-transition: all 0.08s linear;
+  transition: all 0.08s linear;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
 }
 .page-transitioner.active {
   height: 120%;
@@ -369,12 +370,13 @@ body.work.locked {
   bottom: auto;
 }
 .page-transitioner.active .loader {
+  -webkit-transition: all 0.28s linear;
+  transition: all 0.28s linear;
   opacity: 1;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition-delay: 0.35s;
-          transition-delay: 0.35s;
+  width: 0;
+  height: 0;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
 }
 
 section .title:not(.will-animate),
@@ -2495,6 +2497,11 @@ body.default-cursor #kursorTrail {
   -webkit-animation: noise 0.2s infinite both;
           animation: noise 0.2s infinite both;
   opacity: 0.35;
+}
+@media screen and (max-width: 63.9375em) {
+  .noise {
+    opacity: 0.21;
+  }
 }
 
 .cube {

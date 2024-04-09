@@ -59,4 +59,8 @@
   background-size: rem-calc(105px);
   animation: noise 0.2s infinite both;
   opacity: 0.35;
+  
+  @include breakpoint(medium down) {
+    opacity: 0.21;
+  }
 }
