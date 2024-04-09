@@ -26,7 +26,7 @@ if (windowWidth > 1200) {
 // Page transition effect
 pageTransition.classList.remove("active")
 
-document.addEventListener("load", function () {
+document.addEventListener("DOMContentLoaded", function () {
     // animate the background grid
     container.classList.add("animate");
 });

@@ -30,11 +30,11 @@
   
   &.animate {
     .grid-line.row-line {
-      animation: svg 0.77s linear forwards;
+      animation: svg 0.56s linear forwards;
       animation-delay: var(--grl);
     }
     .grid-line.col-line {
-      animation: svg 0.77s linear forwards;
+      animation: svg 0.56s linear forwards;
       animation-delay: var(--gcl);
     }
   }

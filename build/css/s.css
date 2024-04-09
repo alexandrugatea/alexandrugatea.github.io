@@ -2457,14 +2457,14 @@ body.default-cursor #kursorTrail {
   stroke-dashoffset: 5000;
 }
 #grdbg.animate .grid-line.row-line {
-  -webkit-animation: svg 0.77s linear forwards;
-          animation: svg 0.77s linear forwards;
+  -webkit-animation: svg 0.56s linear forwards;
+          animation: svg 0.56s linear forwards;
   -webkit-animation-delay: var(--grl);
           animation-delay: var(--grl);
 }
 #grdbg.animate .grid-line.col-line {
-  -webkit-animation: svg 0.77s linear forwards;
-          animation: svg 0.77s linear forwards;
+  -webkit-animation: svg 0.56s linear forwards;
+          animation: svg 0.56s linear forwards;
   -webkit-animation-delay: var(--gcl);
           animation-delay: var(--gcl);
 }
