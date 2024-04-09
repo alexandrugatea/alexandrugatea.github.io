@@ -149,11 +149,9 @@ function checkSymbol(symbol) {
     }
     return symbol;
 }
-
 function updateDisplay(symbol, target) {
     return target.textContent += symbol;
 }
-
 window.addEventListener('keydown', (e) => {
     const key = e.key;
     
