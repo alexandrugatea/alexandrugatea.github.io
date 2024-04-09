@@ -131,15 +131,7 @@
         @@include('scripts.html')
         <script src="build/js/contact.js"></script>
         <script>
-            const loadingPage = document.querySelector('.page-transitioner');
-            const observer = new MutationObserver((mutationsList, observer) => {
-                mutationsList.forEach(mutation => {
-                    if (!mutation.target.classList.contains('active')) {
-                        addAnimations();
-                    }
-                });
-            });
-
+            addAnimations();
             function addAnimations() {
                 var os = new OnScreen({
                     tolerance: -49,
@@ -187,8 +179,6 @@
                     }, 300);
                 });
             }
-            const config = { attributes: true, attributeFilter: ['class'] };
-            observer.observe(loadingPage, config);
         </script>
     </body>
 </html>

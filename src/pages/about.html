@@ -215,22 +215,7 @@
             }
         </script>
         <script>
-
-            // Select the element you want to observe
-            const loadingPage = document.querySelector('.page-transitioner');
-
-            // Create a new MutationObserver instance
-            const observer = new MutationObserver((mutationsList, observer) => {
-                // Loop through all mutations in the mutations list
-                mutationsList.forEach(mutation => {
-
-                    // Check if the class attribute was removed from the loading page element
-                    if (!mutation.target.classList.contains('active')) {
-                        addAnimations();
-                    }
-                });
-            });
-
+            addAnimations();
             function addAnimations() {
                 var os = new OnScreen({
                     tolerance: -49,
@@ -292,12 +277,6 @@
                     }, 300);
                 });
             }
-
-            // Define the options for the MutationObserver
-            const config = { attributes: true, attributeFilter: ['class'] };
-
-            // Start observing the loading page element for attribute changes
-            observer.observe(loadingPage, config);
         </script>
     </body>
 </html>

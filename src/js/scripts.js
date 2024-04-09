@@ -64,14 +64,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 history.pushState({ path: goTo }, '', goTo);
 
                 window.location.href = goTo;
-            }, 550);
+            }, 350);
         });
     });
 
     window.onpopstate = function (event) {
         // Optionally initiate any animations or cleanup here
         // Then force a reload (consider UX implications)
-        window.location.reload();
+        pageTransition.classList.add("active");
+        setTimeout(() => {
+            window.location.reload();
+        }, 350);
     };
 
 

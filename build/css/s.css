@@ -320,16 +320,11 @@ body.work.locked {
   height: 0%;
   height: 0vh;
   height: 0dvh;
-  top: -10%;
-  top: -10vh;
-  top: -10dvh;
   left: 0;
   background: #0f0f0f;
   z-index: 9999;
   -webkit-transition: all 0.28s linear;
   transition: all 0.28s linear;
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -339,6 +334,10 @@ body.work.locked {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  bottom: -10%;
+  bottom: -10vh;
+  bottom: -10dvh;
+  top: auto;
 }
 .page-transitioner .loader {
   width: 3.0625rem;
@@ -364,8 +363,10 @@ body.work.locked {
   height: 120dvh;
   -webkit-transition: all 0.28s linear;
   transition: all 0.28s linear;
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
+  top: -10%;
+  top: -10vh;
+  top: -10dvh;
+  bottom: auto;
 }
 .page-transitioner.active .loader {
   opacity: 1;

@@ -11,7 +11,7 @@ let target =
     document.body.parentNode ||
     document.body;
 
-window.onload = createGrid;
+createGrid();
 
 let windowWidth = window.innerWidth
     || document.documentElement.clientWidth
@@ -23,18 +23,12 @@ if (windowWidth > 1200) {
     smoothScroll(target, 91, 14);
 }
 
+// Page transition effect
+pageTransition.classList.remove("active")
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Page transition effect
-    setTimeout(() => {
-        pageTransition.classList.remove("active");
-    }, 1200);
-
+document.addEventListener("load", function () {
     // animate the background grid
-    setTimeout(() => {
-        container.classList.add("animate");
-    }, 1300);
+    container.classList.add("animate");
 });
 
 window.addEventListener('resize', () => {
