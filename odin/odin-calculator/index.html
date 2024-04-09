@@ -3,15 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin Calculator</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Pocket Calculator, part of Odin Project Curriculum">
+    <meta name="keywords"
+        content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
+    <meta name="robots" content="index, follow">
 
+    <meta property="og:title" content="Pocket Calculator">
+    <meta property="og:description" content="JS project, part of Odin Project Curriculum">
+    <meta property="og:url" content="https://www.alexandrugatea.com">
+    <meta property="og:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:locale" content="en_US">
+
+    <meta property="twitter:title" content="Pocket Calculator">
+    <meta property="twitter:description" content="JS project, part of Odin Project Curriculum">
+    <meta property="twitter:url" content="https://www.alexandrugatea.com">
+    <meta property="twitter:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="twitter:type" content="website">
+    <meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:locale" content="en_US">
+
+
+    <link rel="shortcut icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="https://alexandrugatea.com/dark.ico" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="https://alexandrugatea.com/light.ico" media="(prefers-color-scheme: dark)">
+
+    <title>Pocket Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div id="calculator" class="calculator">
         <div class="calculator-display">
-            <div class="calculator-display-top" data-equation >2 + 2</div>
-            <div class="calculator-display-current" data-total>4</div>
+            <div class="calculator-display-top" data-equation ></div>
+            <div class="calculator-display-current" data-total></div>
         </div>
         <div class="calculator-keys">
             <button type = "button" data-key = "Delete"    data-clear    class = "key">AC</button>
@@ -31,7 +59,7 @@
             <button type = "button" data-key = "2"         data-number   class = "key">2</button>
             <button type = "button" data-key = "1"         data-number   class = "key">1</button>
             <button type = "button" data-key = "0"         data-number   class = "key">0</button>
-            <button type = "button" data-key = "."         data-digit   class = "key">.</button>
+            <button type = "button" data-key = "."         data-digit    class = "key">.</button>
         </div>
     </div>
 

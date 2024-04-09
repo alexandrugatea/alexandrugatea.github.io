@@ -177,8 +177,8 @@ body {
           flex-direction: column;
   border-radius: 0.4375rem;
   background: black;
-  -webkit-box-shadow: 0 0 0.125rem 0.25rem black, 0 0 0 1.3125rem #545454;
-          box-shadow: 0 0 0.125rem 0.25rem black, 0 0 0 1.3125rem #545454;
+  -webkit-box-shadow: 0 0 0 0.4375rem #070707, 0 0 0 1.3125rem #545454;
+          box-shadow: 0 0 0 0.4375rem #070707, 0 0 0 1.3125rem #545454;
 }
 .calculator-display {
   width: 100%;
@@ -189,27 +189,9 @@ body {
   grid-gap: 0.1875rem;
   margin-bottom: 0.4375rem;
   position: relative;
-  background: #141414;
-}
-.calculator-display:before {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: -webkit-gradient(linear, right top, left top, color-stop(97%, transparent), color-stop(97%, #c7c7c7)), -webkit-gradient(linear, left bottom, left top, color-stop(97%, transparent), color-stop(97%, #c7c7c7));
-  background: linear-gradient(to left, transparent 97%, #c7c7c7 97%), linear-gradient(to top, transparent 97%, #c7c7c7 97%);
-  background-size: 1.75rem 1.75rem;
-  background-position: bottom right;
-  background-repeat: repeat;
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  opacity: 0.1;
+  background: #070707;
+  -webkit-box-shadow: inset -0.125rem 0.125rem 0.25rem 0.1875rem rgba(199, 199, 199, 0.14);
+          box-shadow: inset -0.125rem 0.125rem 0.25rem 0.1875rem rgba(199, 199, 199, 0.14);
 }
 .calculator-display-top {
   height: 2.625rem;
@@ -289,6 +271,9 @@ body {
   transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: #c2c2c2;
   border-radius: 0.25rem;
+  color: #c2c2c2;
+  -webkit-box-shadow: inset -0.1875rem 0.1875rem 0.125rem 0.0625rem currentColor, inset -0.4375rem 0.1875rem 0.625rem 0.1875rem rgba(255, 255, 255, 0.77);
+          box-shadow: inset -0.1875rem 0.1875rem 0.125rem 0.0625rem currentColor, inset -0.4375rem 0.1875rem 0.625rem 0.1875rem rgba(255, 255, 255, 0.77);
 }
 .calculator-keys .key.pressed, .calculator-keys .key:active::before {
   -webkit-transform: scale(0.96);
@@ -297,6 +282,7 @@ body {
 }
 .calculator-keys .key.operator:before {
   background: #ffc300;
+  color: #ffc300;
 }
 .calculator-keys [data-key="0"] {
   grid-area: zero;
@@ -344,8 +330,12 @@ body {
 .calculator-keys [data-key="."] {
   grid-area: digit;
 }
-.calculator-keys [data-key="="] {
+.calculator-keys .operator[data-key="="] {
   grid-area: total;
+}
+.calculator-keys .operator[data-key="="]:before {
+  background: #ff6500;
+  color: #ff6500;
 }
 .calculator-keys [data-key=Backspace] {
   grid-area: del;

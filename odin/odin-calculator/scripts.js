@@ -1,7 +1,5 @@
 // JS Calculatror by AG
 // --- part of "The Odin Project" ---
-
-
 // Get buttons
 const calcNumbers     = document.querySelectorAll('[data-number]');
 const calcOperator    = document.querySelectorAll('[data-operator]');
@@ -19,31 +17,17 @@ let isEquationEmpty = true;
 let operationExists = false;
 let operation;
 let hasDigit = false;
-const numberOfDecimalPoints = 3;
-
-const allowedKeys =
-    [
-        "0", ".",
-        "1", "2", "3",
-        "4", "5", "6",
-        "7", "8", "9",
-        "+", "-", "*",
-        "/", "=",
-        "Delete", "Backspace", "Enter"
-    ];
-
-
-updateDisplay();
-
+const numberOfDecimalPoints = 7;
+const allowedKeys = [".", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", "=", "Delete", "Backspace", "Enter"];
 
 // Clear all: 
 calcClear.addEventListener("click", clearAll);
 calcDelete.addEventListener("click", backspace);
-
+calcDigit.addEventListener("click", (e)=> addDigit(e));
 calcTotals.addEventListener("click", operate);
 
-calcDigit.addEventListener("click", (e)=> addDigit(e));
-
+calcNumbers.forEach((number) => number.addEventListener('click', (e) => numberKeys(e)));
+calcOperator.forEach((operator) => operator.addEventListener('click', (e) => operatorKeys(e)));
 function addDigit(e) {
     let key = e.target.getAttribute('data-key') || e.key;
 
@@ -61,42 +45,26 @@ function addDigit(e) {
         hasDigit = true;
     }
 }
-
-function updateDisplay () {
-    displayEquation.innerHTML = '';
-    displayTotal.innerHTML = '';
-}
-
-calcNumbers.forEach((number) => {
-    number.addEventListener('click', (e) => numberKeys(e));
-});
-
 function numberKeys(e) {
-    let key = e.target.getAttribute('data-key') ||e.key;
-    displayEquation.textContent += `${key}`;
-
+    let key = getKey(e);
     if (!operationExists) {
         firstOperand += key;
         isEquationEmpty = false;
     } else if (!isEquationEmpty && operationExists) {
         secondOperand += key;
     }
+    displayEquation.textContent += key;
 }
-
-calcOperator.forEach((operator) => {
-    operator.addEventListener('click', (e) => operatorKeys(e));
-});
-
 function operatorKeys(e) {
-    let key = e.target.getAttribute('data-key') || e.key;
+    let key = getKey(e);
 
-    if (!operationExists) {
+    if (!operationExists && firstOperand !== '') {
         operation = key;
-        displayEquation.textContent += key;
+        updateDisplay(checkSymbol(key), displayEquation);
         operationExists = true;
     } else if (operationExists && firstOperand !== '' && secondOperand === '') {
         operation = key;
-        let clearedOperator = displayEquation.textContent.slice(0, -1) + key;
+        let clearedOperator = displayEquation.textContent.slice(0, -1) + checkSymbol(key);
         displayEquation.textContent = clearedOperator;
     }
     else if (operationExists && firstOperand !== '' && secondOperand !== '') {
@@ -104,18 +72,17 @@ function operatorKeys(e) {
         firstOperand = displayTotal.textContent;
         secondOperand = '';
         operation = key;
-        displayEquation.textContent = `${firstOperand}${operation}`;
+        displayEquation.textContent = `${firstOperand}${checkSymbol(operation)}`;
     }
 }
-
 // Functions
 function operate() {
-    if (firstOperand !== null && secondOperand !== null) {
+    if (firstOperand !== '' && secondOperand !== '') {
         let a = parseFloat(firstOperand);
         let b = parseFloat(secondOperand);
-
+    
         if (operation === "+") {
-            displayTotal.textContent =  add(a, b);
+            displayTotal.textContent = add(a, b);
         }
         else if (operation === "-") {
             displayTotal.textContent = substract(a, b);
@@ -126,9 +93,11 @@ function operate() {
         else if (operation === "/") {
             displayTotal.textContent = divide(a, b);
         }
-    } 
+    };
 }
-
+function getKey(e) {
+    return e.target.getAttribute('data-key') || e.key;
+}
 function clearAll() {
     displayEquation.innerHTML = '';
     displayTotal.innerHTML = '';
@@ -139,12 +108,11 @@ function clearAll() {
     isEquationEmpty = true;
     hasDigit = false;
 }
-
 function backspace() {
-    if (firstOperand !== '' && operationExists == false) {
+    if (firstOperand !== '' && !operationExists) {
         firstOperand = firstOperand.slice(0, -1);
     } 
-    else if (operationExists == true && secondOperand == '') {
+    else if (operationExists && secondOperand === '') {
         operation = ''
         operationExists = false;
     } 
@@ -153,30 +121,37 @@ function backspace() {
     }
     displayEquation.textContent = displayEquation.textContent.slice(0, -1);
 }
-
 function add (a, b) {
-    let result = parseFloat((a + b).toFixed(numberOfDecimalPoints));
-    return result === parseInt(result, 10) ? parseInt(result, 10) : result;
+    return beautify((a + b));
 }
-
 function substract (a, b) {
-    let result = parseFloat((a - b).toFixed(numberOfDecimalPoints));
-    return result === parseInt(result, 10) ? parseInt(result, 10) : result;
+    return beautify((a - b));
 }
-
 function divide (a, b) {
-
-    if (a === 0 || b === 0 ) {
-        return "Oops";
+    if (b === 0 ) {
+        return "Math Error";
+    } else {
+        return beautify(a / b);
     }
-
-    let result = parseFloat((a / b).toFixed(numberOfDecimalPoints));
+}
+function multiply (a, b) {
+    return beautify(a * b)
+}
+function beautify (result) {
+    result = parseFloat(result.toFixed(numberOfDecimalPoints));
     return result === parseInt(result, 10) ? parseInt(result, 10) : result;
 }
+function checkSymbol(symbol) {
+    if (symbol === "*") {
+        symbol = '×';
+    } else if (symbol === '/') {
+        symbol = '÷';
+    }
+    return symbol;
+}
 
-function multiply (a, b) {
-    let result = parseFloat((a * b).toFixed(numberOfDecimalPoints));
-    return result === parseInt(result, 10) ? parseInt(result, 10) : result;
+function updateDisplay(symbol, target) {
+    return target.textContent += symbol;
 }
 
 window.addEventListener('keydown', (e) => {
@@ -184,7 +159,8 @@ window.addEventListener('keydown', (e) => {
     
     if (allowedKeys.includes(key)) {
         const pressedKeys = document.querySelector(`[data-key="${e.key}"]`);
-
+        const operators = ["+", "-", "*", "/"];
+        
         if (pressedKeys || pressedKeys === "Enter") {
             pressedKeys.classList.add("pressed");
         }
@@ -194,8 +170,7 @@ window.addEventListener('keydown', (e) => {
         } 
         else if (e.target.getAttribute('data-delete') || e.key === 'Backspace')  {
             backspace();
-        } else if (e.target.getAttribute('data-operator') || 
-            e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/") {
+        } else if (e.target.getAttribute('data-operator') || operators.includes(e.key)) {
             operatorKeys(e);
         } else if (e.key === "Enter") {
             operate();
@@ -206,7 +181,6 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
-
 window.addEventListener('keyup', (e) => {
     const keys = document.querySelectorAll(".key");
     keys.forEach((key) => {

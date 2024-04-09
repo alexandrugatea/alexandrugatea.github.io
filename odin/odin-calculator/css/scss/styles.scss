@@ -26,8 +26,8 @@ body {
     border-radius: rem-calc(7);
     background: darken($bodyBackground, 5%);
     box-shadow: 
-    rem-calc(0 0 2 4) rgba(darken($bodyBackground, 10%), 1),
-    rem-calc(0 0 0 21) rgba(lighten($bodyBackground, 30%), 1)
+    rem-calc(0 0 0 7) $bodyBackground,
+    rem-calc(0 0 0 21) lighten($bodyBackground, 30%)
     ;
 
 
@@ -40,26 +40,8 @@ body {
         grid-gap: rem-calc(3);
         margin-bottom: rem-calc(7);
         position: relative;
-        background: lighten($bodyBackground, 5%);
-
-        &:before {
-            content: "";
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-            linear-gradient(to left, transparent 97%, $bodyText 97%),
-            linear-gradient(to top, transparent 97%, $bodyText 97%);
-            background-size: rem-calc(28 28);
-            background-position: bottom right;
-            background-repeat: repeat;
-            pointer-events: none;
-            user-select: none;
-            opacity: 0.1;
-        }
+        background: lighten($bodyBackground, 0%);
+        box-shadow: inset rem-calc(-2 2 4 3) rgba($bodyText, 0.14);
 
         &-top {
             height: rem-calc(42px);
@@ -133,6 +115,10 @@ body {
                     transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                     background: darken($bodyText, 2%);
                     border-radius: rem-calc(4px);
+                    color: darken($bodyText, 2%);
+
+                    box-shadow: inset rem-calc(-3 3 2 1) currentColor,
+                                inset rem-calc(-7 3 10 3) rgba(#fff, 0.77);
                 }
 
                 &.pressed, &:active::before {
@@ -143,6 +129,7 @@ body {
 
                     &:before {
                         background: $accent;
+                        color: $accent;
                     }
                 }
             }
@@ -162,7 +149,13 @@ body {
             [data-key="*"] {grid-area: multiply;}
             [data-key="/"] {grid-area: divide;}
             [data-key="."] {grid-area: digit;}
-            [data-key="="] {grid-area: total;}
+            .operator[data-key="="] {
+                grid-area: total;
+                &:before {
+                    background: #ff6500;
+                    color: #ff6500;
+                }
+            }
             [data-key="Backspace"] {grid-area: del;}
             [data-key="Delete"] {grid-area: ac; width: 100%}
             [data-key="Mod"] {grid-area: mod;}
