@@ -166,3 +166,8 @@ body {
         
     }
 }
+
+::selection {
+    background: $bodyText;
+    color: $bodyBackground;
+}

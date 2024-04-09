@@ -357,4 +357,14 @@ body {
 .calculator-keys [data-key=Mod] {
   grid-area: mod;
 }
+
+::-moz-selection {
+  background: #c7c7c7;
+  color: #070707;
+}
+
+::selection {
+  background: #c7c7c7;
+  color: #070707;
+}
 /*# sourceMappingURL=styles.css.map */
