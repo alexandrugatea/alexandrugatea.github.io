@@ -12,6 +12,7 @@ body.js30 {
         }
 
         @include breakpoint(large) {
+            height: 100vh;
             height: 100dvh;
             overflow: hidden;
         }
@@ -65,6 +66,7 @@ body.js30 {
                 padding: rem-calc(35);
                 overflow-y: auto;
                 height: 100dvh;
+                height: 100vh;
             }
         }
     }

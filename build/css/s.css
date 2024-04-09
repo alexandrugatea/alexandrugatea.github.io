@@ -295,6 +295,7 @@ body {
   margin-left: 0;
   -webkit-transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: margin 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+  min-height: 100vh;
   min-height: 100dvh;
 }
 @media screen and (max-width: 47.9375em) {
@@ -3878,6 +3879,7 @@ body.js30 {
 }
 @media print, screen and (min-width: 64em) {
   .js30-page-container {
+    height: 100vh;
     height: 100dvh;
     overflow: hidden;
   }
@@ -3938,6 +3940,7 @@ body.js30 {
     padding: 2.1875rem;
     overflow-y: auto;
     height: 100dvh;
+    height: 100vh;
   }
 }
 .js30-projects {
