@@ -29,11 +29,11 @@ calcTotals.addEventListener("click", operate);
 calcNumbers.forEach((number) => number.addEventListener('click', (e) => numberKeys(e)));
 calcOperator.forEach((operator) => operator.addEventListener('click', (e) => operatorKeys(e)));
 function addDigit(e) {
-    let key = e.target.getAttribute('data-key') || e.key;
+    let key = getKey(e);
 
     if (!hasDigit && firstOperand !== '' && !operationExists) {
         firstOperand += key;
-        displayEquation.textContent += key;
+        updateDisplay(key, displayEquation);
         hasDigit = true;
     } else if (operationExists && secondOperand == '') {
         hasDigit = false;
@@ -111,6 +111,9 @@ function clearAll() {
 function backspace() {
     if (firstOperand !== '' && !operationExists) {
         firstOperand = firstOperand.slice(0, -1);
+        if (!firstOperand.includes(".")) {
+            hasDigit = false;
+        }
     } 
     else if (operationExists && secondOperand === '') {
         operation = ''

@@ -1,10 +1,8 @@
-@use 'sass:math';
 $customFontPath: "../../../build/fonts/";
 @import "../../../../src/scss/base/var";
 @import "../../../../src/scss/base/reset";
 @import "../../../../src/scss/base/font";
 @import "../../../../src/scss/base/foundationMQ.scss";
-
 $accent: #ffc300;
 
 body {
@@ -12,10 +10,16 @@ body {
     height: 100dvh;
     overflow: hidden;
     color: $bodyText;
-
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.page-title {
+    margin-bottom: rem-calc(35);
+    font-family: "Slab", serif;
+    letter-spacing: rem-calc(1);
 }
 
 .calculator {
@@ -26,8 +30,8 @@ body {
     border-radius: rem-calc(7);
     background: darken($bodyBackground, 5%);
     box-shadow: 
-    rem-calc(0 0 0 7) $bodyBackground,
-    rem-calc(0 0 0 21) lighten($bodyBackground, 30%)
+        rem-calc(0 0 0 7) $bodyBackground,
+        rem-calc(0 0 0 21) lighten($bodyBackground, 30%)
     ;
 
 
@@ -118,7 +122,7 @@ body {
                     color: darken($bodyText, 2%);
 
                     box-shadow: inset rem-calc(-3 3 2 1) currentColor,
-                                inset rem-calc(-7 3 10 3) rgba(#fff, 0.77);
+                                inset rem-calc(-7 3 7 3) rgba(#fff, 0.56);
                 }
 
                 &.pressed, &:active::before {
