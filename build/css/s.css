@@ -1267,6 +1267,10 @@ input.valid:-webkit-autofill:active {
   color: #070707 !important;
 }
 
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink {
+  color: #c7c7c7 !important;
+}
+
 #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
   border-bottom: 1px solid rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
   color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
@@ -1380,6 +1384,58 @@ button.CookiebotWidget-logo {
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: #f8f8f8;
+}
+
+#CybotCookiebotDialogHeader, #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink, #CookiebotWidget .CookiebotWidget-header, #CybotCookiebotDialog .CookieCard {
+  border-bottom: 1px solid #070707 !important;
+}
+
+#CybotCookiebotDialog form input[type=checkbox][disabled]:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.42) !important;
+}
+
+#CybotCookiebotDialog input:checked + .CybotCookiebotDialogBodyLevelButtonSlider {
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+}
+
+#CybotCookiebotDialogPoweredbyCybot svg {
+  fill: #c7c7c7 !important;
+}
+
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink:hover {
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.77) !important;
+}
+
+#CookiebotWidget #CookiebotWidget-widgetContent {
+  background: #141414 !important;
+}
+
+#CookiebotWidget * {
+  color: #c7c7c7 !important;
+}
+
+#CookiebotWidget .CookiebotWidget-consent-details .CookiebotWidget-consent-details-box {
+  background-color: #191919 !important;
+}
+
+#CookiebotWidget #CookiebotWidget-buttons {
+  border-top: 1px solid #070707 !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: #2d2d2d !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider:before {
+  background-color: #a1a1a1 !important;
+}
+
+#CybotCookiebotDialogTabContent .CybotCookiebotDialogDetailBulkConsentCount {
+  background-color: rgba(199, 199, 199, 0.07) !important;
+}
+
+.CybotCookiebotFader {
+  display: none !important;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

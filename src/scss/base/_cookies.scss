@@ -94,6 +94,10 @@
   color: $bodyBackground!important;
  }
 
+ #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink {
+  color: $bodyText!important;
+ }
+
  #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink.CybotCookiebotDialogActive {
   border-bottom: 1px solid accent(1)!important;
   color: accent(1)!important;
@@ -213,4 +217,56 @@ button.CookiebotWidget-logo {
  #cookiebanner a.c-button:hover {
    box-shadow: none;
    background-color: #f8f8f8;
+ }
+
+ #CybotCookiebotDialogHeader, #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink, #CookiebotWidget .CookiebotWidget-header, #CybotCookiebotDialog .CookieCard {
+  border-bottom: 1px solid $bodyBackground!important;
+ }
+
+ #CybotCookiebotDialog form input[type=checkbox][disabled]:checked+.CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: accent(0.42)!important;
+ }
+
+ #CybotCookiebotDialog input:checked+.CybotCookiebotDialogBodyLevelButtonSlider {
+  background: accent(1)!important;
+ }
+
+ #CybotCookiebotDialogPoweredbyCybot svg {
+  fill: $bodyText!important;
+ }
+
+ #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink:hover {
+  color: accent(0.77)!important;
+ }
+
+ #CookiebotWidget #CookiebotWidget-widgetContent {
+  background: lighten($bodyBackground, 5%)!important;
+ }
+
+ #CookiebotWidget * {
+  color: $bodyText!important;
+ }
+
+ #CookiebotWidget .CookiebotWidget-consent-details .CookiebotWidget-consent-details-box {
+  background-color: lighten($bodyBackground, 7%)!important;
+ }
+
+ #CookiebotWidget #CookiebotWidget-buttons {
+  border-top: 1px solid $bodyBackground!important;
+ }
+
+ #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider {
+  background-color: lighten($bodyBackground, 15%)!important;
+ }
+
+ #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonSlider:before {
+  background-color: darken($bodyText, 15%)!important;
+ }
+
+ #CybotCookiebotDialogTabContent .CybotCookiebotDialogDetailBulkConsentCount {
+  background-color: rgba($bodyText, 0.07)!important;
+ }
+
+ .CybotCookiebotFader {
+  display: none!important;
  }
