@@ -1232,10 +1232,13 @@ input.valid:-webkit-autofill:active {
 
 #CybotCookiebotDialog {
   z-index: 9999 !important;
+  background-color: #141414 !important;
+  color: #c7c7c7 !important;
 }
 #CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
-  border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
-  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+  border-color: #c7c7c7 !important;
+  color: #c7c7c7 !important;
+  background-color: #070707 !important;
 }
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
 #CybotCookiebotDialog #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyLevelButtonAccept,

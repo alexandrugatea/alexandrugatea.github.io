@@ -55,10 +55,13 @@
 
  #CybotCookiebotDialog {
    z-index: 9999 !important;
+   background-color: lighten($bodyBackground, 5%)!important;
+   color: $bodyText!important;
 
    #CybotCookiebotDialogFooter .CybotCookiebotDialogBodyButton {
-    border-color: accent(1)!important;
-    color: accent(1)!important;
+    border-color:$bodyText!important;
+    color: $bodyText!important;
+    background-color: $bodyBackground!important;
    }
 
    #CybotCookiebotDialogFooter #CybotCookiebotDialogBodyButtonAccept,
