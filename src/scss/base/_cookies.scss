@@ -219,7 +219,7 @@ button.CookiebotWidget-logo {
    background-color: #f8f8f8;
  }
 
- #CybotCookiebotDialogHeader, #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink, #CookiebotWidget .CookiebotWidget-header, #CybotCookiebotDialog .CookieCard {
+ #CybotCookiebotDialogHeader, #CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink, #CookiebotWidget .CookiebotWidget-header, #CybotCookiebotDialog .CookieCard, #CybotCookiebotDialog .CybotCookiebotScrollContainer {
   border-bottom: 1px solid $bodyBackground!important;
  }
 
@@ -251,7 +251,7 @@ button.CookiebotWidget-logo {
   background-color: lighten($bodyBackground, 7%)!important;
  }
 
- #CookiebotWidget #CookiebotWidget-buttons {
+ #CookiebotWidget #CookiebotWidget-buttons, #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieInfoFooter {
   border-top: 1px solid $bodyBackground!important;
  }
 
@@ -268,7 +268,8 @@ button.CookiebotWidget-logo {
  }
 
  .CybotCookiebotFader {
-  display: none!important;
+  // display: none!important;
+  background-image:linear-gradient(to top, rgba(lighten($bodyBackground, 5%), 1), rgba(lighten($bodyBackground, 5%), 0.8), rgba(lighten($bodyBackground, 5%), 0))!important;
  }
 
  #CookiebotWidget #CookiebotWidget-buttons #CookiebotWidget-btn-withdraw {
@@ -291,9 +292,17 @@ button.CookiebotWidget-logo {
   }
  }
 
- #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieInfo {
+ #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieInfo, #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieGroup {
   border: 1px solid $bodyBackground!important;
  }
  #CybotCookiebotDialog input:checked+.CybotCookiebotDialogBodyLevelButtonSlider:before {
   background-color: $bodyBackground!important;
+ }
+
+ #CybotCookiebotDialog .CookieCard .CybotCookiebotDialogDetailBodyContentCookieContainerButton:hover, #CybotCookiebotDialog .CookieCard .CybotCookiebotDialogDetailBodyContentIABv2Tab:hover, #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieProvider:not(.CybotCookiebotDialogDetailBodyContentCookieInfoCount):hover {
+  color: accent(1)!important;
+ }
+ 
+ #CybotCookiebotDialogNav {
+  border-bottom: none!important;
  }
