@@ -98,7 +98,7 @@ const webData = [
         'src': 'build/images/portfolio/webs/jsch.png',
         'project-text': `
         <h2>
-            30Day JS challenge byWesBos
+            30Day JS challenge by WesBos
         </h2>
         <p>JS course</p>`,
         'type': ['web', 'landscape'],

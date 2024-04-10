@@ -243,7 +243,7 @@ button.CookiebotWidget-logo {
   background: lighten($bodyBackground, 5%)!important;
  }
 
- #CookiebotWidget * {
+ #CookiebotWidget *, #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieProvider:not(.CybotCookiebotDialogDetailBodyContentCookieInfoCount) {
   color: $bodyText!important;
  }
 
@@ -269,4 +269,31 @@ button.CookiebotWidget-logo {
 
  .CybotCookiebotFader {
   display: none!important;
+ }
+
+ #CookiebotWidget #CookiebotWidget-buttons #CookiebotWidget-btn-withdraw {
+  background-color: transparent!important;
+ }
+
+ #CookiebotWidget #CookiebotWidget-buttons #CookiebotWidget-btn-change{
+  color: $bodyBackground!important;
+ }
+
+ #CybotCookiebotDialog a:after {
+  border-color: darken($bodyText, 15%)!important;
+ }
+
+ #CybotCookiebotDialog #CybotCookiebotDialogBodyContentText a, #CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonIABHeaderViewPartnersLink, #CybotCookiebotDialog #CybotCookiebotDialogDetailBulkConsentList dt a, #CybotCookiebotDialog #CybotCookiebotDialogDetailFooter a, #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonIABDescription a, #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieLink, #CybotCookiebotDialogDetailBodyContentTextAbout a {
+  color: accent(0.84)!important;
+
+  &:hover {
+    color: accent(1)!important;
+  }
+ }
+
+ #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieInfo {
+  border: 1px solid $bodyBackground!important;
+ }
+ #CybotCookiebotDialog input:checked+.CybotCookiebotDialogBodyLevelButtonSlider:before {
+  background-color: $bodyBackground!important;
  }

@@ -1410,7 +1410,7 @@ button.CookiebotWidget-logo {
   background: #141414 !important;
 }
 
-#CookiebotWidget * {
+#CookiebotWidget *, #CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieProvider:not(.CybotCookiebotDialogDetailBodyContentCookieInfoCount) {
   color: #c7c7c7 !important;
 }
 
@@ -1436,6 +1436,33 @@ button.CookiebotWidget-logo {
 
 .CybotCookiebotFader {
   display: none !important;
+}
+
+#CookiebotWidget #CookiebotWidget-buttons #CookiebotWidget-btn-withdraw {
+  background-color: transparent !important;
+}
+
+#CookiebotWidget #CookiebotWidget-buttons #CookiebotWidget-btn-change {
+  color: #070707 !important;
+}
+
+#CybotCookiebotDialog a:after {
+  border-color: #a1a1a1 !important;
+}
+
+#CybotCookiebotDialog #CybotCookiebotDialogBodyContentText a, #CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonIABHeaderViewPartnersLink, #CybotCookiebotDialog #CybotCookiebotDialogDetailBulkConsentList dt a, #CybotCookiebotDialog #CybotCookiebotDialogDetailFooter a, #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonIABDescription a, #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieLink, #CybotCookiebotDialogDetailBodyContentTextAbout a {
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.84) !important;
+}
+#CybotCookiebotDialog #CybotCookiebotDialogBodyContentText a:hover, #CybotCookiebotDialog #CybotCookiebotDialogBodyLevelButtonIABHeaderViewPartnersLink:hover, #CybotCookiebotDialog #CybotCookiebotDialogDetailBulkConsentList dt a:hover, #CybotCookiebotDialog #CybotCookiebotDialogDetailFooter a:hover, #CybotCookiebotDialog .CybotCookiebotDialogBodyLevelButtonIABDescription a:hover, #CybotCookiebotDialog .CybotCookiebotDialogDetailBodyContentCookieLink:hover, #CybotCookiebotDialogDetailBodyContentTextAbout a:hover {
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1) !important;
+}
+
+#CybotCookiebotDialogDetailBodyContentCookieContainerTypes .CybotCookiebotDialogDetailBodyContentCookieInfo {
+  border: 1px solid #070707 !important;
+}
+
+#CybotCookiebotDialog input:checked + .CybotCookiebotDialogBodyLevelButtonSlider:before {
+  background-color: #070707 !important;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
