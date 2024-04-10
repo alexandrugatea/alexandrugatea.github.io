@@ -48,7 +48,7 @@
             font-size: rem-calc(21);
             left: rem-calc(7);
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            color: accent(0.77);
+            color: accent(1);
         }
     }
 
@@ -65,10 +65,10 @@
     }
 
     &:hover {
-        box-shadow: 
-         rem-calc(0 0 7 0) accent(0.63),
-        inset 0 0 0 rem-calc(3) accent(1),
-        inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
+        // box-shadow: 
+        //  rem-calc(0 0 7 0) accent(0.63),
+        // inset 0 0 0 rem-calc(3) accent(1),
+        // inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
 
         &:before {
             width: 42%;

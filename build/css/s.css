@@ -1676,7 +1676,7 @@ body.default-cursor #kursorTrail {
   left: 0.4375rem;
   -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.77);
+  color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
 }
 .button:before {
   content: "";
@@ -1691,10 +1691,6 @@ body.default-cursor #kursorTrail {
   z-index: 1;
   -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.button:hover {
-  -webkit-box-shadow: 0 0 0.4375rem 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.63), inset 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1), inset 0 0 0 6.25rem #070707;
-          box-shadow: 0 0 0.4375rem 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.63), inset 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1), inset 0 0 0 6.25rem #070707;
 }
 .button:hover:before {
   width: 42%;
