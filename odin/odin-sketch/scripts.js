@@ -172,22 +172,26 @@ let startY = 0;
 let moveY = 0; 
 let isOpening = false;
 
-toggleOptions.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-    isOpening = false;
-}, { passive: true });
+// toggleOptions.addEventListener('touchstart', (e) => {
+//     startY = e.touches[0].clientY;
+//     isOpening = false;
+// }, { passive: true });
 
-toggleOptions.addEventListener('touchmove', (e) => {
-    moveY = e.touches[0].clientY;
-    if (startY > moveY) {
-        isOpening = true;
-    }
-}, { passive: true });
+// toggleOptions.addEventListener('touchmove', (e) => {
+//     moveY = e.touches[0].clientY;
+//     if (startY > moveY) {
+//         isOpening = true;
+//     }
+// }, { passive: true });
 
-toggleOptions.addEventListener('touchend', () => {
-    if (isOpening) {
-        optionsPanel.classList.add('opened');
-    } else {
-        optionsPanel.classList.remove('opened'); 
-    }
+// toggleOptions.addEventListener('touchend', () => {
+//     if (isOpening) {
+//         optionsPanel.classList.add('opened');
+//     } else {
+//         optionsPanel.classList.remove('opened'); 
+//     }
+// });
+
+toggleOptions.addEventListener('click', () => {
+    optionsPanel.classList.toggle('opened');
 });
