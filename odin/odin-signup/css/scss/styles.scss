@@ -1,0 +1,735 @@
+$customFontPath: "../../../build/fonts/";
+@import "../../../../src/scss/base/foundationMQ.scss";
+@import "../../../../src/scss/base/var";
+@import "../../../../src/scss/base/reset";
+@import "../../../../src/scss/base/font";
+
+// $breakpoints: (
+//   small: 0,
+//   medium: 768px,
+//   large: 1024px,
+//   xlarge: 1200px,
+//   xxlarge: 1400px,
+//   xxxlarge: 1900px
+// ) !default;
+
+@font-face {
+    font-family: 'Valhalla';
+    src: url('../fonts/Norse-Bold.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    color: $bodyText;
+    display: flex;
+    background: $bodyBackground;
+}
+
+//variables
+
+$containerBackground: $bodyBackground;
+$switcherWidth: 50% !default;
+$switcherWidthxxlarge: 35%;
+
+$switchDuration: 0.77s;
+$switchTiming: cubic-bezier(0.175, 0.885, 0.32, 1.0);
+
+$switcherTitleColor: lighten($bodyText, 10%);
+
+
+$accentColor: #EF6C00;
+
+
+//-===========================
+// main panel style 
+//===========================
+#ssPanel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: $containerBackground;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "PS500";
+
+    .sspanel-container {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+
+    .switcher {
+        @include breakpoint(xxlarge down) {
+            $switcherWidth: $switcherWidthxxlarge;
+            width: $switcherWidth;
+        }
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: $switcherWidth;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all $switchDuration $switchTiming;
+        background-image: url('../images/valhalla.jpg');
+        // background-attachment: fixed;
+        background-size: cover;
+        background-position: left center;
+        background-repeat: no-repeat;
+
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: "Valhalla";
+            background: rgba($containerBackground, 0.63);
+            mask: linear-gradient(transparent 0%, #000 20%, #000 80%, transparent 100%);
+            backdrop-filter: blur(3px);
+            width: 100%;
+            padding: rem-calc(0 0 70 0);
+            gap: rem-calc(30);
+            position: relative;
+            z-index: 1;
+        }
+
+        &-disclaimer {
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100%;
+            padding: rem-calc(70 35 35);
+            text-align: center;
+            background: rgba($containerBackground, 0.77);
+            backdrop-filter: blur(2px);
+            mask: linear-gradient(transparent 0%, #000 20%, #000 80%);
+            line-height: 1.35;
+            letter-spacing: rem-calc(0.77);
+            font-size: rem-calc(12);
+
+            @include breakpoint(medium down) {
+                font-size: rem-calc(10);
+                padding: rem-calc(70 21 21);
+            }
+
+            span {
+                max-width: rem-calc(630);
+                display: block;
+                margin: 0 auto;
+
+                @include breakpoint(small only) {
+                    font-size: 0;
+                }
+            }
+
+            b {
+                text-transform: uppercase;
+                font-family: "PS700";
+                font-size: rem-calc(18);
+                margin-bottom: rem-calc(5);
+                display: block;
+                color: $switcherTitleColor;
+
+                @include breakpoint(medium down) {
+                    font-size: rem-calc(14);
+                }
+                @include breakpoint(small only) {
+                    font-size: rem-calc(12);
+                }
+            }
+        }
+
+        &-logo {
+
+            img {
+                max-height: rem-calc(150);
+
+                @include breakpoint(small only) {
+                    max-height: rem-calc(77);
+                }
+            }
+        }
+
+        &-title {
+            font-size: rem-calc(98);
+            color: $switcherTitleColor;
+
+            @include breakpoint(large down) {
+                font-size: rem-calc(70);
+            }
+
+            @include breakpoint(medium down) {
+                font-size: rem-calc(56);
+            }
+            @include breakpoint(small only) {
+                font-size: rem-calc(28);
+            }
+        }
+
+        &-label {
+            text-align: center;
+            font-family: "PS400";
+            font-size: rem-calc(21);
+            letter-spacing: rem-calc(0.7);
+
+             @include breakpoint(small only) {
+                font-size: rem-calc(14);
+                letter-spacing: rem-calc(0.5);
+            }
+
+            .label-sign-in,
+            .label-sign-up {
+                display: block;
+                font-size: inherit;
+                font-weight: inherit;
+                color: $bodyText;
+                z-index: 10;
+                transition: all $switchDuration $switchTiming;
+            }
+        }
+
+        .switcher-btn {
+            display: block;
+            padding: rem-calc(14 28);
+            height: rem-calc(49);
+            width: rem-calc(210);
+            position: relative;
+            overflow: hidden;
+            outline: none;
+            cursor: pointer;
+            z-index: 15;
+            background: rgba($containerBackground, 0.28);
+            border: none;
+            color: $bodyText;
+            box-shadow: rem-calc(0 0 0 3) rgba($accentColor, 0.77);
+            border-radius: rem-calc(8);
+
+            @include breakpoint(small only) {
+                width: 84%;
+                padding: rem-calc(7 14);
+            }
+
+            span {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                color: inherit;
+                letter-spacing: rem-calc(1);
+                font-size: rem-calc(16);
+                font-family: "PS700";
+                text-transform: uppercase;
+                white-space: nowrap;
+                transition: all $switchDuration ease-in-out;
+
+                @include breakpoint(small only) {
+                    font-size: rem-calc(12);
+                    white-space: normal;
+                }
+            }
+        }
+    }
+
+    .form-container {
+        @include breakpoint(xxlarge down) {
+            $switcherWidth: $switcherWidthxxlarge;
+            width: calc(100% - $switcherWidth);
+        }
+
+        position: absolute;
+        width: calc(100% - $switcherWidth);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.25s ease;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &.sign-up-form {
+            right: 0;
+        }
+
+        &.sign-in-form {
+            left: 0;
+        }
+    }
+
+    &.sign-up {
+        .switcher {
+            left: 0;
+            background-position: right -10px center;
+
+            .label-sign-up {
+                opacity: 1;
+                margin-top: 0;
+            }
+
+            .label-sign-in {
+                opacity: 0;
+                margin-top: -10px;
+            }
+
+            .switcher-btn {
+                .sign-up-label {
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+
+                .sign-in-label {
+                    top: 100%;
+                    opacity: 0;
+                }
+            }
+        }
+
+        .sign-up-form {
+            z-index: 100;
+
+            #signUp {
+                opacity: 1;
+                margin-left: 0px;
+            }
+        }
+
+        .sign-in-form {
+            z-index: 0;
+
+            #signIn {
+                opacity: 0;
+                margin-right: -240px;
+            }
+        }
+    }
+
+    &.sign-in {
+        .switcher {
+            @include breakpoint(xxlarge down) {
+                $switcherWidth: $switcherWidthxxlarge;
+                left: calc(100% - $switcherWidth);
+            }
+
+            left: calc(100% - $switcherWidth);
+            background-position: left 35% center;
+
+            .label-sign-up {
+                opacity: 0;
+                margin-top: -10px;
+            }
+
+            .label-sign-in {
+                opacity: 1;
+                margin-top: 0;
+            }
+
+            .switcher-btn {
+                .sign-in-label {
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+
+                .sign-up-label {
+                    top: -100%;
+                    opacity: 0;
+                }
+            }
+        }
+
+        .sign-up-form {
+            z-index: 0;
+
+            #signUp {
+                opacity: 0;
+                margin-left: -240px;
+            }
+        }
+
+        .sign-in-form {
+            z-index: 100;
+
+            #signIn {
+                opacity: 1;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.form {
+    width: 100%;
+    max-width: rem-calc(650);
+    transition: all 0.25s ease;
+    text-align: left;
+    padding: rem-calc(0 28px);
+
+    @include breakpoint(small only) {
+        padding: rem-calc(21px);
+        height: 100dvh;
+        height: 100vh;
+        overflow: auto;
+    }
+
+    .form-title {
+        font-size: rem-calc(77);
+        font-family: "Valhalla";
+        font-weight: 300;
+        margin-bottom: rem-calc(28);
+        text-align: center;
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(35);
+        }
+    }
+
+    .form-desc {
+        font-size: rem-calc(21);
+        max-width: rem-calc(280);
+        margin: 0 auto rem-calc(28);
+        font-family: "PS500";
+        line-height: 1.42;
+        text-align: center;
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(14);
+        }
+    }
+
+    fieldset {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: rem-calc(21);
+        grid-gap: rem-calc(49);
+        border: none;
+        margin-bottom: rem-calc(35);
+
+        @include breakpoint(medium down) {
+            grid-gap: rem-calc(21);
+        }
+
+        @include breakpoint(small only) {
+            grid-gap: rem-calc(14);
+            grid-template-columns: 1fr;
+        }
+
+        .form-group:first-of-type {
+            transform: skewX(7deg);
+        }
+
+        .form-group:last-of-type {
+            transform: skewX(-7deg);
+        }
+
+        &:has(>legend) {
+            border-top: rem-calc(2) solid lighten($containerBackground, 4%);
+        }
+
+        &:not(:has(legend)) {
+            margin-bottom: rem-calc(35);
+        }
+
+        &.single-column {
+            grid-template-columns: 1fr;
+
+            &:first-of-type .form-group {
+                transform: skewX(7deg);
+            }
+
+            &:last-of-type .form-group {
+                transform: skewX(-7deg);
+            }
+        }
+
+        legend {
+            padding-inline-start: rem-calc(0);
+            padding-inline-end: rem-calc(21);
+            margin-bottom: rem-calc(14);
+            font-family: "PS900";
+            font-size: rem-calc(14);
+            letter-spacing: rem-calc(1px);
+            opacity: 0.21;
+        }
+    }
+
+    .message {
+        text-align: center;
+        width: 100%;
+        position: relative;
+
+        &.filled {
+            padding: rem-calc(14 28);
+        }
+
+        &.error {
+            color: $error;
+        }
+
+        &.valid {
+            color: $success;
+
+        }
+
+        &.filled.valid {
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: rem-calc(10);
+                left: 50%;
+                transform: translate(-50%, 0);
+                width: rem-calc(140);
+                height: rem-calc(3);
+                background: $success;
+                transition: all $switchDuration ease-in-out;
+                animation: timer 3s linear;
+            }
+        }
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .helper-buttons {
+        display: flex;
+        width: 100%;
+        gap: rem-calc(35);
+        margin-top: rem-calc(14);
+
+
+        button {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: $bodyText;
+            text-align: center;
+            cursor: pointer;
+            padding: rem-calc(14);
+            border-radius: rem-calc(7);
+            box-shadow: inset (rem-calc(0 0 0 2) lighten($containerBackground, 5%));
+        }
+    }
+
+    .form-field,
+    .form-label {
+        cursor: text;
+    }
+
+    &-field:not(.no-style) {
+        border-radius: rem-calc(7);
+        background: $bodyBackground;
+        border: none;
+        outline: none;
+        color: $bodyText;
+        box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.35);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: rem-calc(0 21);
+        font-size: rem-calc(16);
+        letter-spacing: rem-calc(0.5);
+        position: relative;
+
+
+        &[type="text"],
+        &[type="tel"],
+        &[type="password"],
+        &[type="email"] {
+            width: 100%;
+            height: rem-calc(56);
+        }
+
+        &[name="name"] {
+            text-transform: capitalize;
+        }
+
+        &.error {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42);
+        }
+
+        &.error:hover,
+        &.error:active,
+        &.error:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42),
+                rem-calc(0 0 0 7) rgba($error, 0.21);
+        }
+
+        &.valid {
+
+            &+label span {
+                color: $success;
+            }
+        }
+
+        &.valid:hover,
+        &.valid:active,
+        &.valid:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($success, 0.42),
+                rem-calc(0 0 0 7) rgba($success, 0.21);
+        }
+
+        &:hover {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.42),
+                rem-calc(0 0 0 7) rgba($bodyText, 0.21);
+        }
+
+        &:focus {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+
+        &:not(:placeholder-shown) {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+    }
+
+    &-label {
+        position: absolute;
+        transform: translate(0, 30%);
+        top: 0;
+        left: rem-calc(7);
+        padding: rem-calc(0 28);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background: $bodyBackground;
+        display: inline-block;
+        max-width: 100%;
+        font-family: "Slab";
+        letter-spacing: rem-calc(1);
+
+        @include breakpoint(medium down) {
+            padding: rem-calc(0 14);
+        }
+
+        .form-placeholder {
+            line-height: rem-calc(35);
+            white-space: nowrap;
+        }
+
+        .form-error {
+            display: none;
+            color: $error;
+            line-height: rem-calc(35);
+            white-space: nowrap;
+        }
+    }
+
+    .submit-form {
+        display: block;
+        width: 100%;
+        height: rem-calc(49);
+        border-radius: rem-calc(8);
+        text-align: center;
+        background: $accentColor;
+        font-family: "Valhalla";
+        font-size: rem-calc(21);
+        letter-spacing: rem-calc(2);
+        border: none;
+        color: $containerBackground;
+        cursor: pointer;
+        transition: all 0.25s $switchTiming;
+        outline: none;
+        box-shadow: rem-calc(0 0 0 0) rgba($accentColor, 0);
+
+        &:hover {
+            background: lighten($accentColor, 5%);
+            box-shadow: rem-calc(0 0 0 4) rgba($accentColor, 0.35);
+        }
+    }
+
+    .error+label .form-placeholder {
+        display: none;
+    }
+
+    .error+label .form-error {
+        display: block;
+    }
+}
+
+@keyframes loaderSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// override browser
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: -internal-light-dark(rgb(7, 7, 7), rgba(7, 7, 7, 0.4)) !important;
+
+    color: $bodyText !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}
+
+input.error:-webkit-autofill,
+input.error:-webkit-autofill:hover,
+input.error:-webkit-autofill:focus,
+input.error:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}
+
+input.valid:-webkit-autofill,
+input.valid:-webkit-autofill:hover,
+input.valid:-webkit-autofill:focus,
+input.valid:-webkit-autofill:active {
+    -webkit-box-shadow:
+        inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+        inset 0 0 0 rem-calc(100) $bodyBackground !important;
+    -webkit-text-fill-color: $bodyText !important;
+    color: $bodyText !important;
+}
+
+
+::selection {
+    background: $bodyText;
+    color: $bodyBackground;
+}
+
+@keyframes timer {
+    to {
+        width: 0%;
+    }
+}

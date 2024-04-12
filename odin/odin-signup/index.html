@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBYPXS49D2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YBYPXS49D2');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MCJBM5V4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign-in & Sign-up form, part of Odin Project Curriculum">
+    <meta name="keywords"
+        content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Sign-in & Sign-up">
+    <meta property="og:description" content="Sign-in & Sign-up form, part of Odin Project Curriculum">
+    <meta property="og:url" content="https://www.alexandrugatea.com">
+    <meta property="og:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:locale" content="en_US">
+    <meta property="twitter:title" content="Sign-in & Sign-up">
+    <meta property="twitter:description" content="Sign-in & Sign-up form, part of Odin Project Curriculum">
+    <meta property="twitter:url" content="https://www.alexandrugatea.com">
+    <meta property="twitter:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="twitter:type" content="website">
+    <meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:locale" content="en_US">
+    <meta name="msapplication-TileColor" content="#070707">
+    <meta name="theme-color" content="#070707">
+    <link rel="mask-icon" href="https://alexandrugatea.com/safari-pinned-tab.svg" media="(prefers-color-scheme: light)" color="#070707">
+    <link rel="mask-icon" href="https://alexandrugatea.com/safari-pinned-tab.svg" media="(prefers-color-scheme: dark)" color="#c7c7c7">
+    <link rel="manifest" href="https://alexandrugatea.com/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexandrugatea.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexandrugatea.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexandrugatea.com/favicon-16x16.png">
+    <title>Sign-in | Sign-up</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJBM5V4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!--===========================-->
+    <!-- Signin/signup panel -->
+    <!--===========================-->
+    <div id="ssPanel" class="sign-up">
+        <div class="sspanel-container">
+            <div class="sign-up-form form-container">
+                <form id="signUp" class="form" novalidate>
+                    <h2 class="form-title">Sign up</h2>
+                    <p class="form-desc">Fill in the following fields to create your account.</p>
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <div class="form-group">
+                            <input class="form-field" type="text" name="suFirstName" id="suFirstName" required autocomplete="name" placeholder="&nbsp;">
+                            <label class="form-label" for="suFirstName">
+                                <span class="form-placeholder">First Name <span>*</span></span>
+                                <span class="form-error">Name too short</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-field" type="text" name="suLastName" id="suLastName" required autocomplete="name" placeholder="&nbsp;">
+                            <label class="form-label" for="suLastName">
+                                <span class="form-placeholder">Last Name <span>*</span></span>
+                                <span class="form-error">Name too short</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Contact Information</legend>
+                        <div class="form-group">
+                            <input class="form-field" type="email" name="suEmailAddress" id="suEmailAddress" required autocomplete="username" placeholder="&nbsp;">
+                            <label class="form-label" for="suEmailAddress">
+                                <span class="form-placeholder">Email Address <span>*</span></span>
+                                <span class="form-error">Incorect format</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-field" type="tel" name="suTel" id="suTel" autocomplete="tel" required placeholder="&nbsp;">
+                            <label class="form-label" for="suTel">
+                                <span class="form-placeholder">Phone Number <span>*</span></span>
+                                <span class="form-error">Incorect format</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Account Security</legend>
+                        <div class="form-group">
+                            <input class="form-field" type="password" name="suPassword" id="suPassword" required autocomplete="new-password" placeholder="&nbsp;">
+                            <label class="form-label" for="suPassword">
+                                <span class="form-placeholder">Set a Password <span>*</span></span>
+                                <span class="form-error">Not worthy of Valhalla</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-field" type="password" name="suConfirmPassword" id="suConfirmPassword" required autocomplete="new-password" placeholder="&nbsp;">
+                            <label class="form-label" for="suConfirmPassword">
+                                <span class="form-placeholder">Re-type Password <span>*</span></span>
+                                <span class="form-error">Passwords do not match</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="message"></div>
+                        <button type="submit" class="submit-form" id="submitSignUp">Create</button>
+                        <div class="helper-buttons">
+                            <button type="button" id="dummySignUp">Use Dummy Data</button>
+                            <button type="reset">Clear All Fields</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="sign-in-form form-container">
+                <form id="signIn" class="form" novalidate>
+                    <h2 class="form-title">Sign in</h2>
+                    <p class="form-desc">Fill in your data to acces your account.</p>
+                    <fieldset class="single-column">
+                        <div class="form-group">
+                            <input class="form-field" type="email" name="siEmail" id="siEmail" required autocomplete="username" placeholder="&nbsp;">
+                            <label class="form-label" for="siEmail">
+                                <span class="form-placeholder">Email Address <span>*</span></span>
+                                <span class="form-error">Email is incorrect</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="single-column">
+                        <div class="form-group">
+                            <input class="form-field" type="password" name="siPassword" id="siPassword" required autocomplete="current-password" placeholder="&nbsp;">
+                            <label class="form-label" for="siPassword">
+                                <span class="form-placeholder">Password <span>*</span></span>
+                                <span class="form-error">Password is incorrect</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="message"></div>
+                        <button type="submit" class="submit-form" id="submitSignIn">Sign in</button>
+                        <div class="helper-buttons">
+                            <button type="button" id="dummySignIn">Use Dummy Data</button>
+                            <button type="reset">Clear All Fields</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="switcher">
+                <div class="switcher-content">
+                    <div class="switcher-logo">
+                        <img src="images/odin-lined.png" alt="">
+                    </div>
+                    <h1 class="switcher-title">Welcome to<br>Valhalla</h1>
+                    <div class="switcher-label">
+                        <span class="label-sign-in">Don't have an account yet?</span>
+                        <span class="label-sign-up">Already have an acount?</span>
+                    </div>
+                    <button type="button" id="formSwitch" class="switcher-btn">
+                        <span class="sign-in-label">Create Account</span>
+                        <span class="sign-up-label">Login</span>
+                    </button>
+                </div>
+                <div class="switcher-disclaimer">
+                    <span>
+                        <b>Please use dummy data</b>
+                        These forms serve a demonstration purpose and will save the email and password to your local storage.
+                        After the sign up is successful you can use the email and password into the login form.
+                        No data will be stored elsewhere than the local storage of your device.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
