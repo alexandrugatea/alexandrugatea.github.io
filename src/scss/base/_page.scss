@@ -16,10 +16,10 @@ body:not(.default-cursor) {
 
 
 :root {
-    --accent: #b4997f;
-    --accent-r: 180;
-    --accent-g: 153;
-    --accent-b: 127;
+    --accent: #ff4200; //#b4997f; Previous
+    --accent-r: 255;
+    --accent-g: 66;
+    --accent-b: 0;
     --radius: 0.4375rem;
     --radius-circle: 10rem;
 }
@@ -107,7 +107,8 @@ body {
 
 section .title,
 section .text,
-section .abtm,
+// section .abtm,
+section .graphic-block.about-me,
 section .resume-title,
 section .resume-profile-image,
 section .resume-work-title,

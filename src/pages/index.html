@@ -130,6 +130,7 @@
         <script src="build/js/homeCarousel.js"></script>
         <script src="build/js/type.js"></script>
         @@include('scripts.html')
+        
         <!-- Typewriter Effect on First Title -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -165,6 +166,7 @@
                 }
             });
         </script>
+        
         <!-- Tilt effect on Portfolio carousel -->
         <script>
             VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -178,27 +180,6 @@
         
         <!-- On Scroll Animations -->
         <script>
-            // // Select the element you want to observe
-            // const loadingPage = document.querySelector('.page-transitioner');
-
-            // // Create a new MutationObserver instance
-            // const observer = new MutationObserver((mutationsList, observer) => {
-            //     // Loop through all mutations in the mutations list
-            //     mutationsList.forEach(mutation => {
-
-            //         // Check if the class attribute was removed from the loading page element
-            //         if (!mutation.target.classList.contains('active')) {
-            //             addAnimations();
-            //         }
-            //     });
-            // });
-
-            // // Define the options for the MutationObserver
-            // const config = { attributes: true, attributeFilter: ['class'] };
-
-            // // Start observing the loading page element for attribute changes
-            // observer.observe(loadingPage, config);
-            
             addAnimations();
             function addAnimations() {
                 var os = new OnScreen({
@@ -227,7 +208,7 @@
                         element.classList.add("animated", "fadeInUp");
                     }, 500);
                 });
-                os.on('enter', 'section .abtm', (element, event) => {
+                os.on('enter', '.graphic-block.about-me', (element, event) => {
                     element.classList.add("will-animate");
                     setTimeout(() => {
                         element.classList.add("animated", "fadeInUp");

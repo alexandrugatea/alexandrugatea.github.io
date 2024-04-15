@@ -277,10 +277,10 @@ img {
 }
 
 :root {
-  --accent: #b4997f;
-  --accent-r: 180;
-  --accent-g: 153;
-  --accent-b: 127;
+  --accent: #ff4200;
+  --accent-r: 255;
+  --accent-g: 66;
+  --accent-b: 0;
   --radius: 0.4375rem;
   --radius-circle: 10rem;
 }
@@ -381,7 +381,7 @@ body.work.locked {
 
 section .title:not(.will-animate),
 section .text:not(.will-animate),
-section .abtm:not(.will-animate),
+section .graphic-block.about-me:not(.will-animate),
 section .resume-title:not(.will-animate),
 section .resume-profile-image:not(.will-animate),
 section .resume-work-title:not(.will-animate),
@@ -399,7 +399,7 @@ section .button:not(.will-animate) {
 }
 section .title.will-animate,
 section .text.will-animate,
-section .abtm.will-animate,
+section .graphic-block.about-me.will-animate,
 section .resume-title.will-animate,
 section .resume-profile-image.will-animate,
 section .resume-work-title.will-animate,
@@ -417,7 +417,7 @@ section .button.will-animate {
 }
 section .title.animated,
 section .text.animated,
-section .abtm.animated,
+section .graphic-block.about-me.animated,
 section .resume-title.animated,
 section .resume-profile-image.animated,
 section .resume-work-title.animated,
@@ -2848,7 +2848,6 @@ body.home section .graphic-block.about-me {
 body.home section .graphic-block-container {
   width: 100%;
   max-width: 35rem;
-  height: 100%;
   position: relative;
   cursor: pointer;
 }
@@ -2856,6 +2855,20 @@ body.home section .graphic-block-container {
   body.home section .graphic-block-container {
     margin: 0 auto;
   }
+}
+body.home section .graphic-block-container:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0)), to(rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1)));
+  background-image: linear-gradient(to bottom left, rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0), rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1));
+  mix-blend-mode: hard-light;
+  opacity: 0.77;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 body.home section .graphic-block-container.move .card:nth-child(1) {
   -webkit-transform: translate(calc(-50% - 0.00625rem), calc(-50% - 0.00625rem));

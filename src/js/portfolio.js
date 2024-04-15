@@ -219,32 +219,53 @@ const webData = [
             Prior to implementing this website I had this design in mind. 
         </p>`,
         'alt': "UX portfolio Idea"
+    },
+    {
+        'category': 'category-web',
+        'size': '959-911',
+        'captionID': 'webSignInUp',
+        'src': 'build/images/portfolio/webs/valhalla_sign_up.png',
+        'project-text': `
+            <h2>
+                SignIn SignUp Animated Switch
+            </h2>
+            <p>web design & development</p>`,
+        'type': ['web', 'square'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            Sign up / Sign In forms
+        </h2>	
+        <p class="galleryitem-caption-text">
+            Part of "The Odin Project" curriculum, this project showcases an animated way of switching between sign up and sign in forms. Live validation is made through Javascript. For demo purpose, I've implemented a "dummy data" button, that saves the credentials in your local storage. 
+        </p>
+        <a href="/odin/odin-signup/" target="_blank">Visit project</a>`,
+        'alt': "SignIn SignUp Animated Switch"
     }
 ];
 
 const codePenData = [
-    {
-        'category': 'category-web',
-        'size': '420-352',
-        'captionID': 'webCodePenSignInUp',
-        'iframe': true,
-        'thumb': 'build/images/portfolio/webs/codepen_signInUp.png',
-        'src': 'https://codepen.io/sgtdangates/embed/QWPwbEr?default-tab=result&theme-id=dark',
-        'project-text': `
-            <h2>
-                SignIn / SignUp animated form switch
-            </h2>
-            <p>web design</p>`,
-        'type': ['web', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            SignIn / SignUp animated form switch
-        </h2>	
-        <p class="galleryitem-caption-text">
-            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
-        </p>`,
-        'alt': "CodePen Portfolio Alexandru Gatea SignIn SignUp Animated Switch"
-    },
+    // {
+    //     'category': 'category-web',
+    //     'size': '420-352',
+    //     'captionID': 'webCodePenSignInUp',
+    //     'iframe': true,
+    //     'thumb': 'build/images/portfolio/webs/valhalla_sign_up.png',
+    //     'src': 'https://codepen.io/sgtdangates/embed/QWPwbEr?default-tab=result&theme-id=dark',
+    //     'project-text': `
+    //         <h2>
+    //             SignIn / SignUp animated form switch
+    //         </h2>
+    //         <p>web design</p>`,
+    //     'type': ['web', 'landscape'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //         SignIn / SignUp animated form switch
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //         <span class="hint">For best experience open Codepens on a Desktop Browser</span>
+    //     </p>`,
+    //     'alt': "CodePen Portfolio Alexandru Gatea SignIn SignUp Animated Switch"
+    // },
     {
         'category': 'category-web',
         'size': '420-274',

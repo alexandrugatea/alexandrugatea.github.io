@@ -248,12 +248,12 @@
                     <p class="nav-group-text">Change the accent color.</p>
                     <div class="color">
                         <ul class="nav-color-list" id="colorList">
-                            <li class="nav-color-item kursor-hover color-pick beige selected" style="background: #b4997f;" data-color="#b4997f"></li>
+                            <li class="nav-color-item kursor-hover color-pick dark-orange selected" style="background: #ff4200;" data-color="#ff4200"></li>
+                            <li class="nav-color-item kursor-hover color-pick beige " style="background: #b4997f;" data-color="#b4997f"></li>
                             <li class="nav-color-item kursor-hover color-pick green" style="background: #3eb97c;" data-color="#3eb97c"></li>
                             <li class="nav-color-item kursor-hover color-pick yellow" style="background: #db9a00;" data-color="#db9a00"></li>
-                            <li class="nav-color-item kursor-hover color-pick blue" style="background: #718bc7;" data-color="#718bc7"></li>
+                            <li class="nav-color-item kursor-hover color-pick blue" style="background: #2c6ef8;" data-color="#2c6ef8"></li>
                             <li class="nav-color-item kursor-hover color-pick purple" style="background: #c75ebe;" data-color="#c75ebe"></li>
-                            <li class="nav-color-item kursor-hover color-pick dark-orange" style="background: #ff4200;" data-color="#ff4200"></li>
                         </ul>
                     </div>
                 </div>
@@ -413,6 +413,7 @@
 <script src="build/js/cursor.js"></script>
 <script src="build/js/scripts.js"></script>
 <script src="build/js/os.js"></script>
+        
         <!-- Typewriter Effect on First Title -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
@@ -448,6 +449,7 @@
                 }
             });
         </script>
+        
         <!-- Tilt effect on Portfolio carousel -->
         <script>
             VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -461,27 +463,6 @@
         
         <!-- On Scroll Animations -->
         <script>
-            // // Select the element you want to observe
-            // const loadingPage = document.querySelector('.page-transitioner');
-
-            // // Create a new MutationObserver instance
-            // const observer = new MutationObserver((mutationsList, observer) => {
-            //     // Loop through all mutations in the mutations list
-            //     mutationsList.forEach(mutation => {
-
-            //         // Check if the class attribute was removed from the loading page element
-            //         if (!mutation.target.classList.contains('active')) {
-            //             addAnimations();
-            //         }
-            //     });
-            // });
-
-            // // Define the options for the MutationObserver
-            // const config = { attributes: true, attributeFilter: ['class'] };
-
-            // // Start observing the loading page element for attribute changes
-            // observer.observe(loadingPage, config);
-            
             addAnimations();
             function addAnimations() {
                 var os = new OnScreen({
@@ -510,7 +491,7 @@
                         element.classList.add("animated", "fadeInUp");
                     }, 500);
                 });
-                os.on('enter', 'section .abtm', (element, event) => {
+                os.on('enter', '.graphic-block.about-me', (element, event) => {
                     element.classList.add("will-animate");
                     setTimeout(() => {
                         element.classList.add("animated", "fadeInUp");
