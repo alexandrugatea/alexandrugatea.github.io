@@ -86,6 +86,7 @@ section, .section {
                 height: 400%;
                 background-image: linear-gradient(0deg, $bodyBackground 50%, rgba($bodyBackground, 1.0) 75%);
                 transition: all 0.5s ease;
+                pointer-events: none;
             }
 
             &:nth-child(2) {
