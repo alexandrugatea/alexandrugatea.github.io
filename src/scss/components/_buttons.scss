@@ -33,7 +33,7 @@
         place-items: center;
         position: relative;
         z-index: 2;
-
+        pointer-events: none;
         font-size: rem-calc(14);
         line-height: 1;
         text-transform: uppercase;

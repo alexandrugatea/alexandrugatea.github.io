@@ -1669,6 +1669,7 @@ body.default-cursor #kursorTrail {
   place-items: center;
   position: relative;
   z-index: 2;
+  pointer-events: none;
   font-size: 0.875rem;
   line-height: 1;
   text-transform: uppercase;
@@ -1861,6 +1862,7 @@ body.default-cursor #kursorTrail {
       -ms-transform: translate(50%, -10%);
           transform: translate(50%, -10%);
   opacity: 0.84;
+  pointer-events: none;
 }
 #nav .nav-list-links .nav-list-url:before {
   content: "";
@@ -2369,6 +2371,7 @@ body.default-cursor #kursorTrail {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 #nav .nav-trigger span.top {
   margin-top: -0.5rem;
@@ -3533,6 +3536,9 @@ body.work .project-gallery .gallery-item .project {
     border-radius: 0.4375rem;
   }
 }
+body.work .project-gallery .gallery-item .project * {
+  pointer-events: none;
+}
 body.work .project-gallery .gallery-item .project-image {
   z-index: 1;
   background-size: cover;
@@ -3629,6 +3635,7 @@ body.work .project-gallery .gallery-item .project-image img.web.portrait {
 body.work .project-gallery .gallery-item .project-text {
   z-index: 2;
   padding: 1.3125rem 0;
+  pointer-events: none;
 }
 @media screen and (max-width: 47.9375em) {
   body.work .project-gallery .gallery-item .project-text {

@@ -132,6 +132,7 @@
                         font-size: rem-calc(14);
                         transform: translate(50%, -10%);
                         opacity: 0.84;
+                        pointer-events: none;
                     }
 
                     &:before {
@@ -569,6 +570,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                pointer-events: none;
 
                 &.top {
                     margin-top: rem-calc(-7 - 1);

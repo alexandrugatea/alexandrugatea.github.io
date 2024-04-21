@@ -100,6 +100,10 @@ body.work {
                     border-radius: rem-calc(7);
                 }
 
+                * {
+                    pointer-events: none;
+                }
+
                 &-image {
                     z-index: 1;
                     background-size: cover;
@@ -195,6 +199,7 @@ body.work {
                 &-text {
                     z-index: 2;
                     padding: rem-calc(21 0);
+                    pointer-events: none;
 
                     @include breakpoint(small only) {
                         padding: rem-calc(14 0);
