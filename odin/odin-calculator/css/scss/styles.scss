@@ -42,7 +42,7 @@ body {
         overflow: hidden;
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: rem-calc(3);
+        gap: rem-calc(3);
         margin-bottom: rem-calc(7);
         position: relative;
         background: lighten($bodyBackground, 0%);
@@ -82,7 +82,7 @@ body {
             'one two three add'
             'zero zero digit total';
         place-content: center;
-        grid-gap: rem-calc(5);
+        gap: rem-calc(5);
         place-items: center;
 
             .key {

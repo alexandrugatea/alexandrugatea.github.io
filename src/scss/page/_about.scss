@@ -34,7 +34,7 @@ body.about {
         position: relative;
         display: grid;
         grid-template-columns: 63% auto;
-        grid-gap: rem-calc(0);
+        gap: rem-calc(0);
 
         @include breakpoint(medium down) {
             display: flex;

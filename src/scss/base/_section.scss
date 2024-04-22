@@ -17,7 +17,7 @@ section, .section {
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: rem-calc(70);
+    gap: rem-calc(70);
     letter-spacing: rem-calc(-0.3);
     line-height: 1.4;
     position: relative;
@@ -26,7 +26,7 @@ section, .section {
     @include breakpoint(small only) {
         padding: rem-calc(70 28);
         grid-template-columns: 1fr;
-        grid-gap: rem-calc(0);
+        gap: rem-calc(0);
         min-height: auto;
         place-items: center;
         
@@ -38,7 +38,7 @@ section, .section {
     @include breakpoint(medium only) {
         padding: rem-calc(70 28);
         grid-template-columns: 1fr;
-        grid-gap: rem-calc(0);
+        gap: rem-calc(0);
         place-items: center;
         min-height: calc(100dvh - 0px);
     }
@@ -46,7 +46,7 @@ section, .section {
     @include breakpoint(large only) {
         padding: rem-calc(98 42);
         grid-template-columns: 1fr;
-        grid-gap: rem-calc(0);
+        gap: rem-calc(0);
         min-height: calc(100dvh - 70px);
         place-items: center;
     }

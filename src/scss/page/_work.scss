@@ -11,30 +11,30 @@ body.work {
         align-items: flex-start;
         grid-template-columns: repeat(auto-fill, minmax(rem-calc(350), 1fr));
         position: relative;
-        grid-gap: rem-calc(98);
+        gap: rem-calc(98);
         width: 100%;
         padding-bottom: rem-calc(140);
 
         @include breakpoint(small only) {
             padding-bottom: rem-calc(70);
-            grid-gap: rem-calc(14);
+            gap: rem-calc(14);
             grid-template-columns: repeat(auto-fill, minmax(rem-calc(140), 1fr));
         }
 
         @include breakpoint(medium only) {
-            grid-gap: rem-calc(21);
+            gap: rem-calc(21);
             grid-template-columns: repeat(auto-fill, minmax(rem-calc(210), 1fr));
             padding: rem-calc(70 28)
         }
 
         @include breakpoint(large only) {
-            grid-gap: rem-calc(35);
+            gap: rem-calc(35);
             grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
             padding: rem-calc(70 28)
         }
 
         @include breakpoint(xlarge only) {
-            grid-gap: rem-calc(49);
+            gap: rem-calc(49);
             grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
             padding: rem-calc(70 28)
         }

@@ -23,11 +23,12 @@
         top: 0;
         bottom: 0;
         padding: rem-calc(70 70 70 140);
-        backdrop-filter: blur(14px);
+        backdrop-filter: blur(28px);
         overflow: auto;
 
         @include breakpoint(xlarge) {
-            background-image: linear-gradient(to right, rgba($bodyBackground, 0.9), rgba($bodyBackground, 0.7));
+            // background-image: linear-gradient(to right, rgba($bodyBackground, 0.9), rgba($bodyBackground, 0.9));
+            background-color: rgba($bodyBackground, 0.77);
             //mask: linear-gradient(to right, rgba($bodyBackground, 1) 56%, transparent 77%);
         }
 
@@ -109,6 +110,8 @@
                     }
 
                     &.current {
+                        pointer-events: none;
+                        
                         a {
                             color: accent(0.91);
                         }
@@ -239,7 +242,7 @@
 
         .nav-settings {
             opacity: 0;
-            grid-gap: rem-calc(56);
+            gap: rem-calc(56);
             transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
             @include breakpoint(medium down) {
@@ -261,7 +264,7 @@
                 display: grid;
                 grid-template-columns: 1fr;
                 overflow: auto;
-                grid-gap: rem-calc(35);
+                gap: rem-calc(35);
             }
 
 
@@ -294,10 +297,10 @@
             &-list {
                 display: grid;
                 grid-template-columns: 1fr;
-                grid-gap: rem-calc(56);
+                gap: rem-calc(56);
 
                 @include breakpoint(medium down) {
-                    grid-gap: rem-calc(28);
+                    gap: rem-calc(28);
                 }
 
                 >[class^='nav-settings-'] {
@@ -317,12 +320,12 @@
                 .nav-corner-list {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    grid-gap: rem-calc(21);
+                    gap: rem-calc(21);
                     padding: rem-calc(14 0);
 
                     @include breakpoint(small only) {
                         padding: 0;
-                        grid-gap: rem-calc(21);
+                        gap: rem-calc(21);
                     }
 
                     .nav-corner-item {
@@ -412,10 +415,10 @@
             .nav-color-list {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-gap: rem-calc(21);
+                gap: rem-calc(21);
 
                 @include breakpoint(small only) {
-                    grid-gap: rem-calc(28);
+                    gap: rem-calc(28);
                 }
 
                 .nav-color-item {

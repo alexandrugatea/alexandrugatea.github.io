@@ -9,7 +9,7 @@
 
     &-list {
         display: grid;
-        grid-gap: rem-calc(50);
+        gap: rem-calc(50);
         max-width: rem-calc(840);
         margin: 0 auto;
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));

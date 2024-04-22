@@ -15,6 +15,23 @@ body.home {
                     height: auto;
                     padding-bottom: 0%;
                 }
+
+                .graphic-block-container {
+                    
+                    &:after {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-image: linear-gradient(to bottom left, accent(0), accent(1));
+                        mix-blend-mode: hard-light;
+                        opacity: 0.77;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                    }
+                }
             }
 
             &.portfolio {
@@ -29,12 +46,15 @@ body.home {
                     max-width: rem-calc(560);
                     margin: 0 auto;
                 }
+
+                .graphic-block-container {
+                    height: 100%;
+                }
             }
 
             &-container {
                 width: 100%;
                 max-width: rem-calc(560);
-                // height: 100%;
                 position: relative;
                 cursor: pointer;
 
@@ -42,19 +62,6 @@ body.home {
                     margin: 0 auto;
                 }
 
-                &:after {
-                    content: "";
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    background-image: linear-gradient(to bottom left, accent(0), accent(1));
-                    mix-blend-mode: hard-light;
-                    opacity: 0.77;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: 1;
-                }
 
                 &.move {
                     .card:nth-child(1) {
@@ -150,8 +157,6 @@ body.home {
                                 object-fit: contain;
                                 object-position: center;
                             }
-
-
                         }
                     }
                 }

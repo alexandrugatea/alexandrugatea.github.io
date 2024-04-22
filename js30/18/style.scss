@@ -6,11 +6,11 @@
     .videos {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        grid-gap: 14px;
+        gap: 14px;
         
         @media screen and (max-width: 767px) {
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            grid-gap: 4px;
+            gap: 4px;
         }
 
         li {

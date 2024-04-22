@@ -415,16 +415,16 @@ $accentColor: #EF6C00;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin-bottom: rem-calc(21);
-        grid-gap: rem-calc(49);
+        gap: rem-calc(49);
         border: none;
         margin-bottom: rem-calc(35);
 
         @include breakpoint(medium down) {
-            grid-gap: rem-calc(21);
+            gap: rem-calc(21);
         }
 
         @include breakpoint(small only) {
-            grid-gap: rem-calc(14);
+            gap: rem-calc(14);
             grid-template-columns: 1fr;
         }
 

@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: 1fr;
 
-    grid-gap: rem-calc(35);
+    gap: rem-calc(35);
 
     &-title {
         font-size: rem-calc(42);

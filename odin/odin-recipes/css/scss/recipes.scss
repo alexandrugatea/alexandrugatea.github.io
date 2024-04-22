@@ -262,7 +262,7 @@ body.recipe-page {
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
+    gap: 50px;
     max-width: 100%;
 
     // set the grid to only have one column on mobile devices

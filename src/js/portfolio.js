@@ -84,10 +84,8 @@ function renderCaptions(category) {
         const div = document.createElement('div');
         div.setAttribute('id', item['captionID']);
         div.innerHTML = item['caption-text'];
-
         captionContainer.appendChild(div);
     })
-
 }
 
 const webData = [
@@ -114,6 +112,48 @@ const webData = [
         </p>
         <a href="/js30" target="_blank">View completed projects</a>`,
         'alt':  "WesBos"
+    },
+    {
+        'category': 'category-web',
+        'size': '1914-907',
+        'captionID': 'webAdminDash',
+        'src': 'build/images/portfolio/webs/admindash.png',
+        'project-text': `
+            <h2>
+                Admin Dashboard
+            </h2>
+            <p>web design & development</p>`,
+        'type': ['web', 'landscape'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            Admin Dashboard
+        </h2>	
+        <p class="galleryitem-caption-text">
+            Part of "The Odin Project" curriculum, this project showcases an admin dashboard with animated sidebar.
+        </p>
+        <a href="/odin/odin-dashboard/" target="_blank">Visit project</a>`,
+        'alt': "Admin Dashboard"
+    },
+    {
+        'category': 'category-web',
+        'size': '959-911',
+        'captionID': 'webSignInUp',
+        'src': 'build/images/portfolio/webs/valhalla_sign_up.png',
+        'project-text': `
+            <h2>
+                SignIn SignUp Animated Switch
+            </h2>
+            <p>web design & development</p>`,
+        'type': ['web', 'square'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            Sign up / Sign In forms
+        </h2>	
+        <p class="galleryitem-caption-text">
+            Part of "The Odin Project" curriculum, this project showcases an animated way of switching between sign up and sign in forms. Live validation is made through Javascript. For demo purpose, I've implemented a "dummy data" button, that saves the credentials in your local storage. 
+        </p>
+        <a href="/odin/odin-signup/" target="_blank">Visit project</a>`,
+        'alt': "SignIn SignUp Animated Switch"
     },
     {
         'category': 'category-web',
@@ -179,27 +219,27 @@ const webData = [
         <a href="https://www.synpheon.com/" target="_blank">Visit site</a>`,
         'alt': "Synpheon [DE]"
     },
-    {
-        'category': 'category-web',
-        'size': '1440-688',
-        'captionID': 'webDakar',
-        'src': 'build/images/portfolio/webs/dakar.png',
-       'project-text': `
-        <h2>
-            AutoDakar [RO]
-        </h2>
-        <p>web design & development</p>`,
-        'type': ['web', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            UIUX, from Brand to Code
-        </h2>	
-        <p class="galleryitem-caption-text">
-            Created the entire brand image, starting with the Logo, then moved into creating the UIUX for entire website, including the admin dashboards. Created from scratch an entire custom SCSS framework for the project.
-        </p>
-        <a href="https://www.autodakar.ro/" target="_blank">Visit site</a>`,
-        'alt': "AutoDakar [RO]"
-    },
+    // {
+    //     'category': 'category-web',
+    //     'size': '1440-688',
+    //     'captionID': 'webDakar',
+    //     'src': 'build/images/portfolio/webs/dakar.png',
+    //    'project-text': `
+    //     <h2>
+    //         AutoDakar [RO]
+    //     </h2>
+    //     <p>web design & development</p>`,
+    //     'type': ['web', 'landscape'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //         UIUX, from Brand to Code
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //         Created the entire brand image, starting with the Logo, then moved into creating the UIUX for entire website, including the admin dashboards. Created from scratch an entire custom SCSS framework for the project.
+    //     </p>
+    //     <a href="https://www.autodakar.ro/" target="_blank">Visit site</a>`,
+    //     'alt': "AutoDakar [RO]"
+    // },
     {
         'category': 'category-web',
         'size': '1440-3138',
@@ -220,52 +260,11 @@ const webData = [
         </p>`,
         'alt': "UX portfolio Idea"
     },
-    {
-        'category': 'category-web',
-        'size': '959-911',
-        'captionID': 'webSignInUp',
-        'src': 'build/images/portfolio/webs/valhalla_sign_up.png',
-        'project-text': `
-            <h2>
-                SignIn SignUp Animated Switch
-            </h2>
-            <p>web design & development</p>`,
-        'type': ['web', 'square'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            Sign up / Sign In forms
-        </h2>	
-        <p class="galleryitem-caption-text">
-            Part of "The Odin Project" curriculum, this project showcases an animated way of switching between sign up and sign in forms. Live validation is made through Javascript. For demo purpose, I've implemented a "dummy data" button, that saves the credentials in your local storage. 
-        </p>
-        <a href="/odin/odin-signup/" target="_blank">Visit project</a>`,
-        'alt': "SignIn SignUp Animated Switch"
-    }
+
+
 ];
 
 const codePenData = [
-    // {
-    //     'category': 'category-web',
-    //     'size': '420-352',
-    //     'captionID': 'webCodePenSignInUp',
-    //     'iframe': true,
-    //     'thumb': 'build/images/portfolio/webs/valhalla_sign_up.png',
-    //     'src': 'https://codepen.io/sgtdangates/embed/QWPwbEr?default-tab=result&theme-id=dark',
-    //     'project-text': `
-    //         <h2>
-    //             SignIn / SignUp animated form switch
-    //         </h2>
-    //         <p>web design</p>`,
-    //     'type': ['web', 'landscape'],
-    //     'caption-text': `
-    //     <h2 class="galleryitem-caption-title">
-    //         SignIn / SignUp animated form switch
-    //     </h2>	
-    //     <p class="galleryitem-caption-text">
-    //         <span class="hint">For best experience open Codepens on a Desktop Browser</span>
-    //     </p>`,
-    //     'alt': "CodePen Portfolio Alexandru Gatea SignIn SignUp Animated Switch"
-    // },
     {
         'category': 'category-web',
         'size': '420-274',
@@ -358,29 +357,29 @@ const codePenData = [
         </p>`,
         'alt': "CodePen Portfolio Alexandru Gatea Blurry Transparent Menu"
     },
-    {
-        'category': 'category-web',
-        'size': '420-309',
-        'captionID': 'webCodePenResponsiveTable',
-        'iframe': true,
-        'thumb': 'build/images/portfolio/webs/codepen_table.png',
-        'src': 'https://codepen.io/sgtdangates/embed/bGZZWzo?default-tab=result&theme-id=dark',
-        'project-text': `
-            <h2>
-                Responsive Tables
-            </h2>
-            <p>web development</p>`,
-        'type': ['web', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            From Table to Cards
-        </h2>	
-        <p class="galleryitem-caption-text">
-            <span class="hint">For best experience open Codepens on a Desktop Browser</span>
-            I'm using lists with items, instead of the classic table element. The with just plain CSS I switch the view from tabelar to cards on mobile devices.
-        </p>`,
-        'alt': "CodePen Portfolio Alexandru Gatea Responsive Table"
-    },
+    // {
+    //     'category': 'category-web',
+    //     'size': '420-309',
+    //     'captionID': 'webCodePenResponsiveTable',
+    //     'iframe': true,
+    //     'thumb': 'build/images/portfolio/webs/codepen_table.png',
+    //     'src': 'https://codepen.io/sgtdangates/embed/bGZZWzo?default-tab=result&theme-id=dark',
+    //     'project-text': `
+    //         <h2>
+    //             Responsive Tables
+    //         </h2>
+    //         <p>web development</p>`,
+    //     'type': ['web', 'landscape'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //         From Table to Cards
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //         <span class="hint">For best experience open Codepens on a Desktop Browser</span>
+    //         I'm using lists with items, instead of the classic table element. The with just plain CSS I switch the view from tabelar to cards on mobile devices.
+    //     </p>`,
+    //     'alt': "CodePen Portfolio Alexandru Gatea Responsive Table"
+    // },
     {
         'category': 'category-web',
         'size': '420-327',

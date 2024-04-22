@@ -3,7 +3,7 @@
   max-width: 800px;
   display: grid;
   grid-template-columns: auto 50px;
-  grid-gap: 10px;
+  gap: 10px;
 }
 .js30-content video {
   width: 100%;
