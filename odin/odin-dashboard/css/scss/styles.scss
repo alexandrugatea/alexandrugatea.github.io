@@ -711,6 +711,10 @@ $mainNewsWidth_xxlarge_down: 300px;
             overflow: unset;
         }
 
+        @include breakpoint(small only) {
+            padding-right: 0;
+        }
+
         &-announcements {
             background: $bodyBackground;
             border-radius: rem-calc(21);

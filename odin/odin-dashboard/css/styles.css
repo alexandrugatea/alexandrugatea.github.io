@@ -892,6 +892,11 @@ img {
     overflow: unset;
   }
 }
+@media screen and (max-width: 47.9375em) {
+  .main .main-news {
+    padding-right: 0;
+  }
+}
 .main .main-news-announcements {
   background: #070707;
   border-radius: 1.3125rem;
