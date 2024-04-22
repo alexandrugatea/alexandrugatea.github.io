@@ -620,7 +620,6 @@ html {
 .mobile-options-title {
   text-align: center;
   padding: 20px 0;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: -webkit-box;
