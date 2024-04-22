@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBYPXS49D2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YBYPXS49D2');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MCJBM5V4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard, part of Odin Project Curriculum">
+    <meta name="keywords"
+        content="Web Developer, Web Designer, Front-end Developer, UI/UX Designer, Website Development, Website Design, Responsive Design, Cluj-Napoca Web Developer, Cluj-Napoca Web Designer, HTML, CSS, JavaScript, Mobile Responsive Design, User Experience, User Interface, Graphic Design, Portfolio Websites, Custom Web Solutions, SEO Optimization">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Admin Dashboard">
+    <meta property="og:description" content="Admin Dashboard, part of Odin Project Curriculum">
+    <meta property="og:url" content="https://www.alexandrugatea.com">
+    <meta property="og:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="og:locale" content="en_US">
+    <meta property="twitter:title" content="Admin Dashboard">
+    <meta property="twitter:description" content="Admin Dashboard, part of Odin Project Curriculum">
+    <meta property="twitter:url" content="https://www.alexandrugatea.com">
+    <meta property="twitter:image" content="https://alexandrugatea.com/build/images/meta.png">
+    <meta property="twitter:type" content="website">
+    <meta property="twitter:site_name" content="Alexandru Gatea | Sr UX Engineer">
+    <meta property="twitter:locale" content="en_US">
+    <meta name="msapplication-TileColor" content="#070707">
+    <meta name="theme-color" content="#070707">
+    <link rel="mask-icon" href="https://alexandrugatea.com/safari-pinned-tab.svg" media="(prefers-color-scheme: light)" color="#070707">
+    <link rel="mask-icon" href="https://alexandrugatea.com/safari-pinned-tab.svg" media="(prefers-color-scheme: dark)" color="#c7c7c7">
+    <link rel="manifest" href="https://alexandrugatea.com/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexandrugatea.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexandrugatea.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexandrugatea.com/favicon-16x16.png">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard" id="dash">
+
+        <div class="sidebar" id="side">
+            <div class="sidebar-trigger" id="sidebarTrigger">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 400">
+                    <path d="M0,400V0H0A365.08,365.08,0,0,0,24.76,120.63Q29.76,133.41,35,146c6.47,15.7,10,35.65,10,51.37v5.18c0,15.72-3.56,35.67-10,51.37q-5.2,12.63-10.21,25.41A365.08,365.08,0,0,0,0,400Z" /></svg>
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-list-item logo">
+                    <span class="icon">
+                        <img src="../../build/images/logo.svg" alt="" srcset="">
+                    </span>
+                    <span class="sidebar-link">
+                        Admin 
+                        <span>Dashboard</span>
+                    </span> 
+                    <a class="link-to-website" href="../../"></a>
+                </div>
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item active" id="sideLinkHome">
+                        <span class="icon">home</span>
+                        <span class="sidebar-link">Home</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkProfile">
+                        <span class="icon">account_box</span>
+                        <span class="sidebar-link">Profile</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkMessages">
+                        <span class="icon">mail</span>
+                        <span class="sidebar-link">Messages</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkHistory">
+                        <span class="icon">history</span>
+                        <span class="sidebar-link">History</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkTasks">
+                        <span class="icon">task</span>
+                        <span class="sidebar-link">Tasks</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkCommunity">
+                        <span class="icon">groups</span>
+                        <span class="sidebar-link">Community</span>
+                    </li>
+                </ul>
+
+                <ul class="sidebar-list bottom-list">
+                    <li class="sidebar-list-item" id="sideLinkSettings">
+                        <span class="icon">tune</span>
+                        <span class="sidebar-link">Settings</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkSupport">
+                        <span class="icon">shield_question</span>
+                        <span class="sidebar-link">Support</span>
+                    </li>
+                    <li class="sidebar-list-item" id="sideLinkPrivacy">
+                        <span class="icon">verified_user</span>
+                        <span class="sidebar-link">Privacy</span>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="main" id="main">
+            <div class="main-header">
+                <div class="main-header-user">
+                    <div class="user-greeting">
+                        <h1 class="user-id">
+                            <span class="greet">Hello there,</span>
+                            <span class="user">ScharfSchutzen Schnitzel (@sntzl)</span>
+                        </h1>
+                    </div>
+                    <div class="user-actions">
+                        <div class="user-notifications">
+                            <span class="material-symbols-outlined">notifications_active</span>
+                        </div>
+                        <div class="user-name">ScharfSchutzen</div>
+                        <div class="user-avatar">
+                            <img src="../../build/images/about/about_me.png" alt="Alexandru Gatea">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-header-actions">
+                    <div class="header-action-search">
+                        <form action="" id="searchForm">
+                            <div class="form-group">
+                                <input type="text" name="" id="" placeholder="Filter Projects">
+                                <button type="submit"><span class="icon material-symbols-outlined">search</span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="header-action-buttons">
+                        <button class="action">New <span class="icon material-symbols-outlined">add</span></button>
+                        <button class="action">Upload <span class="icon material-symbols-outlined">upload</span></button>
+                        <button class="action">Share <span class="icon material-symbols-outlined">share</span></button>
+                    </div>
+                </div>
+            </div>    
+            <div class="main-articles">
+                <h3 class="main-title">My Projects</h3>
+                <div class="projects-grid">
+                    
+                    <div class="project featured" data-featured-text="Featured">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project featured" data-featured-text="featured">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="project-body">
+                            <h2 class="project-name">Super Cool Project</h2>
+                            <p class="project-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat repellat fugit nesciunt velit sapiente officiis.</p>
+                        </div>
+                        <div class="project-footer">
+                            <ul class="project-action-list">
+                                <li class="action"><span class="icon material-symbols-outlined">star</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">visibility</span></li>
+                                <li class="action"><span class="icon material-symbols-outlined">share</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-news">
+                <div class="main-news-announcements">
+                    <h3 class="main-title">Announcements</h3>
+                    <ul class="announcements-list">
+                        <li class="announcement critical">
+                            <div class="announcement-title">Server Maintenance</div>
+                            <div class="announcement-date">Apr 22<sup>nd</sup></div>
+                            <div class="announcement-text">Search form will not be available.</div>
+                        </li>
+                        <li class="announcement">
+                            <div class="announcement-title">Anouncement</div>
+                            <div class="announcement-date">Apr 21<sup>st</sup></div>
+                            <div class="announcement-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nisi!</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="main-news-trending">
+                    <h3 class="main-title">Trending</h3>
+                    <ul class="trending-list">
+                        <li class="trend">
+                            <div class="trend-icon"></div>
+                            <div class="trend-tag">@userName</div>
+                            <div class="trend-name">User Identity</div>
+                        </li>
+                        <li class="trend">
+                            <div class="trend-icon"></div>
+                            <div class="trend-tag">@userName</div>
+                            <div class="trend-name">User Identity</div>
+                        </li>
+                        <li class="trend">
+                            <div class="trend-icon"></div>
+                            <div class="trend-tag">@userName</div>
+                            <div class="trend-name">User Identity</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
