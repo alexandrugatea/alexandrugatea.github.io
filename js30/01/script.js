@@ -1,11 +1,5 @@
 (function () {
 
-    window[`01`] = function () {
-        // Perform cleanup tasks here, e.g., remove event listeners
-        window.removeEventListener("keydown", (e) => playAudio(e, e.code));
-    };
-
-
     const keys = document.querySelectorAll(".key:not(.prevent-monkey)");
     
     keys.forEach(key => {
