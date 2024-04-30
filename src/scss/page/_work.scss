@@ -156,7 +156,7 @@ body.work {
                             }
 
                             &.square {
-                                width: 84%;
+                                width: auto;
                                 height: 84%;
                                 object-fit: contain;
                             }
@@ -461,4 +461,8 @@ body:not(.default-cursor) {
         .lg-next {
             right: 0;
         }
+}
+
+.lg-outer .lg-thumb-item img {
+    object-fit: contain;
 }

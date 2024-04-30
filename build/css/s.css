@@ -114,6 +114,15 @@
   -webkit-font-smoothing: antialiased;
 }
 
+:root {
+  --accent: #ff4200;
+  --accent-r: 255;
+  --accent-g: 66;
+  --accent-b: 0;
+  --radius: 0.4375rem;
+  --radius-circle: 10rem;
+}
+
 @-webkit-keyframes noise {
   0% {
     background-position: 0% 0%;
@@ -274,15 +283,6 @@ img {
   body:not(.default-cursor) *:focus {
     cursor: none !important;
   }
-}
-
-:root {
-  --accent: #ff4200;
-  --accent-r: 255;
-  --accent-g: 66;
-  --accent-b: 0;
-  --radius: 0.4375rem;
-  --radius-circle: 10rem;
 }
 
 body {
@@ -3603,7 +3603,7 @@ body.work .project-gallery .gallery-item .project-image img.logo.landscape {
   height: auto;
 }
 body.work .project-gallery .gallery-item .project-image img.logo.square {
-  width: 84%;
+  width: auto;
   height: 84%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -3903,6 +3903,11 @@ body:not(.default-cursor) .lg-prev {
 }
 body:not(.default-cursor) .lg-next {
   right: 0;
+}
+
+.lg-outer .lg-thumb-item img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 body.contact .contact-section {

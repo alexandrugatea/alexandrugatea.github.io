@@ -654,9 +654,27 @@ const mapsData = [
 const brandData = [
     {
         'category': 'category-brand',
-        'size': '1440-1080',
+        'size': '1440-791',
         'captionID': 'logoAtleticMed',
-        'src': 'build/images/portfolio/brand/port_logo_atletic.png',
+        'src': 'build/images/portfolio/brand/FunkByteTechLogo_print_color_h_db.png',
+       'project-text': `
+        <h2>
+            Brand design
+        </h2>
+        <p>logo design</p>`,
+        'type': ['logo', 'landscape'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+        </h2>	
+        <p class="galleryitem-caption-text">
+        </p>`,
+        'alt':  "Atletic Med"
+    },
+    {
+        'category': 'category-brand',
+        'size': '1440-810',
+        'captionID': 'logoAtleticMed',
+        'src': 'build/images/portfolio/brand/AtleticMed_ColorForGrey.png',
        'project-text': `
         <h2>
             Brand design
@@ -688,60 +706,60 @@ const brandData = [
         </p>`,
         'alt':  "City Scroller"
     },
-    {
-        'category': 'category-brand',
-        'size': '1080-1080',
-        'captionID': 'logoCoop',
-        'src': 'build/images/portfolio/brand/port_logo_coop.png',
-       'project-text': `
-        <h2>
-            Logo design
-        </h2>
-        <p>logo design</p>`,
-        'type': ['logo', 'square'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt':  "Cooperativa Agricola"
-    },
-    {
-        'category': 'category-brand',
-        'size': '1440-1080',
-        'captionID': 'logoFlower',
-        'src': 'build/images/portfolio/brand/port_logo_flower.png',
-        'project-text': `
-        <h2>
-            Logo Design
-        </h2>
-        <p>logo design</p>`,
-        'type': ['logo', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt':  "Little Daisy Flower Shop"
-    },
-    {
-        'category': 'category-brand',
-        'size': '1440-1080',
-        'captionID': 'logoGames',
-        'src': 'build/images/portfolio/brand/port_logo_games.png',
-       'project-text': `
-        <h2>
-            Brand design
-        </h2>
-        <p>logo design</p>`,
-        'type': ['logo', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt':  "Board Games Rental"
-    },
+    // {
+    //     'category': 'category-brand',
+    //     'size': '1080-1080',
+    //     'captionID': 'logoCoop',
+    //     'src': 'build/images/portfolio/brand/port_logo_coop.png',
+    //    'project-text': `
+    //     <h2>
+    //         Logo design
+    //     </h2>
+    //     <p>logo design</p>`,
+    //     'type': ['logo', 'square'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //     </p>`,
+    //     'alt':  "Cooperativa Agricola"
+    // },
+    // {
+    //     'category': 'category-brand',
+    //     'size': '1440-1080',
+    //     'captionID': 'logoFlower',
+    //     'src': 'build/images/portfolio/brand/port_logo_flower.png',
+    //     'project-text': `
+    //     <h2>
+    //         Logo Design
+    //     </h2>
+    //     <p>logo design</p>`,
+    //     'type': ['logo', 'landscape'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //     </p>`,
+    //     'alt':  "Little Daisy Flower Shop"
+    // },
+    // {
+    //     'category': 'category-brand',
+    //     'size': '1440-1080',
+    //     'captionID': 'logoGames',
+    //     'src': 'build/images/portfolio/brand/port_logo_games.png',
+    //    'project-text': `
+    //     <h2>
+    //         Brand design
+    //     </h2>
+    //     <p>logo design</p>`,
+    //     'type': ['logo', 'landscape'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //     </p>`,
+    //     'alt':  "Board Games Rental"
+    // },
     {
         'category': 'category-brand',
         'size': '1440-1080',
@@ -797,24 +815,24 @@ const brandData = [
         </p>`,
         'alt':  "Movement Records"
     },
-    {
-        'category': 'category-brand',
-        'size': '1080-1080',
-        'captionID': 'logoWanted',
-        'src': 'build/images/portfolio/brand/port_logo_wanted.png',
-       'project-text': `
-        <h2>
-            Brand design
-        </h2>
-        <p>logo design</p>`,
-        'type': ['logo', 'square'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt':  "Wanted Sneakers"
-    },
+    // {
+    //     'category': 'category-brand',
+    //     'size': '1080-1080',
+    //     'captionID': 'logoWanted',
+    //     'src': 'build/images/portfolio/brand/port_logo_wanted.png',
+    //    'project-text': `
+    //     <h2>
+    //         Brand design
+    //     </h2>
+    //     <p>logo design</p>`,
+    //     'type': ['logo', 'square'],
+    //     'caption-text': `
+    //     <h2 class="galleryitem-caption-title">
+    //     </h2>	
+    //     <p class="galleryitem-caption-text">
+    //     </p>`,
+    //     'alt':  "Wanted Sneakers"
+    // },
     // Add more portfolio items as needed
 ];
 
