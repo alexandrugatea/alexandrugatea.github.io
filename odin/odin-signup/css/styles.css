@@ -1,3 +1,12 @@
+:root {
+  --accent: #ff4200;
+  --accent-r: 255;
+  --accent-g: 66;
+  --accent-b: 0;
+  --radius: 0.4375rem;
+  --radius-circle: 10rem;
+}
+
 *, *:before, *:after {
   margin: 0;
   padding: 0;
@@ -147,7 +156,7 @@ img {
 
 @font-face {
   font-family: "Valhalla";
-  src: url("../fonts/Norse-Bold.otf") format("truetype");
+  src: url("../../common-res/fonts/Norse-Bold.otf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

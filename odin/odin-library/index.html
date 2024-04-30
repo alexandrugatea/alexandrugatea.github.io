@@ -48,6 +48,88 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
 <body>
+
+    <div class="library">
+
+        <div class="library-sidebar">
+            <div class="sidebar-content">
+                <div class="library-info">
+                    <h1 class="library-title">Odin's Library</h1>
+                    <p class="library-description">
+                        <span>
+                            Odin's Library is part of the Odin Project Curriculum.<br/>
+                        </span>
+                        <span>
+                            Odin's Library is a JS based library where you add books you've read or or plan to read. Data is saved to your local storage
+                        </span>
+                    </p>
+                    <ul class="library-stats">
+                        <li>Total Books in Library: <span id="totalBooks">0</span></li>
+                        <li>Read Books: <span id="totalReadBooks">0</span></li>
+                        <li>Unread Books: <span id="totalUnreadBooks">0</span></li>
+                        <li>Total read pages: <span id="totalReadPages">0</span></li>
+                    </ul>
+                    <div class="library-empty">
+                        <button id="emptyLibrary">Restore Defaults</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="library-books" id="renderedBooks"></div>
+
+        <div class="library-add" id="addNewBook"><span class="material-symbols-outlined">add</span></div>
+        <form class="form" action="" id="addBookForm">
+            <div class="form-content">
+                <h2 class="form-title">Add another book</h2>
+                <p class="form-desc">Fill in the following fields add a new book to the library</p>
+
+                <fieldset>
+                    <legend>Book Info</legend>
+                    <!-- Book Name -->
+                <div class="form-group">
+                    <input class="form-field" type="text" name="bookTitle" id="bookTitle" required placeholder="&nbsp;">
+                    <label class="form-label" for="bookTitle">
+                        <span class="form-placeholder">Book Name <sup>*</sup></span>
+                        <span class="form-error">Name too short</span>
+                    </label>
+                </div>
+    
+                <!-- Book Author -->
+                <div class="form-group">
+                    <input class="form-field" type="text" name="bookAuthor" id="bookAuthor" required placeholder="&nbsp;">
+                    <label class="form-label" for="bookAuthor">
+                        <span class="form-placeholder">Book Author <sup>*</sup></span>
+                        <span class="form-error">Name too short</span>
+                    </label>
+                </div>
+    
+                <!-- Book Pages -->
+                <div class="form-group">
+                    <input class="form-field" type="number" min="0" max="9999" name="bookPages" id="bookPages" required placeholder="&nbsp;">
+                    <label class="form-label" for="bookPages">
+                        <span class="form-placeholder">Number of Pages <sup>*</sup></span>
+                        <span class="form-error">Min 0, Max 9999</span>
+                    </label>
+                </div>
+                </fieldset>
+    
+                <fieldset>
+                    <legend>Read Status</legend>
+    
+                    <!-- Book Read Status -->
+                    <div class="form-group form-check">
+                        <input class="form-field no-style" type="checkbox" min="0" max="9999" name="bookRead" id="bookRead" placeholder="&nbsp;">
+                        <label class="form-label no-style" for="bookRead">
+                            <span class="form-placeholder">Did you read the book? <sup>*</sup></span>
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="submit-form" id="submitSignUp">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
     
     <script src="scripts.js"></script>
 </body>

@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+:root {
+  --accent: #ff4200;
+  --accent-r: 255;
+  --accent-g: 66;
+  --accent-b: 0;
+  --radius: 0.4375rem;
+  --radius-circle: 10rem;
+}
+
 *, *:before, *:after {
   margin: 0;
   padding: 0;

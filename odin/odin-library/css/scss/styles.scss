@@ -4,3 +4,729 @@ $customFontPath: "../../../build/fonts/";
 @import "../../../../src/scss/base/mixins";
 @import "../../../../src/scss/base/reset";
 @import "../../../../src/scss/base/font";
+@import "../../../../src/scss/base/scroll";
+
+@font-face {
+    font-family: 'Valhalla';
+    src: url('../../common-res/fonts/Norse-Bold.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+$bezier: cubic-bezier(0.175, 0.885, 0.32, 1.25);
+
+body {
+    background: lighten($bodyBackground, 3%);
+    color: $bodyText;
+    font-family: "Slab";
+    font-size: rem-calc(18);
+}
+
+.library {
+    height: 100vh;
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: rem-calc(420) auto;
+    overflow: hidden;
+
+    @include breakpoint(small only) {
+    // < 768
+        display: block;
+        overflow: auto;
+    }
+
+    @include breakpoint(medium only) {
+    // 768
+        grid-template-columns: rem-calc(350) auto;
+    }
+}
+
+.library-sidebar {
+    padding: rem-calc(21);
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    
+    .sidebar-content {
+        background: $bodyBackground;
+        padding: rem-calc(35);
+        border-radius: rem-calc(21);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: rem-calc(140);
+        height: 100%;
+        overflow-x: visible;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+    }
+
+    .library-info {
+        display: flex;
+        flex-direction: column;
+        gap: rem-calc(21);
+        height: 100%;
+
+        .library-title {
+            font-family: "Valhalla";
+            font-size: rem-calc(49);
+        }
+        .library-description {
+            line-height: 1.4;
+            font-style: italic;
+
+            span {
+                display: block;
+                margin-bottom: rem-calc(15);
+            }
+        }
+
+        .library-stats {
+            display: flex;
+            flex-direction: column;
+            gap: rem-calc(7);
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: rem-calc(14 0);
+
+                &:not(:last-child) {
+                    border-bottom: rem-calc(1) solid rgba($bodyText, 0.14);
+                }
+            }
+        }
+    }
+}
+
+// form open/close
+
+.form {
+    
+    .form-content {
+        opacity: 0;
+        transition: all 0.25s linear;
+        transform: translateY(rem-calc(42));
+        
+        &.opened {
+            transform: translateY(0);
+            transition: all 0.25s linear;
+            opacity: 1;
+        }
+    }
+}
+
+
+.form {
+    width: rem-calc(50);
+    height: rem-calc(50);
+    transition: all 0.25s ease;
+    text-align: left;
+    flex-grow: 0;
+    overflow: hidden;
+    height: rem-calc(40);
+    position: fixed;
+    z-index: 9;
+    bottom: rem-calc(50);
+    right: rem-calc(50);
+    background: $bodyBackground;
+    border-radius: rem-calc(56);
+    padding: 0;
+    box-shadow: rem-calc(-14 7 14 0) rgba($bodyBackground, 0.42);
+
+    &.opened {
+        padding: rem-calc(56);
+        height: rem-calc(700);
+        width: rem-calc(450);
+
+        @include breakpoint(small only) {
+        // < 768
+            width: 100%;
+            right: 0;
+        }
+    }
+
+    .form-title {
+        font-size: rem-calc(42);
+        font-family: "Valhalla";
+        font-weight: 300;
+        margin-bottom: rem-calc(14);
+        cursor: pointer;
+    }
+
+    .form-desc {
+        font-size: rem-calc(16);
+        max-width: rem-calc(280);
+        margin: 0 0 rem-calc(28);
+        font-family: "Slab";
+        line-height: 1.35;
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(14);
+        }
+    }
+
+    fieldset {
+        margin-bottom: rem-calc(21);
+        border: none;
+        margin-bottom: rem-calc(35);
+
+        &:has(>legend) {
+            border-top: rem-calc(2) solid lighten($bodyBackground, 4%);
+        }
+
+        legend {
+            padding-inline-start: rem-calc(0);
+            padding-inline-end: rem-calc(21);
+            margin-bottom: rem-calc(21);
+            font-family: "PS900";
+            font-size: rem-calc(14);
+            letter-spacing: rem-calc(1px);
+            opacity: 0.21;
+        }
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+
+        &:not(:last-of-type) {
+            margin-bottom: rem-calc(21);
+        }
+
+        &.form-check {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+
+            input {
+                position: absolute;
+                visibility: hidden;
+            }
+
+            label {
+                position: relative;
+                padding-left: rem-calc(35);
+                cursor: pointer;
+                user-select: none;
+
+                &:before {
+                    content:"";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: rem-calc(22);
+                    height: rem-calc(22);
+                    border: rem-calc(1) solid $bodyText;
+                    border-radius: rem-calc(4);
+                }
+
+                &:after {
+                    content:"";
+                    position: absolute;
+                    top: rem-calc(4);
+                    left: rem-calc(4);
+                    width: rem-calc(14);
+                    height: rem-calc(14);
+                    background: transparent;
+                    border-radius: rem-calc(4);
+                }
+            }
+
+            input:checked + label:after {
+                background: $success;
+            }
+        }
+    }
+
+
+    .form-field:not(.no-style),
+    .form-label:not(.no-style) {
+        cursor: text;
+    }
+
+    &-field:not(.no-style) {
+        border-radius: rem-calc(7);
+        background: $bodyBackground;
+        border: none;
+        outline: none;
+        color: $bodyText;
+        box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.35);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: rem-calc(0 21);
+        font-size: rem-calc(16);
+        letter-spacing: rem-calc(0.5);
+        position: relative;
+
+
+        &[type="text"],
+        &[type="number"],
+        &[type="tel"],
+        &[type="password"],
+        &[type="email"] {
+            width: 100%;
+            height: rem-calc(56);
+        }
+
+        &[name="name"] {
+            text-transform: capitalize;
+        }
+
+        &.error {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42);
+        }
+
+        &.error:hover,
+        &.error:active,
+        &.error:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($error, 0.42),
+                rem-calc(0 0 0 7) rgba($error, 0.21);
+        }
+
+        &.valid {
+
+            &+label span {
+                color: $success;
+            }
+        }
+
+        &.valid:hover,
+        &.valid:active,
+        &.valid:focus {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($success, 0.42),
+                rem-calc(0 0 0 7) rgba($success, 0.21);
+        }
+
+        &:hover {
+            box-shadow: inset rem-calc(0 0 0 3) rgba($bodyText, 0.42),
+                rem-calc(0 0 0 7) rgba($bodyText, 0.21);
+        }
+
+        &:focus {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+
+        &:not(:placeholder-shown) {
+
+            &+label {
+                transform: translate(0, -50%);
+                padding: rem-calc(0 21);
+            }
+        }
+    }
+
+    &-label:not(.no-style) {
+        position: absolute;
+        transform: translate(0, 18%);
+        top: 0;
+        left: rem-calc(7);
+        padding: rem-calc(0 28);
+        transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        background: $bodyBackground;
+        display: inline-block;
+        max-width: 100%;
+        font-family: "Slab";
+        letter-spacing: rem-calc(1);
+
+        @include breakpoint(medium down) {
+            padding: rem-calc(0 14);
+        }
+
+        .form-placeholder {
+            line-height: rem-calc(35);
+            white-space: nowrap;
+        }
+
+        .form-error {
+            display: none;
+            color: $error;
+            line-height: rem-calc(35);
+            white-space: nowrap;
+        }
+    }
+
+    .submit-form {
+        display: block;
+        width: 100%;
+        height: rem-calc(49);
+        border-radius: rem-calc(8);
+        text-align: center;
+        background: accent(1);
+        font-size: rem-calc(21);
+        letter-spacing: rem-calc(2);
+        border: none;
+        color: $bodyBackground;
+        cursor: pointer; 
+        transition: all 0.25s $bezier;
+        outline: none;
+        box-shadow: rem-calc(0 0 0 0) accent(0);
+
+        &:hover {
+            box-shadow: rem-calc(0 0 0 4) accent(0.35);
+        }
+    }
+
+    .error+label .form-placeholder {
+        display: none;
+    }
+
+    .error+label .form-error {
+        display: block;
+    }
+    // override browser
+    
+    input:-internal-autofill-selected {
+        appearance: menulist-button;
+        background-image: none !important;
+        background-color: -internal-light-dark(rgb(7, 7, 7), rgba(7, 7, 7, 0.4)) !important;
+    
+        color: $bodyText !important;
+    }
+    
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow:
+            inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+            inset 0 0 0 rem-calc(100) $bodyBackground !important;
+        -webkit-text-fill-color: $bodyText !important;
+        color: $bodyText !important;
+    }
+    
+    input.error:-webkit-autofill,
+    input.error:-webkit-autofill:hover,
+    input.error:-webkit-autofill:focus,
+    input.error:-webkit-autofill:active {
+        -webkit-box-shadow:
+            inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+            inset 0 0 0 rem-calc(100) $bodyBackground !important;
+        -webkit-text-fill-color: $bodyText !important;
+        color: $bodyText !important;
+    }
+    
+    input.valid:-webkit-autofill,
+    input.valid:-webkit-autofill:hover,
+    input.valid:-webkit-autofill:focus,
+    input.valid:-webkit-autofill:active {
+        -webkit-box-shadow:
+            inset rem-calc(0 0 0 3) rgba($bodyText, 0.35),
+            inset 0 0 0 rem-calc(100) $bodyBackground !important;
+        -webkit-text-fill-color: $bodyText !important;
+        color: $bodyText !important;
+    }
+}
+
+
+.library-add {
+    position: fixed;
+    z-index: 10;
+    bottom: rem-calc(50);
+    right: rem-calc(50);
+    width: rem-calc(56);
+    height: rem-calc(56);
+    background: accent(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: rem-calc(56);
+    box-shadow: rem-calc(5 10 14 0) darken($bodyBackground, 10%);
+    cursor: pointer;
+    transition: all 0.25s $bezier;
+    transform: scale(1);
+    user-select: none;
+    
+    &:active, &:focus {
+        transform: scale(0.91);
+    }
+    
+    span {
+        transition: all 0.25s $bezier;
+        transform: rotate(0deg);
+        font-size: rem-calc(35);
+        color: $bodyBackground;
+    }
+
+    &.opened {
+        span {
+            transform: rotate(405deg);
+        }
+    }
+}
+
+
+.library-books {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-rows: min-content;
+    padding: rem-calc(30);
+    gap: rem-calc(49);
+    overflow: auto;
+    
+    @include breakpoint(large) {
+        // 1024
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    @include breakpoint(small only) {
+        // < 768
+        height: auto;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: rem-calc(56);
+        column-gap: rem-calc(21);
+        padding-bottom: rem-calc(200);
+    }
+    
+    @include breakpoint(medium only) {
+        // 768
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: rem-calc(56);
+        column-gap: rem-calc(21);
+        padding-bottom: rem-calc(200);
+    }
+
+    
+    .book {
+        width: 100%;
+        position: relative;
+        z-index: 0;
+        padding: rem-calc(28 14);
+        
+        @include breakpoint(large) {
+            perspective: 630px;
+        }
+
+        &:after {
+            content: "";
+            background: darken($bodyBackground, 10%);
+            display: block;
+            width: 50%;
+            height: rem-calc(10);
+            filter: blur(10px);
+            left: 0;
+            position: absolute;
+            top: 100%;
+            transform: skewY(-7deg) translate(25%,-100%);
+            z-index: -1;
+        }
+
+        @include breakpoint(medium down) {
+            padding: rem-calc(0 0 28);
+        }
+        
+        .book-inner {
+            height: 100%;
+            min-height: rem-calc(280);
+            background: lighten($bodyBackground, 15%);
+            border-top-right-radius: rem-calc(14);
+            border-bottom-right-radius: rem-calc(14);
+            position: relative;
+            z-index: 1;
+            padding: rem-calc(21);
+
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: rem-calc(7);
+
+            @include breakpoint(large) {
+                // 1024
+                perspective: 630px;
+                transform: rotateY(28deg);
+                transform-origin: left center;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                right: rem-calc(35);
+                width: rem-calc(21);
+                height: 100%;
+                top: 0;
+                opacity: 0.21;
+                background: $bodyBackground;
+                z-index: -1;
+            }
+
+            &:after {
+
+                @include breakpoint(large) {
+                // 1024
+                    content: attr(data-index);
+                    background: lighten($bodyBackground, 10%);
+                    display: block;
+                    width: rem-calc(42);
+                    height: calc(100% + 3px);
+                    font-size: rem-calc(28);
+                    font-family: "Valhalla";
+                    left: 0;
+                    position: absolute;
+                    top: -1.5px;
+                    transform-origin: right center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding: rem-calc(21 0);
+                    border-top-left-radius: rem-calc(4);
+                    border-bottom-left-radius: rem-calc(4);
+                    transform: translate(-90%, 0) rotateY(-50deg);
+                }
+            }
+        }
+
+        .book-title {
+            text-align: center;
+            font-family: "Valhalla";
+            font-size: rem-calc(28);
+            margin: rem-calc(0 0 21);
+        }
+
+        .book-author {
+            text-transform: capitalize;
+            padding: rem-calc(14 0);
+            font-size: rem-calc(16);
+            text-align: center;
+            display: block;
+            position: relative;
+            letter-spacing: 0.5px;
+
+
+            &:before {
+                content: "by";
+                position: absolute;
+                left: 50%;
+                display: block;
+                text-align: center;
+                top: 0;
+                transform: translate(-50%, -50%);
+                font-size: rem-calc(12);
+                padding: rem-calc(4 0);
+            }
+        }
+
+        .book-pages {
+            position: relative;
+            text-align: center;
+            padding: rem-calc(14);
+        }
+
+        .book-read {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: rem-calc(14);
+            font-family: "PS700";
+            font-size: rem-calc(16);
+
+            &.read {
+                color: $success;
+            }
+
+            &.notread {
+                color: $error;
+            }
+        }
+    }
+
+    .book-buttons {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transform: translate(100%, 0);
+        gap: rem-calc(14);
+
+        @include breakpoint(medium down) {
+        // < 768
+            top: auto;
+            bottom: 0;
+            flex-direction: row;
+            justify-content: flex-end;
+            transform: translate(0%, 100%);
+        }
+
+        .book-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: rem-calc(14);
+            font-size: rem-calc(16);
+            position: relative;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            gap: rem-calc(4);
+        }
+
+        .book-delete {
+            color: $error;
+        }
+
+        .book-read-status {
+            color: $bodyText;
+        }
+    }
+
+
+}
+
+
+.library-empty {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+    button {
+        color: $error;
+        padding: rem-calc(14 21);
+        background: transparent;
+        font-family: "Valhalla";
+        font-size: rem-calc(21);
+        border: none;
+        cursor: pointer;
+    }
+}
+
+::selection {
+    background: $bodyText;
+    color: $bodyBackground;
+}
+
+@include breakpoint(xxlarge) {
+// 1024
+    .library-books .book:first-child {
+        grid-row: 1 / 3;
+        grid-column: 1 / 3;
+        min-height: rem-calc(560);
+
+        .book-inner {
+            gap: rem-calc(77);
+            padding: rem-calc(77 28);
+            &:after {
+                width: rem-calc(112);
+                left: rem-calc(-10);
+            }
+        }
+        .book-title {
+            font-size: rem-calc(56);
+        }
+
+        .book-author {
+            font-size: rem-calc(35);
+        }
+    }
+}
