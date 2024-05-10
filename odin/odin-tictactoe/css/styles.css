@@ -1,0 +1,580 @@
+:root {
+  --accent: #ff4200;
+  --accent-r: 255;
+  --accent-g: 66;
+  --accent-b: 0;
+  --radius: 0.4375rem;
+  --radius-circle: 10rem;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.65);
+}
+
+::-moz-selection {
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.77);
+  color: #070707;
+}
+
+::selection {
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.77);
+  color: #070707;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "PS100";
+  src: url("../../../build/fonts/ProductSans-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS300";
+  src: url("../../../build/fonts/ProductSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS400";
+  src: url("../../../build/fonts/ProductSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS500";
+  src: url("../../../build/fonts/ProductSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS700";
+  src: url("../../../build/fonts/ProductSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS900";
+  src: url("../../../build/fonts/ProductSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS100i";
+  src: url("../../../build/fonts/ProductSans-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS300i";
+  src: url("../../../build/fonts/ProductSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS400i";
+  src: url("../../../build/fonts/ProductSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS500i";
+  src: url("../../../build/fonts/ProductSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS700i";
+  src: url("../../../build/fonts/ProductSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PS900i";
+  src: url("../../../build/fonts/ProductSans-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Slab";
+  src: url("../../../build/fonts/JosefinSlab-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* fallback */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v166/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format("woff2");
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*:not(pre)::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body, html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#CybotCookiebotDialog::-webkit-scrollbar,
+#CybotCookiebotDialog *::-webkit-scrollbar {
+  display: block;
+}
+
+#CybotCookiebotDialog, #CybotCookiebotDialog * {
+  -ms-overflow-style: auto;
+  scrollbar-width: auto;
+}
+
+@font-face {
+  font-family: "Valhalla";
+  src: url("../../common-res/fonts/Norse-Bold.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  background: #0f0f0f;
+  color: #c7c7c7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Valhalla";
+}
+
+#game {
+  text-align: center;
+}
+#game .game-title {
+  font-family: "Valhalla";
+  text-align: center;
+}
+#game .game-description {
+  margin: 2.1875rem 0;
+  font-family: "Slab";
+}
+#game .game-message {
+  height: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.3125rem;
+  font-family: "Slab";
+}
+#game .game-message span {
+  color: #3b9d5f;
+  display: block;
+  padding: 0 0.4375rem;
+}
+#game .game-score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.875rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#game .game-score .vs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.875rem 2.1875rem;
+  font-size: 2.1875rem;
+  font-style: italic;
+}
+#game .game-score .score-group {
+  font-size: 1.3125rem;
+  text-align: center;
+}
+#game .game-score .score-group.winner {
+  color: #3b9d5f;
+}
+#game .game-score .score-group.looser {
+  opacity: 0.5;
+}
+#game .game-score .score-group span {
+  font-size: 2.1875rem;
+  display: block;
+  margin-top: 0.875rem;
+}
+#game .game-restart-button, #game .game-change-button {
+  padding: 0.875rem 1.3125rem;
+  border: none;
+  background: #141414;
+  color: #ef2626;
+  font-family: "Valhalla";
+  font-size: 1.3125rem;
+  letter-spacing: 0.0625rem;
+  cursor: pointer;
+  display: block;
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+  margin: auto;
+  white-space: nowrap;
+}
+#game .game-change-button {
+  background: transparent;
+}
+#game .game-oponents {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 7, 7, 0.2);
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(7px);
+          backdrop-filter: blur(7px);
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+#game .game-oponents.game-active {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+#game .game-oponents-container {
+  padding: 3.5rem;
+  background: rgba(7, 7, 7, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+          backdrop-filter: blur(14px);
+  display: grid;
+  grid-template-columns: auto 0.875rem auto;
+  width: 90%;
+  max-width: 43.75rem;
+  gap: 0.4375rem;
+}
+#game .game-oponents-title {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-bottom: 2.1875rem;
+}
+#game .game-oponents .game-divider {
+  width: 0;
+  height: 100%;
+  -webkit-box-shadow: 0 0 0 0.0625rem rgba(199, 199, 199, 0.14);
+          box-shadow: 0 0 0 0.0625rem rgba(199, 199, 199, 0.14);
+  margin: 0 auto;
+}
+#game .game-oponents .game-oponent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.3125rem;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#game .game-oponents .game-oponent .game-players {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.875rem;
+}
+#game .game-oponents .game-oponent .vs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  line-height: 2.625rem;
+}
+#game .game-oponents .game-oponent label {
+  font-family: "Slab";
+  font-size: 0.875rem;
+  margin-bottom: 0.875rem;
+  display: block;
+}
+#game .game-oponents .game-oponent input {
+  width: 100%;
+  height: 2.625rem;
+  background: #191919;
+  -webkit-box-shadow: inset 0.1875rem 0.25rem 0.125rem 0.0625rem rgba(7, 7, 7, 0.5), 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0);
+          box-shadow: inset 0.1875rem 0.25rem 0.125rem 0.0625rem rgba(7, 7, 7, 0.5), 0 0 0 0 rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0);
+  border: none;
+  text-align: center;
+  padding: 0.4375rem;
+  color: #c7c7c7;
+  font-family: "Slab";
+  font-size: 1.125rem;
+  outline: none;
+  border-radius: 0.5rem;
+  -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+}
+#game .game-oponents .game-oponent input:active, #game .game-oponents .game-oponent input:focus {
+  -webkit-box-shadow: inset 0.1875rem 0.25rem 0.125rem 0.0625rem rgba(7, 7, 7, 0.5), 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.35);
+          box-shadow: inset 0.1875rem 0.25rem 0.125rem 0.0625rem rgba(7, 7, 7, 0.5), 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.35);
+}
+#game .game-oponents .game-oponent-button {
+  background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
+  color: #070707;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.3125rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-family: "PS700";
+}
+#game .game-oponents .game-oponent-button:active, #game .game-oponents .game-oponent-button:focus {
+  -webkit-box-shadow: 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.35);
+          box-shadow: 0 0 0 0.1875rem rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.35);
+}
+
+#board {
+  width: 22.75rem;
+  height: 22.75rem;
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+#board.game-ended {
+  pointer-events: none;
+}
+#board.game-tie {
+  opacity: 0.5;
+}
+#board .cell {
+  width: 7rem;
+  height: 7rem;
+  background: #212121;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -3.5rem;
+  margin-top: -3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 4.8125rem;
+  -webkit-transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+#board .cell.winner {
+  background: #3b9d5f;
+  color: #c7c7c7;
+  border-radius: 0;
+}
+#board .cell[class*=mark]:after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 4.8125rem;
+  opacity: 0.28;
+}
+#board .cell[class*=mark].mark-X:after {
+  content: "X";
+}
+#board .cell[class*=mark].mark-0:after {
+  content: "0";
+}
+#board:not(.will-clear) .cell-1-1 {
+  -webkit-transform: translate(calc(-100% - 14px), calc(-100% - 14px));
+      -ms-transform: translate(calc(-100% - 14px), calc(-100% - 14px));
+          transform: translate(calc(-100% - 14px), calc(-100% - 14px));
+}
+#board:not(.will-clear) .cell-1-2 {
+  -webkit-transform: translate(0%, calc(-100% - 14px));
+      -ms-transform: translate(0%, calc(-100% - 14px));
+          transform: translate(0%, calc(-100% - 14px));
+}
+#board:not(.will-clear) .cell-1-3 {
+  -webkit-transform: translate(calc(100% + 14px), calc(-100% - 14px));
+      -ms-transform: translate(calc(100% + 14px), calc(-100% - 14px));
+          transform: translate(calc(100% + 14px), calc(-100% - 14px));
+}
+#board:not(.will-clear) .cell-2-1 {
+  -webkit-transform: translate(calc(-100% - 14px), 0%);
+      -ms-transform: translate(calc(-100% - 14px), 0%);
+          transform: translate(calc(-100% - 14px), 0%);
+}
+#board:not(.will-clear) .cell-2-3 {
+  -webkit-transform: translate(calc(100% + 14px), 0%);
+      -ms-transform: translate(calc(100% + 14px), 0%);
+          transform: translate(calc(100% + 14px), 0%);
+}
+#board:not(.will-clear) .cell-3-1 {
+  -webkit-transform: translate(calc(-100% - 14px), calc(100% + 14px));
+      -ms-transform: translate(calc(-100% - 14px), calc(100% + 14px));
+          transform: translate(calc(-100% - 14px), calc(100% + 14px));
+}
+#board:not(.will-clear) .cell-3-2 {
+  -webkit-transform: translate(0%, calc(100% + 14px));
+      -ms-transform: translate(0%, calc(100% + 14px));
+          transform: translate(0%, calc(100% + 14px));
+}
+#board:not(.will-clear) .cell-3-3 {
+  -webkit-transform: translate(calc(100% + 14px), calc(100% + 14px));
+      -ms-transform: translate(calc(100% + 14px), calc(100% + 14px));
+          transform: translate(calc(100% + 14px), calc(100% + 14px));
+}
+
+.cell:nth-child(1) {
+  -webkit-transition-delay: 0.03s !important;
+          transition-delay: 0.03s !important;
+}
+
+.cell:nth-child(2) {
+  -webkit-transition-delay: 0.06s !important;
+          transition-delay: 0.06s !important;
+}
+
+.cell:nth-child(3) {
+  -webkit-transition-delay: 0.09s !important;
+          transition-delay: 0.09s !important;
+}
+
+.cell:nth-child(4) {
+  -webkit-transition-delay: 0.12s !important;
+          transition-delay: 0.12s !important;
+}
+
+.cell:nth-child(5) {
+  -webkit-transition-delay: 0.15s !important;
+          transition-delay: 0.15s !important;
+}
+
+.cell:nth-child(6) {
+  -webkit-transition-delay: 0.18s !important;
+          transition-delay: 0.18s !important;
+}
+
+.cell:nth-child(7) {
+  -webkit-transition-delay: 0.21s !important;
+          transition-delay: 0.21s !important;
+}
+
+.cell:nth-child(8) {
+  -webkit-transition-delay: 0.24s !important;
+          transition-delay: 0.24s !important;
+}
+
+.cell:nth-child(9) {
+  -webkit-transition-delay: 0.27s !important;
+          transition-delay: 0.27s !important;
+}
+
+#playAgainstHuman.game-oponent-button {
+  background: #3b9d5f !important;
+}
+/*# sourceMappingURL=styles.css.map */
