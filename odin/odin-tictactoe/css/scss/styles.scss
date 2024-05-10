@@ -38,6 +38,12 @@ body {
     .game-description {
         margin: rem-calc(35 0);
         font-family: "Slab";
+
+        @include breakpoint(small only) {
+        // < 768
+        margin: rem-calc(21 0);
+            
+        }
     }
 
     .game-message {
@@ -87,6 +93,12 @@ body {
                 font-size: rem-calc(35);
                 display: block;
                 margin-top: rem-calc(14);
+
+                @include breakpoint(small only) {
+                // < 768
+                font-size: rem-calc(21);
+                    
+                }
             }
         }
     }
@@ -100,7 +112,7 @@ body {
         font-size: rem-calc(21);
         letter-spacing: rem-calc(1);
         cursor: pointer;
-        display: block;
+        // display: block;
         max-width: min-content;
         margin: auto;
         white-space: nowrap;
@@ -155,6 +167,11 @@ body {
             height: 100%;
             box-shadow: rem-calc(0 0 0 1) rgba($bodyText, 0.14);
             margin: 0 auto;
+
+            @include breakpoint(small only) {
+            // < 768
+                display: none;
+            }
         }
 
         .game-oponent {
@@ -164,6 +181,13 @@ body {
             width: 100%;
             justify-content: center;
             align-items: center;
+
+            @include breakpoint(small only) {
+            // < 768
+                grid-column-start: 1;
+                grid-column-end: 4;
+                margin-bottom: rem-calc(21);
+            }
 
             .game-players {
                 display: flex;
@@ -238,6 +262,12 @@ $cellGap: 14px;
     position: relative;
     margin-bottom: rem-calc(56);
 
+    
+
+    @include breakpoint(small only) {
+    // < 768
+        margin-bottom: rem-calc(35);
+    }
     &.game-ended {
         pointer-events: none;
     }
@@ -266,6 +296,7 @@ $cellGap: 14px;
         user-select: none;
         border-radius: rem-calc(4);
         cursor: pointer;
+
 
         &:before {
             content: attr(data-cell);

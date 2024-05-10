@@ -210,6 +210,11 @@ body {
   margin: 2.1875rem 0;
   font-family: "Slab";
 }
+@media screen and (max-width: 47.9375em) {
+  #game .game-description {
+    margin: 1.3125rem 0;
+  }
+}
 #game .game-message {
   height: 3.5rem;
   display: -webkit-box;
@@ -270,6 +275,11 @@ body {
   display: block;
   margin-top: 0.875rem;
 }
+@media screen and (max-width: 47.9375em) {
+  #game .game-score .score-group span {
+    font-size: 1.3125rem;
+  }
+}
 #game .game-restart-button, #game .game-change-button {
   padding: 0.875rem 1.3125rem;
   border: none;
@@ -279,7 +289,6 @@ body {
   font-size: 1.3125rem;
   letter-spacing: 0.0625rem;
   cursor: pointer;
-  display: block;
   max-width: -webkit-min-content;
   max-width: -moz-min-content;
   max-width: min-content;
@@ -346,6 +355,11 @@ body {
           box-shadow: 0 0 0 0.0625rem rgba(199, 199, 199, 0.14);
   margin: 0 auto;
 }
+@media screen and (max-width: 47.9375em) {
+  #game .game-oponents .game-divider {
+    display: none;
+  }
+}
 #game .game-oponents .game-oponent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -362,6 +376,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media screen and (max-width: 47.9375em) {
+  #game .game-oponents .game-oponent {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-bottom: 1.3125rem;
+  }
 }
 #game .game-oponents .game-oponent .game-players {
   display: -webkit-box;
@@ -429,6 +450,11 @@ body {
   height: 22.75rem;
   position: relative;
   margin-bottom: 3.5rem;
+}
+@media screen and (max-width: 47.9375em) {
+  #board {
+    margin-bottom: 2.1875rem;
+  }
 }
 #board.game-ended {
   pointer-events: none;
