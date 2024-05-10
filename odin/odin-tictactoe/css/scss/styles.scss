@@ -267,6 +267,17 @@ $cellGap: 14px;
         border-radius: rem-calc(4);
         cursor: pointer;
 
+        &:before {
+            content: attr(data-cell);
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: "Slab";
+            font-size: rem-calc(14);
+            padding: rem-calc(7);
+            opacity: 0.28;
+        }
+
         &.marked {
             pointer-events: none;
         }
