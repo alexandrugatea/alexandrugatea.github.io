@@ -464,6 +464,9 @@ body {
   border-radius: 0.25rem;
   cursor: pointer;
 }
+#board .cell.marked {
+  pointer-events: none;
+}
 #board .cell.winner {
   background: #3b9d5f;
   color: #c7c7c7;

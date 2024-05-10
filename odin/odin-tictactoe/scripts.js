@@ -159,7 +159,7 @@ function resetBoard() {
     setTimeout(() => {
         cells.forEach((cell) => { 
             cell.textContent = ''; 
-            cell.classList.remove('winner');
+            cell.classList.remove('winner', 'marked');
         });
 
         board.classList.remove("will-clear");
@@ -232,6 +232,7 @@ function handleHumanCellClick(event) {
 function markCell(cell, mark) {
     if (cell.textContent === '') {
         cell.textContent = mark;
+        cell.classList.add('marked');
         return true;
     }
     return false;
@@ -251,6 +252,7 @@ function handleAICellClick(event) {
 
     if (markCell(cell, currentPlayer.mark)) {
         if (checkWin(currentPlayer.mark)) {
+            
             gameWon(currentPlayer);
             switchTurns();
             return;
@@ -281,6 +283,8 @@ function makeAIMove(aiMovesFirst = false) {
     let winningMove = findBestMove(currentPlayer.mark);
     if (winningMove !== null) {
         markCell(cells[winningMove], currentPlayer.mark);
+        console.log(winningMove);
+        checkWin(currentPlayer.mark);
         gameWon(currentPlayer);
         switchTurns();
         return true;
@@ -293,6 +297,17 @@ function makeAIMove(aiMovesFirst = false) {
         switchTurns();
         return true;
     }
+
+        if (checkWin(currentPlayer.mark)) {
+            
+            gameWon(currentPlayer);
+            switchTurns();
+            return;
+        } else if (isBoardFull()) {
+            gameTie();
+            switchTurns();
+            return;
+        }
 
     // Otherwise, pick a random cell
     return makeRandomMove();

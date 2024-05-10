@@ -267,6 +267,10 @@ $cellGap: 14px;
         border-radius: rem-calc(4);
         cursor: pointer;
 
+        &.marked {
+            pointer-events: none;
+        }
+
         &.winner {
             background: $success;
             color: $bodyText;
