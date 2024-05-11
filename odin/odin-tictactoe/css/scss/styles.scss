@@ -23,16 +23,19 @@ body {
     height: 100vh;
     height: 100dvh;
     justify-content: center;
-    align-items: center;
-    font-family: "Valhalla"
+    align-items: flex-start;
+    font-family: "Valhalla";
+    overflow: auto;
 }
 
 #game {
     text-align: center;
+    padding: rem-calc(63 0);
 
     .game-title {
         font-family: "Valhalla";
         text-align: center;
+        margin-bottom: rem-calc(21);
     }
 
     .game-description {

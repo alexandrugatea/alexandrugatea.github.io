@@ -297,6 +297,7 @@ function makeAIMove(aiMovesFirst = false) {
 
         if (isBoardFull()) {
             gameTie();
+            console.log("Blocking move at cell: ", blockingMove + 1); // Debugging output
             switchTurns();
             return;
         }
@@ -307,10 +308,12 @@ function makeAIMove(aiMovesFirst = false) {
 
     if (checkWin(currentPlayer.mark)) {
         gameWon(currentPlayer);
+        console.log("Winning move at cell: ", winningMove + 1); // Debugging output
         switchTurns();
         return;
     } else if (isBoardFull()) {
         gameTie();
+        console.log("Blocking move at cell: ", blockingMove + 1); // Debugging output
         switchTurns();
         return;
     }
@@ -369,6 +372,7 @@ function makeRandomMove() {
         if (isBoardFull()) {
             gameTie();
              console.log("Random Blocking move at index: ", randomIndex + 1); 
+             switchTurns();
             return true;
         }
 

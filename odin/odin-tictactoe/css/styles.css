@@ -193,18 +193,21 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   font-family: "Valhalla";
+  overflow: auto;
 }
 
 #game {
   text-align: center;
+  padding: 3.9375rem 0;
 }
 #game .game-title {
   font-family: "Valhalla";
   text-align: center;
+  margin-bottom: 1.3125rem;
 }
 #game .game-description {
   margin: 2.1875rem 0;
