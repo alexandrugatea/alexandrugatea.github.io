@@ -1,6 +1,3 @@
-// temp
-console.clear();
-
 
 // Variables
 const gameOptionsPanel = document.getElementById('gameOponents');
@@ -61,6 +58,7 @@ playAgainstHumanButton.addEventListener('click', function (event) {
 });
 
 playAgainstAIButton.addEventListener('click', function (event) {
+    console.log("Game Started. Player moves first");
     players = [];
     createPlayers(event);
     resetBoard();
@@ -147,7 +145,6 @@ function updateScoreBoard(playerOne, playerTwo, winner) {
 function resetBoard() {
     board.classList.add("will-clear");
     board.classList.remove('game-ended', 'game-tie');
-    console.clear();
     const timeout = 0.03 * 9 * 1000;
 
     players.forEach(player => {
@@ -247,13 +244,16 @@ function initGameVsAI() {
 
 function handleAICellClick(event) {
     let cell = event.target;
+    console.log("Player move at cell: ", cell.dataset.cell);
     cell.classList.remove(`mark-${playerOne.mark}`, `mark-${playerTwo.mark}`);
 
     if (markCell(cell, currentPlayer.mark)) {
         if (checkWin(currentPlayer.mark)) {
             gameWon(currentPlayer);
+            console.log(`${currentPlayer.name} made last move and won;`)
         } else if (isBoardFull()) {
             gameTie();
+            console.log(`${currentPlayer.name} made last move. Board is Full. It's a tie;`)
         }
         switchTurns();
     }
@@ -273,13 +273,16 @@ function handleAICellClick(event) {
 
 function makeAIMove(aiMovesFirst = false) {
     // AI's strategy to win or block
-
-    if (aiMovesFirst) return makeRandomMove();
+    
+    if (aiMovesFirst) {
+        console.log("Ai moves first");
+        return makeRandomMove();
+    }
 
     let winningMove = findBestMove(currentPlayer.mark);
     if (winningMove !== null) {
         markCell(cells[winningMove], currentPlayer.mark);
-        console.log("Winning move at cell %s", winningMove + 1); // Debugging output
+        console.log("Winning move at cell: ", winningMove + 1); // Debugging output
         checkWin(currentPlayer.mark);
         gameWon(currentPlayer);
         switchTurns();
@@ -290,20 +293,27 @@ function makeAIMove(aiMovesFirst = false) {
     let blockingMove = findBestMove(currentPlayer === playerOne ? playerTwo.mark : playerOne.mark);
     if (blockingMove !== null) {
         markCell(cells[blockingMove], currentPlayer.mark);
-        console.log("Blocking move at cell %s", blockingMove + 1); // Debugging output
-        switchTurns();
-        return true;
-    }
+        console.log("Blocking move at cell: ", blockingMove + 1); // Debugging output
 
-        if (checkWin(currentPlayer.mark)) {
-            gameWon(currentPlayer);
-            switchTurns();
-            return;
-        } else if (isBoardFull()) {
+        if (isBoardFull()) {
             gameTie();
             switchTurns();
             return;
         }
+        switchTurns();
+
+        return true;
+    }
+
+    if (checkWin(currentPlayer.mark)) {
+        gameWon(currentPlayer);
+        switchTurns();
+        return;
+    } else if (isBoardFull()) {
+        gameTie();
+        switchTurns();
+        return;
+    }
 
     // Otherwise, pick a random cell
     return makeRandomMove();
@@ -329,30 +339,40 @@ function makeRandomMove() {
         }
     });
 
+    if (emptyIndices.length >=8 && emptyIndices.includes(4)) {
+    // If the middle cell is empty, make a move there
+        markCell(cells[4], currentPlayer.mark);
+        console.log("Random move at cell: ", 5); // Debugging output
+        switchTurns();
+        return true;
+    }
+
     // No available moves, should handle as a draw if not already won
     if (emptyIndices.length === 0) {
         if (!gameEnd) {
             gameTie();
+            console.log("Board was full. No random move could be made.")
         }
         return false;
     }
 
     // Select a random empty cell and make a move
     let randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
-    console.log("Random move at cell:", randomIndex + 1); // Debugging output
     if (markCell(cells[randomIndex], currentPlayer.mark)) {
-        if (checkWin(currentPlayer.mark)) {
-            console.log("Winning move at index %s", randomIndex); // Debugging output
-            gameWon(currentPlayer);
-            return true;
-        }
+        // if (checkWin(currentPlayer.mark)) {
+        //     console.log("Winning move at index %s", randomIndex); 
+        //     gameWon(currentPlayer);
+        //     return true;
+        // }
 
         // Check if this move resulted in a full board without a win
         if (isBoardFull()) {
             gameTie();
+             console.log("Random Blocking move at index: ", randomIndex + 1); 
             return true;
         }
 
+        console.log("Random move at cell:", randomIndex + 1);
         switchTurns();
         return true;
     }
