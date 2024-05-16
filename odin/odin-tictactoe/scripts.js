@@ -368,7 +368,6 @@ function makeRandomMove() {
         //     return true;
         // }
 
-        // Check if this move resulted in a full board without a win
         if (isBoardFull()) {
             gameTie();
              console.log("Random Blocking move at index: ", randomIndex + 1); 
@@ -381,7 +380,7 @@ function makeRandomMove() {
         return true;
     }
 
-    return false; // Failsafe return in case markCell fails unexpectedly
+    return false;
 }
 
 
