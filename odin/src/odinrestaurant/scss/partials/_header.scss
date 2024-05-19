@@ -1,0 +1,83 @@
+header {
+    padding: 14px 0;
+    background: rgba(lighten($dark, 5%), 0.84);
+    backdrop-filter: blur(7px);
+    position: fixed;
+    top: 14px;
+    left:70px;
+    right: 70px;
+    // width: calc(100% - 140px);
+    max-width: 1440px;
+    margin: 0 auto;
+    border-radius: 14px;
+    z-index: 100;
+
+    @media screen and (max-width: 767px) {
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+        }
+    }
+
+    .logo {
+        text-transform: uppercase;
+        @include font(700);
+        font-size: 28px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        user-select: none;
+
+        color: $accent;
+
+    }
+
+    .menu {
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 35px;
+
+        @media screen and (max-width: 767px) {
+            gap: 14px;
+        }
+
+        .menu-link {
+            display: block;
+            color: $light;
+            align-self: stretch;
+            padding: 14px 21px;
+            text-transform: uppercase;
+
+            @include font(700);
+            font-size: 18px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 8px;
+
+            transition: all 0.25s $bezier;
+
+            &:hover {
+                background: $dark;
+            }
+
+
+            &.active {
+                color: $accent;
+                background: $dark;
+            }
+
+        }
+    }
+}

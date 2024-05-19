@@ -1,0 +1,18 @@
+
+$bezier: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$accent: #ff4200;
+
+$light: #c7c7c7;
+$dark: #070707;
+
+
+@import "partials/fonts";
+@import "partials/reset";
+@import "partials/container";
+@import "partials/header";
+@import "partials/content";
+@import "partials/home";
+@import "partials/menu";
+@import "partials/contact";
+
+
