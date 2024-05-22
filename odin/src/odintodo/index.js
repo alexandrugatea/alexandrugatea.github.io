@@ -13,7 +13,6 @@ import { showModal, hideModal } from "./js/showHideModals";
 import saveToLocalStorage from "./js/saveToLocalStorage";
 import filterTasksByDate from "./js/filterTasks";
 import displayTasks from "./js/displayTasks";
-// import appendTask from "./js/appendTask";
 
 injectModals();
 injectSidebar();

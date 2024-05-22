@@ -1,5 +1,4 @@
 import { format, parseISO, differenceInHours, startOfTomorrow   } from "date-fns";
-import Project from "./project";
 
 export default function createTaskHTML(todo, index) {
 	// console.log(`Creating task HTML for ${todo.name} with index ${index}`);

@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env) => {
   const project = env.project;
@@ -12,6 +13,7 @@ module.exports = (env) => {
   const imagesPath = path.join(srcPath, 'images');
   const hasImages = fs.existsSync(imagesPath) && fs.readdirSync(imagesPath).length > 0;
 
+  
   const plugins = [
     new MiniCssExtractPlugin({
       filename: 'styles.css'
@@ -41,6 +43,15 @@ module.exports = (env) => {
       filename: 'main.js',
       path: buildPath,
       clean: true
+    },
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserPlugin()],
+    },
+    performance: {
+      maxAssetSize: 512000, // 500 KB
+      maxEntrypointSize: 512000, // 500 KB
+      hints: false // 'error' or false can also be used
     },
     devServer: {
       static: {
