@@ -1,0 +1,200 @@
+.tasks {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	width: 100%;
+
+	&-container {
+		@extend .sidebar-container;
+		gap: 0;
+	}
+
+	.tasks-title {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: rem-calc(77);
+	}
+
+	.title {
+		font-family: $font900;
+		font-size: rem-calc(21);
+	}
+
+	.tasks-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: rem-calc(7);
+		width: 100%;
+		overflow: auto;
+
+		&.tasks-header {
+			background: $themeDark;
+			padding: rem-calc(14 0);
+			border-radius: rem-calc(14);
+
+			.task {
+				border: none;
+			}
+
+			.task > * {
+				text-align: center;
+			}
+
+			.task .task-name {
+				text-align: left;
+			}
+
+			.task .task-priority {
+				box-shadow: none;
+				padding: 0;
+			}
+		}
+
+		.task {
+			gap: rem-calc(14);
+			width: 100%;
+			display: grid;
+			grid-template-columns: rem-calc(56 56) auto rem-calc(161 77 77);
+			transition: all 0.25s $bezier;
+			align-items: center;
+			border-bottom: rem-calc(2) solid rgba($light, 0.14);
+			padding: rem-calc(14 0);
+
+			.task-name {
+				flex-grow: 1;
+				position: relative;
+
+				.task-project {
+					display: inline-block;
+					font-size: rem-calc(11);
+					padding: rem-calc(7 14);
+					border-radius: rem-calc(21);
+					margin: rem-calc(7);
+					background: rgba($themeDark, 0.77);
+					width: max-content;
+					text-transform: uppercase;
+					color: rgba($themeLight, 0.77);
+					letter-spacing: rem-calc(1);
+				}
+			}
+
+			.task-priority {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column-reverse;
+				padding: rem-calc(7);
+
+				span {
+					width: rem-calc(21);
+					height: rem-calc(21);
+					border-radius: rem-calc(21);
+					background: transparent;
+					box-shadow: inset rem-calc(0 0 0 28) currentColor;
+				}
+
+				&.high span {
+					color: accent($red);
+				}
+
+				&.medium span {
+					color: accent($amber);
+				}
+
+				&.low span {
+					color: accent($emerald);
+				}
+			}
+
+			.checkbox-container {
+				position: relative;
+				z-index: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				input {
+					visibility: hidden;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					z-index: 100;
+				}
+
+				label {
+					display: block;
+					position: relative;
+					width: rem-calc(28);
+					height: rem-calc(28);
+					border-radius: rem-calc(8);
+					box-shadow: inset rem-calc(0 0 0 2) rgba($light, 0.56);
+					cursor: pointer;
+					transition: all 0.25s $bezier;
+
+					&:before {
+						content: "";
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%) scale(0);
+						width: rem-calc(14);
+						height: rem-calc(14);
+						border-radius: rem-calc(4);
+						transition: all 0.2s ease-in-out;
+						background: $success;
+						opacity: 0;
+						transition: all 0.25s $bezier;
+					}
+				}
+
+				input:checked + label {
+					box-shadow: inset rem-calc(0 0 0 2) rgba($success, 1);
+
+					&:before {
+						transform: translate(-50%, -50%) scale(1);
+						opacity: 1;
+					}
+				}
+			}
+
+			button.icon {
+				background: transparent;
+				width: rem-calc(42);
+				height: rem-calc(42);
+				border-radius: rem-calc(42);
+				transition: all 0.2s $bezier;
+				margin: 0 auto;
+
+				&.edit-task:hover {
+					background: accent($amber);
+				}
+				&.delete-task:hover {
+					background: accent($red);
+				}
+			}
+
+			.task-date-time {
+				text-align: center;
+
+                .due-in {
+                    display: block;
+                    font-size: rem-calc(14);
+                    font-family: $font400i;
+                    color: accent($amber);
+                }
+			}
+		}
+
+		.task {
+			position: relative;
+
+			&.completed {
+				opacity: 0.28;
+				order: 2;
+			}
+		}
+	}
+}

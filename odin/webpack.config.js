@@ -52,6 +52,13 @@ module.exports = (env) => {
     module: {
       rules: [
         {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+              loader: 'babel-loader'
+          }
+        },
+        {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
@@ -66,7 +73,11 @@ module.exports = (env) => {
           generator: {
             filename: 'images/[name][ext]'
           }
-        }
+        }, 
+        {
+          test: /\.html$/,
+          use: ['html-loader'],
+        },
       ]
     },
     plugins,

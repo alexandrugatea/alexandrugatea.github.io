@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
 
 @mixin font($weight: 400) {
-    font-family: "Rokkitt", "Josefin Slab", serif;
-    font-optical-sizing: auto;
-    font-weight: $weight;
-    font-style: normal;
+	font-family: "Rokkitt", "Josefin Slab", serif;
+	font-optical-sizing: auto;
+	font-weight: $weight;
+	font-style: normal;
 }
 
-body{
-    @include font(400);
+body {
+	@include font(400);
 }
-

@@ -1,17 +1,17 @@
 .tab {
-    display: none;
-    background-color: $dark;
-    color: $light;
+	display: none;
+	background-color: $dark;
+	color: $light;
 
-    &.active {
-        display: block;
-    }
+	&.active {
+		display: block;
+	}
 }
 
 .tab {
-    width: 100%;
-    padding: 140px 0;
-    height: 100vh;
-    position: relative;
-    overflow: auto;
+	width: 100%;
+	padding: 140px 0;
+	height: 100vh;
+	position: relative;
+	overflow: auto;
 }

@@ -1,0 +1,169 @@
+#modals {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	height: 100dvh;
+	background: rgba($themeDark, 0.77);
+	backdrop-filter: blur(4px);
+	z-index: 1000;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.25s $bezier;
+
+	&.open {
+		pointer-events: all;
+		opacity: 1;
+		transition: all 0.25s $bezier;
+	}
+
+	.modal {
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0.75);
+		background: $themePanel;
+		padding: rem-calc(56 28 28 28);
+		width: 100%;
+		max-width: rem-calc(560);
+		border-radius: rem-calc(21);
+		transition: all 0.25s $bezier;
+		z-index: -1;
+
+		&.open {
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+			transition: all 0.25s $bezier;
+			z-index: 1001;
+		}
+
+		.note {
+			font-family: $font500i;
+			opacity: 0.56;
+		}
+
+		.modal-content {
+			display: flex;
+			flex-direction: column;
+			gap: rem-calc(28);
+		}
+
+		.close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: rem-calc(56);
+			height: rem-calc(56);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			opacity: 0.56;
+			transition: all 0.25s $bezier;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		.modal-title {
+			font-family: $font700;
+			font-size: rem-calc(28);
+
+			&.center {
+				text-align: center;
+			}
+		}
+
+		.modal-actions {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+
+			&.center {
+				justify-content: center;
+				gap: rem-calc(21);
+			}
+
+			button {
+				padding: rem-calc(12 20);
+				background: accent($emerald);
+				color: $themeDark;
+				border-radius: rem-calc(21);
+				font-family: $font900;
+				text-transform: uppercase;
+				letter-spacing: rem-calc(0.3);
+				transition: all 0.25s $bezier;
+				box-shadow: rem-calc(0 0 0 0) accent($emerald, 0.14);
+
+				&:hover {
+					box-shadow: rem-calc(0 0 0 5) accent($emerald, 0.14);
+				}
+
+				&.delete {
+					background: transparent;
+					color: accent($red);
+					box-shadow: inset rem-calc(0 0 0 2) accent($red);
+				}
+			}
+		}
+
+		label {
+			margin-bottom: rem-calc(14);
+			display: block;
+		}
+
+		.user-input {
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;
+			padding: rem-calc(14);
+			min-height: rem-calc(49);
+			max-height: rem-calc(152);
+			border-radius: rem-calc(8);
+			border: none;
+
+			background: $themeDark;
+			color: $themeLight;
+		}
+
+		.form-radio {
+			display: inline-flex;
+			align-items: center;
+			position: relative;
+			margin-right: rem-calc(35);
+			padding: rem-calc(14 0);
+
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				cursor: pointer;
+			}
+
+			label {
+				padding: rem-calc(7 14);
+				border-radius: rem-calc(8);
+				box-shadow: inset rem-calc(0 0 0 2) accent($themeLight);
+			}
+
+			input[value="low"]:checked + label {
+				color: accent($emerald);
+				box-shadow: rem-calc(0 0 0 3) accent($emerald);
+			}
+			input[value="medium"]:checked + label {
+				color: accent($amber);
+				box-shadow: rem-calc(0 0 0 3) accent($amber);
+			}
+			input[value="high"]:checked + label {
+				color: accent($red);
+				box-shadow: rem-calc(0 0 0 3) accent($red);
+			}
+		}
+	}
+}

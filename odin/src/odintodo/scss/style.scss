@@ -1,0 +1,15 @@
+@use "scss-reset/reset";
+
+$customFontPath: "../../../../src/fonts/";
+@import "../../../../src/scss/base/foundationMQ";
+@import "../../../../src/scss/base/mixins";
+@import "../../../../src/scss/base/scroll";
+@import "../../../../src/scss/base/font";
+
+@import "partials/variables";
+@import "partials/helpers";
+@import "partials/app";
+@import "partials/modals";
+@import "partials/sidebar";
+@import "partials/tasks";
+@import "partials/buttons";
