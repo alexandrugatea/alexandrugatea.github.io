@@ -1,0 +1,190 @@
+.sidebar {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	&-container {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		padding: rem-calc(35);
+
+		display: flex;
+		flex-direction: column;
+		gap: rem-calc(35);
+		justify-content: flex-start;
+
+		background: $themePanel;
+		border-radius: rem-calc(21);
+	}
+
+	&-logo {
+		font-family: $font900;
+		font-size: rem-calc(28);
+		// text-transform: uppercase;
+		color: accent($red);
+		span {
+			color: accent($amber);
+		}
+	}
+
+	.title {
+		font-family: $font900;
+		font-size: rem-calc(21);
+	}
+
+	&-group {
+		display: flex;
+		flex-direction: column;
+		gap: rem-calc(14);
+
+		.group-title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: rem-calc(21);
+		}
+
+		.group-list {
+			overflow: auto;
+			display: flex;
+			flex-direction: column;
+			gap: rem-calc(7);
+
+			.list-item {
+				background: $themeDark;
+				border-radius: rem-calc(8);
+
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				align-items: center;
+				transition: all 0.25s $bezier;
+				position: relative;
+
+				.project-description {
+					width: 100%;
+					padding: rem-calc(0 18 14);
+					font-family: $font300i;
+					font-size: rem-calc(12);
+					pointer-events: none;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+
+					&:empty {
+						display: none;
+					}
+				}
+
+				&.active {
+					background: accent($amber);
+					color: $themeDark;
+					font-family: $font700;
+				}
+
+				button,
+				.project-button {
+					flex-grow: 1;
+					justify-content: flex-start;
+					font-size: rem-calc(14);
+					letter-spacing: rem-calc(1);
+					padding: rem-calc(18 0 42 21);
+
+					&#viewAllBtn {
+						padding: rem-calc(18 0 18 21);
+					}
+				}
+
+				.delete-project {
+					opacity: 0;
+					flex-grow: 0;
+					padding: rem-calc(18 14 18 14);
+				}
+
+				&:hover {
+					.delete-project {
+						opacity: 1;
+					}
+				}
+
+				&:has(.project-description:empty) .project-button {
+					padding-bottom: rem-calc(18);
+				}
+			}
+		}
+	}
+}
+
+.sidebar-group.due {
+	.group-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		button {
+			justify-content: center;
+			padding: rem-calc(14);
+		}
+	}
+}
+
+.notes {
+	.sidebar-group {
+		height: 100%;
+	}
+
+	.note {
+		border-radius: rem-calc(14);
+		background: $themeDark;
+		position: relative;
+		min-height: rem-calc(112);
+		padding: rem-calc(21 42 42 21);
+		overflow: hidden;
+		line-height: 1.45;
+
+		.note-date {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: rem-calc(7 14);
+			font-size: rem-calc(14);
+			font-family: $font400i;
+			color: accent($themeLight, 0.56);
+		}
+
+		.note-actions {
+			position: absolute;
+			right: rem-calc(7);
+			top: rem-calc(7);
+			display: flex;
+			flex-direction: column;
+			gap: rem-calc(14);
+			height: 100%;
+
+			.icon {
+				color: $themeLight;
+				font-size: rem-calc(18);
+				display: flex;
+
+				justify-content: center;
+				align-items: center;
+				width: rem-calc(28);
+				height: rem-calc(28);
+				border-radius: 50%;
+				transition: all 0.25s $bezier;
+
+				&:hover {
+					background: rgba($themeLight, 0.07);
+				}
+
+				&.edit-note {
+					color: $themeLight;
+				}
+				&.delete-note {
+					color: accent($red, 0.5);
+				}
+			}
+		}
+	}
+}

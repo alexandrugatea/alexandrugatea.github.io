@@ -1,0 +1,36 @@
+<div id="taskModal" class="modal">
+    <form class="modal-content" id="taskForm">
+        <span class="close icon" id="closeTaskModal">close</span>
+        <h2 class="modal-title">Add Task</h2>
+        <div class="form-group">
+            <label for="taskName">What needs to get done?</label>
+            <input type="text" id="taskName" class="user-input" placeholder="Task Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dueDate">What is the due date?</label>
+            <input type="date" id="dueDate" class="user-input">
+        </div>
+
+        <div class="priority-container">
+            <p>Task priority</p> 
+            <div class="form-radio">
+                <input type="radio" name="priority" id="priorityLow" value="low" checked="true" required > 
+                <label for="priorityLow">Low</label>
+            </div>
+            <div class="form-radio">
+                <input type="radio" name="priority" id="priorityMedium" value="medium" required>
+                <label for="priorityMedium">Medium</label>
+            </div>
+            <div class="form-radio">
+                <input type="radio" name="priority" id="priorityHigh" value="high" required>
+                <label for="priorityHigh">High</label>
+            </div>
+        </div>
+
+        <select id="projectSelect" class="user-input"></select>
+        <div class="modal-actions">
+            <button id="saveTaskBtn" type="submit" class="save">Save Task</button>
+        </div>
+    </form>
+</div>

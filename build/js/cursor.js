@@ -81,11 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function moveKustomMouse(cursor, trail, x, y) {
         cursor.style.left = x + 'px';
         cursor.style.top = y + 'px';
+        trail.style.left = x + 'px';
+        trail.style.top = y + 'px';
     
-        setTimeout(() => {
-            trail.style.left = x + 'px';
-            trail.style.top = y + 'px';
-        }, 14);
+        // setTimeout(() => {
+        //     trail.style.left = x + 'px';
+        //     trail.style.top = y + 'px';
+        // }, 14);
     
         const iframes = document.querySelectorAll('iframe');
         iframes.forEach(iframe => {

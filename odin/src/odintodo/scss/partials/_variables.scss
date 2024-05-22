@@ -1,0 +1,24 @@
+$dark: #070707;
+$light: #c7c7c7;
+
+$accent: #ff4200;
+$error: #dc2626;
+$success: #34d399;
+
+// $bezier: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$bezier: cubic-bezier(0.57, -0.57, 0.47, 1.45);
+
+// fbt theme
+
+$themeDark: #0f172a;
+$themePanel: lighten($themeDark, 5%);
+$themeLight: #e2e8f0;
+
+$emerald: #34d399;
+$amber: #f59e0b;
+$red: #dc2626;
+$indigo: #312e81;
+
+@function accent($color, $alpha: 1) {
+	@return rgba($color, $alpha);
+}

@@ -1,0 +1,63 @@
+button {
+	color: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.icon {
+		pointer-events: none;
+	}
+}
+
+.button {
+	color: $themeDark;
+	background: accent($emerald);
+
+	&.delete {
+		background: accent($red);
+	}
+
+	&.cancel {
+		background: accent($emerald);
+		color: $themeDark;
+	}
+}
+
+.add-new-element {
+	width: rem-calc(28);
+	height: rem-calc(28);
+	border-radius: rem-calc(28);
+	white-space: nowrap;
+	padding: rem-calc(7 14);
+
+	color: accent($amber);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.25s $bezier;
+
+	&[disabled] {
+		color: $themeLight;
+		opacity: 0.14;
+
+		&:hover:before {
+			content: "limit reached";
+		}
+	}
+
+	&.button-border {
+		box-shadow: rem-calc(0 0 0 2) accent($amber);
+	}
+
+	&.width-auto {
+		width: min-content;
+	}
+
+	.icon {
+		font-size: rem-calc(21);
+	}
+
+	&:hover {
+		box-shadow: rem-calc(0 0 0 3) accent($amber);
+	}
+}
