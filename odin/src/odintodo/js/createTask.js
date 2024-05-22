@@ -42,7 +42,7 @@ export default function createTaskHTML(todo, index) {
 	const taskDueDate = parseISO(todo.dueDate);
 	if (format(currentDate, 'yyyy-MM-dd') === format(taskDueDate, 'yyyy-MM-dd')) {
 		const hoursRemaining = differenceInHours(startOfTomorrow(), currentDate);
-		dueDateTimeSpan.innerHTML += ` <span class="due-in">due in ${hoursRemaining} hours</span>`;
+		dueDateTimeSpan.innerHTML += `<span class="due-in">due in ${hoursRemaining} hours</span>`;
 	}
 
 	const prioritySpan = document.createElement("span");

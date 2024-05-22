@@ -34,7 +34,7 @@ module.exports = (env) => {
   }
 
   return {
-    mode: 'development',
+    mode: 'production',
     devtool: 'inline-source-map',
     entry: path.join(srcPath, 'index.js'),
     output: {
