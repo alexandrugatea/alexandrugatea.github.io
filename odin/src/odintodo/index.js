@@ -146,7 +146,8 @@ saveTaskBtn.onsubmit = (e) => {
 	}
 };
 
-saveNoteBtn.onclick = () => {
+saveNoteBtn.onclick = (e) => {
+    e.preventDefault();
 	const noteText = document.getElementById("noteText").value;
 	if (noteText) {
 		const dateAdded = formatDate(new Date());
