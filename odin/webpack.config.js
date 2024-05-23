@@ -9,7 +9,7 @@ module.exports = (env) => {
   const project = env.project;
   const srcPath = path.resolve(__dirname, 'src', project);
   const buildPath = path.resolve(__dirname, project);
-
+  const mode = env.mode || 'production';
   const imagesPath = path.join(srcPath, 'images');
   const hasImages = fs.existsSync(imagesPath) && fs.readdirSync(imagesPath).length > 0;
 
@@ -36,8 +36,8 @@ module.exports = (env) => {
   }
 
   return {
-    mode: 'production',
-    devtool: 'inline-source-map',
+    mode: mode,
+    devtool: mode === 'development' ? 'inline-source-map' : false,
     entry: path.join(srcPath, 'index.js'),
     output: {
       filename: 'main.js',

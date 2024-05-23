@@ -4,6 +4,8 @@
 	align-items: stretch;
 	width: 100%;
 
+
+
 	&-container {
 		@extend .sidebar-container;
 		gap: 0;
@@ -34,6 +36,11 @@
 			padding: rem-calc(14 0);
 			border-radius: rem-calc(14);
 
+			@include breakpoint(large down) {
+			// < 768
+				display: none;
+			}
+
 			.task {
 				border: none;
 			}
@@ -62,9 +69,20 @@
 			border-bottom: rem-calc(2) solid rgba($light, 0.14);
 			padding: rem-calc(14 0);
 
+			@include breakpoint(large down) {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
 			.task-name {
 				flex-grow: 1;
 				position: relative;
+
+				@include breakpoint(large down) {
+				// < 768
+					order: 6;
+					width: calc(100% - 42px - 14px)
+				}
 
 				.task-project {
 					display: inline-block;
@@ -86,6 +104,12 @@
 				align-items: center;
 				flex-direction: column-reverse;
 				padding: rem-calc(7);
+
+				@include breakpoint(large down) {
+				// < 768
+					width: rem-calc(35); 
+					order: 1;
+				}
 
 				span {
 					width: rem-calc(21);
@@ -114,6 +138,12 @@
 				display: flex;
 				justify-content: center;
 				align-items: center;
+
+				@include breakpoint(large down) {
+				// < 768
+					width: rem-calc(35); 
+					order: 2;
+				}
 
 				input {
 					visibility: hidden;
@@ -168,6 +198,18 @@
 				transition: all 0.2s $bezier;
 				margin: 0 auto;
 
+				&.edit-task {
+					@include breakpoint(large down) {
+						order: 4;
+					}
+				}
+
+				&.delete-task {
+					@include breakpoint(large down) {
+						order: 6;
+					}
+				}
+
 				&.edit-task:hover {
 					background: accent($amber);
 				}
@@ -178,6 +220,14 @@
 
 			.task-date-time {
 				text-align: center;
+
+				@include breakpoint(large down) {
+				// < 768
+					order: 3;
+					flex-grow: 1;
+					text-align: left;
+					justify-content: flex-start;
+				}
 
                 .due-in {
                     display: block;
@@ -194,6 +244,15 @@
 			&.completed {
 				opacity: 0.28;
 				order: 2;
+
+				.task-date-time .due-in {
+					opacity: 0;
+				}
+
+				.edit-task {
+					opacity: 0;
+					pointer-events: none;
+				}
 			}
 		}
 	}

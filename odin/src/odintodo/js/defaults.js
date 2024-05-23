@@ -10,11 +10,9 @@ export const defaultProjects = {
 		name: "Default",
 		description: "Default project. Cannot be removed",
 		todos: [
-			new ToDo("Default High Prio Task", today, "high", "Default"),
-			new ToDo("Default Medium Prio Task", today, "medium", "Default"),
-			new ToDo("Default Low Prio Task", today, "low", "Default"),
-			new ToDo("Default High Prio Task Tomorrow", tomorrow, "high", "Default"),
-			new ToDo("Default Medium Prio Task Next Week", nextWeek, "medium", "Default"),
+			new ToDo("Example of High Priority task that is due Today", today, "high", "Default"),
+			new ToDo("Example of task that is due Tomorrow", tomorrow, "high", "Default"),
+			new ToDo("Example of High Priority task that is due Next Week", nextWeek, "medium", "Default"),
 		],
 	},
 };
@@ -25,11 +23,7 @@ const formatDate = (date) => {
 
 export const defaultNotes = [
 	{
-		text: "The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick",
-		dateAdded: formatDate(new Date()),
-	},
-	{
-		text: "Sample Note 2",
+		text: "This is a sample note. Notes are for storing information, like a recipe, a phone number, an address, etc. Notes are not ToDo tasks",
 		dateAdded: formatDate(new Date()),
 	},
 ];

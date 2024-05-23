@@ -2,6 +2,32 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
+	transition: all 0.25s ease-out;
+
+	&:not(.notes) {
+		@include breakpoint(large down) {
+		// < 768
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: rem-calc(77);
+			overflow: hidden;
+			z-index: 100;
+			box-shadow: rem-calc(0 3 7 0) rgba($themeDark, 0.5);
+
+			&.opened {
+				height: 100%;
+				height: 100vh;
+				height: 100dvh;
+			}
+
+			.sidebar-container {
+				border-radius: 0;
+				padding: rem-calc(21 28);
+			}
+		}
+	}
 
 	&-container {
 		width: 100%;
@@ -16,15 +42,32 @@
 
 		background: $themePanel;
 		border-radius: rem-calc(21);
+
+		@include breakpoint(small only) {
+		// < 768
+			padding: rem-calc(21);
+		}
 	}
 
 	&-logo {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		font-family: $font900;
 		font-size: rem-calc(28);
 		// text-transform: uppercase;
 		color: accent($red);
 		span {
 			color: accent($amber);
+		}
+
+		button {
+			width: rem-calc(35);
+			height: rem-calc(35);
+
+			@include breakpoint(xlarge) {
+				display: none;
+			}
 		}
 	}
 
@@ -57,10 +100,11 @@
 
 				display: flex;
 				justify-content: space-between;
-				flex-wrap: wrap;
 				align-items: center;
 				transition: all 0.25s $bezier;
 				position: relative;
+				width: 100%;
+
 
 				.project-description {
 					width: 100%;
@@ -86,10 +130,21 @@
 				button,
 				.project-button {
 					flex-grow: 1;
+					flex-shrink: 1;
 					justify-content: flex-start;
 					font-size: rem-calc(14);
 					letter-spacing: rem-calc(1);
 					padding: rem-calc(18 0 42 21);
+					max-width: 100%;
+					overflow: hidden;
+
+					span {
+						display: block;
+						text-overflow: ellipsis;
+						overflow: hidden;
+						white-space: nowrap;
+						pointer-events: none;
+					}
 
 					&#viewAllBtn {
 						padding: rem-calc(18 0 18 21);
@@ -99,6 +154,7 @@
 				.delete-project {
 					opacity: 0;
 					flex-grow: 0;
+					flex-shrink: 0;
 					padding: rem-calc(18 14 18 14);
 				}
 
@@ -129,6 +185,12 @@
 }
 
 .notes {
+
+	@include breakpoint(large down) {
+	// < 768
+		margin-top: rem-calc(28);
+	}
+
 	.sidebar-group {
 		height: 100%;
 	}
@@ -138,7 +200,7 @@
 		background: $themeDark;
 		position: relative;
 		min-height: rem-calc(112);
-		padding: rem-calc(21 42 42 21);
+		padding: rem-calc(21 42 49 21);
 		overflow: hidden;
 		line-height: 1.45;
 
@@ -147,7 +209,7 @@
 			bottom: 0;
 			left: 0;
 			right: 0;
-			padding: rem-calc(7 14);
+			padding: rem-calc(7 21);
 			font-size: rem-calc(14);
 			font-family: $font400i;
 			color: accent($themeLight, 0.56);
@@ -161,6 +223,10 @@
 			flex-direction: column;
 			gap: rem-calc(14);
 			height: 100%;
+
+			&.default-note {
+				display: none;
+			}
 
 			.icon {
 				color: $themeLight;

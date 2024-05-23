@@ -32,6 +32,12 @@
 		transition: all 0.25s $bezier;
 		z-index: -1;
 
+		
+		@include breakpoint(small only) {
+			// < 768
+				max-width: 90%;
+			}
+
 		&.open {
 			opacity: 1;
 			transform: translate(-50%, -50%) scale(1);
@@ -48,6 +54,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: rem-calc(28);
+
 		}
 
 		.close {
@@ -129,12 +136,39 @@
 			color: $themeLight;
 		}
 
+		.form-group {
+			position: relative;
+		}
+
+		.date-group, .form-select {
+			.icon {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				width: rem-calc(49);
+				height: rem-calc(49);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				pointer-events: none;
+			}
+		}
+
+		select {
+			appearance: none;
+		}
+
 		.form-radio {
 			display: inline-flex;
 			align-items: center;
 			position: relative;
 			margin-right: rem-calc(35);
 			padding: rem-calc(14 0);
+
+			@include breakpoint(small only) {
+			// < 768
+				margin-right: rem-calc(14);
+			}
 
 			input {
 				position: absolute;
@@ -164,6 +198,22 @@
 				color: accent($red);
 				box-shadow: rem-calc(0 0 0 3) accent($red);
 			}
+		}
+		[type="date"] {
+			position: relative;
+		}
+
+		[type="date"]::-webkit-calendar-picker-indicator{
+			background: transparent;
+			appearance: none;
+			-webkit-appearance: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+			cursor: pointer;
+			text-align: center;
 		}
 	}
 }

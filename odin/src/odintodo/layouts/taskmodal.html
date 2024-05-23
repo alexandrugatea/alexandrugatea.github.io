@@ -7,9 +7,10 @@
             <input type="text" id="taskName" class="user-input" placeholder="Task Name" required>
         </div>
 
-        <div class="form-group">
-            <label for="dueDate">What is the due date?</label>
+        <div class="form-group date-group">
+            <label>What is the due date?</label>
             <input type="date" id="dueDate" class="user-input">
+            <span class="icon">event</span>
         </div>
 
         <div class="priority-container">
@@ -27,8 +28,10 @@
                 <label for="priorityHigh">High</label>
             </div>
         </div>
-
-        <select id="projectSelect" class="user-input"></select>
+        <div class="form-group form-select">
+            <select id="projectSelect" class="user-input"></select>
+            <div class="icon">keyboard_arrow_down</div>
+        </div>
         <div class="modal-actions">
             <button id="saveTaskBtn" type="submit" class="save">Save Task</button>
         </div>

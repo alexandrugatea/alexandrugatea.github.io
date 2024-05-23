@@ -1,16 +1,24 @@
 #app {
-	display: grid;
-	grid-template-columns: rem-calc(300) auto rem-calc(420);
-	grid-template-rows: 100%;
-	overflow: hidden;
-	height: 100vh;
-	height: 100dvh;
-	width: 100vw;
+	@include breakpoint(xlarge) {
+	// 768
+		display: grid;
+		grid-template-columns: rem-calc(300) auto rem-calc(350);
+		grid-template-rows: 100%;
+		overflow: hidden;
+		height: 100vh;
+		height: 100dvh;
+		width: 100vw;
+		align-items: stretch;
+		gap: rem-calc(21);
+	}
+
+	@include breakpoint(large down) {
+	// < 768
+		padding-top: rem-calc(98);
+	}
+
 	font-family: $font500;
 	background: $themeDark;
 	color: $themeLight;
-	align-items: stretch;
 	padding: rem-calc(21);
-	gap: rem-calc(21);
-	overflow: hidden;
 }

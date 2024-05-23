@@ -64,8 +64,8 @@ const notesContainer = document.getElementById("notesContainer");
 const projectSelect = document.getElementById("projectSelect");
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
 const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+const sidebarContainer = document.querySelector(".sidebar-container");
 export const modalsContainer = document.getElementById("modals");
-
 let deleteAction = null;
 
 function disableAddProjectBtn() {
@@ -139,6 +139,11 @@ saveTaskBtn.onsubmit = (e) => {
 		const projectIndex = projects.findIndex((p) => p.name === projectName);
 		const project = projects[projectIndex];
 		project.addTodo(todo);
+		
+		const buttons = sidebarContainer.querySelectorAll(".list-item button, .project-btn");
+		buttons.forEach((btn) => btn.parentNode.classList.remove("active"));
+		const currentProject = document.querySelector(`.project-button[data-index="${projectIndex}"]`);
+		currentProject.parentNode.classList.add("active");
 		saveToLocalStorage();
 		displayTasks(projects, projectIndex);
 		hideModal(taskModal, modalsContainer);
@@ -165,9 +170,11 @@ function displayProjects() {
 		const projectItem = document.createElement("div");
 		projectItem.className = "list-item";
 		if (project.name === "Default") {
-			projectItem.innerHTML = `<button class="project-button" data-index="${projectIndex}">${project.name}</button> <span class="project-description">${project.description}</span>`;
+			projectItem.innerHTML = `
+				<button class="project-button" data-index="${projectIndex}"><span>${project.name}</span></button> 
+				<span class="project-description">${project.description}</span>`;
 		} else {
-			projectItem.innerHTML = `<button class="project-button" data-index="${projectIndex}">${project.name}</button>
+			projectItem.innerHTML = `<button class="project-button" data-index="${projectIndex}"><span>${project.name}</span></button>
                                      <button class="delete-project" data-index="${projectIndex}"><span class="icon">delete</span></button>
                                      <span class="project-description">${project.description}</span>`;
 		}
@@ -213,14 +220,27 @@ function displayNotes() {
 	notes.forEach((note, noteIndex) => {
 		const noteItem = document.createElement("div");
 		noteItem.className = "note";
-		noteItem.innerHTML = `
-            <p>${note.text}</p>
-            <p class="note-date">Added on: ${note.dateAdded}</p>
-            <div class="note-actions">
-                <button class="edit-note icon" data-index="${noteIndex}">Edit</button>
-                <button class="delete-note icon" data-index="${noteIndex}">Delete</button>
-            </div>
-        `;
+
+		if (noteIndex === 0) {
+			noteItem.innerHTML = `
+				<p>${note.text}</p>
+				<p class="note-date">Added on: ${note.dateAdded}</p>
+				<div class="note-actions default-note">
+					<button class="edit-note icon" data-index="${noteIndex}">Edit</button>
+					<button class="delete-note icon" data-index="${noteIndex}">Delete</button>
+				</div>
+			`;
+		} else {
+			noteItem.innerHTML = `
+			<p>${note.text}</p>
+			<p class="note-date">Added on: ${note.dateAdded}</p>
+			<div class="note-actions">
+				<button class="edit-note icon" data-index="${noteIndex}">Edit</button>
+				<button class="delete-note icon" data-index="${noteIndex}">Delete</button>
+			</div>
+		`;
+		}
+
 		notesContainer.appendChild(noteItem);
 
 		// Add event listener for delete note button
@@ -250,7 +270,7 @@ function displayNotes() {
 	});
 }
 
-const sidebarContainer = document.querySelector(".sidebar-container");
+
 
 sidebarContainer.addEventListener("click", (e) => {
 	if (e.target.tagName === "BUTTON") {
@@ -283,6 +303,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			radio.checked = true;
 		}
 	});
+
+
+	const menuToggler = document.getElementById("menuToggle");
+
+	menuToggler.addEventListener("click", () => {
+        document.getElementById("sidebar").classList.toggle("opened");
+    });
 });
 
 // Initial display
