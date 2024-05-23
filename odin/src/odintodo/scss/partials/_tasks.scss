@@ -15,11 +15,31 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: rem-calc(77);
+		
+		@include breakpoint(large down) {
+			margin-bottom: rem-calc(42);			
+		}
+
 	}
 
 	.title {
-		font-family: $font900;
-		font-size: rem-calc(21);
+		font-family: $font700;
+		font-size: rem-calc(28);
+
+		#taskProjectName {
+			display: block;
+			font-size: rem-calc(14);
+			font-family: $font300i;
+			padding: rem-calc(3 0);
+			letter-spacing: rem-calc(1);
+			.pn {
+				color: accent($amber);
+			}
+
+			.fi {
+				color: accent($emerald);
+			}
+		}
 	}
 
 	.tasks-list {
@@ -30,11 +50,28 @@
 		gap: rem-calc(7);
 		width: 100%;
 		overflow: auto;
+		padding: rem-calc(7);
+
+		.no-tasks {
+			text-align: center;
+			padding: rem-calc(56);
+			font-family: $font300i;
+			color: accent($themeLight, 0.77);
+			font-size: rem-calc(14);
+			display: block;
+			width: 100%;
+			letter-spacing: rem-calc(1);
+		}
 
 		&.tasks-header {
 			background: $themeDark;
-			padding: rem-calc(14 0);
 			border-radius: rem-calc(14);
+			height: rem-calc(77);
+			flex-shrink: 0;
+			white-space: nowrap;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
 			@include breakpoint(large down) {
 			// < 768
@@ -77,6 +114,9 @@
 			.task-name {
 				flex-grow: 1;
 				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
 
 				@include breakpoint(large down) {
 				// < 768
@@ -95,6 +135,10 @@
 					text-transform: uppercase;
 					color: rgba($themeLight, 0.77);
 					letter-spacing: rem-calc(1);
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					max-width: rem-calc(112);
+					overflow: hidden;
 				}
 			}
 
@@ -174,14 +218,14 @@
 						height: rem-calc(14);
 						border-radius: rem-calc(4);
 						transition: all 0.2s ease-in-out;
-						background: $success;
+						background: $themeLight;
 						opacity: 0;
 						transition: all 0.25s $bezier;
 					}
 				}
 
 				input:checked + label {
-					box-shadow: inset rem-calc(0 0 0 2) rgba($success, 1);
+					box-shadow: inset rem-calc(0 0 0 2) rgba($themeLight, 1);
 
 					&:before {
 						transform: translate(-50%, -50%) scale(1);

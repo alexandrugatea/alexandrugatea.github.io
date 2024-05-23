@@ -195,6 +195,13 @@
 		height: 100%;
 	}
 
+	.group-list {
+		@include breakpoint(large down) {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(rem-calc(280), 1fr));
+		}
+	}
+
 	.note {
 		border-radius: rem-calc(14);
 		background: $themeDark;
@@ -203,6 +210,7 @@
 		padding: rem-calc(21 42 49 21);
 		overflow: hidden;
 		line-height: 1.45;
+		flex-shrink: 0;
 
 		.note-date {
 			position: absolute;

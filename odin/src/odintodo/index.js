@@ -159,10 +159,11 @@ saveNoteBtn.onclick = (e) => {
 		saveToLocalStorage();
 		displayNotes();
 		hideModal(noteModal, modalsContainer);
+		document.getElementById("noteText").value = "";
 	}
 };
 
-function displayProjects() {
+export function displayProjects() {
 	const projectList = document.getElementById("projectList");
 	projectList.innerHTML = "";
 	projects.forEach((project, projectIndex) => {
@@ -195,7 +196,15 @@ function displayProjects() {
 			const projectIndex = e.target.dataset.index;
 			currentProject = projects[projectIndex].name;
 
-			displayTasks(projects, projectIndex);
+			if (projects[projectIndex].todos.length === 0) {
+
+				displayTasks(projects, projectIndex);
+				tasksContainer.innerHTML	= `<span class="no-tasks">There are no tasks in this project.</span>`;
+			} else {
+				displayTasks(projects, projectIndex);
+			}
+			
+			document.getElementById("sidebar").classList.remove("opened");
 		};
 	});
 
@@ -265,6 +274,7 @@ function displayNotes() {
 				saveToLocalStorage();
 				displayNotes();
 				hideModal(noteModal, modalsContainer);
+				document.getElementById("noteText").value = "";
 			};
 		};
 	});
@@ -273,18 +283,12 @@ function displayNotes() {
 
 
 sidebarContainer.addEventListener("click", (e) => {
-	if (e.target.tagName === "BUTTON") {
+	if (e.target.tagName === "BUTTON" && e.target.id !== "menuToggle") {
 		const buttons = sidebarContainer.querySelectorAll(".list-item button, .project-btn");
 
 		// Remove 'active' class from all buttons
 		buttons.forEach((btn) => btn.parentNode.classList.remove("active"));
-
-		// Add 'active' class to the clicked button's parent
-		if (e.target.parentNode.classList.contains("list-item") || e.target.classList.contains("project-btn")) {
-			e.target.parentNode.classList.add("active");
-		} else if (e.target.classList.contains("project-btn")) {
-			e.target.classList.add("active");
-		}
+		e.target.parentNode.classList.add("active");
 	}
 });
 
@@ -303,7 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			radio.checked = true;
 		}
 	});
-
 
 	const menuToggler = document.getElementById("menuToggle");
 

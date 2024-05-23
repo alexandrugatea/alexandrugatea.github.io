@@ -31,6 +31,7 @@
 		border-radius: rem-calc(21);
 		transition: all 0.25s $bezier;
 		z-index: -1;
+		pointer-events: none;
 
 		
 		@include breakpoint(small only) {
@@ -43,6 +44,7 @@
 			transform: translate(-50%, -50%) scale(1);
 			transition: all 0.25s $bezier;
 			z-index: 1001;
+			pointer-events: all;
 		}
 
 		.note {
