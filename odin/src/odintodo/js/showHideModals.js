@@ -13,9 +13,11 @@ function showModal(modal, container, currentProject) {
 	}
 }
 
-function hideModal(modal, container) {
+function hideModal(modal, container, resetForm) {
 	modal.classList.remove("open");
 	container.classList.remove("open");
+
+	resetForm.reset();
 }
 
 export { showModal, hideModal };

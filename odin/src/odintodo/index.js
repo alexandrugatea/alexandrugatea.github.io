@@ -56,9 +56,9 @@ const closeTaskModal = document.getElementById("closeTaskModal");
 const closeNoteModal = document.getElementById("closeNoteModal");
 const confirmationModal = document.getElementById("confirmationModal");
 const closeConfirmationModal = document.getElementById("closeConfirmationModal");
-const saveProjectBtn = document.getElementById("projectForm");
-const saveTaskBtn = document.getElementById("taskForm");
-const saveNoteBtn = document.getElementById("noteForm");
+const saveProjectForm = document.getElementById("projectForm");
+const saveTaskForm = document.getElementById("taskForm");
+const saveNoteForm = document.getElementById("noteForm");
 const tasksContainer = document.getElementById("tasksContainer");
 const notesContainer = document.getElementById("notesContainer");
 const projectSelect = document.getElementById("projectSelect");
@@ -84,9 +84,9 @@ todayBtn.onclick = () => filterTasksByDate("today", projects, tasksContainer);
 tomorrowBtn.onclick = () => filterTasksByDate("tomorrow", projects, tasksContainer);
 thisWeekBtn.onclick = () => filterTasksByDate("thisWeek", projects, tasksContainer);
 nextWeekBtn.onclick = () => filterTasksByDate("nextWeek", projects, tasksContainer);
-closeProjectModal.onclick = () => hideModal(projectModal, modalsContainer);
-closeTaskModal.onclick = () => hideModal(taskModal, modalsContainer);
-closeNoteModal.onclick = () => hideModal(noteModal, modalsContainer);
+closeProjectModal.onclick = () => hideModal(projectModal, modalsContainer, saveProjectForm);
+closeTaskModal.onclick = () => hideModal(taskModal, modalsContainer, saveTaskForm);
+closeNoteModal.onclick = () => hideModal(noteModal, modalsContainer, saveNoteForm);
 closeConfirmationModal.onclick = () => hideConfirmationModal();
 cancelDeleteBtn.onclick = () => hideConfirmationModal();
 confirmDeleteBtn.onclick = () => {
@@ -110,7 +110,7 @@ export function hideConfirmationModal() {
 	deleteAction = null;
 }
 
-saveProjectBtn.onclick = () => {
+saveProjectForm.onclick = () => {
 	const name = document.getElementById("projectName").value;
 	const description = document.getElementById("projectDescription").value;
 	if (name) {
@@ -118,14 +118,14 @@ saveProjectBtn.onclick = () => {
 		projects.push(project);
 		saveToLocalStorage();
 		displayProjects();
-		hideModal(projectModal, modalsContainer);
+		hideModal(projectModal, modalsContainer, saveProjectForm);
 		document.getElementById("projectName").value = "";
 		document.getElementById("projectDescription").value = "";
 		disableAddProjectBtn();
 	}
 };
 
-saveTaskBtn.onsubmit = (e) => {
+saveTaskForm.onsubmit = (e) => {
 	e.preventDefault();
 	const taskName = document.getElementById("taskName").value;
 	const dueDate = document.getElementById("dueDate").value;
@@ -146,11 +146,11 @@ saveTaskBtn.onsubmit = (e) => {
 		currentProject.parentNode.classList.add("active");
 		saveToLocalStorage();
 		displayTasks(projects, projectIndex);
-		hideModal(taskModal, modalsContainer);
+		hideModal(taskModal, modalsContainer, saveTaskForm);
 	}
 };
 
-saveNoteBtn.onclick = (e) => {
+saveNoteForm.onsubmit = (e) => {
     e.preventDefault();
 	const noteText = document.getElementById("noteText").value;
 	if (noteText) {
@@ -158,7 +158,7 @@ saveNoteBtn.onclick = (e) => {
 		notes.push({ text: noteText, dateAdded });
 		saveToLocalStorage();
 		displayNotes();
-		hideModal(noteModal, modalsContainer);
+		hideModal(noteModal, modalsContainer, saveNoteForm);
 		document.getElementById("noteText").value = "";
 	}
 };
@@ -269,12 +269,13 @@ function displayNotes() {
 			let currentNoteIndex = noteIndex;
 
 			// Save the edited note
-			saveNoteBtn.onclick = () => {
+			saveNoteForm.onsubmit = (e) => {
+				e.preventDefault();
 				notes[currentNoteIndex].text = document.getElementById("noteText").value;
 				saveToLocalStorage();
 				displayNotes();
-				hideModal(noteModal, modalsContainer);
-				document.getElementById("noteText").value = "";
+				hideModal(noteModal, modalsContainer, saveNoteForm);
+				document.getElementById("noteText").value = "Enter text";
 			};
 		};
 	});
