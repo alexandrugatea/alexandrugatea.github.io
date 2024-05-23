@@ -14,6 +14,8 @@ import saveToLocalStorage from "./js/saveToLocalStorage";
 import filterTasksByDate from "./js/filterTasks";
 import displayTasks from "./js/displayTasks";
 
+import setCurrentDate from "./js/setCurrentDate";
+
 injectModals();
 injectSidebar();
 injectNotes();
@@ -57,7 +59,7 @@ const closeNoteModal = document.getElementById("closeNoteModal");
 const confirmationModal = document.getElementById("confirmationModal");
 const closeConfirmationModal = document.getElementById("closeConfirmationModal");
 const saveProjectForm = document.getElementById("projectForm");
-const saveTaskForm = document.getElementById("taskForm");
+export const saveTaskForm = document.getElementById("taskForm");
 const saveNoteForm = document.getElementById("noteForm");
 const tasksContainer = document.getElementById("tasksContainer");
 const notesContainer = document.getElementById("notesContainer");
@@ -110,7 +112,8 @@ export function hideConfirmationModal() {
 	deleteAction = null;
 }
 
-saveProjectForm.onclick = () => {
+saveProjectForm.onsubmit = (e) => {
+	e.preventDefault();
 	const name = document.getElementById("projectName").value;
 	const description = document.getElementById("projectDescription").value;
 	if (name) {
