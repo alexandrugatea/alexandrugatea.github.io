@@ -3280,8 +3280,7 @@ body.about .resume-profile-background {
   -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
   background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.14);
-  -webkit-clip-path: polygon(28% 0, 100% 0, 100% 100%, 49% 45%, 68% 44%);
-          clip-path: polygon(28% 0, 100% 0, 100% 100%, 49% 45%, 68% 44%);
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 49% 45%, 68% 44%);
 }
 @media screen and (max-width: 47.9375em) {
   body.about .resume-profile-background {

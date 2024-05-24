@@ -57,25 +57,37 @@ gulp.task('js', function () {
 
 // Copy fonts to Build
 gulp.task('fonts', function () {
-    return gulp.src(source + '/fonts/**/*') 
+    return gulp.src([source + '/fonts/**/*'], {
+        buffer: true,
+        removeBOM: false
+    }) 
         .pipe(gulp.dest(destination + 'build/fonts')); 
 });
 
 // Copy Vendor Libraries to Build
 gulp.task('libs', function () {
-    return gulp.src(source + '/lib/**/*') 
+    return gulp.src([source + '/lib/**/*'], {
+        buffer: true,
+        removeBOM: false
+    }) 
         .pipe(gulp.dest(destination + 'build/lib')); 
 });
 
 // Copy media files to Build
 gulp.task('media', function () {
-    return gulp.src(source + '/media/**/*') 
+    return gulp.src([source + '/media/**/*'], {
+        buffer: true,
+        removeBOM: false
+    }) 
         .pipe(gulp.dest(destination + 'build/media')); 
 });
 
 // Copy images to Build
 gulp.task('images', function () {
-    return gulp.src(source + '/images/**/*') 
+    return gulp.src([source + '/images/**/*'], {
+        buffer: true,
+        removeBOM: false
+    }) 
         .pipe(gulp.dest(destination + 'build/images')); 
 });
 
