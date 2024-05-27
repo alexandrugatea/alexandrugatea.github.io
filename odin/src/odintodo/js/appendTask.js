@@ -2,7 +2,7 @@ import createTaskHTML from "./createTask";
 import { showModal, hideModal } from "./showHideModals";
 import saveToLocalStorage from "./saveToLocalStorage";
 import displayTasks from "./displayTasks";
-import { projects, showConfirmationModal, modalsContainer, displayProjects, saveTaskForm } from "..";
+import { projects, showConfirmationModal, modalsContainer, displayProjects, saveTaskForm, projectSelect, taskModal } from "..";
 
 export default function appendTask(todo, index, tasksContainer) {
     const todoItem = createTaskHTML(todo, index);
@@ -40,7 +40,7 @@ export default function appendTask(todo, index, tasksContainer) {
 
         showModal(taskModal, modalsContainer);
 
-        saveTaskBtn.onsubmit = (e) => {
+        saveTaskForm.onsubmit = (e) => {
 			e.preventDefault();
             const newProjectName = projectSelect.value;
 

@@ -13,8 +13,7 @@ let showGuides = document.querySelector("#showGuides");
 const clearDrawing = document.getElementById("clearDrawing");
 const toggleOptions = document.getElementById("toggleMobileSettings");
 const optionsPanel = document.querySelector(".game-options");
-
-
+// import html2canvas from 'html2canvas';
 // Init functions
 updateCurrentGridSize(gridSize);
 generateGrid(gridSize);
@@ -147,10 +146,6 @@ function updateCurrentGridSize(size) {
     currentGridSize.innerText = size + "px * " + size + "px";
 }
 
-function newGridSize(size) {
-    currentGridSize.innerText = size + "px * " + size + "px";
-}
-
 function generateGrid (gridSize) {
     gridContainer.style.setProperty('--cells', gridSize);
     
@@ -167,30 +162,6 @@ function destroyGrid() {
     gridContainer.innerHTML= "";
 }
 
-
-let startY = 0; 
-let moveY = 0; 
-let isOpening = false;
-
-// toggleOptions.addEventListener('touchstart', (e) => {
-//     startY = e.touches[0].clientY;
-//     isOpening = false;
-// }, { passive: true });
-
-// toggleOptions.addEventListener('touchmove', (e) => {
-//     moveY = e.touches[0].clientY;
-//     if (startY > moveY) {
-//         isOpening = true;
-//     }
-// }, { passive: true });
-
-// toggleOptions.addEventListener('touchend', () => {
-//     if (isOpening) {
-//         optionsPanel.classList.add('opened');
-//     } else {
-//         optionsPanel.classList.remove('opened'); 
-//     }
-// });
 
 toggleOptions.addEventListener('click', () => {
     optionsPanel.classList.toggle('opened');

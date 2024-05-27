@@ -1,4 +1,5 @@
 import setCurrentDate from "./setCurrentDate";
+import { taskModal, projectSelect } from "..";
 
 function showModal(modal, container, currentProject) {
 	modal.classList.add("open");

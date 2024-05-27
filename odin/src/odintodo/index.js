@@ -14,8 +14,6 @@ import saveToLocalStorage from "./js/saveToLocalStorage";
 import filterTasksByDate from "./js/filterTasks";
 import displayTasks from "./js/displayTasks";
 
-import setCurrentDate from "./js/setCurrentDate";
-
 injectModals();
 injectSidebar();
 injectNotes();
@@ -51,7 +49,7 @@ const tomorrowBtn = document.getElementById("tomorrowBtn");
 const thisWeekBtn = document.getElementById("thisWeekBtn");
 const nextWeekBtn = document.getElementById("nextWeekBtn");
 const projectModal = document.getElementById("projectModal");
-const taskModal = document.getElementById("taskModal");
+export const taskModal = document.getElementById("taskModal");
 const noteModal = document.getElementById("noteModal");
 const closeProjectModal = document.getElementById("closeProjectModal");
 const closeTaskModal = document.getElementById("closeTaskModal");
@@ -61,9 +59,9 @@ const closeConfirmationModal = document.getElementById("closeConfirmationModal")
 const saveProjectForm = document.getElementById("projectForm");
 export const saveTaskForm = document.getElementById("taskForm");
 const saveNoteForm = document.getElementById("noteForm");
-const tasksContainer = document.getElementById("tasksContainer");
+export const tasksContainer = document.getElementById("tasksContainer");
 const notesContainer = document.getElementById("notesContainer");
-const projectSelect = document.getElementById("projectSelect");
+export const projectSelect = document.getElementById("projectSelect");
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
 const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
 const sidebarContainer = document.querySelector(".sidebar-container");

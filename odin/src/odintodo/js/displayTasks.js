@@ -1,4 +1,5 @@
 import appendTask from "./appendTask";
+import { tasksContainer } from "..";
 
 export const taskProjectNameContainer = document.getElementById("taskProjectName");
 export default function displayTasks(projects, projectIndex = null) {

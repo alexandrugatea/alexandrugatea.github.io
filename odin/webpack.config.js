@@ -45,8 +45,8 @@ module.exports = (env) => {
       clean: true
     },
     optimization: {
-      minimize: true,
-      minimizer: [new TerserPlugin()],
+      minimize: mode === 'production',
+      minimizer: mode === 'production' ? [new TerserPlugin()] : [],
     },
     performance: {
       maxAssetSize: 512000, // 500 KB

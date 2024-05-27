@@ -182,7 +182,7 @@ window.addEventListener('keydown', (e) => {
         }
     }
 });
-window.addEventListener('keyup', (e) => {
+window.addEventListener('keyup', () => {
     const keys = document.querySelectorAll(".key");
     keys.forEach((key) => {
         key.classList.remove("pressed");
