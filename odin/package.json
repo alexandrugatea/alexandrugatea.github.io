@@ -6,12 +6,19 @@
   "scripts": {
     "build:odinrestaurant:dev": "webpack --config webpack.config.js --env project=odinrestaurant --env mode=development",
     "build:odinrestaurant:prod": "webpack --config webpack.config.js --env project=odinrestaurant --env mode=production",
+    "start:odinrestaurant:dev": "webpack serve --config webpack.config.js --env project=odinrestaurant --env mode=development --open",
+    "clean:odinrestaurant": "rimraf odinrestaurant",
+    
+    "build:odinweather:dev": "webpack --config webpack.config.js --env project=odinweather --env mode=development",
+    "build:odinweather:prod": "webpack --config webpack.config.js --env project=odinweather --env mode=production",
+    "start:odinweather:dev": "webpack serve --config webpack.config.js --env project=odinweather --env mode=development --open",
+    "clean:odinweather": "rimraf odinweather",
+    
     "build:odintodo:dev": "webpack --config webpack.config.js --env project=odintodo --env mode=development",
     "build:odintodo:prod": "webpack --config webpack.config.js --env project=odintodo --env mode=production",
-    "start:odinrestaurant:dev": "webpack serve --config webpack.config.js --env project=odinrestaurant --env mode=development --open",
     "start:odintodo:dev": "webpack serve --config webpack.config.js --env project=odintodo --env mode=development --open",
-    "clean:odinrestaurant": "rimraf odinrestaurant",
     "clean:odintodo": "rimraf odintodo",
+    
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
     "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\""
   },
