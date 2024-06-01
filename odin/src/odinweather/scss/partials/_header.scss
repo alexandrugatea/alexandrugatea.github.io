@@ -1,0 +1,112 @@
+.weather-header {
+	width: 100%;
+	padding: rem-calc(14 21);
+	font-family: $font700;
+	font-size: rem-calc(21);
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, 0);
+	right: 0;
+	width: 100%;
+	z-index: 999999;
+	backdrop-filter: blur(7px);
+
+	max-width: rem-calc(1440);
+
+	@include breakpoint(medium) {
+		// 768
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: rem-calc(21);
+		height: rem-calc($headerHeight);
+	}
+
+	@include breakpoint(small only) {
+		// < 768
+		display: grid;
+		grid-template-columns: 3fr 1fr;
+		width: 100%;
+
+		grid-template-areas: "logo unit" "search search";
+		grid-template-rows: rem-calc(49);
+		gap: rem-calc(14);
+		padding: rem-calc(21);
+	}
+
+	.weather-logo {
+		@include flex-middle(true, 14, row);
+		height: 100%;
+
+		@include breakpoint(small only) {
+			grid-area: logo;
+			justify-content: flex-start;
+		}
+
+		.weather-logo-name {
+			height: inherit;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: rem-calc(56);
+			background: $dark;
+			padding: rem-calc(0 21);
+			color: $light;
+
+			@include breakpoint(small only) {
+				// < 768
+				height: rem-calc(49);
+			}
+
+			span {
+				color: $accent;
+				margin-left: rem-calc(7);
+			}
+		}
+	}
+
+	.weather-search {
+		flex: 1;
+		@include flex-middle(false, 0);
+
+		@include breakpoint(small only) {
+			// < 768
+			grid-area: search;
+		}
+	}
+
+	.weather-local-time {
+		.local-time:not(.divider) {
+			@include flex-middle(true, 0);
+			width: rem-calc(28);
+		}
+
+		@include breakpoint(xlarge down) {
+			// < 768
+			display: none;
+		}
+	}
+
+	.units {
+		padding: rem-calc(7 14);
+		border-radius: rem-calc(56);
+		background: $dark;
+		color: $light;
+		margin-left: auto;
+		width: rem-calc(100);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@include breakpoint(small only) {
+			// < 768
+			grid-area: unit;
+		}
+
+		@include breakpoint(medium) {
+			// 768
+			height: 100%;
+		}
+	}
+}

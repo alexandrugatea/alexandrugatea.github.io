@@ -1,0 +1,43 @@
+.title {
+	font-size: rem-calc(21);
+	font-family: $font900;
+	text-transform: uppercase;
+	letter-spacing: rem-calc(1);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: rem-calc(7);
+	margin: rem-calc(0 0 21);
+
+	@include breakpoint(small only) {
+		// < 768
+		font-size: rem-calc(14);
+		justify-content: center;
+	}
+
+	@include breakpoint(xlarge only) {
+		// 1200
+		align-self: center;
+	}
+
+	.refresh {
+		padding: rem-calc(7);
+		width: rem-calc(35);
+		height: rem-calc(35);
+		background: $dark;
+		border-radius: rem-calc(70);
+		transition: all 0.21s $bezier;
+
+		@include breakpoint(xlarge) {
+			// 1200
+			&:hover {
+				background: darken($light, 5%);
+			}
+		}
+
+		.icon {
+			font-size: rem-calc(21);
+			color: $light;
+		}
+	}
+}

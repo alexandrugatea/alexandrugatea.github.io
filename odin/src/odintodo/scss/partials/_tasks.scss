@@ -4,8 +4,6 @@
 	align-items: stretch;
 	width: 100%;
 
-
-
 	&-container {
 		@extend .sidebar-container;
 		gap: 0;
@@ -15,11 +13,10 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: rem-calc(77);
-		
-		@include breakpoint(large down) {
-			margin-bottom: rem-calc(42);			
-		}
 
+		@include breakpoint(large down) {
+			margin-bottom: rem-calc(42);
+		}
 	}
 
 	.title {
@@ -74,7 +71,7 @@
 			align-items: center;
 
 			@include breakpoint(large down) {
-			// < 768
+				// < 768
 				display: none;
 			}
 
@@ -119,9 +116,9 @@
 				align-items: center;
 
 				@include breakpoint(large down) {
-				// < 768
+					// < 768
 					order: 6;
-					width: calc(100% - 42px - 14px)
+					width: calc(100% - 42px - 14px);
 				}
 
 				.task-project {
@@ -150,8 +147,8 @@
 				padding: rem-calc(7);
 
 				@include breakpoint(large down) {
-				// < 768
-					width: rem-calc(35); 
+					// < 768
+					width: rem-calc(35);
 					order: 1;
 				}
 
@@ -184,8 +181,8 @@
 				align-items: center;
 
 				@include breakpoint(large down) {
-				// < 768
-					width: rem-calc(35); 
+					// < 768
+					width: rem-calc(35);
 					order: 2;
 				}
 
@@ -266,19 +263,19 @@
 				text-align: center;
 
 				@include breakpoint(large down) {
-				// < 768
+					// < 768
 					order: 3;
 					flex-grow: 1;
 					text-align: left;
 					justify-content: flex-start;
 				}
 
-                .due-in {
-                    display: block;
-                    font-size: rem-calc(14);
-                    font-family: $font400i;
-                    color: accent($amber);
-                }
+				.due-in {
+					display: block;
+					font-size: rem-calc(14);
+					font-family: $font400i;
+					color: accent($amber);
+				}
 			}
 		}
 

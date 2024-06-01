@@ -1,6 +1,6 @@
 #app {
 	@include breakpoint(xlarge) {
-	// 768
+		// 768
 		display: grid;
 		grid-template-columns: rem-calc(300) auto rem-calc(350);
 		grid-template-rows: 100%;
@@ -13,7 +13,7 @@
 	}
 
 	@include breakpoint(large down) {
-	// < 768
+		// < 768
 		padding-top: rem-calc(98);
 	}
 	min-height: 100%;
@@ -23,5 +23,4 @@
 	background: $themeDark;
 	color: $themeLight;
 	padding: rem-calc(21);
-
 }

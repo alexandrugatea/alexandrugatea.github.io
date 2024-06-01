@@ -1,0 +1,42 @@
+.form {
+	@include flex-middle;
+	width: 100%;
+	max-width: rem-calc(630);
+	position: relative;
+
+	.form-group {
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		gap: rem-calc(7);
+		width: 100%;
+		position: relative;
+
+		[type="text"] {
+			position: relative;
+			z-index: 1;
+			border-radius: rem-calc(56);
+			flex-grow: 1;
+			padding: rem-calc(0 21);
+			border: none;
+			outline: none;
+			font-size: rem-calc(16);
+			height: rem-calc(49);
+			width: 100%;
+			background: $light;
+		}
+
+		[type="submit"] {
+			border-radius: rem-calc(56);
+			background: darken($light, 15%);
+			flex-shrink: 0;
+			font-size: rem-calc(16);
+			height: calc(100% - rem-calc(8));
+			aspect-ratio: 1 / 1;
+			position: absolute;
+			top: rem-calc(4);
+			right: rem-calc(4);
+			z-index: 1;
+		}
+	}
+}

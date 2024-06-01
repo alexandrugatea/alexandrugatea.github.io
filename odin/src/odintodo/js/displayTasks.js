@@ -13,7 +13,6 @@ export default function displayTasks(projects, projectIndex = null) {
 			taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>`;
 			project.todos.forEach((todo, index) => {
 				appendTask(todo, index, tasksContainer);
-
 			});
 		});
 	} else {

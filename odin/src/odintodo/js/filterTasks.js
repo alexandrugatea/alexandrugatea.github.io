@@ -23,7 +23,7 @@ export default function filterTasksByDate(filter, projects, tasksContainer) {
 	// console.log(`Filtering tasks for: ${filter}`);
 	document.getElementById("sidebar").classList.toggle("opened");
 	tasksContainer.innerHTML = "";
-	taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>`
+	taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>`;
 	projects.forEach((project) => {
 		project.todos.forEach((todo, index) => {
 			const taskDate = parseISO(todo.dueDate);
@@ -54,7 +54,7 @@ export default function filterTasksByDate(filter, projects, tasksContainer) {
 			if (shouldAppend) {
 				// console.log(`Appending task: ${todo.name} due on ${todo.dueDate}`);
 				appendTask(todo, index, tasksContainer);
-				taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>, due <span class="fi">${filter}.</span>`
+				taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>, due <span class="fi">${filter}.</span>`;
 			}
 		});
 	});

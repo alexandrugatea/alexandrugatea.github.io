@@ -140,7 +140,7 @@ saveTaskForm.onsubmit = (e) => {
 		const projectIndex = projects.findIndex((p) => p.name === projectName);
 		const project = projects[projectIndex];
 		project.addTodo(todo);
-		
+
 		const buttons = sidebarContainer.querySelectorAll(".list-item button, .project-btn");
 		buttons.forEach((btn) => btn.parentNode.classList.remove("active"));
 		const currentProject = document.querySelector(`.project-button[data-index="${projectIndex}"]`);
@@ -152,7 +152,7 @@ saveTaskForm.onsubmit = (e) => {
 };
 
 saveNoteForm.onsubmit = (e) => {
-    e.preventDefault();
+	e.preventDefault();
 	const noteText = document.getElementById("noteText").value;
 	if (noteText) {
 		const dateAdded = formatDate(new Date());
@@ -198,13 +198,12 @@ export function displayProjects() {
 			currentProject = projects[projectIndex].name;
 
 			if (projects[projectIndex].todos.length === 0) {
-
 				displayTasks(projects, projectIndex);
-				tasksContainer.innerHTML	= `<span class="no-tasks">There are no tasks in this project.</span>`;
+				tasksContainer.innerHTML = `<span class="no-tasks">There are no tasks in this project.</span>`;
 			} else {
 				displayTasks(projects, projectIndex);
 			}
-			
+
 			document.getElementById("sidebar").classList.remove("opened");
 		};
 	});
@@ -282,8 +281,6 @@ function displayNotes() {
 	});
 }
 
-
-
 sidebarContainer.addEventListener("click", (e) => {
 	if (e.target.tagName === "BUTTON" && e.target.id !== "menuToggle") {
 		const buttons = sidebarContainer.querySelectorAll(".list-item button, .project-btn");
@@ -313,8 +310,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const menuToggler = document.getElementById("menuToggle");
 
 	menuToggler.addEventListener("click", () => {
-        document.getElementById("sidebar").classList.toggle("opened");
-    });
+		document.getElementById("sidebar").classList.toggle("opened");
+	});
 });
 
 // Initial display

@@ -3,5 +3,26 @@
 $customFontPath: "../../../../src/fonts/";
 @import "../../../../src/scss/base/foundationMQ";
 @import "../../../../src/scss/base/mixins";
-@import "../../../../src/scss/base/scroll";
+// @import "../../../../src/scss/base/scroll";
 @import "../../../../src/scss/base/font";
+
+@import "partials/variables";
+@import "partials/body";
+@import "partials/header";
+@import "partials/title";
+@import "partials/loader";
+@import "partials/weather_app";
+@import "partials/weather_container";
+@import "partials/weather_daily";
+@import "partials/weather_hourly";
+@import "partials/weather_now";
+@import "partials/credits";
+@import "partials/dual_values";
+@import "partials/form";
+@import "partials/dropdown";
+@import "partials/notification";
+@import "partials/backgrounds";
+
+* {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

@@ -33,11 +33,10 @@
 		z-index: -1;
 		pointer-events: none;
 
-		
 		@include breakpoint(small only) {
 			// < 768
-				max-width: 90%;
-			}
+			max-width: 90%;
+		}
 
 		&.open {
 			opacity: 1;
@@ -56,7 +55,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: rem-calc(28);
-
 		}
 
 		.close {
@@ -142,7 +140,8 @@
 			position: relative;
 		}
 
-		.date-group, .form-select {
+		.date-group,
+		.form-select {
 			.icon {
 				position: absolute;
 				right: 0;
@@ -168,7 +167,7 @@
 			padding: rem-calc(14 0);
 
 			@include breakpoint(small only) {
-			// < 768
+				// < 768
 				margin-right: rem-calc(14);
 			}
 
@@ -205,7 +204,7 @@
 			position: relative;
 		}
 
-		[type="date"]::-webkit-calendar-picker-indicator{
+		[type="date"]::-webkit-calendar-picker-indicator {
 			background: transparent;
 			appearance: none;
 			-webkit-appearance: none;

@@ -36,10 +36,10 @@ export default function createTaskHTML(todo, index) {
 	const superscriptedDate = formattedDate.replace(/(\d+)(st|nd|rd|th)/, "$1<sup>$2</sup>");
 	dueDateTimeSpan.innerHTML = superscriptedDate;
 
-    	// Add "due in X hours" if due today
+	// Add "due in X hours" if due today
 	const currentDate = new Date();
 	const taskDueDate = parseISO(todo.dueDate);
-	if (format(currentDate, 'yyyy-MM-dd') === format(taskDueDate, 'yyyy-MM-dd')) {
+	if (format(currentDate, "yyyy-MM-dd") === format(taskDueDate, "yyyy-MM-dd")) {
 		const hoursRemaining = differenceInHours(startOfTomorrow(), currentDate);
 		dueDateTimeSpan.innerHTML += `<span class="due-in">due in ${hoursRemaining} hours</span>`;
 	}

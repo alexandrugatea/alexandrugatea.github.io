@@ -1,0 +1,242 @@
+.weather > .weather-now {
+	@include breakpoint(medium) {
+		// 768
+		display: grid;
+		grid-template-areas: "title title" "location weather" "details details";
+		grid-template-columns: 2fr 3fr;
+		align-items: center;
+
+		.title {
+			grid-area: title;
+		}
+		.weather-location {
+			grid-area: location;
+		}
+		.weather-current {
+			grid-area: weather;
+		}
+		.weather-current-details {
+			grid-area: details;
+		}
+	}
+
+	@include breakpoint(xlarge) {
+		// 1200
+		grid-template-areas: "title title title" "location weather details";
+		grid-template-columns: 2fr 3fr 2fr;
+		gap: rem-calc(21);
+		align-items: stretch;
+	}
+
+	@include breakpoint(small only) {
+		// < 768
+		display: flex;
+		flex-direction: column;
+		gap: rem-calc(7);
+	}
+
+	.current-region,
+	.current-coords {
+		@include breakpoint(small only) {
+			// < 768
+			display: none;
+		}
+	}
+}
+
+.weather-current {
+	padding: rem-calc(35 0);
+
+	@include breakpoint(large) {
+		// 768
+		padding: rem-calc(0 0 21);
+	}
+
+	@include breakpoint(xxlarge) {
+		// 1400
+		align-self: center;
+		background: rgba($light, 0.07);
+		backdrop-filter: blur(7px);
+		height: 100%;
+		border-radius: rem-calc(14);
+		padding: rem-calc(63 0);
+	}
+
+	@include breakpoint(small only) {
+		// < 768
+		padding: rem-calc(21 0);
+	}
+
+	.weather-now {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: rem-calc(14);
+	}
+
+	.weather-current-temp {
+		width: 100%;
+
+		span {
+			font-size: rem-calc(98);
+		}
+
+		@include breakpoint(large down) {
+			// 1024
+			height: rem-calc(98);
+
+			span {
+				font-size: rem-calc(77);
+			}
+		}
+
+		@include breakpoint(xlarge) {
+			// 768
+			height: rem-calc(112);
+		}
+	}
+
+	.weather-current-text {
+		padding: rem-calc(14 0);
+		display: inline-block;
+		font-size: rem-calc(28);
+	}
+
+	.weather-current-feels {
+		@include setHeights(21);
+		margin-bottom: rem-calc(21);
+	}
+
+	.astro {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.weather-location {
+	@include breakpoint(xxlarge) {
+		// 1200
+		align-self: center;
+	}
+
+	.weather-location-city {
+		@include flex-middle;
+
+		@include breakpoint(medium) {
+			// 768
+			align-items: flex-start;
+		}
+
+		@include breakpoint(small only) {
+			// < 768
+			align-items: center;
+		}
+
+		.current-city {
+			margin-bottom: rem-calc(7);
+			font-family: $font700;
+			font-size: rem-calc(42);
+		}
+
+		.current-conutry {
+			font-size: rem-calc(16);
+			font-family: $font500i;
+			margin-bottom: rem-calc(7);
+			opacity: 0.56;
+			display: block;
+		}
+	}
+
+	.location-time {
+		margin-bottom: rem-calc(14);
+		display: block;
+		@include breakpoint(small only) {
+			// < 768
+			text-align: center;
+		}
+	}
+}
+
+.weather-current-details {
+	// 768
+	display: grid;
+	place-content: center;
+	align-items: center;
+	gap: rem-calc(21);
+	margin-top: auto;
+
+	@include breakpoint(small only) {
+		// < 768
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	@include breakpoint(medium) {
+		// 1024
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(1, 1fr);
+	}
+
+	@include breakpoint(xlarge) {
+		// 1024
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	@include breakpoint(xxlarge) {
+		// 1400
+		gap: rem-calc(7);
+		height: 100%;
+	}
+
+	.flex-items {
+		@include flex-middle;
+		padding: rem-calc(14);
+		background: rgba(lighten($light, 25%), 0.1);
+		border-radius: rem-calc(14);
+		gap: rem-calc(14);
+		width: 100%;
+
+		@include breakpoint(xlarge down) {
+			// 1024
+			aspect-ratio: 1/1;
+		}
+
+		@include breakpoint(xxlarge) {
+			// 1400
+			height: 100%;
+			gap: rem-calc(21);
+		}
+
+		.desc {
+			font-family: $font900;
+			font-size: rem-calc(10);
+			text-transform: uppercase;
+			letter-spacing: rem-calc(1);
+			text-align: center;
+			white-space: nowrap;
+			opacity: 0.7;
+		}
+
+		.weather-value {
+			font-size: rem-calc(28);
+
+			.unit {
+				font-size: rem-calc(16);
+				opacity: 0.42;
+				margin-left: rem-calc(4);
+			}
+		}
+	}
+
+	.weather-current-wind {
+		&-values {
+			@include setHeights(28);
+		}
+	}
+	.weather-current-precipitation {
+		&-values {
+			@include setHeights(28);
+		}
+	}
+}

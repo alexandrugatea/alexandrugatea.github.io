@@ -6,7 +6,7 @@
 
 	&:not(.notes) {
 		@include breakpoint(large down) {
-		// < 768
+			// < 768
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -44,7 +44,7 @@
 		border-radius: rem-calc(21);
 
 		@include breakpoint(small only) {
-		// < 768
+			// < 768
 			padding: rem-calc(21);
 		}
 	}
@@ -104,7 +104,6 @@
 				transition: all 0.25s $bezier;
 				position: relative;
 				width: 100%;
-
 
 				.project-description {
 					width: 100%;
@@ -185,9 +184,8 @@
 }
 
 .notes {
-
 	@include breakpoint(large down) {
-	// < 768
+		// < 768
 		margin-top: rem-calc(28);
 	}
 

@@ -1,0 +1,82 @@
+.weather-daily {
+	width: 100%;
+	overflow: hidden;
+}
+
+.weather-days {
+	width: 100%;
+	gap: rem-calc(21);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: auto;
+	padding: rem-calc(7 0);
+
+	.weather-day-card {
+		padding: rem-calc(21);
+		width: rem-calc(210);
+		flex: 1 0 auto;
+		border-radius: rem-calc(8);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: rem-calc(7);
+		background: rgba($light, 0.07);
+	}
+	.weather-condition {
+		font-size: rem-calc(21);
+		margin-bottom: rem-calc(14);
+	}
+	.weather-card-date {
+		sup {
+			font-family: $font300i;
+			margin-left: rem-calc(2);
+		}
+	}
+
+	.weather-card-details {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		row-gap: rem-calc(21);
+		column-gap: rem-calc(2);
+
+		.weather-card-temp-min,
+		.weather-card-temp-max {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.weather-card-divider {
+			opacity: 0.56;
+			padding: rem-calc(0 14);
+		}
+
+		.temp-icon {
+			margin-right: rem-calc(7);
+			opacity: 0.56;
+		}
+
+		.dual-value {
+			@include setHeights(21);
+		}
+	}
+
+	.weather-day-precip {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.icon {
+			margin-right: rem-calc(7);
+		}
+
+		.dual-value {
+			@include setHeights(21);
+		}
+	}
+}
