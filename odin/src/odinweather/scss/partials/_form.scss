@@ -12,7 +12,7 @@
 		width: 100%;
 		position: relative;
 
-		[type="text"] {
+		.city-search-field {
 			position: relative;
 			z-index: 1;
 			border-radius: rem-calc(56);
@@ -26,7 +26,7 @@
 			background: $light;
 		}
 
-		[type="submit"] {
+		.submit-form {
 			border-radius: rem-calc(56);
 			background: darken($light, 15%);
 			flex-shrink: 0;

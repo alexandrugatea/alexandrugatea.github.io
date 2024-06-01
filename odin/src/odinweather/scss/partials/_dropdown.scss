@@ -39,6 +39,7 @@
 	}
 }
 
+.search-results-container:not(:has(.dropdown-item)):hover,
 #newLocationField:focus + .search-results-container:not(:has(.dropdown-item)) {
 	height: rem-calc(7 + 49 + 7 + 49 + 14 + 14);
 	background: darken($light, 5%);
