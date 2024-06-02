@@ -26,7 +26,7 @@ export default function initWeatherApp() {
 		showLoader();
 		fetchData(apiURL)
 			.then((data) => {
-				console.log(data);
+				// console.log(data);
 				// hide the loader when data was fetched
 				hideLoader();
 

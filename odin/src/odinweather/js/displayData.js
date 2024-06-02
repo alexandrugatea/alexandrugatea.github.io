@@ -6,7 +6,8 @@ export default function displayData(data) {
 	let formatedCurrent = getCurrentData(data.current);
 	let formatedForecast = getForecastData(data.forecast, data.location);
 
-	console.log(formatedCurrent, formatedForecast, formatedLocation);
+	console.log(formatedLocation);
+	
 	populateLocation(formatedLocation);
 	populateCurrent(formatedCurrent);
 	populateForecast(formatedForecast);

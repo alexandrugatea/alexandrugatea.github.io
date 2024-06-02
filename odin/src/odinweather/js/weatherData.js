@@ -79,7 +79,7 @@ function getForecastData(data, location) {
 	const currentHour = currentDate.getHours();
 	let next24Hours = [];
 
-	const currentDayHours = data.forecastday[0].hour.slice(currentHour);
+	const currentDayHours = data.forecastday[0].hour.slice(currentHour + 1);
 
 	// Get the hours from the next day(s) if needed
 	let remainingHours = 24 - currentDayHours.length;
@@ -138,8 +138,10 @@ const formatDayDate = (value) => {
 };
 
 const formatTime = (timeString) => {
-	const [hours, mins] = timeString.split(":");
-	const formattedTime = `${hours.padStart(2, "0")}:${mins.padStart(2, "0")}`;
+	const [hours] = timeString.split(":");
+	const mins = new Date().getMinutes().toString().padStart(2, "0");
+	const seconds = new Date().getSeconds().toString().padStart(2, "0");
+	const formattedTime = `${hours.padStart(2, "0")}:${mins}:${seconds}`;
 	return formattedTime;
 };
 

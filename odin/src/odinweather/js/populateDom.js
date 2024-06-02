@@ -1,3 +1,5 @@
+let intervalId;
+
 function populateLocation(data) {
 	const cityNameContainer = document.querySelector("#locationCity");
 	const cityRegionContainer = document.querySelector("#locationRegion");
@@ -9,7 +11,29 @@ function populateLocation(data) {
 	cityRegionContainer.innerHTML = `Region: ${data.region}, `;
 	cityRegionCountry.innerHTML = `Country: ${data.country}.`;
 	coordsContainer.innerHTML = `Lat: ${data.lat}, Lon: ${data.lon}`;
-	timeContainer.innerHTML = `${data.localtime.date}, ${data.localtime.time}`;
+	// timeContainer.innerHTML = `${data.localtime.date}, ${data.localtime.time}`;
+
+	if (intervalId) {
+        clearInterval(intervalId);
+    }
+
+	// Function to update time
+    const updateTime = () => {
+        const [hours] = data.localtime.time.split(":");
+        const now = new Date();
+        const minutes = now.getMinutes().toString().padStart(2, "0");
+        const seconds = now.getSeconds().toString().padStart(2, "0");
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+        timeContainer.innerHTML = `${data.localtime.date}, ${formattedTime}`;
+    };
+
+    // Initialize the time
+    updateTime();
+
+    // Update the time every second
+    intervalId = setInterval(updateTime, 1000);
+	
 }
 
 function populateCurrent(data) {
