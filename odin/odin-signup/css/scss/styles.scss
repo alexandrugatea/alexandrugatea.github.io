@@ -36,7 +36,7 @@ $containerBackground: $bodyBackground;
 $switcherWidth: 50% !default;
 $switcherWidthxxlarge: 35%;
 
-$switchDuration: 0.77s;
+$switchDuration: 0.56s;
 $switchTiming: cubic-bezier(0.175, 0.885, 0.32, 1.0);
 
 $switcherTitleColor: lighten($bodyText, 10%);
@@ -67,10 +67,7 @@ $accentColor: #EF6C00;
     }
 
     .switcher {
-        @include breakpoint(xxlarge down) {
-            $switcherWidth: $switcherWidthxxlarge;
-            width: $switcherWidth;
-        }
+
         position: absolute;
         z-index: 1000;
         top: 0;
@@ -88,6 +85,19 @@ $accentColor: #EF6C00;
         background-position: left center;
         background-repeat: no-repeat;
 
+        @include breakpoint(xxlarge down) {
+            $switcherWidth: $switcherWidthxxlarge;
+            width: $switcherWidth;
+        }
+
+        @include breakpoint(small only) {
+            // < 768
+            width: 100%;
+            height: rem-calc(260);
+            background-position: center;
+            align-items: stretch;
+        }
+
 
         &-content {
             display: flex;
@@ -96,14 +106,23 @@ $accentColor: #EF6C00;
             align-items: center;
             text-align: center;
             font-family: "Valhalla";
-            background: rgba($containerBackground, 0.63);
-            mask: linear-gradient(transparent 0%, #000 20%, #000 80%, transparent 100%);
-            backdrop-filter: blur(3px);
             width: 100%;
-            padding: rem-calc(0 0 70 0);
+            padding: rem-calc(70 0 70 0);
             gap: rem-calc(30);
             position: relative;
             z-index: 1;
+            background: rgba($containerBackground, 0.63);
+            @include breakpoint(medium only) {
+                backdrop-filter: blur(3px);
+                // 768
+                mask: linear-gradient(transparent 0%, #000 20%, #000 80%, transparent 100%);
+            }
+            @include breakpoint(small only) {
+                // < 768
+                padding: rem-calc(28 0 56);
+                gap: 0;
+                height: 100%;
+            }
         }
 
         &-disclaimer {
@@ -125,6 +144,11 @@ $accentColor: #EF6C00;
             @include breakpoint(medium down) {
                 font-size: rem-calc(10);
                 padding: rem-calc(70 21 21);
+            }
+
+            @include breakpoint(small only) {
+                // < 768
+                padding: rem-calc(7 21);
             }
 
             span {
@@ -155,6 +179,19 @@ $accentColor: #EF6C00;
         }
 
         &-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: rem-calc(14);
+
+            @include breakpoint(small only) {
+                // < 768
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: rem-calc(7);
+                margin-bottom: rem-calc(14);
+            }
 
             img {
                 max-height: rem-calc(150);
@@ -163,21 +200,32 @@ $accentColor: #EF6C00;
                     max-height: rem-calc(77);
                 }
             }
-        }
 
-        &-title {
-            font-size: rem-calc(98);
-            color: $switcherTitleColor;
+            .switcher-title {
+                font-size: rem-calc(98);
+                color: $switcherTitleColor;
+    
+                @include breakpoint(large down) {
+                    font-size: rem-calc(70);
+                }
+    
+                @include breakpoint(medium down) {
+                    font-size: rem-calc(56);
+                }
+                @include breakpoint(small only) {
+                    font-size: rem-calc(28);
+                    text-align: left;
 
-            @include breakpoint(large down) {
-                font-size: rem-calc(70);
-            }
+                    br {
+                        display: none;
+                    }
 
-            @include breakpoint(medium down) {
-                font-size: rem-calc(56);
-            }
-            @include breakpoint(small only) {
-                font-size: rem-calc(28);
+                    span {
+                        margin-left: rem-calc(7);
+                    }
+                }
+
+
             }
         }
 
@@ -190,6 +238,7 @@ $accentColor: #EF6C00;
              @include breakpoint(small only) {
                 font-size: rem-calc(14);
                 letter-spacing: rem-calc(0.5);
+                margin-bottom: rem-calc(14);
             }
 
             .label-sign-in,
@@ -222,6 +271,7 @@ $accentColor: #EF6C00;
             @include breakpoint(small only) {
                 width: 84%;
                 padding: rem-calc(7 14);
+                grid-column: 1 / 3;
             }
 
             span {
@@ -246,9 +296,27 @@ $accentColor: #EF6C00;
     }
 
     .form-container {
+
+        @include breakpoint(medium) {
+            // 768
+            &.sign-up-form {
+                right: 0;
+            }
+    
+            &.sign-in-form {
+                left: 0;
+            }
+        }
+
         @include breakpoint(xxlarge down) {
             $switcherWidth: $switcherWidthxxlarge;
             width: calc(100% - $switcherWidth);
+        }
+
+        @include breakpoint(small only) {
+            // < 768
+            width: 100%;
+            height: calc(100% - rem-calc(260));
         }
 
         position: absolute;
@@ -257,23 +325,20 @@ $accentColor: #EF6C00;
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all 0.25s ease;
+        transition: all 0.25s ease-in-out;
         background-repeat: no-repeat;
         background-size: cover;
 
-        &.sign-up-form {
-            right: 0;
-        }
 
-        &.sign-in-form {
-            left: 0;
-        }
     }
 
     &.sign-up {
         .switcher {
-            left: 0;
-            background-position: right -10px center;
+            @include breakpoint(medium) {
+                // 768
+                left: 0;
+                background-position: right -10px center;
+            }
 
             .label-sign-up {
                 opacity: 1;
@@ -301,19 +366,38 @@ $accentColor: #EF6C00;
 
         .sign-up-form {
             z-index: 100;
+            
+            @include breakpoint(small only) {
+                // < 768
+                top: rem-calc(260);
+            }
 
             #signUp {
                 opacity: 1;
                 margin-left: 0px;
+
+                @include breakpoint(small only) {
+                    // < 768
+                    top: 0;
+                }
             }
         }
 
         .sign-in-form {
             z-index: 0;
 
+            @include breakpoint(small only) {
+                // < 768
+                top: 50vh;
+            }
+
             #signIn {
                 opacity: 0;
-                margin-right: -240px;
+
+                @include breakpoint(medium) {
+                    // 768
+                    margin-right: -240px;    
+                }
             }
         }
     }
@@ -325,8 +409,18 @@ $accentColor: #EF6C00;
                 left: calc(100% - $switcherWidth);
             }
 
-            left: calc(100% - $switcherWidth);
-            background-position: left 35% center;
+            @include breakpoint(small only) {
+                // < 768
+                left: 0;
+                top: 100%;
+                transform: translate(0, -100%);
+            }
+
+            @include breakpoint(medium) {
+                // 768
+                left: calc(100% - $switcherWidth);
+                background-position: left 35% center; 
+            }
 
             .label-sign-up {
                 opacity: 0;
@@ -355,18 +449,34 @@ $accentColor: #EF6C00;
         .sign-up-form {
             z-index: 0;
 
+            @include breakpoint(small only) {
+                // < 768
+                top: 50vh;
+            }
+
             #signUp {
                 opacity: 0;
-                margin-left: -240px;
+
+                @include breakpoint(medium) {
+                    // 768
+                    margin-left: -240px;
+                }
             }
         }
 
         .sign-in-form {
             z-index: 100;
 
+            @include breakpoint(small only) {
+                // < 768
+                top: 0;
+            }
+
             #signIn {
                 opacity: 1;
                 margin-left: 0;
+
+
             }
         }
     }
@@ -375,14 +485,13 @@ $accentColor: #EF6C00;
 .form {
     width: 100%;
     max-width: rem-calc(650);
-    transition: all 0.25s ease;
+    transition: all 0.25s ease-in-out;
     text-align: left;
     padding: rem-calc(0 28px);
 
     @include breakpoint(small only) {
-        padding: rem-calc(21px);
-        height: 100dvh;
-        height: 100vh;
+        padding: rem-calc(35 21);
+        height: calc(100vh - rem-calc(260));
         overflow: auto;
     }
 

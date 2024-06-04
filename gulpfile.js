@@ -25,7 +25,7 @@ gulp.task('scss', function () {
 });
 
 gulp.task('odin-scss', function () {
-    return gulp.src('odin/**/css/scss/**/*.scss')
+    return gulp.src('odin/**/css/scss/**/*.scss', { allowEmpty: true })
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
