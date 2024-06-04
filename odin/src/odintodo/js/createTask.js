@@ -1,4 +1,4 @@
-import { format, parseISO, differenceInHours, startOfTomorrow } from "date-fns";
+import { format, parseISO, differenceInHours, startOfTomorrow, formatDistance } from "date-fns";
 
 export default function createTaskHTML(todo, index) {
 	// console.log(`Creating task HTML for ${todo.name} with index ${index}`);
@@ -42,6 +42,10 @@ export default function createTaskHTML(todo, index) {
 	if (format(currentDate, "yyyy-MM-dd") === format(taskDueDate, "yyyy-MM-dd")) {
 		const hoursRemaining = differenceInHours(startOfTomorrow(), currentDate);
 		dueDateTimeSpan.innerHTML += `<span class="due-in">due in ${hoursRemaining} hours</span>`;
+	} else if (currentDate > taskDueDate) {
+		const hoursPast = formatDistance(currentDate, taskDueDate);
+		dueDateTimeSpan.innerHTML += `<span class="overdue">overdue by ${hoursPast}</span>`;
+		todoItem.classList.add("overdue");
 	}
 
 	const prioritySpan = document.createElement("span");

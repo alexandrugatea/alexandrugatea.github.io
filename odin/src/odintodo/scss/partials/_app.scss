@@ -16,6 +16,10 @@
 		// < 768
 		padding-top: rem-calc(98);
 	}
+
+	@media screen and (min-width: 1200px) and (max-width: 1439px) {
+		grid-template-columns: rem-calc(300) auto auto;
+	}
 	min-height: 100%;
 	min-height: 100vh;
 	min-height: 100dvh;

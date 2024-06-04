@@ -48,6 +48,7 @@ const todayBtn = document.getElementById("todayBtn");
 const tomorrowBtn = document.getElementById("tomorrowBtn");
 const thisWeekBtn = document.getElementById("thisWeekBtn");
 const nextWeekBtn = document.getElementById("nextWeekBtn");
+const overdue = document.getElementById("overdue");
 const projectModal = document.getElementById("projectModal");
 export const taskModal = document.getElementById("taskModal");
 const noteModal = document.getElementById("noteModal");
@@ -84,6 +85,7 @@ todayBtn.onclick = () => filterTasksByDate("today", projects, tasksContainer);
 tomorrowBtn.onclick = () => filterTasksByDate("tomorrow", projects, tasksContainer);
 thisWeekBtn.onclick = () => filterTasksByDate("thisWeek", projects, tasksContainer);
 nextWeekBtn.onclick = () => filterTasksByDate("nextWeek", projects, tasksContainer);
+overdue.onclick = () => filterTasksByDate("overdue", projects, tasksContainer);
 closeProjectModal.onclick = () => hideModal(projectModal, modalsContainer, saveProjectForm);
 closeTaskModal.onclick = () => hideModal(taskModal, modalsContainer, saveTaskForm);
 closeNoteModal.onclick = () => hideModal(noteModal, modalsContainer, saveNoteForm);
@@ -205,6 +207,9 @@ export function displayProjects() {
 			}
 
 			document.getElementById("sidebar").classList.remove("opened");
+			const menuIcon = document.querySelector('#menuToggle .icon');
+			console.log(menuIcon);
+			menuIcon.textContent = menuIcon.textContent === "menu" ? "close" : "menu";
 		};
 	});
 
@@ -311,6 +316,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	menuToggler.addEventListener("click", () => {
 		document.getElementById("sidebar").classList.toggle("opened");
+		
+		const icon = menuToggler.querySelector('.icon');
+  		icon.textContent = icon.textContent === "menu" ? "close" : "menu";
 	});
 });
 

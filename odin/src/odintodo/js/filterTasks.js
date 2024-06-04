@@ -22,6 +22,8 @@ export default function filterTasksByDate(filter, projects, tasksContainer) {
 
 	// console.log(`Filtering tasks for: ${filter}`);
 	document.getElementById("sidebar").classList.toggle("opened");
+	const menuIcon = document.querySelector('#menuToggle .icon');
+	menuIcon.textContent = menuIcon.textContent === "menu" ? "close" : "menu";
 	tasksContainer.innerHTML = "";
 	taskProjectNameContainer.innerHTML = `from <span class="pn">all projects</span>`;
 	projects.forEach((project) => {
@@ -48,6 +50,8 @@ export default function filterTasksByDate(filter, projects, tasksContainer) {
 					end: nextWeekEnd,
 				})
 			) {
+				shouldAppend = true;
+			} else if (filter === "overdue" && today > taskDate) {
 				shouldAppend = true;
 			}
 

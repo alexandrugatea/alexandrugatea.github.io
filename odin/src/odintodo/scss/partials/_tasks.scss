@@ -108,17 +108,46 @@
 				flex-wrap: wrap;
 			}
 
+			@media screen and (max-width: rem-calc(600)) {
+				display: grid;
+				// grid-template-columns: repeat(5, 1fr);
+				grid-template-columns: rem-calc(35 35) auto auto rem-calc(56);
+				grid-template-areas: "prio check date date edit" "name name name name remove";
+				place-items: center;
+			}
+
+			&:first-of-type {
+				border-top-left-radius: rem-calc(8);
+				border-top-right-radius: rem-calc(8);
+			}
+
+			&:last-of-type {
+				border-bottom-left-radius: rem-calc(8);
+				border-bottom-right-radius: rem-calc(8);
+			}
+
+			&.overdue:not(.completed) {
+				background: rgba(darken($red, 10%), 0.35);
+			}
+
 			.task-name {
 				flex-grow: 1;
 				position: relative;
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
+				padding: rem-calc(7);
 
 				@include breakpoint(large down) {
 					// < 768
 					order: 6;
 					width: calc(100% - 42px - 14px);
+				}
+
+				@media screen and (max-width: rem-calc(600)) { 
+					grid-area: name; 
+					text-align: left;
+					width: 100%;
 				}
 
 				.task-project {
@@ -151,6 +180,7 @@
 					width: rem-calc(35);
 					order: 1;
 				}
+				@media screen and (max-width: rem-calc(600)) { grid-area: prio; }
 
 				span {
 					width: rem-calc(21);
@@ -185,6 +215,8 @@
 					width: rem-calc(35);
 					order: 2;
 				}
+
+				@media screen and (max-width: rem-calc(600)) { grid-area: check; }
 
 				input {
 					visibility: hidden;
@@ -243,12 +275,16 @@
 					@include breakpoint(large down) {
 						order: 4;
 					}
+
+					@media screen and (max-width: rem-calc(600)) { grid-area: edit; }
 				}
 
 				&.delete-task {
 					@include breakpoint(large down) {
 						order: 6;
 					}
+
+					@media screen and (max-width: rem-calc(600)) { grid-area: remove; }
 				}
 
 				&.edit-task:hover {
@@ -270,11 +306,20 @@
 					justify-content: flex-start;
 				}
 
+				@media screen and (max-width: rem-calc(600)) { grid-area: date; }
+
 				.due-in {
 					display: block;
 					font-size: rem-calc(14);
 					font-family: $font400i;
 					color: accent($amber);
+				}
+
+				.overdue {
+					display: block;
+					font-size: rem-calc(14);
+					font-family: $font500i;
+					color: accent($red);
 				}
 			}
 		}
@@ -293,6 +338,10 @@
 				.edit-task {
 					opacity: 0;
 					pointer-events: none;
+				}
+
+				.task-name {
+					text-decoration: line-through;
 				}
 			}
 		}

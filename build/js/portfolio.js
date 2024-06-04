@@ -91,6 +91,27 @@ function renderCaptions(category) {
 const webData = [
     {
         'category': 'category-web',
+        'size': '1440-682',
+        'captionID': 'toDoApp',
+        'src': 'build/images/portfolio/webs/ToDo.png',
+        'project-text': `
+        <h2>
+            To Do App
+        </h2>
+        <p>web design & development</p>`,
+        'type': ['web', 'landscape'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            ToDo App 
+        </h2>	
+        <p class="galleryitem-caption-text">
+        Built with ♥ (and JS + WebPack)
+        </p>
+        <a href="/odin/odintodo/" target="_blank">Visit Project</a>`,
+        'alt':  "ToDo App"
+    },
+    {
+        'category': 'category-web',
         'size': '1440-686',
         'captionID': 'js30',
         'src': 'build/images/portfolio/webs/jsch.png',

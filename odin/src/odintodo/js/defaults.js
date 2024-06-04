@@ -4,14 +4,16 @@ import ToDo from "./todo";
 const today = formatISO(startOfToday(), { representation: "date" });
 const tomorrow = formatISO(addDays(startOfToday(), 1), { representation: "date" });
 const nextWeek = formatISO(addWeeks(startOfToday(), 1), { representation: "date" });
+const inThePast = formatISO(addDays(startOfToday(), -6), { representation: "date" });
 
 export const defaultProjects = {
 	Default: {
 		name: "Default",
 		description: "Default project. Cannot be removed",
 		todos: [
+			new ToDo("Example of High Priority task that is overdue", inThePast, "high", "Default"),
 			new ToDo("Example of High Priority task that is due Today", today, "high", "Default"),
-			new ToDo("Example of task that is due Tomorrow", tomorrow, "high", "Default"),
+			new ToDo("Example of task that is due Tomorrow", tomorrow, "low", "Default"),
 			new ToDo("Example of High Priority task that is due Next Week", nextWeek, "medium", "Default"),
 		],
 	},
