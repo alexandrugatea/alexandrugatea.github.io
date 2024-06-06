@@ -4,8 +4,8 @@ const applySize = document.getElementById("changeGrid");
 const clearDrawing = document.getElementById("clearDrawing");
 const toggleOptions = document.getElementById("toggleMobileSettings");
 const optionsPanel = document.querySelector(".game-options");
-const mirrorHButton = document.querySelector("#mirrorH");
-const mirrorVButton = document.querySelector("#mirrorV");
+const mirrorHButton = document.getElementById("mirrorH");
+const mirrorVButton = document.getElementById("mirrorV");
 const exportDrawingButton = document.getElementById("exportDrawing");
 const customColorInput = document.getElementById("customColor");
 const actionStack = [];
@@ -45,7 +45,7 @@ rangeSlider.addEventListener("input", function () {
 customColorInput.addEventListener("input", function () {
 	drawingColor = this.value;
 
-	availableColors.forEach(color => {
+	availableColors.forEach((color) => {
 		color.classList.remove("selected");
 	});
 });
@@ -115,7 +115,7 @@ mirrorVButton.addEventListener("click", toggleMirrorVertical);
 toggleOptions.addEventListener("click", () => {
 	optionsPanel.classList.toggle("opened");
 	const icon = toggleOptions.querySelector(".icon");
-	icon.textContent = icon.textContent === "menu"? "close" : "menu";
+	icon.textContent = icon.textContent === "menu" ? "close" : "menu";
 });
 
 // Functions
@@ -152,7 +152,7 @@ function exportDrawing() {
 	const filename = `AG_PixelAvatar_${year}${month}${day}${hours}${minutes}${seconds}.png`;
 
 	gridContainer.classList.toggle("no-guides");
-	
+
 	if (mirrorH) {
 		gridContainer.classList.remove("mirror-h-active");
 	}
@@ -176,8 +176,8 @@ function exportDrawing() {
 				gridContainer.classList.add("mirror-h-active");
 			}
 			if (mirrorV) {
-                gridContainer.classList.add("mirror-v-active");
-            }
+				gridContainer.classList.add("mirror-v-active");
+			}
 		});
 }
 
@@ -217,8 +217,13 @@ function drawOnDrag() {
 	let isDrawing = false;
 	let currentAction = [];
 	let coloredCells = new Set();
+	let touchInProgress = false;
 
 	function startDrawing(originalEvent) {
+		if (originalEvent.type === "touchstart") {
+			if (touchInProgress) return;
+			touchInProgress = true;
+		}
 		isDrawing = true;
 		currentAction = []; // Start a new action
 		coloredCells.clear(); // Clear the set of colored cells
@@ -227,7 +232,10 @@ function drawOnDrag() {
 		originalEvent.preventDefault();
 	}
 
-	function stopDrawing() {
+	function stopDrawing(originalEvent) {
+		if (originalEvent.type === "touchend") {
+			touchInProgress = false;
+		}
 		if (isDrawing) {
 			saveAction(currentAction); // Save the completed action
 		}
@@ -334,7 +342,6 @@ function toggleMirrorHorizontal() {
 	mirrorH = !mirrorH;
 	mirrorHButton.classList.toggle("active");
 	gridContainer.classList.toggle("mirror-h-active");
-
 }
 
 function toggleMirrorVertical() {

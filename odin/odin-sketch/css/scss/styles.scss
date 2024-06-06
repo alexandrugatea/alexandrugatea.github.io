@@ -106,8 +106,8 @@ $sidebarWidth: 490px;
 
 		.grid-outer {
 			width: 100%;
-            max-width: rem-calc(512);
-            margin: 0 auto;
+			max-width: rem-calc(512);
+			margin: 0 auto;
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -170,35 +170,34 @@ $sidebarWidth: 490px;
 				}
 			}
 
-            .grid-container {
-
-                &.mirror-h-active {
-                    &:before {
-                        content: "";
-                        width: 0;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: 50%;
-                        transform: rotate(180deg);
-                        border: 1px solid red;
-                        z-index: 100;
-                    }
-                }
-                &.mirror-v-active {
-                    &:after {
-                        content: "";
-                        height: 0;
-                        width: 100%;
-                        position: absolute;
-                        top: 50%;
-                        left: 0%;
-                        transform: rotate(180deg);
-                        border: 1px solid red;
-                        z-index: 100;
-                    }
-                }
-            }
+			.grid-container {
+				&.mirror-h-active {
+					&:before {
+						content: "";
+						width: 0;
+						height: 100%;
+						position: absolute;
+						top: 0;
+						left: 50%;
+						transform: rotate(180deg);
+						border: 1px solid red;
+						z-index: 100;
+					}
+				}
+				&.mirror-v-active {
+					&:after {
+						content: "";
+						height: 0;
+						width: 100%;
+						position: absolute;
+						top: 50%;
+						left: 0%;
+						transform: rotate(180deg);
+						border: 1px solid red;
+						z-index: 100;
+					}
+				}
+			}
 		}
 	}
 }
@@ -216,7 +215,7 @@ $sidebarWidth: 490px;
 		max-height: 70vh;
 		max-height: 70dvh;
 		overflow: hidden;
-        z-index: 100;
+		z-index: 100;
 
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -249,10 +248,10 @@ $sidebarWidth: 490px;
 	&-grid-size {
 		margin-bottom: 49px;
 
-        &-label {
-            display: block;
-            margin-bottom: rem-calc(14);
-        }
+		&-label {
+			display: block;
+			margin-bottom: rem-calc(14);
+		}
 
 		@include breakpoint(medium down) {
 			grid-area: size;
@@ -398,22 +397,22 @@ $sidebarWidth: 490px;
 						background: linear-gradient(90deg, rgba($bodyText, 0.14) 49%, transparent 50%),
 							linear-gradient(0deg, rgba($bodyText, 0.14) 49%, transparent 50%);
 
-                            .icon {
-                                color: $bodyText;
-                            }
+						.icon {
+							color: $bodyText;
+						}
 					}
-                    span {
-                        position: absolute;
-                        bottom: 0;
-                        left: 50%;
-                        transform: translate(-50%, 100%);
-                        color: $bodyText;
-                        padding: 7px 0;
-                        text-align: center;
-                        font-family: "Roboto Slab";
-                        z-index: 1;
-                        font-size: rem-calc(14);
-                    }
+					span {
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						transform: translate(-50%, 100%);
+						color: $bodyText;
+						padding: 7px 0;
+						text-align: center;
+						font-family: "Roboto Slab";
+						z-index: 1;
+						font-size: rem-calc(14);
+					}
 				}
 			}
 
@@ -426,36 +425,35 @@ $sidebarWidth: 490px;
 					overflow: hidden;
 					position: relative;
 
-                    &.selected {
+					&.selected {
 						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.77);
-                    }
+					}
 				}
 
 				span {
 					position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-size: 0;
-                    background: conic-gradient(
-                        rgba(255, 0, 0, 1) 0%,
-                        rgba(255, 154, 0, 1) 10%,
-                        rgba(208, 222, 33, 1) 20%,
-                        rgba(79, 220, 74, 1) 30%,
-                        rgba(63, 218, 216, 1) 40%,
-                        rgba(47, 201, 226, 1) 50%,
-                        rgba(28, 127, 238, 1) 60%,
-                        rgba(95, 21, 242, 1) 70%,
-                        rgba(186, 12, 248, 1) 80%,
-                        rgba(251, 7, 217, 1) 90%,
-                        rgba(255, 0, 0, 1) 100%
-                    );;
-                    z-index: 2;
-                    width: rem-calc(21);
-                    height: rem-calc(21);
-                    box-shadow: rem-calc(0 0 0 4) $bodyText;
-                    border-radius: 50%;
-
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					font-size: 0;
+					background: conic-gradient(
+						rgba(255, 0, 0, 1) 0%,
+						rgba(255, 154, 0, 1) 10%,
+						rgba(208, 222, 33, 1) 20%,
+						rgba(79, 220, 74, 1) 30%,
+						rgba(63, 218, 216, 1) 40%,
+						rgba(47, 201, 226, 1) 50%,
+						rgba(28, 127, 238, 1) 60%,
+						rgba(95, 21, 242, 1) 70%,
+						rgba(186, 12, 248, 1) 80%,
+						rgba(251, 7, 217, 1) 90%,
+						rgba(255, 0, 0, 1) 100%
+					);
+					z-index: 2;
+					width: rem-calc(21);
+					height: rem-calc(21);
+					box-shadow: rem-calc(0 0 0 4) $bodyText;
+					border-radius: 50%;
 				}
 
 				input[type="color"] {
@@ -478,7 +476,7 @@ $sidebarWidth: 490px;
 
 .actions {
 	display: flex;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	grid-template-columns: repeat(3, 1fr);
@@ -486,14 +484,14 @@ $sidebarWidth: 490px;
 	max-width: rem-calc(512);
 	margin: rem-calc(35) auto;
 
-    @media screen and (max-width: 500px) {
-        max-width: rem-calc(300);
-    }
-    
-    @include breakpoint(small only) {
-        // < 768
-        margin: rem-calc(21)     auto rem-calc(35);
-    }
+	@media screen and (max-width: 500px) {
+		max-width: rem-calc(300);
+	}
+
+	@include breakpoint(small only) {
+		// < 768
+		margin: rem-calc(21) auto rem-calc(35);
+	}
 
 	.action-btn {
 		width: rem-calc(56);
@@ -811,12 +809,12 @@ html {
 
 .mobile-options-title {
 	text-align: center;
-    width: 100vw;
+	width: 100vw;
 	padding: rem-calc(10 21);
 	position: sticky;
 	top: 0;
 	display: flex;
-    justify-content: space-between;
+	justify-content: space-between;
 	align-items: center;
 	gap: 7px;
 	background: inherit;
