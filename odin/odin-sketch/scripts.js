@@ -12,7 +12,7 @@ const actionStack = [];
 const maxActions = 30;
 const undoDrawingButton = document.getElementById("undoDrawing");
 
-let gridSize = document.getElementById("gridSize").value;
+let gridSize;
 let currentGridSize = document.getElementById("currentGridSize");
 let selectedSize = document.getElementById("selectedSize");
 let rangeSlider = document.getElementById("gridSize");
@@ -32,9 +32,11 @@ undoDrawingButton.disabled = true;
 
 const windowWidth = window.innerWidth;
 if (windowWidth < 1200) {
-	generateGrid(16);
-	updateCurrentGridSize(16);
+	gridSize = 16;
+	generateGrid(gridSize);
+	updateCurrentGridSize(gridSize);
 } else {
+	gridSize = document.getElementById("gridSize").value
 	generateGrid(gridSize);
 	updateCurrentGridSize(gridSize);
 }
@@ -114,7 +116,7 @@ bgBtn.forEach(function (item) {
 
 clearDrawing.addEventListener("click", clearBoard);
 
-showGuides.addEventListener("click", () => gridContainer.classList.toggle("no-guides"));
+showGuides.addEventListener("click", toggleGuides);
 
 undoDrawingButton.addEventListener("click", undoLastAction);
 mirrorHButton.addEventListener("click", toggleMirrorHorizontal);
@@ -127,6 +129,12 @@ toggleOptions.addEventListener("click", () => {
 });
 
 // Functions
+
+function toggleGuides() {
+	showGuides.classList.toggle("active");
+	gridContainer.classList.toggle("no-guides")
+}
+
 function clearBoard() {
 	let boardCell = document.querySelectorAll(".grid-cell");
 	boardCell.forEach(function (cell) {
@@ -363,6 +371,7 @@ function updateCurrentGridSize(size) {
 }
 
 function generateGrid(gridSize) {
+	actionStack.length = 0;
 	gridContainer.style.setProperty("--cells", gridSize);
 
 	for (let i = 1; i <= gridSize; i++) {

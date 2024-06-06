@@ -512,48 +512,48 @@ $sidebarWidth: 490px;
 	.action-btn.active {
 		background: $bodyText;
 		color: $bodyBackground;
-
-		.icon:after {
-			box-shadow: inset rem-calc(0 0 0 2) rgba($bodyBackground, 0.35);
-		}
 	}
 
 	.mirror-h,
 	.mirror-v {
 		.icon {
 			position: relative;
-			width: rem-calc(28);
-			height: rem-calc(28);
+			width: rem-calc(20);
+			height: rem-calc(20);
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-shrink: 0;
 			font-size: rem-calc(21);
+			box-shadow: inset rem-calc(0 0 0 2) rgba($bodyText, 0.14);
+			border-radius: rem-calc(4);
 
 			&:after {
 				content: "";
 				display: block;
-				width: 42%;
-				aspect-ratio: 1 / 1;
+				width: 0;
+				height: 100%;
+				position: absolute;
 				top: 50%;
 				left: 50%;
-				position: absolute;
 				transform: translate(-50%, -50%);
-				box-shadow: inset rem-calc(0 0 0 2) rgba($bodyText, 0.35);
+				box-shadow: rem-calc(0 0 0 1) $bodyText;
+			}
+		}
+
+		&.active {
+			.icon{
+				box-shadow: inset rem-calc(0 0 0 2) rgba($bodyBackground, 0.28);
+	
+				&:after {
+					box-shadow: rem-calc(0 0 0 1) $bodyBackground;
+				}
 			}
 		}
 	}
-
-	.mirror-v .icon {
-		&:after {
-			margin-top: rem-calc(0.5);
-		}
-	}
-	.mirror-h .icon {
-		transform: rotate(90deg);
-		&:after {
-			margin-top: rem-calc(1);
-		}
+	.mirror-v .icon:after {
+		width: 100%;
+		height: 0;
 	}
 }
 
