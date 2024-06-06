@@ -50,16 +50,16 @@ $sidebarWidth: 490px;
 
 	&-sidebar {
 		overflow: auto;
-		z-index: 100;
+		z-index: 10;
 
 		@include breakpoint(large) {
 			top: 0;
 			left: 0;
 			width: $sidebarWidth;
-			padding: rem-calc(50);
+			padding: rem-calc(42);
 			height: 100%;
 			background: $bodyBackground;
-			box-shadow: inset rem-calc(0 0 0 21) lighten($bodyBackground, 5%);
+			box-shadow: inset rem-calc(0 0 0 14) lighten($bodyBackground, 5%);
 			border-radius: rem-calc(42);
 		}
 
@@ -101,8 +101,6 @@ $sidebarWidth: 490px;
 			left: $sidebarWidth;
 			padding: 100px 0;
 		}
-		position: relative;
-		height: 100%;
 
 		.grid-outer {
 			width: 100%;
@@ -330,7 +328,6 @@ $sidebarWidth: 490px;
 	}
 
 	&-pencil-color {
-		margin-bottom: 49px;
 		@include breakpoint(medium down) {
 			grid-area: color;
 		}

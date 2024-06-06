@@ -33,8 +33,10 @@ undoDrawingButton.disabled = true;
 const windowWidth = window.innerWidth;
 if (windowWidth < 1200) {
 	gridSize = 16;
+	document.getElementById("gridSize").value = gridSize;
 	generateGrid(gridSize);
 	updateCurrentGridSize(gridSize);
+	selectedSize.innerText = gridSize + " x " + gridSize
 } else {
 	gridSize = document.getElementById("gridSize").value
 	generateGrid(gridSize);
