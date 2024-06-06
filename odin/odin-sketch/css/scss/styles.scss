@@ -181,7 +181,7 @@ $sidebarWidth: 490px;
 						left: 50%;
 						transform: rotate(180deg);
 						border: 1px solid red;
-						z-index: 100;
+						z-index: 1;
 					}
 				}
 				&.mirror-v-active {
@@ -194,7 +194,7 @@ $sidebarWidth: 490px;
 						left: 0%;
 						transform: rotate(180deg);
 						border: 1px solid red;
-						z-index: 100;
+						z-index: 1;
 					}
 				}
 			}

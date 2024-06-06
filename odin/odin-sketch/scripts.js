@@ -31,7 +31,7 @@ let mirrorV = false;
 undoDrawingButton.disabled = true;
 
 const windowWidth = window.innerWidth;
-if (windowWidth < 768) {
+if (windowWidth < 1200) {
 	generateGrid(16);
 	updateCurrentGridSize(16);
 } else {

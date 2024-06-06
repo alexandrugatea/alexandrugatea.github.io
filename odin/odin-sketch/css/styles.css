@@ -344,7 +344,7 @@ a {
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
   border: 1px solid red;
-  z-index: 100;
+  z-index: 1;
 }
 .game-container .grid-outer .grid-container.mirror-v-active:after {
   content: "";
@@ -357,7 +357,7 @@ a {
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
   border: 1px solid red;
-  z-index: 100;
+  z-index: 1;
 }
 
 @media screen and (max-width: 63.9375em) {
