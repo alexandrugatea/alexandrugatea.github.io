@@ -220,7 +220,6 @@ function undoLastAction() {
 function updateUndoButtonState() {
 	undoDrawingButton.disabled = actionStack.length === 0;
 	const availableUndos = actionStack.length;
-	console.log(availableUndos);
 
 	const undoDomDisplay = document.querySelector("#availableUndo");
 	undoDomDisplay.innerText = availableUndos;
