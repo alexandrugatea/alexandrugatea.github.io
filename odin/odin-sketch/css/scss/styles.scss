@@ -167,6 +167,36 @@ $sidebarWidth: 490px;
 					}
 				}
 			}
+
+            .grid-container {
+                position: relative;
+                &.mirror-h-active {
+                    &:before {
+                        content: "";
+                        width: 0;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: rotate(180deg);
+                        border: 1px solid red;
+                        z-index: 100;
+                    }
+                }
+                &.mirror-v-active {
+                    &:after {
+                        content: "";
+                        height: 0;
+                        width: 100%;
+                        position: absolute;
+                        top: 50%;
+                        left: 0%;
+                        transform: rotate(180deg);
+                        border: 1px solid red;
+                        z-index: 100;
+                    }
+                }
+            }
 		}
 	}
 }
@@ -268,7 +298,7 @@ $sidebarWidth: 490px;
 
 					&.selected {
 						opacity: 1;
-						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
+						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.77);
 					}
 
 					span {
@@ -332,7 +362,7 @@ $sidebarWidth: 490px;
 
 					&.selected {
 						opacity: 1;
-						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
+						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.77);
 					}
 
 					&.white {
@@ -393,6 +423,10 @@ $sidebarWidth: 490px;
 				label {
 					overflow: hidden;
 					position: relative;
+
+                    &.selected {
+						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.77);
+                    }
 				}
 
 				span {
@@ -510,12 +544,12 @@ $sidebarWidth: 490px;
 		}
 	}
 
-	.mirror-h .icon {
+	.mirror-v .icon {
 		&:after {
 			margin-top: rem-calc(0.5);
 		}
 	}
-	.mirror-v .icon {
+	.mirror-h .icon {
 		transform: rotate(90deg);
 		&:after {
 			margin-top: rem-calc(1);

@@ -44,9 +44,14 @@ rangeSlider.addEventListener("input", function () {
 
 customColorInput.addEventListener("input", function () {
 	drawingColor = this.value;
+
+	availableColors.forEach(color => {
+		color.classList.remove("selected");
+	});
 });
 
 customColorInput.addEventListener("change", function () {
+	customColorInput.parentNode.classList.add("selected");
 	const newColor = this.value;
 	if (!recentColors) {
 		recentColors = document.createElement("datalist");
@@ -84,6 +89,7 @@ availableColors.forEach(function (color) {
 	color.addEventListener("click", function () {
 		let newColor = this.getAttribute("data-color");
 		drawingColor = newColor;
+		customColorInput.parentNode.classList.remove("selected");
 		updateActiveItem(document.querySelector(".color-list"), color);
 	});
 });
@@ -146,6 +152,13 @@ function exportDrawing() {
 	const filename = `AG_PixelAvatar_${year}${month}${day}${hours}${minutes}${seconds}.png`;
 
 	gridContainer.classList.toggle("no-guides");
+	
+	if (mirrorH) {
+		gridContainer.classList.remove("mirror-h-active");
+	}
+	if (mirrorV) {
+		gridContainer.classList.remove("mirror-v-active");
+	}
 
 	html2canvas(gridContainer, { backgroundColor: null, scale: 4 })
 		.then((canvas) => {
@@ -159,6 +172,12 @@ function exportDrawing() {
 		})
 		.then(function () {
 			gridContainer.classList.toggle("no-guides");
+			if (mirrorH) {
+				gridContainer.classList.add("mirror-h-active");
+			}
+			if (mirrorV) {
+                gridContainer.classList.add("mirror-v-active");
+            }
 		});
 }
 
@@ -314,11 +333,14 @@ function drawOnDrag() {
 function toggleMirrorHorizontal() {
 	mirrorH = !mirrorH;
 	mirrorHButton.classList.toggle("active");
+	gridContainer.classList.toggle("mirror-h-active");
+
 }
 
 function toggleMirrorVertical() {
 	mirrorV = !mirrorV;
 	mirrorVButton.classList.toggle("active");
+	gridContainer.classList.toggle("mirror-v-active");
 }
 
 function updateCurrentGridSize(size) {
