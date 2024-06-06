@@ -94,7 +94,6 @@ applySize.addEventListener("click", function () {
 	destroyGrid();
 	generateGrid(gridSize);
 	actionStack.length = 0;
-	drawOnDrag();
 });
 
 availableColors.forEach(function (color) {
