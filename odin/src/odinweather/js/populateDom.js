@@ -14,26 +14,25 @@ function populateLocation(data) {
 	// timeContainer.innerHTML = `${data.localtime.date}, ${data.localtime.time}`;
 
 	if (intervalId) {
-        clearInterval(intervalId);
-    }
+		clearInterval(intervalId);
+	}
 
 	// Function to update time
-    const updateTime = () => {
-        const [hours] = data.localtime.time.split(":");
-        const now = new Date();
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        const seconds = now.getSeconds().toString().padStart(2, "0");
-        const formattedTime = `${hours}:${minutes}:${seconds}`;
+	const updateTime = () => {
+		const [hours] = data.localtime.time.split(":");
+		const now = new Date();
+		const minutes = now.getMinutes().toString().padStart(2, "0");
+		const seconds = now.getSeconds().toString().padStart(2, "0");
+		const formattedTime = `${hours}:${minutes}:${seconds}`;
 
-        timeContainer.innerHTML = `${data.localtime.date}, ${formattedTime}`;
-    };
+		timeContainer.innerHTML = `${data.localtime.date}, ${formattedTime}`;
+	};
 
-    // Initialize the time
-    updateTime();
+	// Initialize the time
+	updateTime();
 
-    // Update the time every second
-    intervalId = setInterval(updateTime, 1000);
-	
+	// Update the time every second
+	intervalId = setInterval(updateTime, 1000);
 }
 
 function populateCurrent(data) {
@@ -179,10 +178,12 @@ function populateForecast(data) {
 
 	const weatherHoursContainer = document.querySelector("#weatherHoursContainer");
 	weatherHoursContainer.innerHTML = "";
+	weatherHoursContainer.setAttribute("draggable", "false");
 
 	data.currentDayHours.forEach((hour) => {
 		const hourCard = document.createElement("div");
 		hourCard.className = "weather-hour-card";
+		hourCard.setAttribute("draggable", "false");
 
 		// time
 		const hourDate = document.createElement("div");
@@ -198,6 +199,7 @@ function populateForecast(data) {
 		const hourIcon = document.createElement("img");
 		hourIcon.setAttribute("src", hour.conditionIcon);
 		hourIcon.setAttribute("alt", hour.condition);
+		hourIcon.setAttribute("draggable", "false");
 
 		// condution text
 		const hourCondition = document.createElement("h3");

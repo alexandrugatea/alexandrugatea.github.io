@@ -207,7 +207,7 @@ export function displayProjects() {
 			}
 
 			document.getElementById("sidebar").classList.remove("opened");
-			const menuIcon = document.querySelector('#menuToggle .icon');
+			const menuIcon = document.querySelector("#menuToggle .icon");
 			console.log(menuIcon);
 			menuIcon.textContent = menuIcon.textContent === "menu" ? "close" : "menu";
 		};
@@ -316,9 +316,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	menuToggler.addEventListener("click", () => {
 		document.getElementById("sidebar").classList.toggle("opened");
-		
-		const icon = menuToggler.querySelector('.icon');
-  		icon.textContent = icon.textContent === "menu" ? "close" : "menu";
+
+		const icon = menuToggler.querySelector(".icon");
+		icon.textContent = icon.textContent === "menu" ? "close" : "menu";
 	});
 });
 

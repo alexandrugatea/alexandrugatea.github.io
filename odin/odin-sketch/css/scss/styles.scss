@@ -106,6 +106,8 @@ $sidebarWidth: 490px;
 
 		.grid-outer {
 			width: 100%;
+            max-width: rem-calc(512);
+            margin: 0 auto;
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -169,7 +171,7 @@ $sidebarWidth: 490px;
 			}
 
             .grid-container {
-                position: relative;
+
                 &.mirror-h-active {
                     &:before {
                         content: "";
@@ -510,7 +512,7 @@ $sidebarWidth: 490px;
 	}
 
 	.action-btn.active {
-		background: $success;
+		background: $bodyText;
 		color: $bodyBackground;
 
 		.icon:after {

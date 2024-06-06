@@ -654,7 +654,8 @@ img {
   width: 100%;
   max-width: 26.25rem;
 }
-.main-header-actions .header-action-search form, .main-header-actions .header-action-search .form-group {
+.main-header-actions .header-action-search form,
+.main-header-actions .header-action-search .form-group {
   width: 100%;
   position: relative;
 }

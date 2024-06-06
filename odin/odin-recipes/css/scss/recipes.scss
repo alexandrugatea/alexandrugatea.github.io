@@ -3,371 +3,364 @@
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    // Setting the font family on the body saves us form the pain of adding it to every other elements
-    // Elements will inherit the body's font-family unless they have font-family rule of their own
-    font-family: "Josefin Slab";
-    position: relative;
+	// Setting the font family on the body saves us form the pain of adding it to every other elements
+	// Elements will inherit the body's font-family unless they have font-family rule of their own
+	font-family: "Josefin Slab";
+	position: relative;
 }
 
 img {
-    display: block;
+	display: block;
 
-    // prevents the overflow of large images. If the image is larger that window size, it will shrink to fit the screen
-    max-width: 100%;
+	// prevents the overflow of large images. If the image is larger that window size, it will shrink to fit the screen
+	max-width: 100%;
 }
 
 .odin-recipes {
+	&-hero {
+		height: 500px;
 
+		// prevents the overflow of the absolute image inside
+		overflow: hidden;
 
-    &-hero {
-        height: 500px;
+		// without position: resize, it's children wouldn;t know how to align.
+		position: relative;
 
-        // prevents the overflow of the absolute image inside
-        overflow: hidden;
+		// Align the relative positioned content inside the hero
+		// Stai in a column, align to center of the section
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
 
-        // without position: resize, it's children wouldn;t know how to align.
-        position: relative;
-        
-        // Align the relative positioned content inside the hero
-        // Stai in a column, align to center of the section
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+		@media screen and (max-width: 767px) {
+			height: 350px;
+		}
 
-        @media screen and (max-width: 767px) {
-            height: 350px;
-        }
+		@media screen and (min-width: 768px) and (max-width: 1199px) {
+			height: 420px;
+		}
 
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
-            height: 420px;
-        }
+		img {
+			// position the image as absolute, so it will behave like it's the only child of the container
+			position: absolute;
 
-        img {
-            // position the image as absolute, so it will behave like it's the only child of the container 
-            position: absolute;
-            
-            // Width and Height of 100% will stretch the image, but it will cover entire container 
-            width: 100%;
-            height: 100%;
+			// Width and Height of 100% will stretch the image, but it will cover entire container
+			width: 100%;
+			height: 100%;
 
-            // Set the image to it's natural aspect ratio, covering the entire container area
-            object-fit: cover;
+			// Set the image to it's natural aspect ratio, covering the entire container area
+			object-fit: cover;
 
-            // position the image behind text content
-            z-index: -1;
-        }
+			// position the image behind text content
+			z-index: -1;
+		}
 
-        .page-title {
-            text-align: center;
-            font-family: "Poppins";
-            font-weight: 700;
-            color: #fff;
+		.page-title {
+			text-align: center;
+			font-family: "Poppins";
+			font-weight: 700;
+			color: #fff;
 
-            // adding a text shadow will make text more readable
-            text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
-            margin: 20px 0;
-            font-size: 90px;
+			// adding a text shadow will make text more readable
+			text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
+			margin: 20px 0;
+			font-size: 90px;
 
-            @media screen and (max-width: 767px) {
-                font-size: 40px;
-            }
-        }
-    }
+			@media screen and (max-width: 767px) {
+				font-size: 40px;
+			}
+		}
+	}
 }
 
 .wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .back {
-    color: #1046a8;
+	color: #1046a8;
 
-    // remove the default underline of link tags
-    text-decoration: none;
-    font-size: 20px;
-    padding: 50px 0;
+	// remove the default underline of link tags
+	text-decoration: none;
+	font-size: 20px;
+	padding: 50px 0;
 
-    // link tags are be default inline elements
-    // Block will position it on it's own row
-    display: block;
+	// link tags are be default inline elements
+	// Block will position it on it's own row
+	display: block;
 }
 
 .recipe-list {
+	// reset the default bullet style of the list
+	list-style-type: none;
 
-    // reset the default bullet style of the list
-    list-style-type: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
+	@media screen and (max-width: 767px) {
+		flex-direction: column;
+		padding: 40px;
+	}
 
-    @media screen and (max-width: 767px) {
-        flex-direction: column;
-        padding: 40px;
-    }
+	&-item {
+		margin: 0 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+		border-radius: 7px;
+		position: relative;
+		z-index: 0;
+		background: #fff;
 
-    &-item {
-        margin: 0 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
-        border-radius: 7px;
-        position: relative;
-        z-index: 0;
-        background: #fff;
+		@media screen and (max-width: 767px) {
+			margin: 20px 0;
+			width: 100%;
+		}
 
-        @media screen and (max-width: 767px) {
-            margin: 20px 0;
-            width: 100%;
-        }
+		// using before pseudo-element to add a white background, covering the entire element
+		// prevents the shadow from :after to display over container
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0%;
+			background: white;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 7px;
+		}
 
-        // using before pseudo-element to add a white background, covering the entire element 
-        // prevents the shadow from :after to display over container
-        &:before {
-            content: "";
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0%;
-            background: white;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            box-shadow: inset 0 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 7px;
+		// add a nice shadow under the card
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 5px);
+			background: black;
+			width: 75%;
+			height: 10px;
+			z-index: -1;
+			filter: blur(13px);
+			border-radius: 50%;
+		}
 
-        }
+		a {
+			position: relative;
+			z-index: 1;
+			text-decoration: none;
+			cursor: pointer;
+			display: block;
+			padding: 25px;
+			text-align: center;
+			font-family: "Josefin Slab";
+			font-weight: 700;
+			font-size: 21px;
+			display: grid;
+			text-align: center;
 
-        // add a nice shadow under the card
-        &:after {
-            content: "";
-            position: absolute;
-            display: block;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, 5px);
-            background: black;
-            width: 75%;
-            height: 10px;
-            z-index: -1;
-            filter: blur(13px);
-            border-radius: 50%;
+			img {
+				max-width: 150px;
+				display: block;
+				margin-bottom: 21px;
 
-        }
-
-        a {
-            position: relative;
-            z-index: 1;
-            text-decoration: none;
-            cursor: pointer;
-            display: block;
-            padding: 25px;
-            text-align: center;
-            font-family: "Josefin Slab";
-            font-weight: 700;
-            font-size: 21px;
-            display: grid;
-            text-align: center;
-
-            img {
-                max-width: 150px;
-                display: block;
-                margin-bottom: 21px;
-
-                @media screen and (max-width: 767px) {
-                    max-width: 100%;
-                }
-            }
-        }
-    }
+				@media screen and (max-width: 767px) {
+					max-width: 100%;
+				}
+			}
+		}
+	}
 }
 
 // Recipe page
 body.recipe-page {
-    // add a padding to the body, because it's pseudo-elements are positioned absolute
-    // the padding is = to side decorations width + 50px, for spacing
-    // prevents the content of the page to overleap the decorations
-    padding: 0 150px 0 350px;
+	// add a padding to the body, because it's pseudo-elements are positioned absolute
+	// the padding is = to side decorations width + 50px, for spacing
+	// prevents the content of the page to overleap the decorations
+	padding: 0 150px 0 350px;
 
-    @media screen and (max-width: 767px) {
-        padding: 0 50px 0 80px;
-    }
+	@media screen and (max-width: 767px) {
+		padding: 0 50px 0 80px;
+	}
 
-    @media screen and (min-width: 768px) and (max-width: 1199px) {
-        padding: 0 100px 0 160px;
-    }
+	@media screen and (min-width: 768px) and (max-width: 1199px) {
+		padding: 0 100px 0 160px;
+	}
 
-    // side decorations of the recipe pages
-    &:before, &:after {
-        content: "";
-        position: absolute;
-        display: block;
-        z-index: -1;
-        top: 0;
-        height: 100%;
-        background-repeat: repeat-y;
-        background-image: url("../images/vikipattern.svg");
-        background-position: top center;
-    }
-    
-    &:before {
-        background-size: 200px;
-        width: 300px;
-        left: 0;
-        opacity: 0.56;
-        
-        @media screen and (max-width: 767px) {
-            background-size: 50px;
-            width: 70px;
-        }
+	// side decorations of the recipe pages
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		display: block;
+		z-index: -1;
+		top: 0;
+		height: 100%;
+		background-repeat: repeat-y;
+		background-image: url("../images/vikipattern.svg");
+		background-position: top center;
+	}
 
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
-            background-size: 100px;
-            width: 140px;
-        }
-    }
-    
-    &:after {
-        width: 100px;
-        background-size: 75px;
-        right: 50px;
-        opacity: 0.1;
-        
-        @media screen and (max-width: 767px) {
-            right: 0px;
-            width: 50px;
-            background-size: 30px;
-        }
-        
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
-            right: 0px;
-            width: 80px;
-            background-size: 60px;
-        }
-    } 
+	&:before {
+		background-size: 200px;
+		width: 300px;
+		left: 0;
+		opacity: 0.56;
+
+		@media screen and (max-width: 767px) {
+			background-size: 50px;
+			width: 70px;
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1199px) {
+			background-size: 100px;
+			width: 140px;
+		}
+	}
+
+	&:after {
+		width: 100px;
+		background-size: 75px;
+		right: 50px;
+		opacity: 0.1;
+
+		@media screen and (max-width: 767px) {
+			right: 0px;
+			width: 50px;
+			background-size: 30px;
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1199px) {
+			right: 0px;
+			width: 80px;
+			background-size: 60px;
+		}
+	}
 }
 
 // recipe page grid
 .recipe-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    max-width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 50px;
+	max-width: 100%;
 
-    // set the grid to only have one column on mobile devices
-    @media screen and (max-width: 767px) {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
+	// set the grid to only have one column on mobile devices
+	@media screen and (max-width: 767px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 .recipe-intro {
-    padding: 50px 0;
-    @media screen and (max-width: 1199px) {
-        padding: 20px 0;
-    }
+	padding: 50px 0;
+	@media screen and (max-width: 1199px) {
+		padding: 20px 0;
+	}
 
-    .page-title {
-        font-family: "Poppins";
-        font-weight: 700;
-        font-size: 60px;
-        margin-bottom: 50px;
+	.page-title {
+		font-family: "Poppins";
+		font-weight: 700;
+		font-size: 60px;
+		margin-bottom: 50px;
 
-        @media screen and (max-width: 767px) {
-            font-size: 22px;
+		@media screen and (max-width: 767px) {
+			font-size: 22px;
 
-            br {
-                display: none;
-            }
-        }
+			br {
+				display: none;
+			}
+		}
 
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
-            font-size: 30px;
-        }
-    }
+		@media screen and (min-width: 768px) and (max-width: 1199px) {
+			font-size: 30px;
+		}
+	}
 }
 
 .description {
-    font-weight: 500;
-    font-style: italic;
-    font-size: 35px;
-    max-width: 700px;
-    margin-bottom: 50px;
-    line-height: 1.34;
-    color: #777;
-    
-    @media screen and (max-width: 1199px) {
-        font-size: 20px;
-        margin-bottom: 0px;
-    }
-    
+	font-weight: 500;
+	font-style: italic;
+	font-size: 35px;
+	max-width: 700px;
+	margin-bottom: 50px;
+	line-height: 1.34;
+	color: #777;
+
+	@media screen and (max-width: 1199px) {
+		font-size: 20px;
+		margin-bottom: 0px;
+	}
 }
 
 .section-title {
-    font-weight: 700;
-    font-size: 40px;
-    margin-bottom: 30px;
-    
-    @media screen and (max-width: 767px) {
-        margin-bottom: 10px;
-        font-size: 22px;
-    }
+	font-weight: 700;
+	font-size: 40px;
+	margin-bottom: 30px;
+
+	@media screen and (max-width: 767px) {
+		margin-bottom: 10px;
+		font-size: 22px;
+	}
 }
 
 .recipe-page {
-    [class*="-list"] {
+	[class*="-list"] {
+		// remove the default bullets of the lists
+		list-style-type: none;
 
-        // remove the default bullets of the lists
-        list-style-type: none;
-    
-        li {
-            display: block;
-            display: flex;
-            position: relative;
-            font-size: 21px;
-            margin-bottom: 14px;
-            font-weight: 500;
-            color: #555;
+		li {
+			display: block;
+			display: flex;
+			position: relative;
+			font-size: 21px;
+			margin-bottom: 14px;
+			font-weight: 500;
+			color: #555;
 
-            @media screen and (max-width: 767px) {
-                font-size: 16px;
-            }
-    
-            // add custom bullets
-            &:before {
-                content: "\203A";
-                display: inline-block;
-                margin-right: 10px;
-                font-size: 21px;
-                line-height: 21px;
-            }
-        }
-    
-        &.steps-list {
-            // sets a counter, for counting the number of LI align-items
-            // we called it "steps";
-            counter-reset: steps;
-            li {
-                // For each LI item, we increment the "steps" by 1
-                counter-increment: steps;
-    
-                &:before {
-                    // we assign the current counter number in front of the LI item
-                    // rest of properties (margin, display, font-size, etc) are inherited from above
-                    content: counter(steps);
-                }
-            }
-        }
-    }
+			@media screen and (max-width: 767px) {
+				font-size: 16px;
+			}
+
+			// add custom bullets
+			&:before {
+				content: "\203A";
+				display: inline-block;
+				margin-right: 10px;
+				font-size: 21px;
+				line-height: 21px;
+			}
+		}
+
+		&.steps-list {
+			// sets a counter, for counting the number of LI align-items
+			// we called it "steps";
+			counter-reset: steps;
+			li {
+				// For each LI item, we increment the "steps" by 1
+				counter-increment: steps;
+
+				&:before {
+					// we assign the current counter number in front of the LI item
+					// rest of properties (margin, display, font-size, etc) are inherited from above
+					content: counter(steps);
+				}
+			}
+		}
+	}
 }

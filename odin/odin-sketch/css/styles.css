@@ -267,6 +267,8 @@ a {
 }
 .game-container .grid-outer {
   width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -330,9 +332,6 @@ a {
 }
 .game-container .grid-outer .grid-container .grid-cell.quart.v:after {
   border-right: 1px solid rgba(80, 80, 80, 0.5);
-}
-.game-container .grid-outer .grid-container {
-  position: relative;
 }
 .game-container .grid-outer .grid-container.mirror-h-active:before {
   content: "";
@@ -695,7 +694,7 @@ a {
   opacity: 0.77;
 }
 .actions .action-btn.active {
-  background: #3b9d5f;
+  background: #c7c7c7;
   color: #070707;
 }
 .actions .action-btn.active .icon:after {

@@ -1,35 +1,34 @@
 .random {
-    padding: rem-calc(55 0 130);
+	padding: rem-calc(55 0 130);
 
-    &-title {
-        text-align: center;
-        @include text($textSizeSectionTitle, 800);
-        margin-bottom: rem-calc(55);
-    }
+	&-title {
+		text-align: center;
+		@include text($textSizeSectionTitle, 800);
+		margin-bottom: rem-calc(55);
+	}
 
-    &-list {
-        display: grid;
-        gap: rem-calc(50);
-        max-width: rem-calc(840);
-        margin: 0 auto;
-        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	&-list {
+		display: grid;
+		gap: rem-calc(50);
+		max-width: rem-calc(840);
+		margin: 0 auto;
+		grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
 
-        &-item {
-            text-align: center;
+		&-item {
+			text-align: center;
 
-            &-image {
-                width: 100%;
-                max-width: rem-calc(169);
-                margin: 0 auto rem-calc(10);
-                aspect-ratio: 1 / 1;
-                box-shadow: inset rem-calc(0 0 0 5) $colorCta;
-                border-radius: rem-calc(20);
-            }
+			&-image {
+				width: 100%;
+				max-width: rem-calc(169);
+				margin: 0 auto rem-calc(10);
+				aspect-ratio: 1 / 1;
+				box-shadow: inset rem-calc(0 0 0 5) $colorCta;
+				border-radius: rem-calc(20);
+			}
 
-            &-text {
-                padding: rem-calc(0 30);
-            }
-        }
-    }
-
+			&-text {
+				padding: rem-calc(0 30);
+			}
+		}
+	}
 }

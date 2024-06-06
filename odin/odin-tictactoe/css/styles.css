@@ -283,7 +283,8 @@ body {
     font-size: 1.3125rem;
   }
 }
-#game .game-restart-button, #game .game-change-button {
+#game .game-restart-button,
+#game .game-change-button {
   padding: 0.875rem 1.3125rem;
   border: none;
   background: #141414;

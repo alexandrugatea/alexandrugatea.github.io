@@ -7,7 +7,7 @@ export default function displayData(data) {
 	let formatedForecast = getForecastData(data.forecast, data.location);
 
 	console.log(formatedLocation);
-	
+
 	populateLocation(formatedLocation);
 	populateCurrent(formatedCurrent);
 	populateForecast(formatedForecast);

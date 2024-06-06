@@ -7,401 +7,377 @@ $customFontPath: "../../../build/fonts/";
 @import "../../../../src/scss/base/scroll";
 
 @font-face {
-    font-family: 'Valhalla';
-    src: url('../../common-res/fonts/Norse-Bold.otf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+	font-family: "Valhalla";
+	src: url("../../common-res/fonts/Norse-Bold.otf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }
 
 $bezier: cubic-bezier(0.175, 0.885, 0.32, 1.25);
 
 body {
-    background: lighten($bodyBackground, 3%);
-    color: $bodyText;
-    display: flex;
-    height: 100vh;
-    height: 100dvh;
-    justify-content: center;
-    align-items: flex-start;
-    font-family: "Valhalla";
-    overflow: auto;
+	background: lighten($bodyBackground, 3%);
+	color: $bodyText;
+	display: flex;
+	height: 100vh;
+	height: 100dvh;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: "Valhalla";
+	overflow: auto;
 }
 
 #game {
-    text-align: center;
-    padding: rem-calc(63 0);
+	text-align: center;
+	padding: rem-calc(63 0);
 
-    .game-title {
-        font-family: "Valhalla";
-        text-align: center;
-        margin-bottom: rem-calc(21);
-    }
+	.game-title {
+		font-family: "Valhalla";
+		text-align: center;
+		margin-bottom: rem-calc(21);
+	}
 
-    .game-description {
-        margin: rem-calc(35 0);
-        font-family: "Slab";
+	.game-description {
+		margin: rem-calc(35 0);
+		font-family: "Slab";
 
-        @include breakpoint(small only) {
-        // < 768
-        margin: rem-calc(21 0);
-            
-        }
-    }
+		@include breakpoint(small only) {
+			// < 768
+			margin: rem-calc(21 0);
+		}
+	}
 
-    .game-message {
-        height: rem-calc(56);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: rem-calc(21);
-        font-family: "Slab";
+	.game-message {
+		height: rem-calc(56);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: rem-calc(21);
+		font-family: "Slab";
 
-        span {
-            color: $success;
-            display: block;
-            padding: rem-calc(0 7);
-        }
-    }
-    
-    
-    .game-score {
-        display: flex;
-        margin-bottom: rem-calc(14);
-        justify-content: center;
-        align-items: center;
+		span {
+			color: $success;
+			display: block;
+			padding: rem-calc(0 7);
+		}
+	}
 
-        .vs {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: rem-calc(14 35);
-            font-size: rem-calc(35);
-            font-style: italic;
-        }
+	.game-score {
+		display: flex;
+		margin-bottom: rem-calc(14);
+		justify-content: center;
+		align-items: center;
 
-        .score-group {
-            font-size: rem-calc(21);
-            text-align: center;
+		.vs {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: rem-calc(14 35);
+			font-size: rem-calc(35);
+			font-style: italic;
+		}
 
-            &.winner {
-                color: $success;
-            }
+		.score-group {
+			font-size: rem-calc(21);
+			text-align: center;
 
-            &.looser {
-                opacity: 0.5;
-            }
-            
-            span {
-                font-size: rem-calc(35);
-                display: block;
-                margin-top: rem-calc(14);
+			&.winner {
+				color: $success;
+			}
 
-                @include breakpoint(small only) {
-                // < 768
-                font-size: rem-calc(21);
-                    
-                }
-            }
-        }
-    }
+			&.looser {
+				opacity: 0.5;
+			}
 
-    .game-restart-button, .game-change-button {
-        padding: rem-calc(14 21);
-        border: none;
-        background: lighten($bodyBackground, 5%);
-        color: $error;
-        font-family: "Valhalla";
-        font-size: rem-calc(21);
-        letter-spacing: rem-calc(1);
-        cursor: pointer;
-        // display: block;
-        max-width: min-content;
-        margin: auto;
-        white-space: nowrap;
-    }
+			span {
+				font-size: rem-calc(35);
+				display: block;
+				margin-top: rem-calc(14);
 
-    .game-change-button {
-        background: transparent;
-    }
+				@include breakpoint(small only) {
+					// < 768
+					font-size: rem-calc(21);
+				}
+			}
+		}
+	}
 
-    .game-oponents {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba($bodyBackground, 0.2);
-        z-index: 100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(7px);
-        opacity: 1;
-        pointer-events: all;
-        transform: scale(1);
-        transition: all 0.15s $bezier;
+	.game-restart-button,
+	.game-change-button {
+		padding: rem-calc(14 21);
+		border: none;
+		background: lighten($bodyBackground, 5%);
+		color: $error;
+		font-family: "Valhalla";
+		font-size: rem-calc(21);
+		letter-spacing: rem-calc(1);
+		cursor: pointer;
+		// display: block;
+		max-width: min-content;
+		margin: auto;
+		white-space: nowrap;
+	}
 
-        &.game-active {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0);
-        }
-        
-        &-container {
-            padding: rem-calc(56);
-            background: rgba($bodyBackground, 0.5);
-            backdrop-filter: blur(14px);
-            display: grid;
-            grid-template-columns: auto rem-calc(14) auto;
-            width: 90%;
-            max-width: rem-calc(700);
-            gap: rem-calc(7);
-        }
+	.game-change-button {
+		background: transparent;
+	}
 
-        &-title {
-            grid-column-start: 1;
-            grid-column-end: 4;
-            margin-bottom: rem-calc(35);
-        }
+	.game-oponents {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: rgba($bodyBackground, 0.2);
+		z-index: 100;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		backdrop-filter: blur(7px);
+		opacity: 1;
+		pointer-events: all;
+		transform: scale(1);
+		transition: all 0.15s $bezier;
 
-        .game-divider {
-            width: 0;
-            height: 100%;
-            box-shadow: rem-calc(0 0 0 1) rgba($bodyText, 0.14);
-            margin: 0 auto;
+		&.game-active {
+			opacity: 0;
+			pointer-events: none;
+			transform: scale(0);
+		}
 
-            @include breakpoint(small only) {
-            // < 768
-                display: none;
-            }
-        }
+		&-container {
+			padding: rem-calc(56);
+			background: rgba($bodyBackground, 0.5);
+			backdrop-filter: blur(14px);
+			display: grid;
+			grid-template-columns: auto rem-calc(14) auto;
+			width: 90%;
+			max-width: rem-calc(700);
+			gap: rem-calc(7);
+		}
 
-        .game-oponent {
-            display: flex;
-            flex-direction: column;
-            gap: rem-calc(21);
-            width: 100%;
-            justify-content: center;
-            align-items: center;
+		&-title {
+			grid-column-start: 1;
+			grid-column-end: 4;
+			margin-bottom: rem-calc(35);
+		}
 
-            @include breakpoint(small only) {
-            // < 768
-                grid-column-start: 1;
-                grid-column-end: 4;
-                margin-bottom: rem-calc(21);
-            }
+		.game-divider {
+			width: 0;
+			height: 100%;
+			box-shadow: rem-calc(0 0 0 1) rgba($bodyText, 0.14);
+			margin: 0 auto;
 
-            .game-players {
-                display: flex;
-                gap: rem-calc(14);
-            }
+			@include breakpoint(small only) {
+				// < 768
+				display: none;
+			}
+		}
 
-            .vs {
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                line-height: rem-calc(42);
-            }
+		.game-oponent {
+			display: flex;
+			flex-direction: column;
+			gap: rem-calc(21);
+			width: 100%;
+			justify-content: center;
+			align-items: center;
 
-            label {
-                font-family: "Slab";
-                font-size: rem-calc(14);
-                margin-bottom: rem-calc(14);
-                display: block;
-            }
+			@include breakpoint(small only) {
+				// < 768
+				grid-column-start: 1;
+				grid-column-end: 4;
+				margin-bottom: rem-calc(21);
+			}
 
-            input {
-                width: 100%;
-                height: rem-calc(42);
-                background: lighten($bodyBackground, 7%);
-                box-shadow: 
-                    inset rem-calc(3 4 2 1) rgba($bodyBackground, 0.5),
-                    rem-calc(0 0 0 0) accent(0);
-                border: none;
-                text-align: center;
-                padding: rem-calc(7);
-                color: $bodyText;
-                font-family: "Slab";
-                font-size: rem-calc(18);
-                outline: none;
-                border-radius: rem-calc(8);
-                transition: all 0.25s $bezier;
-                
-                &:active, &:focus {
-                    box-shadow: 
-                        inset rem-calc(3 4 2 1) rgba($bodyBackground, 0.5),
-                        rem-calc(0 0 0 3) accent(0.35);
-                }   
-            }
+			.game-players {
+				display: flex;
+				gap: rem-calc(14);
+			}
 
-            &-button {
-                background: accent(1);
-                color: $bodyBackground;
-                font-size: rem-calc(14);
-                padding: rem-calc(14 21);
-                border: none;
-                cursor: pointer;
-                border-radius: rem-calc(8);
-                font-size: rem-calc(18);
-                font-family: "PS700";
+			.vs {
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				line-height: rem-calc(42);
+			}
 
-                &:active, &:focus {
-                    box-shadow: rem-calc(0 0 0 3) accent(0.35);
-                }
+			label {
+				font-family: "Slab";
+				font-size: rem-calc(14);
+				margin-bottom: rem-calc(14);
+				display: block;
+			}
 
+			input {
+				width: 100%;
+				height: rem-calc(42);
+				background: lighten($bodyBackground, 7%);
+				box-shadow:
+					inset rem-calc(3 4 2 1) rgba($bodyBackground, 0.5),
+					rem-calc(0 0 0 0) accent(0);
+				border: none;
+				text-align: center;
+				padding: rem-calc(7);
+				color: $bodyText;
+				font-family: "Slab";
+				font-size: rem-calc(18);
+				outline: none;
+				border-radius: rem-calc(8);
+				transition: all 0.25s $bezier;
 
-            }
-        }
-    }
+				&:active,
+				&:focus {
+					box-shadow:
+						inset rem-calc(3 4 2 1) rgba($bodyBackground, 0.5),
+						rem-calc(0 0 0 3) accent(0.35);
+				}
+			}
+
+			&-button {
+				background: accent(1);
+				color: $bodyBackground;
+				font-size: rem-calc(14);
+				padding: rem-calc(14 21);
+				border: none;
+				cursor: pointer;
+				border-radius: rem-calc(8);
+				font-size: rem-calc(18);
+				font-family: "PS700";
+
+				&:active,
+				&:focus {
+					box-shadow: rem-calc(0 0 0 3) accent(0.35);
+				}
+			}
+		}
+	}
 }
 
 $cellSize: 112px;
 $cellGap: 14px;
 
 #board {
-    width: rem-calc($cellSize * 3) + rem-calc($cellGap * 2);
-    height: rem-calc($cellSize * 3) + rem-calc($cellGap * 2);
-    position: relative;
-    margin-bottom: rem-calc(56);
+	width: rem-calc($cellSize * 3) + rem-calc($cellGap * 2);
+	height: rem-calc($cellSize * 3) + rem-calc($cellGap * 2);
+	position: relative;
+	margin-bottom: rem-calc(56);
 
-    
+	@include breakpoint(small only) {
+		// < 768
+		margin-bottom: rem-calc(35);
+	}
+	&.game-ended {
+		pointer-events: none;
+	}
 
-    @include breakpoint(small only) {
-    // < 768
-        margin-bottom: rem-calc(35);
-    }
-    &.game-ended {
-        pointer-events: none;
-    }
+	&.game-tie {
+		opacity: 0.5;
+	}
 
-    &.game-tie {
-        opacity: 0.5;
-    }
+	.cell {
+		width: rem-calc($cellSize);
+		height: rem-calc($cellSize);
+		background: lighten($bodyBackground, 10%);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-left: rem-calc(-$cellSize * 0.5);
+		margin-top: rem-calc(-$cellSize * 0.5);
 
-    .cell {
-        width: rem-calc($cellSize);
-        height: rem-calc($cellSize);
-        background: lighten($bodyBackground, 10%);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-left: rem-calc(-$cellSize * 0.5);
-        margin-top: rem-calc(-$cellSize * 0.5);
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+		font-size: rem-calc(77);
 
-        font-size: rem-calc(77);
+		transition: all 0.25s $bezier;
+		user-select: none;
+		border-radius: rem-calc(4);
+		cursor: pointer;
 
-        transition: all 0.25s $bezier;
-        user-select: none;
-        border-radius: rem-calc(4);
-        cursor: pointer;
+		&:before {
+			content: attr(data-cell);
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-family: "Slab";
+			font-size: rem-calc(14);
+			padding: rem-calc(7);
+			opacity: 0.28;
+		}
 
+		&.marked {
+			pointer-events: none;
+		}
 
-        &:before {
-            content: attr(data-cell);
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-family: "Slab";
-            font-size: rem-calc(14);
-            padding: rem-calc(7);
-            opacity: 0.28;
-        }
+		&.winner {
+			background: $success;
+			color: $bodyText;
+			border-radius: 0;
+		}
 
-        &.marked {
-            pointer-events: none;
-        }
+		&[class*="mark"] {
+			&:after {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: rem-calc(77);
+				opacity: 0.28;
+			}
 
-        &.winner {
-            background: $success;
-            color: $bodyText;
-            border-radius: 0;
-        }
+			&.mark-X:after {
+				content: "X";
+			}
 
-        &[class*='mark'] {
+			&.mark-0:after {
+				content: "0";
+			}
+		}
+	}
 
-            &:after {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: rem-calc(77);
-                opacity: 0.28;
-            }
-            
-            &.mark-X:after {
-                content: "X";
-            }
+	&:not(.will-clear) {
+		.cell-1-1 {
+			transform: translate(calc(-100% - $cellGap), calc(-100% - $cellGap));
+		}
 
-            &.mark-0:after {
-                content: "0";
-            }
-        }
-    }
+		.cell-1-2 {
+			transform: translate(calc(0%), calc(-100% - $cellGap));
+		}
 
-    &:not(.will-clear) {
-        .cell-1-1 {
-            transform: translate(
-                calc(-100% - $cellGap), 
-                calc(-100% - $cellGap))
-        }
-    
-        .cell-1-2 {
-            transform: translate(
-                calc(0%), 
-                calc(-100% - $cellGap))
-        }
-    
-        .cell-1-3 {
-            transform: translate(
-                calc(100% + $cellGap), 
-                calc(-100% - $cellGap))
-        }
-    
-        .cell-2-1 {
-            transform: translate(
-                calc(-100% - $cellGap), 
-                calc(0%))
-        }
-        .cell-2-3 {
-            transform: translate(
-                calc(100% + $cellGap), 
-                calc(0%))
-        }
-    
-        .cell-3-1 {
-            transform: translate(
-                calc(-100% - $cellGap), 
-                calc(100% + $cellGap))
-        }
-    
-        .cell-3-2 {
-            transform: translate(
-                calc(0%), 
-                calc(100% + $cellGap))
-        }
-    
-        .cell-3-3 {
-            transform: translate(
-                calc(100% + $cellGap), 
-                calc(100% + $cellGap))
-        }
-    }
+		.cell-1-3 {
+			transform: translate(calc(100% + $cellGap), calc(-100% - $cellGap));
+		}
 
+		.cell-2-1 {
+			transform: translate(calc(-100% - $cellGap), calc(0%));
+		}
+		.cell-2-3 {
+			transform: translate(calc(100% + $cellGap), calc(0%));
+		}
+
+		.cell-3-1 {
+			transform: translate(calc(-100% - $cellGap), calc(100% + $cellGap));
+		}
+
+		.cell-3-2 {
+			transform: translate(calc(0%), calc(100% + $cellGap));
+		}
+
+		.cell-3-3 {
+			transform: translate(calc(100% + $cellGap), calc(100% + $cellGap));
+		}
+	}
 }
 
 @for $i from 1 through 9 {
-    $delay: 0.03;
+	$delay: 0.03;
 
-    .cell:nth-child(#{$i}) {
-        transition-delay: #{$delay * $i}s!important;
-    }
+	.cell:nth-child(#{$i}) {
+		transition-delay: #{$delay * $i}s !important;
+	}
 }
 
-
 #playAgainstHuman.game-oponent-button {
-    background: $success!important;
+	background: $success !important;
 }

@@ -39,20 +39,20 @@
 	}
 }
 
-.search-results-container:not(:has(.dropdown-item)):hover,
+.search-results-container.open:not(:has(.dropdown-item)):hover,
 #newLocationField:focus + .search-results-container:not(:has(.dropdown-item)) {
 	height: rem-calc(7 + 49 + 7 + 49 + 14 + 14);
 	background: darken($light, 5%);
 }
 
-.search-results-container {
+.search-results-container.open {
 	&:has(.dropdown-item) {
 		height: auto;
 		background: darken($light, 5%);
 	}
 }
 
-#newLocationField:not(:placeholder-shown) + .search-results-container {
+#newLocationField:not(:placeholder-shown) + .search-results-container.open {
 	overflow: visible;
 	background: darken($light, 5%);
 }

@@ -6,13 +6,14 @@ As part of our homage to the grandeur of Norse mythology, the Odin's Project Cur
 
 ### The three recipes are:
 
-* Valhalla's Victory Roast
-* Loki's Mead Pudding
-* Asgardian Root Vegetables
-<br>
+-   Valhalla's Victory Roast
+-   Loki's Mead Pudding
+-   Asgardian Root Vegetables
+    <br>
 
- --- 
-<br>
+    ***
+
+    <br>
 
 Each recipe in this collection not only offers a taste of the mythical and divine but also a piece of the rich tapestry that is Norse mythology. We invite you to recreate these dishes, to bring a touch of Odin's hall into your home.
 
@@ -23,6 +24,7 @@ Each recipe in this collection not only offers a taste of the mythical and divin
 NOTE:
 
 ---
+
 <br>
 
-> I know those pages are not pure HTML, but I couldn't help myself on adding some CSS as well. I have kept it pretty simple, though. I have also added comments throughout the code, so fellow participants to this course can learn a thing or two. 
+> I know those pages are not pure HTML, but I couldn't help myself on adding some CSS as well. I have kept it pretty simple, though. I have also added comments throughout the code, so fellow participants to this course can learn a thing or two.

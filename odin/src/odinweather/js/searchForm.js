@@ -11,6 +11,8 @@ export default function searchCity() {
 	const locationForm = document.getElementById("newLocationForm");
 	const hiddenField = document.getElementById("valueToFetchWeather");
 	const hiddenFieldUI = document.getElementById("valueToDisplyOnUI");
+	const searchContainer = document.querySelector(".search-results-container");
+	const popularButtons = document.querySelectorAll(".popular-place");
 
 	let debounceTimeout;
 
@@ -33,8 +35,6 @@ export default function searchCity() {
 							// throw new Error('Data is not an array');
 						}
 
-						// console.log(data);
-
 						// Clear existing options
 						dropdown.innerHTML = "";
 						let currentIndex = -1;
@@ -54,6 +54,7 @@ export default function searchCity() {
 								dropdown.innerHTML = "";
 								locationForm.requestSubmit();
 								locationForm.reset();
+								searchContainer.classList.remove("open");
 							});
 						});
 
@@ -120,9 +121,6 @@ export default function searchCity() {
 					// display data on DOM
 					displayData(data);
 					locationForm.reset();
-					// const specialName = document.getElementById("valueToDisplyOnUI").value;
-					// const cityContainer = document.getElementById("locationCity");
-					// cityContainer.innerHTML = `${specialName}`;
 				})
 				.catch((err) => {
 					// console.error("Error fetching data: ", err);
@@ -134,7 +132,9 @@ export default function searchCity() {
 		}
 	});
 
-	const popularButtons = document.querySelectorAll(".popular-place");
+	newCityField.addEventListener("click", function () {
+		searchContainer.classList.add("open");
+	});
 
 	popularButtons.forEach((button) => {
 		button.addEventListener("click", function (e) {
@@ -142,7 +142,7 @@ export default function searchCity() {
 			const selectedCity = button.textContent;
 			const apiKey = "62853d9a45c1413b89f201737240106";
 			const apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${selectedCity}&days=7`;
-
+			searchContainer.classList.remove("open");
 			showLoader();
 			fetchData(apiURL)
 				.then((data) => {

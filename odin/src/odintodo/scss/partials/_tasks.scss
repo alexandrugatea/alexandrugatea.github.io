@@ -144,8 +144,8 @@
 					width: calc(100% - 42px - 14px);
 				}
 
-				@media screen and (max-width: rem-calc(600)) { 
-					grid-area: name; 
+				@media screen and (max-width: rem-calc(600)) {
+					grid-area: name;
 					text-align: left;
 					width: 100%;
 				}
@@ -180,7 +180,9 @@
 					width: rem-calc(35);
 					order: 1;
 				}
-				@media screen and (max-width: rem-calc(600)) { grid-area: prio; }
+				@media screen and (max-width: rem-calc(600)) {
+					grid-area: prio;
+				}
 
 				span {
 					width: rem-calc(21);
@@ -216,7 +218,9 @@
 					order: 2;
 				}
 
-				@media screen and (max-width: rem-calc(600)) { grid-area: check; }
+				@media screen and (max-width: rem-calc(600)) {
+					grid-area: check;
+				}
 
 				input {
 					visibility: hidden;
@@ -276,7 +280,9 @@
 						order: 4;
 					}
 
-					@media screen and (max-width: rem-calc(600)) { grid-area: edit; }
+					@media screen and (max-width: rem-calc(600)) {
+						grid-area: edit;
+					}
 				}
 
 				&.delete-task {
@@ -284,7 +290,9 @@
 						order: 6;
 					}
 
-					@media screen and (max-width: rem-calc(600)) { grid-area: remove; }
+					@media screen and (max-width: rem-calc(600)) {
+						grid-area: remove;
+					}
 				}
 
 				&.edit-task:hover {
@@ -306,7 +314,9 @@
 					justify-content: flex-start;
 				}
 
-				@media screen and (max-width: rem-calc(600)) { grid-area: date; }
+				@media screen and (max-width: rem-calc(600)) {
+					grid-area: date;
+				}
 
 				.due-in {
 					display: block;

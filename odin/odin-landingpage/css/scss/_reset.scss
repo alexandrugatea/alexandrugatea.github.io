@@ -3,21 +3,22 @@
 *,
 *:before,
 *:after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} 
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 
 body {
-    position: relative;
-    @include text();
-    color: $colorDark;
+	position: relative;
+	@include text();
+	color: $colorDark;
 }
-ul, ol {
-    list-style-type: none;
+ul,
+ol {
+	list-style-type: none;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }

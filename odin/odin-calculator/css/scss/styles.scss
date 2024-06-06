@@ -6,169 +6,206 @@ $customFontPath: "../../../build/fonts/";
 $accent: #ffc300;
 
 body {
-    background: $bodyBackground;
-    height: 100vh;
-    height: 100dvh;
-    overflow: hidden;
-    color: $bodyText;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	background: $bodyBackground;
+	height: 100vh;
+	height: 100dvh;
+	overflow: hidden;
+	color: $bodyText;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .page-title {
-    margin-bottom: rem-calc(35);
-    font-family: "Slab", serif;
-    letter-spacing: rem-calc(1);
+	margin-bottom: rem-calc(35);
+	font-family: "Slab", serif;
+	letter-spacing: rem-calc(1);
 }
 
 .calculator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: rem-calc(7);
-    background: darken($bodyBackground, 5%);
-    box-shadow: 
-        rem-calc(0 0 0 7) $bodyBackground,
-        rem-calc(0 0 0 21) lighten($bodyBackground, 30%)
-    ;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: rem-calc(7);
+	background: darken($bodyBackground, 5%);
+	box-shadow:
+		rem-calc(0 0 0 7) $bodyBackground,
+		rem-calc(0 0 0 21) lighten($bodyBackground, 30%);
 
+	&-display {
+		width: 100%;
+		border-radius: rem-calc(8);
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem-calc(3);
+		margin-bottom: rem-calc(7);
+		position: relative;
+		background: lighten($bodyBackground, 0%);
+		box-shadow: inset rem-calc(-2 2 4 3) rgba($bodyText, 0.14);
 
-    &-display {
-        width: 100%;
-        border-radius: rem-calc(8);
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: rem-calc(3);
-        margin-bottom: rem-calc(7);
-        position: relative;
-        background: lighten($bodyBackground, 0%);
-        box-shadow: inset rem-calc(-2 2 4 3) rgba($bodyText, 0.14);
+		&-top {
+			height: rem-calc(42px);
+			font-size: rem-calc(21);
+			font-family: $font300;
+		}
 
-        &-top {
-            height: rem-calc(42px);
-            font-size: rem-calc(21);
-            font-family: $font300;
-        }
-        
-        &-current {
-            height: rem-calc(56px);
-            font-size: rem-calc(42);
-            font-family: $font500;
-        }
-        
-        &-top, &-current {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: rem-calc(0 14);
-            width: 100%;
-            text-overflow: ellipsis;
-            max-width: rem-calc(295);
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-    &-keys {
-        display: inline-grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-areas:
-            'ac ac del divide' 
-            'seven eight nine multiply'
-            'four five six substract'
-            'one two three add'
-            'zero zero digit total';
-        place-content: center;
-        gap: rem-calc(5);
-        place-items: center;
+		&-current {
+			height: rem-calc(56px);
+			font-size: rem-calc(42);
+			font-family: $font500;
+		}
 
-            .key {
-                width: 70px;
-                height: 70px;
-                border-radius: rem-calc(4);
-                border: none;
-                font-family: $font700;
-                font-size: rem-calc(35);
-                position: relative;
-                overflow: hidden;
-                z-index: 0;
-                background: transparent;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+		&-top,
+		&-current {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			padding: rem-calc(0 14);
+			width: 100%;
+			text-overflow: ellipsis;
+			max-width: rem-calc(295);
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+	&-keys {
+		display: inline-grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-areas:
+			"ac ac del divide"
+			"seven eight nine multiply"
+			"four five six substract"
+			"one two three add"
+			"zero zero digit total";
+		place-content: center;
+		gap: rem-calc(5);
+		place-items: center;
 
-                img {
-                    width: rem-calc(28);
-                    height: auto;
-                    pointer-events: none;
-                }
+		.key {
+			width: 70px;
+			height: 70px;
+			border-radius: rem-calc(4);
+			border: none;
+			font-family: $font700;
+			font-size: rem-calc(35);
+			position: relative;
+			overflow: hidden;
+			z-index: 0;
+			background: transparent;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-                &:before {
-                    content: "";
-                    position: absolute;
-                    display: block;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
-                    transform: scale(1);
-                    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    background: darken($bodyText, 2%);
-                    border-radius: rem-calc(4px);
-                    color: darken($bodyText, 2%);
+			img {
+				width: rem-calc(28);
+				height: auto;
+				pointer-events: none;
+			}
 
-                    box-shadow: inset rem-calc(-3 3 2 1) currentColor,
-                                inset rem-calc(-7 3 7 3) rgba(#fff, 0.56);
-                }
+			&:before {
+				content: "";
+				position: absolute;
+				display: block;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -1;
+				transform: scale(1);
+				transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+				background: darken($bodyText, 2%);
+				border-radius: rem-calc(4px);
+				color: darken($bodyText, 2%);
 
-                &.pressed, &:active::before {
-                    transform: scale(0.96);
-                }
+				box-shadow:
+					inset rem-calc(-3 3 2 1) currentColor,
+					inset rem-calc(-7 3 7 3) rgba(#fff, 0.56);
+			}
 
-                &.operator {
+			&.pressed,
+			&:active::before {
+				transform: scale(0.96);
+			}
 
-                    &:before {
-                        background: $accent;
-                        color: $accent;
-                    }
-                }
-            }
+			&.operator {
+				&:before {
+					background: $accent;
+					color: $accent;
+				}
+			}
+		}
 
-            [data-key="0"] {grid-area: zero; width: 100%}
-            [data-key="1"] {grid-area: one;}
-            [data-key="2"] {grid-area: two;}
-            [data-key="3"] {grid-area: three;}
-            [data-key="4"] {grid-area: four;}
-            [data-key="5"] {grid-area: five;}
-            [data-key="6"] {grid-area: six;}
-            [data-key="7"] {grid-area: seven;}
-            [data-key="8"] {grid-area: eight;}
-            [data-key="9"] {grid-area: nine;}
-            [data-key="+"] {grid-area: add;}
-            [data-key="-"] {grid-area: substract;}
-            [data-key="*"] {grid-area: multiply;}
-            [data-key="/"] {grid-area: divide;}
-            [data-key="."] {grid-area: digit;}
-            .operator[data-key="="] {
-                grid-area: total;
-                &:before {
-                    background: #ff6500;
-                    color: #ff6500;
-                }
-            }
-            [data-key="Backspace"] {grid-area: del;}
-            [data-key="Delete"] {grid-area: ac; width: 100%}
-            [data-key="Mod"] {grid-area: mod;}
-        
-    }
+		[data-key="0"] {
+			grid-area: zero;
+			width: 100%;
+		}
+		[data-key="1"] {
+			grid-area: one;
+		}
+		[data-key="2"] {
+			grid-area: two;
+		}
+		[data-key="3"] {
+			grid-area: three;
+		}
+		[data-key="4"] {
+			grid-area: four;
+		}
+		[data-key="5"] {
+			grid-area: five;
+		}
+		[data-key="6"] {
+			grid-area: six;
+		}
+		[data-key="7"] {
+			grid-area: seven;
+		}
+		[data-key="8"] {
+			grid-area: eight;
+		}
+		[data-key="9"] {
+			grid-area: nine;
+		}
+		[data-key="+"] {
+			grid-area: add;
+		}
+		[data-key="-"] {
+			grid-area: substract;
+		}
+		[data-key="*"] {
+			grid-area: multiply;
+		}
+		[data-key="/"] {
+			grid-area: divide;
+		}
+		[data-key="."] {
+			grid-area: digit;
+		}
+		.operator[data-key="="] {
+			grid-area: total;
+			&:before {
+				background: #ff6500;
+				color: #ff6500;
+			}
+		}
+		[data-key="Backspace"] {
+			grid-area: del;
+		}
+		[data-key="Delete"] {
+			grid-area: ac;
+			width: 100%;
+		}
+		[data-key="Mod"] {
+			grid-area: mod;
+		}
+	}
 }
 
 ::selection {
-    background: $bodyText;
-    color: $bodyBackground;
+	background: $bodyText;
+	color: $bodyBackground;
 }
