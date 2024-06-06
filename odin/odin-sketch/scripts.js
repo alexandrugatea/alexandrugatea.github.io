@@ -30,9 +30,17 @@ let mirrorV = false;
 // Disable UNDO button as default
 undoDrawingButton.disabled = true;
 
+const windowWidth = window.innerWidth;
+if (windowWidth < 768) {
+	generateGrid(16);
+	updateCurrentGridSize(16);
+} else {
+	generateGrid(gridSize);
+	updateCurrentGridSize(gridSize);
+}
+
 // Init functions
-updateCurrentGridSize(gridSize);
-generateGrid(gridSize);
+
 drawOnDrag();
 changeBackgroundColor(currentBackgroundColor);
 
