@@ -19,8 +19,9 @@
     "start:odintodo:dev": "webpack serve --config webpack.config.js --env project=odintodo --env mode=development --open",
     "clean:odintodo": "rimraf odintodo",
     
-    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\"",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,md}\""
+    "prettier": "prettier --write \"src/**/*.{js,css,scss,md}\"",
+    "prettier:statics": "prettier --write \"*/**/*.{js,css,scss,md}\"",
+    "prettier:check": "prettier --check \"src/**/*.{js,css,scss,md}\""
   },
   "keywords": [],
   "author": "Alexandru Gatea",

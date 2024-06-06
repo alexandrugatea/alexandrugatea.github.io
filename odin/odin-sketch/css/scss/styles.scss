@@ -1,251 +1,375 @@
-@use 'sass:math';
+@use "sass:math";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 
+@import "../../../../src/scss/base/mixins";
 @import "../../../../src/scss/base/var";
+@import "../../../../src/scss/base/font";
 @import "../../../../src/scss/base/reset";
 @import "../../../../src/scss/base/foundationMQ.scss";
 
 body {
-    background: lighten($bodyBackground, 5%);
-    color: $bodyText;
-    font-family: "Roboto Slab", serif;
-    height: 100vh;
-    height: 100dvh;
-} 
+	background: lighten($bodyBackground, 5%);
+	color: $bodyText;
+	font-family: "Roboto Slab", serif;
+	height: 100vh;
+	height: 100dvh;
+}
 
 input,
 textarea,
 button,
 select,
 a {
-    -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
 }
 
 $sidebarWidth: 490px;
 
 .game {
-    height: 100%;
-    display: flex;
-    @include breakpoint(medium down) {
-        padding: 100px 10% 100px;
-    }
+	height: 100%;
+	display: flex;
+	@include breakpoint(medium down) {
+		padding: 100px 10% 100px;
+	}
 
-    &-title {
-        font-size: 49px;
-        margin-bottom: 42px;
-        
-        @include breakpoint(medium down) {
-            font-size: 35px;
-            margin-bottom: 14px;
-        }
-    }
+	&-title {
+		font-size: 49px;
+		margin-bottom: 42px;
 
-    p {
-        margin-bottom: 50px;
-        font-size: 18px;
-        opacity: .63;
-    }
+		@include breakpoint(medium down) {
+			font-size: 35px;
+			margin-bottom: 14px;
+		}
+	}
 
-    &-sidebar {
-        overflow: auto;
-        z-index: 100;
-        
-        @include breakpoint(large) {
-            top: 0;
-            left: 0;
-            width: $sidebarWidth;
-            padding: 50px;
-            height: 100%;
-            background: $bodyBackground;
-        }
-        
-        @include breakpoint(medium down) {
-            position: unset;
-        }
+	p {
+		margin-bottom: 50px;
+		font-size: 18px;
+		opacity: 0.63;
+	}
 
-        .game-title-container {
-            @include breakpoint(medium down) {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: $bodyBackground;
-                overflow: auto;
-                z-index: 100;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px;
-                height: auto;
+	&-sidebar {
+		overflow: auto;
+		z-index: 100;
 
-                p {
-                    margin: 0;
-                    text-align: center;
-                }
-            }
-        }
-    }
-    &-container {
-        @include breakpoint(medium down) {
-            width: 100%;
-            margin: 50px auto;
-            max-width: 512px;
-        }
-        @include breakpoint(large) {
-            position: fixed;
-            width: calc(100% - $sidebarWidth);
-            left: $sidebarWidth;
-            padding: 100px 0;
-        }
-        position: relative;
-        height: 100%;
+		@include breakpoint(large) {
+			top: 0;
+			left: 0;
+			width: $sidebarWidth;
+			padding: rem-calc(50);
+			height: 100%;
+			background: $bodyBackground;
+			box-shadow: inset rem-calc(0 0 0 21) lighten($bodyBackground, 5%);
+			border-radius: rem-calc(42);
+		}
 
-        .grid-outer {
-            width: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+		@include breakpoint(medium down) {
+			position: unset;
+		}
 
-            @include breakpoint(medium down) {
-                width: 100%;
-                height: 0;
-                padding-bottom: 100%;
-                overflow: hidden;
-            }
-            
-            .grid-container {
-                width: 512px;
-                height: 512px;
-                display: flex;
-                flex-wrap: wrap;
+		.game-title-container {
+			@include breakpoint(medium down) {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: $bodyBackground;
+				overflow: auto;
+				z-index: 100;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 20px;
+				height: auto;
 
-                @include breakpoint(medium down) {
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            
-            
-                .grid-cell {
-                    // box-shadow: 
-                    // inset 0 0 0 0.5px rgba(#808080, 0.14),
-                    //       0 0 0 0.5px rgba(#808080, 0.14);
-                    width: calc(100% / var(--cells));
-                    height: calc(100% / var(--cells));
-                    background-color: transparent;
-                    overflow: hidden;
-                    position: relative;
+				p {
+					margin: 0;
+					text-align: center;
+				}
+			}
+		}
+	}
+	&-container {
+		@include breakpoint(medium down) {
+			width: 100%;
+			margin: 50px auto;
+			max-width: 512px;
+		}
+		@include breakpoint(large) {
+			position: fixed;
+			width: calc(100% - $sidebarWidth);
+			left: $sidebarWidth;
+			padding: 100px 0;
+		}
+		position: relative;
+		height: 100%;
 
-                    &:after {
-                        content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        // box-shadow: inset 0 0 0 0.5px rgba(#808080, 0.2);
-                        border: 1px solid rgba(80, 80, 80, 0.2);
-                    }
-                }
-            }
-        }
-    }    
+		.grid-outer {
+			width: 100%;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			@include breakpoint(medium down) {
+				width: 100%;
+				height: 0;
+				padding-bottom: 100%;
+			}
+
+			.grid-container {
+				width: rem-calc(512);
+				height: rem-calc(512);
+				display: flex;
+				flex-wrap: wrap;
+
+				@include breakpoint(medium down) {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+				.grid-cell {
+					width: calc(100% / var(--cells));
+					height: calc(100% / var(--cells));
+					background-color: transparent;
+					overflow: hidden;
+					position: relative;
+
+					&:after {
+						content: "";
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						border: 1px dotted rgba(80, 80, 80, 0.2);
+					}
+
+					&.middle {
+						&.h:after {
+							border-bottom: 1px solid rgba(80, 80, 80, 0.5);
+						}
+						&.v:after {
+							border-right: 1px solid rgba(80, 80, 80, 0.5);
+						}
+					}
+
+					&.quart {
+						&.h:after {
+							border-bottom: 1px solid rgba(80, 80, 80, 0.5);
+						}
+						&.v:after {
+							border-right: 1px solid rgba(80, 80, 80, 0.5);
+						}
+					}
+				}
+			}
+		}
+	}
 }
-
 
 .game-options {
+	@include breakpoint(medium down) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: #070707;
+		transform: translateY(calc(100% - 52px));
+		transition: all 0.25s ease-out;
+		height: auto;
+		max-height: 70vh;
+		max-height: 70dvh;
+		overflow: hidden;
+        z-index: 100;
 
-    @include breakpoint(medium down) {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #070707;
-        transform: translateY(calc(100% - 80px));
-        transition: all 0.25s ease-out;
-        height: auto;
-        max-height: 70vh;
-        max-height: 70dvh;
-        overflow: hidden;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-areas:
+			"title title"
+			"size background"
+			"color color";
 
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "title title" 
-                             "size background" 
-                             "color color";
+		&.opened {
+			transform: translateY(0);
+			overflow: auto;
+		}
+	}
 
-        &.opened {
-            transform: translateY(0);
-            overflow: auto;
-        }
-    }
+	@include breakpoint(small only) {
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-areas: "title" "size" "background" "color";
+	}
 
-    @include breakpoint(small only) {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-areas: "title" "size" "background" "color";
-    }
+	.option-category-title {
+		margin-bottom: 20px;
+	}
 
-    .option-category-title {
-        margin-bottom: 20px;
-    }
+	[class*="game-options"] {
+		@include breakpoint(medium down) {
+			padding: 20px 40px;
+		}
+	}
 
-    [class*="game-options"] {
-        @include breakpoint(medium down) {
-            padding: 20px 40px;
-        }
-    }
+	&-grid-size {
+		margin-bottom: 49px;
 
-    &-grid-size {
-        margin-bottom: 49px;
-
-        @include breakpoint(medium down) {
-            grid-area: size;
-        }
-
-        label {
-            display: grid;
-            grid-template-columns: auto 100px;
-            gap: 50px;
-        }
-    }
-
-    &-background {
-        margin-bottom: 49px;
-
-        @include breakpoint(medium down) {
-            grid-area: background;
+        &-label {
+            display: block;
+            margin-bottom: rem-calc(14);
         }
 
-        .background-list {
-            display: flex;
-            gap: 28px;
+		@include breakpoint(medium down) {
+			grid-area: size;
+		}
 
-            &-item {
-                width: 70px;
-                height: 70px;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
+		label {
+			display: grid;
+			grid-template-columns: auto rem-calc(140);
+			gap: rem-calc(35);
+		}
 
-                button {
-                    position: relative;
-                    width: 56px;
-                    height: 56px;
-                    border-radius: 50%;
-                    border: none;
-                    outline: none;
-                    box-shadow: 0px 0px 0px 2px rgba($bodyText, 0.14);
-                    cursor: pointer;
-                    opacity: 0.35;
+		.action-btn {
+			flex-shrink: 0;
+		}
+	}
 
-                    &.selected {
-                        opacity: 1;
-                        box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
-                    }
+	&-background {
+		margin-bottom: 49px;
 
+		@include breakpoint(medium down) {
+			grid-area: background;
+		}
+
+		.background-list {
+			display: flex;
+			gap: 28px;
+
+			&-item {
+				width: 70px;
+				height: 70px;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+
+				button {
+					position: relative;
+					width: 56px;
+					height: 56px;
+					border-radius: 50%;
+					border: none;
+					outline: none;
+					box-shadow: 0px 0px 0px 2px rgba($bodyText, 0.14);
+					cursor: pointer;
+					opacity: 0.35;
+
+					&.selected {
+						opacity: 1;
+						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
+					}
+
+					span {
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						transform: translate(-50%, 100%);
+						color: $bodyText;
+						padding: 7px 0;
+						text-align: center;
+					}
+
+					&.white {
+						background: #fff;
+					}
+					&.black {
+						background: #000;
+					}
+					&.transparent {
+						background: transparent;
+						background-image: linear-gradient(90deg, rgba($bodyText, 0.14) 49%, transparent 50%),
+							linear-gradient(0deg, rgba($bodyText, 0.14) 49%, transparent 50%);
+						background-size: 14px 14px;
+					}
+				}
+			}
+		}
+	}
+
+	&-pencil-color {
+		margin-bottom: 49px;
+		@include breakpoint(medium down) {
+			grid-area: color;
+		}
+
+		.color-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem-calc(21);
+
+			&-item {
+				width: 70px;
+				height: 70px;
+				display: flex;
+				justify-content: center;
+				align-items: flex-start;
+				margin-bottom: 10px;
+				position: relative;
+
+				button,
+				label {
+					position: relative;
+					width: 56px;
+					height: 56px;
+					border-radius: 50%;
+					border: none;
+					outline: none;
+					box-shadow: 0px 0px 0px 2px rgba($bodyText, 0.14);
+					cursor: pointer;
+					opacity: 0.35;
+
+					&.selected {
+						opacity: 1;
+						box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
+					}
+
+					&.white {
+						background: #ffffff;
+					}
+					&.black {
+						background: #000000;
+					}
+					&.red {
+						background: #c62828;
+					}
+					&.orange {
+						background: #f57c00;
+					}
+					&.yellow {
+						background: #fdd835;
+					}
+					&.green {
+						background: #8bc34a;
+					}
+					&.blue {
+						background: #1976d2;
+					}
+					&.indigo {
+						background: #ab47bc;
+					}
+					&.violet {
+						background: #673ab7;
+					}
+					&.clear {
+						background: linear-gradient(90deg, rgba($bodyText, 0.14) 49%, transparent 50%),
+							linear-gradient(0deg, rgba($bodyText, 0.14) 49%, transparent 50%);
+
+                            .icon {
+                                color: $bodyText;
+                            }
+					}
                     span {
                         position: absolute;
                         bottom: 0;
@@ -254,146 +378,220 @@ $sidebarWidth: 490px;
                         color: $bodyText;
                         padding: 7px 0;
                         text-align: center;
+                        font-family: "Roboto Slab";
+                        z-index: 1;
+                        font-size: rem-calc(14);
                     }
+				}
+			}
 
-                    &.white {background: #fff;}
-                    &.black {background: #000;}
-                    &.transparent {
-                        background: transparent;
-                        background-image: 
-                            linear-gradient(90deg, rgba($bodyText, 0.14) 49%, transparent 50%),
-                            linear-gradient(0deg, rgba($bodyText, 0.14) 49%, transparent 50%);
-                        background-size: 14px 14px;
-                        
-                    }
-                }
-            }
-        }
-    }
+			.custom-picker {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 
-    &-pencil-color {
-        margin-bottom: 49px;
-        @include breakpoint(medium down) {
-            grid-area: color;
-        }
+				label {
+					overflow: hidden;
+					position: relative;
+				}
 
-        .color-list {
+				span {
+					transform: translate(-50%, 100%);
+				}
 
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-
-            &-item {
-                width: 70px;
-                height: 70px;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                margin-bottom: 10px;
-
-                button {
-                    position: relative;
-                    width: 56px;
-                    height: 56px;
-                    border-radius: 50%;
-                    border: none;
-                    outline: none;
-                    box-shadow: 0px 0px 0px 2px rgba($bodyText, 0.14);
-                    cursor: pointer;
-                    opacity: 0.35;
-
-                    &.selected {
-                        opacity: 1;
-                        box-shadow: 0px 0px 0px 5px rgba($bodyText, 0.21);
-                    }
-
-                    &.white {background: #ffffff}
-                    &.black {background: #000000}
-                    &.red {background: #C62828  }
-                    &.orange {background: #F57C00  }
-                    &.yellow {background: #FDD835  }
-                    &.green {background: #8BC34A}
-                    &.blue {background: #1976D2 }
-                    &.indigo {background: #AB47BC }
-                    &.violet {background: #673AB7 }
-                    &.clear {background: linear-gradient(90deg, rgba($bodyText, 0.14) 49%, transparent 50%),
-                        linear-gradient(0deg, rgba($bodyText, 0.14) 49%, transparent 50%)}
-
-                    span {
-                        position: absolute;
-                        bottom: 0;
-                        left: 50%;
-                        transform: translate(-50%, 100%);
-                        color: $bodyText;
-                        padding: 7px 0;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-    }
-
-    // &-actions {
-    //     display: grid;
-    //     grid-template-columns: 1fr 1fr;
-    //     gap: 20px;
-
-    // }
-
+				input[type="color"] {
+					position: absolute;
+					width: 220%;
+					height: 220%;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					border-radius: 50%;
+					border: none;
+					appearance: none;
+					background-color: transparent;
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }
 
-.actions  {
-    display: flex;
+.actions {
+	display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 50px 0;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(3, 1fr);
+	gap: rem-calc(14);
+	max-width: rem-calc(512);
+	margin: rem-calc(35) auto;
 
-    @include breakpoint(medium down) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        padding-bottom: 150px;
+    @media screen and (max-width: 500px) {
+        max-width: rem-calc(300);
+    }
+    
+    @include breakpoint(small only) {
+        // < 768
+        margin: rem-calc(21)     auto rem-calc(35);
     }
 
-    .action-btn {
-        padding: 10px 25px;
-        margin: 0 10px;
-        
-        @include breakpoint(medium down) {
-            margin: 0;
-            padding: 10px 10px;
-        }
-    }
+	.action-btn {
+		width: rem-calc(56);
+		height: rem-calc(56);
+	}
+
+	.available-undo {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: rem-calc(7);
+		display: block;
+		line-height: 1;
+		font-size: rem-calc(12);
+		opacity: 0.77;
+	}
+
+	.action-btn.active {
+		background: $success;
+		color: $bodyBackground;
+
+		.icon:after {
+			box-shadow: inset rem-calc(0 0 0 2) rgba($bodyBackground, 0.35);
+		}
+	}
+
+	.mirror-h,
+	.mirror-v {
+		.icon {
+			position: relative;
+			width: rem-calc(28);
+			height: rem-calc(28);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-shrink: 0;
+			font-size: rem-calc(21);
+
+			&:after {
+				content: "";
+				display: block;
+				width: 42%;
+				aspect-ratio: 1 / 1;
+				top: 50%;
+				left: 50%;
+				position: absolute;
+				transform: translate(-50%, -50%);
+				box-shadow: inset rem-calc(0 0 0 2) rgba($bodyText, 0.35);
+			}
+		}
+	}
+
+	.mirror-h .icon {
+		&:after {
+			margin-top: rem-calc(0.5);
+		}
+	}
+	.mirror-v .icon {
+		transform: rotate(90deg);
+		&:after {
+			margin-top: rem-calc(1);
+		}
+	}
 }
 
 .action-btn {
-    border: none;
-    height: 42px;
-    border-radius: 8px;
-    font-family: inherit;
-    font-weight: 700;
-    background: transparent;
-    color: $bodyText;
-    box-shadow: inset 0px 0px 0px 3px rgba($bodyText, 0.14);
-    cursor: pointer;
+	border: none;
+	height: 42px;
+	border-radius: 8px;
+	font-family: inherit;
+	font-weight: 700;
+	background: transparent;
+	color: $bodyText;
+	box-shadow: inset rem-calc(0px 0px 0px 3px) rgba($bodyText, 0.14);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	padding: rem-calc(7px 14px);
+	gap: rem-calc(10);
+	transform: scale(1);
+	transition: all 0.07s ease-out;
+
+	&:not([disabled]) {
+		&:hover {
+			transform: scale(1.07);
+		}
+
+		&:active {
+			transform: scale(1.05);
+		}
+	}
+
+	&[disabled] {
+		cursor: default;
+		opacity: 0.28;
+	}
+
+	@include breakpoint(medium down) {
+		margin: 0;
+		padding: rem-calc(10);
+	}
+
+	.icon {
+		font-size: rem-calc(18);
+	}
 }
 
 #grid {
-    box-shadow: 0 0 0 7px rgba($bodyText, 0.14);
+	box-shadow: 0 0 0 7px rgba($bodyText, 0.14);
 }
 
 #grid.no-guides {
-    .grid-cell:after {
-        border: none;
-    }
-    
+	.grid-cell:after {
+		border: none;
+	}
+}
+
+[data-tooltip] {
+	position: relative;
+
+	&:after {
+		content: attr(data-tooltip);
+		position: absolute;
+		padding: rem-calc(7 14);
+		display: block;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: $bodyBackground;
+		color: $bodyText;
+		border-radius: rem-calc(8);
+		box-shadow: inset rem-calc(0 0 0 2) rgba($bodyText, 0.14);
+		transition: all 0.21s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		pointer-events: none;
+		opacity: 0;
+		z-index: -1;
+	}
+
+	&:hover:after {
+		@include breakpoint(xlarge) {
+			// 1200
+			transform: translate(-50%, -110%);
+			opacity: 1;
+		}
+	}
 }
 
 #exportDrawing {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background: $bodyText;
-    color: $bodyBackground;
+	background: $success;
+	color: $bodyBackground;
+}
+
+#clearDrawing {
+	background: rgba($error, 1);
+	color: $bodyBackground;
 }
 
 $track-color: rgba($bodyText, 0.21) !default;
@@ -404,7 +602,7 @@ $thumb-height: 28px !default;
 $thumb-width: 28px !default;
 $thumb-shadow-size: 7px !default;
 $thumb-shadow-blur: 7px !default;
-$thumb-shadow-color: rgba(0, 0, 0, .2) !default;
+$thumb-shadow-color: rgba(0, 0, 0, 0.2) !default;
 $thumb-border-width: 2px !default;
 $thumb-border-color: $bodyText !default;
 
@@ -412,7 +610,7 @@ $track-width: 100% !default;
 $track-height: 14px !default;
 $track-shadow-size: 2px !default;
 $track-shadow-blur: 2px !default;
-$track-shadow-color: rgba(0, 0, 0, .2) !default;
+$track-shadow-color: rgba(0, 0, 0, 0.2) !default;
 $track-border-width: 2px !default;
 $track-border-color: rgba($bodyText, 0.21) !default;
 
@@ -422,187 +620,151 @@ $contrast: 5% !default;
 $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
 @mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
-  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, 5%);
+	box-shadow:
+		$shadow-size $shadow-size $shadow-blur $shadow-color,
+		0 0 $shadow-size lighten($shadow-color, 5%);
 }
 
 @mixin track {
-  cursor: default;
-  height: $track-height;
-  transition: all .2s ease;
-  width: $track-width;
+	cursor: default;
+	height: $track-height;
+	transition: all 0.2s ease;
+	width: $track-width;
 }
 
 @mixin thumb {
-  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
-  background: $thumb-color;
-  border: $thumb-border-width solid $thumb-border-color;
-  border-radius: $thumb-radius;
-  box-sizing: border-box;
-  cursor: default;
-  height: $thumb-height;
-  width: $thumb-width;
+	@include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+	background: $thumb-color;
+	border: $thumb-border-width solid $thumb-border-color;
+	border-radius: $thumb-radius;
+	box-sizing: border-box;
+	cursor: default;
+	height: $thumb-height;
+	width: $thumb-width;
 }
 
-[type='range'] {
-  -webkit-appearance: none;
-          appearance: none;
-  background: transparent;
-  margin: math.div($thumb-height, 2) 0;
-  width: $track-width;
+[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	margin: math.div($thumb-height, 2) 0;
+	width: $track-width;
 
-  &::-moz-focus-outer {
-    border: 0;
-  }
+	&::-moz-focus-outer {
+		border: 0;
+	}
 
-  &:focus {
-    outline: 0;
+	&:focus {
+		outline: 0;
 
-    &::-webkit-slider-runnable-track {
-      background: lighten($track-color, $contrast);
-    }
+		&::-webkit-slider-runnable-track {
+			background: lighten($track-color, $contrast);
+		}
 
-    &::-ms-fill-lower {
-      background: $track-color;
-    }
+		&::-ms-fill-lower {
+			background: $track-color;
+		}
 
-    &::-ms-fill-upper {
-      background: lighten($track-color, $contrast);
-    }
-  }
+		&::-ms-fill-upper {
+			background: lighten($track-color, $contrast);
+		}
+	}
 
-  &::-webkit-slider-runnable-track {
-    @include track;
-    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-    background: $track-color;
-    border: $track-border-width solid $track-border-color;
-    border-radius: $track-radius;
-  }
+	&::-webkit-slider-runnable-track {
+		@include track;
+		@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+		background: $track-color;
+		border: $track-border-width solid $track-border-color;
+		border-radius: $track-radius;
+	}
 
-  &::-webkit-slider-thumb {
-    @include thumb;
-    -webkit-appearance: none;
-    margin-top: (math.div((-$track-border-width * 2 + $track-height), 2) - math.div($thumb-height, 2));
-  }
+	&::-webkit-slider-thumb {
+		@include thumb;
+		-webkit-appearance: none;
+		margin-top: (math.div((-$track-border-width * 2 + $track-height), 2) - math.div($thumb-height, 2));
+	}
 
-  &::-moz-range-track {
-    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-    @include track;
-    background: $track-color;
-    border: $track-border-width solid $track-border-color;
-    border-radius: $track-radius;
-    height: math.div($track-height, 2);
-  }
+	&::-moz-range-track {
+		@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+		@include track;
+		background: $track-color;
+		border: $track-border-width solid $track-border-color;
+		border-radius: $track-radius;
+		height: math.div($track-height, 2);
+	}
 
-  &::-moz-range-thumb {
-    @include thumb;
-  }
+	&::-moz-range-thumb {
+		@include thumb;
+	}
 
-  &::-ms-track {
-    @include track;
-    background: transparent;
-    border-color: transparent;
-    border-width: math.div($thumb-height, 2) 0;
-    color: transparent;
-  }
+	&::-ms-track {
+		@include track;
+		background: transparent;
+		border-color: transparent;
+		border-width: math.div($thumb-height, 2) 0;
+		color: transparent;
+	}
 
-  &::-ms-fill-lower {
-    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-    background: $ie-bottom-track-color;
-    border: $track-border-width solid $track-border-color;
-    border-radius: ($track-radius * 2);
-  }
+	&::-ms-fill-lower {
+		@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+		background: $ie-bottom-track-color;
+		border: $track-border-width solid $track-border-color;
+		border-radius: ($track-radius * 2);
+	}
 
-  &::-ms-fill-upper {
-    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
-    background: $track-color;
-    border: $track-border-width solid $track-border-color;
-    border-radius: ($track-radius * 2);
-  }
+	&::-ms-fill-upper {
+		@include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+		background: $track-color;
+		border: $track-border-width solid $track-border-color;
+		border-radius: ($track-radius * 2);
+	}
 
-  &::-ms-thumb {
-    @include thumb;
-    margin-top: math.div($track-height, 4);
-  }
+	&::-ms-thumb {
+		@include thumb;
+		margin-top: math.div($track-height, 4);
+	}
 
-  &:disabled {
-    &::-webkit-slider-thumb,
-    &::-moz-range-thumb,
-    &::-ms-thumb,
-    &::-webkit-slider-runnable-track,
-    &::-ms-fill-lower,
-    &::-ms-fill-upper {
-      cursor: not-allowed;
-    }
-  }
+	&:disabled {
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb,
+		&::-ms-thumb,
+		&::-webkit-slider-runnable-track,
+		&::-ms-fill-lower,
+		&::-ms-fill-upper {
+			cursor: not-allowed;
+		}
+	}
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body,
 html {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
-}
-
-
-.mobile-notice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 100000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    text-align: center;
-    background-color: rgba($bodyBackground, 0.56);
-    backdrop-filter: blur(7px);
-    font-size: 30px;
-    user-select: none;
-    display: none;
-    span {
-        max-width: 490px;
-    }
-
-    @media screen and (max-width: 1900px) {
-        // display: flex;
-    }
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
 }
 
 .mobile-options-title {
-    text-align: center;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    background: inherit;
-    grid-area: title;
-    z-index: 10;
+	text-align: center;
+    width: 100vw;
+	padding: rem-calc(10 21);
+	position: sticky;
+	top: 0;
+	display: flex;
+    justify-content: space-between;
+	align-items: center;
+	gap: 7px;
+	background: inherit;
+	grid-area: title;
+	z-index: 10;
 
-    &:after {
-        content: "";
-        position: relative;
-        width: 50px;
-        height: 3px;
-        border-radius: 10px;
-        background-color: #c7c7c7;
-    }
-
-
-
-    @include breakpoint(large) {
-        display: none;
-    }
-    
+	@include breakpoint(large) {
+		display: none;
+	}
 }

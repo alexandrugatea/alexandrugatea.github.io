@@ -76,12 +76,15 @@
                 <p>Drag over squares to fill with color.</p>
             </div>
             <div class="game-options">
-                <h2 class="mobile-options-title" id="toggleMobileSettings">Settings</h2>
+                <h2 class="mobile-options-title" id="toggleMobileSettings">
+                    <span>Colors</span>
+                    <span class="icon">menu</span>
+                </h2>
                 <div class="game-options-grid-size">
-                    <span>Grid size: <span id="currentGridSize"></span></span>
+                    <span class="game-options-grid-size-label">Current Grid size: <span id="currentGridSize"></span></span>
                     <label for="gridSize">
-                        <input type="range" min="4" max="48" step="4" value="24" id="gridSize">
-                        <button class="action-btn" id="changeGrid">Apply <span id="selectedSize">36x36</span></button>
+                        <input type="range" min="4" max="36" step="4" value="24" id="gridSize">
+                        <button class="action-btn" id="changeGrid">Apply <span id="selectedSize">24x24</span></button>
                     </label>
                 </div>
                 <div class="game-options-background">
@@ -144,38 +147,54 @@
                                 data-color="#673AB7 "><span>Violet</span>
                             </button>
                             </li>
+
+                        <li class="color-list-item custom-picker">
+                            <label for="customColor">
+                                <input class="color custom" data-color="custom" type="color" name="customColor" id="customColor" value="#ffc300">
+                                <span class="custom-color">Pick</span>
+                            </label>
+                        </li>
                         <li class="color-list-item">
                             <button class="color clear"
-                                data-color="transparent"><span>Erase</span>
+                                data-color="transparent">
+                                <i class="icon">ink_eraser</i>
+                                <span>Erase</span>
                             </button>
-                            </li>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="game-container">
+            <div class="actions">
+                <button class="action-btn undo-drawing" id="undoDrawing" data-tooltip="Undo">
+                    <span id="availableUndo" class="available-undo"></span>
+                    <span class="icon">undo</span>
+                </button>
+                <button class="action-btn show-guides" id="showGuides" data-tooltip="Toggle Guides">
+                    <span class="icon">grid_on</span>
+                </button>
+                <button class="action-btn mirror-h" id="mirrorH" data-tooltip="Horizontal Mirror">
+                    <span class="icon">horizontal_rule</span>
+                </button>
+                <button class="action-btn mirror-v" id="mirrorV" data-tooltip="Horizontal Mirror">
+                    <span class="icon">horizontal_rule</span>
+                </button>
+
+                <button class="action-btn clear-drawing" id="clearDrawing" data-tooltip="Clear Board">
+                    <span class="icon">mop</span>
+                </button>
+                <button class="action-btn export-drawing" id="exportDrawing" data-tooltip="Download">
+                    <span class="icon">download</span>
+                </button>
+            </div>
             <div class="grid-outer">
                 <div class="grid-container" id="grid"></div>
             </div>
-            <div class="actions">
-                <button class="action-btn" id="showGuides">Toggle Guides</button>
-                <button class="action-btn" id="clearDrawing">Clear Drawing</button>
-                <button class="action-btn" id="exportDrawing">Download</button>
-            </div>
         </div>
-
     </div>
 
-    <div class="mobile-notice">
-        <span>
-            Pixel Avatars <br>is only suported on desktop browsers with a resolution of at least 1920x1080.
-            <br> 
-            <br> 
-            Thank you for understanding!
-        </span>
-
-    </div>
     <!-- javascript -->
     <script src="html2canvas.js"></script>
     <script src="scripts.js"></script>
