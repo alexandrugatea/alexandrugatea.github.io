@@ -1,4 +1,4 @@
-export default function updateTime() {
+function updateTime() {
 	const localTimeContainer = document.getElementById("localTime");
 	const now = new Date();
 	const hours = String(now.getHours()).padStart(2, "0");
@@ -14,3 +14,5 @@ export default function updateTime() {
 
 	localTimeContainer.innerHTML = currentTime;
 }
+
+export { updateTime }

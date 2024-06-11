@@ -5,7 +5,7 @@
 
 .weather-days {
 	width: 100%;
-	gap: rem-calc(21);
+	gap: rem-calc(7);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -31,7 +31,7 @@
 	}
 	.weather-card-date {
 		sup {
-			font-family: $font300i;
+			font-family: $font300;
 			margin-left: rem-calc(2);
 		}
 	}
@@ -53,7 +53,7 @@
 
 		.weather-card-divider {
 			opacity: 0.56;
-			padding: rem-calc(0 14);
+			padding: rem-calc(0 7);
 		}
 
 		.temp-icon {
@@ -63,6 +63,10 @@
 
 		.dual-value {
 			@include setHeights(21);
+		}
+
+		.weather-day-precip {
+			margin-left: rem-calc(14);
 		}
 	}
 

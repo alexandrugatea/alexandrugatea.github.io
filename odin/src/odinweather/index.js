@@ -1,24 +1,18 @@
 import "./scss/style.scss";
-import initWeatherApp from "./js/init";
-import changeUnits from "./js/changeUnits";
-import updateTime from "./js/localTime";
-import dragHours from "./js/drag,js";
+import { fetchUserLocation } from "./js/components/getLocation.js";
+import { getWeatherApiURL } from "./js/api/api.js";
+import { initWeatherApp } from "./js/init";
 
-document.addEventListener("DOMContentLoaded", function () {
-	const refresh = document.getElementById("refresh");
-
-	// init weather app
-	initWeatherApp();
-
-	//
-	changeUnits();
-
-	setInterval(updateTime, 1000);
-	updateTime();
-	dragHours();
-
-	// reinit weather app on button click
-	refresh.onclick = function () {
-		initWeatherApp();
-	};
+document.addEventListener("DOMContentLoaded", async function () {
+    
+	// getting user's location from the browser
+	// this function returns real coordinates, if user allows location services
+	// or defaults to London, in which case it will return London's lat and lon.
+	const userLocation = await fetchUserLocation();
+    
+	// construct a weather api url, based on user location
+	const weatherApiURL = getWeatherApiURL({ lat: userLocation.lat, lon: userLocation.lon });
+	
+	// init weather app on DOM load
+	initWeatherApp(weatherApiURL);
 });

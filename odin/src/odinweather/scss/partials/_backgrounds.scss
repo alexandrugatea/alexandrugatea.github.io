@@ -1,25 +1,55 @@
 body {
-	&.day {
-		background: #2980b9; /* fallback for old browsers */
-		background: -webkit-linear-gradient(to top, #ffffff, #6dd5fa, #2980b9); /* Chrome 10-25, Safari 5.1-6 */
+	color: $light;
+
+	.day-night-gradient-background {
+		position: fixed;
+		left: 0;
+		width: 100%;
 		background: linear-gradient(
-			to top,
-			#ffffff,
-			#6dd5fa,
-			#2980b9
-		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			to bottom,
+			#11111d 7%,
+			#182d53 49%,
+			#3f62bd 70%,
+			#5a7fb6 98%
+		);
+		z-index: -1;
+		height: 200%;
+		height: 200vh;
+		height: 200dvh;
+		transition: all 1s ease-in-out;
+		top: -100%;
+		top: -100vh;
+		top: -100dvh;
+
+		&:before {
+			content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            z-index: -1;
+			background-image: url(../images/stars_pattern.png);
+			
+			mask: linear-gradient(
+					rgba(black, 0.9) 07%, 
+					rgba(black, 0.0) 56%
+				);
+			
+			background-size: rem-calc(120);
+			transition: all 1s ease-in-out;
+			background-repeat: repeat;
+			background-position: top center;
+		}
+		
+	}
+	&.day .day-night-gradient-background:before {
+		opacity: 0.07;
+		top: 50%;
 	}
 
-	&.night {
-		background: #0f0c29; /* fallback for old browsers */
-		background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29); /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(
-			to top,
-			#24243e,
-			#302b63,
-			#0f0c29
-		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-		color: $light;
+	&.night .day-night-gradient-background {
+		top: 0;
 	}
 
 	&[data-code] .weather > .weather-now .weather-current {
@@ -32,9 +62,7 @@ body {
 	// &[data-code="1006"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1006-day.jpg); }
 	// &[data-code="1009"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1009-day.jpg); }
 	// &[data-code="1030"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1030-day.jpg); }
-	&[data-code="1063"].night .weather > .weather-now .weather-current {
-		background-image: url(../images/weather-day.jpg);
-	}
+	&[data-code="1063"].night .weather > .weather-now .weather-current {background-image: url(../images/weather-day.jpg);}
 	// &[data-code="1066"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1066-day.jpg); }
 	// &[data-code="1069"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1069-day.jpg); }
 	// &[data-code="1072"].day .weather > .weather-now  .weather-current{ background-image: url(../images/weather-1072-day.jpg); }

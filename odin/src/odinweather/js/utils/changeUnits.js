@@ -1,4 +1,4 @@
-export default function changeUnits() {
+function changeUnits() {
 	const changeUnitsButton = document.getElementById("units");
 	let unit = changeUnitsButton.querySelector("#unit");
 	const body = document.body;
@@ -31,3 +31,5 @@ export default function changeUnits() {
 		body.classList.add(unitSystem);
 	});
 }
+
+export { changeUnits }

@@ -1,4 +1,4 @@
-export default function createNotification(text, type) {
+function createNotification(text, type) {
 	const notification = document.createElement("div");
 	notification.classList.add(type);
 
@@ -37,3 +37,5 @@ export default function createNotification(text, type) {
 		}, toastTimeOut * 2);
 	}
 }
+
+export { createNotification }
