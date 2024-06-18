@@ -72,7 +72,7 @@ function populateForecast(data) {
 
 		const dayIcon = document.createElement("img");
 		// dayIcon.setAttribute("src", day.conditionIcon);
-		dayIcon.setAttribute("src", generateIconUrl(day.iconCode.dayOrNight, day.iconCode.code));
+		dayIcon.setAttribute("src", generateIconUrl(day));
 		dayIcon.setAttribute("alt", day.condition);
 
 		const dayCondition = document.createElement("h3");
@@ -168,7 +168,7 @@ function populateForecast(data) {
 		// condition icon
 		const hourIcon = document.createElement("img");
 		// hourIcon.setAttribute("src", hour.conditionIcon);
-		hourIcon.setAttribute("src", generateIconUrl(hour.iconCode.dayOrNight, hour.iconCode.code));
+		hourIcon.setAttribute("src", generateIconUrl(hour));
 		hourIcon.setAttribute("alt", hour.condition);
 		hourIcon.setAttribute("draggable", "false");
 
@@ -248,7 +248,9 @@ function populateForecast(data) {
 
 
 function generateIconUrl(data) {
-	return `images/icons/${data.iconCode.code}-${data.iconCode.dayOrNight}.svg`;
+	const dn = data.iconCode.dayOrNight;
+	const code = data.iconCode.code;
+	return `images/icons/${code}-${dn}.svg`;
 }
 
 export { populateLocation, populateCurrent, populateForecast };

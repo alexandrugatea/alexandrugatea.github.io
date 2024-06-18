@@ -15,7 +15,7 @@ function displayData(data) {
 	const formatedLocation = getLocationData(data.location);
 	const formatedCurrent = getCurrentData(data.current);
 	const formatedForecast = getForecastData(data.forecast, data.location);
-	console.log(formatedForecast);
+	console.log(formatedCurrent);
 
 	populateLocation(formatedLocation);
 	populateCurrent(formatedCurrent);
