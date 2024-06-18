@@ -5,14 +5,14 @@ import { createNotification } from "../utils/createNotification";
 import { getLocationApiURL, getWeatherApiURL } from "../api/api";
 
 function searchCity(updateCurrentLocationCallback) {
-    const newCityField = document.getElementById("newLocationField");
-    const locationForm = document.getElementById("newLocationForm");
-    const hiddenField = document.getElementById("valueToFetchWeather");
-    const hiddenFieldUI = document.getElementById("valueToDisplyOnUI");
-    const searchContainer = document.querySelector(".search-results-container");
-    const popularButtons = document.querySelectorAll(".popular-place");
-	const dropdown = document.getElementById("searchResults");
-    const debounceTimer = 200;
+    const newCityField        = document.getElementById("newLocationField");
+    const locationForm        = document.getElementById("newLocationForm");
+    const hiddenField         = document.getElementById("valueToFetchWeather");
+    const hiddenFieldUI       = document.getElementById("valueToDisplyOnUI");
+    const searchContainer     = document.querySelector(".search-results-container");
+    const popularButtons      = document.querySelectorAll(".popular-place");
+    const dropdown            = document.getElementById("searchResults");
+    const debounceTimer       = 200;
     const mobileSearchTrigger = document.getElementById("mobileSearchTrigger");
     let debounceTimeout;
 	let isSubmitted = false;
@@ -20,6 +20,7 @@ function searchCity(updateCurrentLocationCallback) {
 
     mobileSearchTrigger.addEventListener('click', function() {
         locationForm.parentNode.classList.add("mobile-open");
+        newCityField.focus();
     });
 
     document.body.addEventListener("click", function(e) {
@@ -136,8 +137,9 @@ function searchCity(updateCurrentLocationCallback) {
         if (cityCoords) {
             const [lat, lon] = cityCoords.split(',');
             apiURL = getWeatherApiURL({ lat, lon });
-        } else if (cityName) {
-            apiURL = getWeatherApiURL({ city: cityName });
+            console.log("CityCoords %s", apiURL);
+            } else if (cityName) {
+                apiURL = getWeatherApiURL({ city: cityName });
         } else {
             alert("Please enter a city name");
             return;

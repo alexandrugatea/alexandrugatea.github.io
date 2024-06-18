@@ -1,6 +1,18 @@
 .weather-daily {
 	width: 100%;
 	overflow: hidden;
+	padding-bottom: 0;
+
+	@include breakpoint(small only) {
+		// < 768
+		padding: rem-calc(0 14);
+	}
+}
+
+body.night {
+	.weather-days .weather-day-card {
+		background: rgba(darken($dark, 10%), 0.14);
+	}
 }
 
 .weather-days {

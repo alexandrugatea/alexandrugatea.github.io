@@ -30,12 +30,8 @@ body {
 		background: linear-gradient(to bottom, #11111d 7%, #182d53 49%, #3f62bd 70%, #5a7fb6 98%);
 		z-index: 0;
 		height: 200%;
-		height: 200vh;
-		height: 200dvh;
 		transition: all 1s ease-in-out;
 		top: -100%;
-		top: -100vh;
-		top: -100dvh;
 		opacity: 1;
 
 		&:before {
@@ -64,11 +60,6 @@ body {
 
 	&.night .day-night-gradient-background {
 		top: 0;
-	}
-
-	&[data-code] .weather > .weather-now .weather-current {
-		background-position: left;
-		background-size: cover;
 	}
 
 	// &[data-code="1000"].day .weather > .weather-now { background-image: url(../images/weather-1000-day.jpg); }

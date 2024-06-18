@@ -26,7 +26,7 @@ function fetchAndDisplayData(url) {
 	// Fetch data from the provided URL
 	fetchData(url)
 		.then((data) => {
-			console.log(data); // Debug
+			// console.log(data); // Debug
 
 			// Hide loading indicator
 			hideLoader();

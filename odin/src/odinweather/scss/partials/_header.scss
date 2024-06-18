@@ -1,13 +1,13 @@
 .weather-header {
 	width: 100%;
-	padding: rem-calc(14 21);
+	padding: rem-calc(14 42);
 	font-family: $font700;
 	font-size: rem-calc(21);
 	position: fixed;
 	width: 100%;
 	z-index: 999999;
 	backdrop-filter: blur(7px);
-	max-width: rem-calc(1440);
+	max-width: rem-calc(1400);
 	top: 0;
 	
 	@include breakpoint(medium) {
@@ -113,11 +113,19 @@
 		@include breakpoint(small only) {
 			// < 768
 			grid-area: unit;
+			width: rem-calc(49);
 		}
 
 		@include breakpoint(medium) {
 			// 768
 			height: 100%;
+		}
+
+		.unit-label {
+			@include breakpoint(small only) {
+				// < 768
+				display: none;
+			}
 		}
 	}
 }

@@ -3,16 +3,16 @@
 	bottom: 0;
 	left: 50%;
 	transform: translate(-50%, 0%);
-	padding: rem-calc(7 14);
+	padding: rem-calc(14);
 	border-top-left-radius: rem-calc(8);
 	color: $dark;
 
-	font-size: rem-calc(10);
+	font-size: rem-calc(12);
 	font-family: $font700i;
 	user-select: none;
 	z-index: 1;
 	color: $light;
-	opacity: 0.28;
+	opacity: 0.56;
 	text-align: center;
 	width: 100%;
 

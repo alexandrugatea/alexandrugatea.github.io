@@ -41,23 +41,23 @@
 .search-results-container.open:not(:has(.dropdown-item)):hover,
 #newLocationField:focus + .search-results-container:not(:has(.dropdown-item)) {
 	height: rem-calc(7 + 49 + 7 + 49 + 14 + 14);
-	background: darken($light, 5%);
+	background: #182d53;
 }
 
 .search-results-container.open {
 	&:has(.dropdown-item) {
 		height: auto;
-		background: darken($light, 5%);
+		background: #182d53;
 	}
 }
 
 #newLocationField:not(:placeholder-shown) + .search-results-container.open {
 	overflow: visible;
-	background: darken($light, 5%);
+	background: #182d53;
 }
 
 .dropdown {
-	background: darken($light, 5%);
+	background: #182d53;
 	border-radius: rem-calc(28);
 	margin: rem-calc(14);
 
@@ -73,6 +73,7 @@
 		padding: rem-calc(21 21);
 		background: transparent;
 		cursor: pointer;
+		color: $light;
 
 		.dropdown-item-content {
 			display: flex;
@@ -101,7 +102,7 @@
 		}
 
 		&:not(:last-child) {
-			border-bottom: rem-calc(1) solid rgba($dark, 0.14);
+			border-bottom: rem-calc(1) solid rgba($light, 0.14);
 		}
 
 		&:focus {

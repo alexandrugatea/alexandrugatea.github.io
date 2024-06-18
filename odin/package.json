@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "date-fns": "^3.6.0",
-    "flag-icons": "^7.2.3"
+    "flag-icons": "^7.2.3",
+    "foundation-sites": "^6.8.1"
   }
 }

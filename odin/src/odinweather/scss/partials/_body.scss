@@ -1,8 +1,9 @@
 body {
 	padding-bottom: rem-calc(56);
+	background: $dark;
 
 	@include breakpoint(small only) {
-		padding-top: rem-calc(77);
+		padding-top: rem-calc(91);
 	}
 
 	@include breakpoint(medium) {

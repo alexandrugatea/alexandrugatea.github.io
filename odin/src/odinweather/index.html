@@ -85,7 +85,7 @@
             </form>
         </div>
         <div class="weather-local-time" id="localTime"></div>
-        <button id="units" class="units">Unit <span id="unit">&deg;C</span></button>
+        <button id="units" class="units"><span class="unit-label">Unit</span><span id="unit">&deg;C</span></button>
 
     </header>
 
@@ -107,48 +107,60 @@
                     <span id="locationCoords" class="current-coords"></span>
                     <span id="locationRegion" class="current-region"></span>
                     <span id="locationCountry" class="current-country"></span>
+                    <div class="astro"></div>
                 </div>
             </div>
             <div class="weather-current">
                 <div class="now">
                     <div class="weather-current-temp"></div>
-                    <div class="weather-now-icon">
+                    <div class="weather-now-condition">
                         <img src="#" alt="" id="currentIcon">
+                        <span id="currentText" class="weather-current-text"></span>
                     </div>
-                    <span id="currentText" class="weather-current-text"></span>
                 </div>
-                <div class="astro"></div>
             </div>
             <div class="weather-current-details">
                 <div class="weather-current-humidity flex-items">
-                    <span class="icon">water_drop</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">water_drop</span>
+                        <span class="desc">Humidity</span>
+                    </div>
                     <span id="currentHumidity" class="weather-value"></span>
-                    <span class="desc">Humid</span>
                 </div>
                 <div class="weather-current-wind flex-items">
-                    <div class="icon">air</div>
+                    <div class="current-detail-icon">
+                        <span class="icon">air</span>
+                        <span class="desc">Wind Speed</span>
+                    </div>
                     <div class="weather-current-wind-values weather-value"></div>
-                    <span class="desc">Wind S</span>
                 </div>
                 <div class="weather-current-wind-dir flex-items">
-                    <span class="icon">air</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">air</span>
+                        <span class="desc">Wind Direction</span>
+                    </div>
                     <span id="weatherCurrentWindDir" class="weather-value"></span>
-                    <span class="desc">Wind D</span>
                 </div>
                 <div class="weather-current-precipitation flex-items">
-                    <div class="icon">rainy</div>
+                    <div class="current-detail-icon">
+                        <span class="icon">rainy</span>
+                        <span class="desc">Rain Amount</span>
+                    </div>
                     <div class="weather-current-precipitation-values weather-value"></div>
-                    <span class="desc">Rain</span>
                 </div>
                 <div class="weather-current-clouds flex-items">
-                    <span class="icon">cloud</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">cloud</span>
+                        <span class="desc">Cloud Coverage</span>
+                    </div>
                     <span id="weatherCurrentClouds" class="weather-value"></span>
-                    <span class="desc">Clouds</span>
                 </div>
                 <div class="weather-current-uv flex-items">
-                    <span class="icon">sunny</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">sunny</span>
+                        <span class="desc">UV Index</span>
+                    </div>
                     <span id="weatherCurrentUV" class="weather-value"></span>
-                    <span class="desc">UV Index</span>
                 </div>
             </div>
         </div>
@@ -164,15 +176,14 @@
             <div class="title">Next Days</div>
             <div id="weatherNextDays" class="weather-days"></div>
         </div>
-
-        <div id="loader" class="loader open">
-            <div class="loader-container">
-                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-                <dotlottie-player src="https://lottie.host/9c625eef-2dce-403e-a69e-571f0ba566d9/aTihb3f1Sd.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
-            </div>
-        </div>
     </div>
 
+    <div id="loader" class="loader open">
+        <div class="loader-container">
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+            <dotlottie-player src="https://lottie.host/9c625eef-2dce-403e-a69e-571f0ba566d9/aTihb3f1Sd.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+        </div>
+    </div>
     <div class="weather-credits">
         Powered by <a href="https://www.weatherapi.com/"  target="_blank" alt="Free Weather API">WeatherAPI.com</a>
         and 

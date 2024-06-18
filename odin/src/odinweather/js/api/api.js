@@ -2,7 +2,7 @@
 
 const api = {
 	location: {
-		url: `https://api.locationiq.com/v1/autocomplete.php?`,
+		url: `https://api.locationiq.com/v1/autocomplete.php`,
 		params: {
 			key: "pk.fa6e80804f9289787659846f822b3ee3",
 			q: "",
@@ -77,11 +77,10 @@ function getWeatherApiURL({ city = null, lat = null, lon = null }) {
  * @returns {string} - The URL with the appended parameters.
  */
 function populateParams(baseUrl, params) {
-	const url = new URL(baseUrl);
-	Object.keys(params).forEach((key) => {
-		url.searchParams.append(key, params[key]);
-	});
-	return url.toString();
+    const queryString = Object.keys(params)
+        .map(key => `${key}=${params[key]}`)
+        .join('&');
+    return `${baseUrl}?${queryString}`;
 }
 
 export { api, getLocationApiURL, getWeatherApiURL };
