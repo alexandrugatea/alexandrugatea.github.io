@@ -28,14 +28,14 @@ body.night {
 		padding: rem-calc(21);
 		width: rem-calc(210);
 		flex: 1 0 auto;
-		border-radius: rem-calc(8);
+		border-radius: rem-calc(14);
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: rem-calc(7);
-		background: rgba($light, 0.07);
+		background: rgba($dark, 0.14);
 		backdrop-filter: blur(7px);
 	}
 	.weather-condition {

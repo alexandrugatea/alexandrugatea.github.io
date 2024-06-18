@@ -192,12 +192,8 @@
 		display: inline-block;
 		margin-top: rem-calc(-14);
 		font-size: rem-calc(28);
-		max-width: rem-calc(210);
-
-		@include breakpoint(medium down) {
-			// < 768
-			justify-self: flex-start;
-		}
+		max-width: rem-calc(280);
+		text-align: center;
 	}
 
 	.weather-now-condition {
@@ -339,7 +335,7 @@
 	.flex-items {
 		@include flex-middle;
 		padding: rem-calc(14);
-		background: rgba(lighten($light, 0%), 0.1);
+		background: rgba($dark, 0.21);
 		border-radius: rem-calc(14);
 		gap: rem-calc(14);
 		width: 100%;
