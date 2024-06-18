@@ -1,8 +1,16 @@
-function populateDOMElement(selector, content) {
-	const element = document.querySelector(selector);
-	if (element) {
-		element.innerHTML = content;
+function populateDOMElement(selector, content, image = false) {
+	const element = document.querySelector(selector) || selector;
+	if (element && !image) {
+		return element.innerHTML = content;
+	} 
+	if (image) {
+		return element.src = content;
 	}
+	
 }
 
-export { populateDOMElement };
+function clear(element) {
+	return element.innerHTML = "";
+}
+
+export { populateDOMElement, clear };

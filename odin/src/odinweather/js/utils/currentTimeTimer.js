@@ -1,4 +1,3 @@
-
 import { updateTime } from "../utils/updateTime";
 
 let intervalId;

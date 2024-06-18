@@ -15,6 +15,11 @@ function initWeatherApp(initialWeatherUrl) {
 	const refreshButton = document.getElementById("refresh");
 	refreshButton.onclick = function () {
 		fetchAndDisplayData(currentDisplayedLocation);
+		this.classList.add("rotate");
+
+		setTimeout(() => {
+            this.classList.remove("rotate");
+        }, 350);
 	};
 
 	const locateMeButton = document.getElementById("locateMe");

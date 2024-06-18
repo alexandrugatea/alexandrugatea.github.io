@@ -14,13 +14,13 @@ function dragHours() {
 
 		function removeGrab() {
 			isDown = false;
-			slider.classList.remove("active");
+			slider.parentNode.classList.remove("active");
 		}
 
 		function prepareGrab(e) {
 			isDown = true; // When this is true, we will be able to scroll
 
-			slider.classList.add("active");
+			slider.parentNode.classList.add("active");
 			// Calculate the position where we clicked taking into account the offset of the element
 			startX = e.pageX - slider.offsetLeft;
 			// Take into account the current scroll position of the element

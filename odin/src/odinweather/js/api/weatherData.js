@@ -81,23 +81,24 @@ function getForecastData(data, location) {
 
 	const currentDate = new Date(location.localtime);
 	const currentHour = currentDate.getHours();
-	let next24Hours = [];
+	let nextHours = [];
+	const numberOfHours = 48;
 
 	const currentDayHours = data.forecastday[0].hour.slice(currentHour + 1);
 
 	// Get the hours from the next day(s) if needed
-	let remainingHours = 24 - currentDayHours.length;
+	let remainingHours = numberOfHours - currentDayHours.length;
 	if (remainingHours > 0) {
 		for (let i = 1; i < data.forecastday.length && remainingHours > 0; i++) {
 			const nextDayHours = data.forecastday[i].hour.slice(0, remainingHours);
-			next24Hours = next24Hours.concat(nextDayHours);
+			nextHours = nextHours.concat(nextDayHours);
 			remainingHours -= nextDayHours.length;
 		}
 	}
 
-	next24Hours = currentDayHours.concat(next24Hours);
+	nextHours = currentDayHours.concat(nextHours);
 
-	next24Hours = next24Hours.map((hour) => {
+	nextHours = nextHours.map((hour) => {
 		const time = hour.time.split(" ")[1];
 		const date = hour.time.split(" ")[0];
 
@@ -130,7 +131,7 @@ function getForecastData(data, location) {
 
 	return {
 		forecastDays,
-		currentDayHours: next24Hours,
+		currentDayHours: nextHours,
 	};
 }
 

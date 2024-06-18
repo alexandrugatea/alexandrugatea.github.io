@@ -71,7 +71,7 @@ body.night {
 			padding: rem-calc(0 7);
 		}
 
-		.temp-icon {
+		.temp-icon, i {
 			margin-right: rem-calc(7);
 			opacity: 0.56;
 		}
@@ -90,7 +90,7 @@ body.night {
 		justify-content: center;
 		align-items: center;
 
-		.icon {
+		.icon, i {
 			margin-right: rem-calc(7);
 		}
 

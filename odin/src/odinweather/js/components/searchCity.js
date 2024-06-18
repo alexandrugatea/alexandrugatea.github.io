@@ -177,7 +177,7 @@ function searchCity(updateCurrentLocationCallback) {
                     hideLoader();
                     displayData(data);
                     newCityField.blur();
-                    updateCurrentLocationCallback(apiURL); // Update current displayed location
+                    updateCurrentLocationCallback(apiURL);
                 })
                 .catch((err) => {
                     createNotification("Location not found", "toast");

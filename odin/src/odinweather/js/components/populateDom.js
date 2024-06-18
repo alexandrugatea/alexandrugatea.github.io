@@ -1,256 +1,123 @@
-import { populateDOMElement } from "../utils/populateDomElement";
+import { populateDOMElement, clear } from "../utils/populateDomElement";
 import { getFlag } from "../utils/countryFlags";
-import { generateDualValueFields } from "../utils/generateDualValueFields";
-import { sunriseIcon, sunsetIcon } from "../utils/sunrisesunseticons";
+import { metricAndImperial } from "../utils/metricAndImperial";
+import { astro } from "../utils/sunrisesunseticons";
 import { updateTimeContainer } from "../utils/currentTimeTimer";
 import { setDayNightClassesOnBody } from "../utils/bodyDayNightClasses";
+import { generateIconUrl } from "../utils/setIconPath";
+import { willItRain } from "../utils/willItRain";
 
+const location = {
+	city: "#locationCity",
+	region: "#locationRegion",
+    country: "#locationCountry",
+    coords: "#locationCoords",
+    time: "#locationTime",
+};
+
+const current = {
+	temp: ".weather-current-temp",
+	condition: "#currentText",
+	icon: "#currentIcon",
+	wind: ".weather-current-wind-values",
+    precipitation: ".weather-current-precipitation-values",
+    humidity: "#currentHumidity",
+    clouds: "#weatherCurrentClouds",
+    windDir: "#weatherCurrentWindDir",
+	uv: "#weatherCurrentUV"
+};
 
 function populateLocation(data) {
-	populateDOMElement("#locationCity", `${data.city}`);
-	populateDOMElement("#locationRegion", `Region: ${data.region} `);
-	populateDOMElement("#locationCountry", `${getFlag(data)} ${data.country}`);
-	populateDOMElement("#locationCoords", `${data.lat}, ${data.lon}`);
+	populateDOMElement(location.city, data.city);
+	populateDOMElement(location.region, data.region);
+	populateDOMElement(location.country, `${getFlag(data)} ${data.country}`);
+	populateDOMElement(location.coords, `${data.lat}, ${data.lon}`);
 	updateTimeContainer(data);
 }
 
-
-
 function populateCurrent(data) {
 	setDayNightClassesOnBody(data);
-
-	const currentTempContainer = document.querySelector(".weather-current-temp");
-
-	generateDualValueFields(currentTempContainer, "temp", "&deg", "&deg", data);
-
-
-	const currentIconContainer = document.querySelector("#currentIcon");
-	currentIconContainer.src = generateIconUrl(data);
-
-	const currentTextContainer = document.querySelector("#currentText");
-	currentTextContainer.innerHTML = data.text;
-
-
-	const currentHumidityContainer = document.querySelector("#currentHumidity");
-	currentHumidityContainer.innerHTML = `${data.humidity}<span class="unit">%<span>`;
-
-	const currentWindContainer = document.querySelector(".weather-current-wind-values");
-	generateDualValueFields(currentWindContainer, "wind", " kph", " mph", data);
-
-	const currentPrecipContainer = document.querySelector(".weather-current-precipitation-values");
-	generateDualValueFields(currentPrecipContainer, "precipitation", " mm", " in", data);
-
-	const currentCloudsContainer = document.querySelector("#weatherCurrentClouds");
-	currentCloudsContainer.innerHTML = `${data.clouds}<span class="unit">%<span>`;
-
-	const currentWindDirContainer = document.querySelector("#weatherCurrentWindDir");
-	currentWindDirContainer.innerHTML = `${data.windDir}`;
-
-	const currentUVContainer = document.querySelector("#weatherCurrentUV");
-	currentUVContainer.innerHTML = `${data.uv}`;
-
+	populateDOMElement(current.temp, metricAndImperial("temp", "&deg", "&deg", data));
+	populateDOMElement(current.wind, metricAndImperial("wind", " kph", " mph", data));
+	populateDOMElement(current.condition, data.text);
+	populateDOMElement(current.icon, generateIconUrl(data), true);
+	populateDOMElement(current.humidity, `${data.humidity}<span class="unit">%<span>`);
+	populateDOMElement(current.precipitation, metricAndImperial("precipitation", " mm", " in", data));
+	populateDOMElement(current.clouds, `${data.clouds}<span class="unit">%<span>`);
+	populateDOMElement(current.windDir, data.windDir);
+	populateDOMElement(current.uv, data.uv);
 }
 
-
-
 function populateForecast(data) {
-	const astroContainer = document.querySelector(".astro");
-	astroContainer.innerHTML = `
-    <span>${sunriseIcon} ${data.forecastDays[0].astro.sunrise}</span>
-    <span>${sunsetIcon} ${data.forecastDays[0].astro.sunset}</span>`;
-
+	
+	// Get HTML containers for Hourly and Daily Forecast 
 	const nextDaysContainer = document.querySelector("#weatherNextDays");
-	nextDaysContainer.innerHTML = "";
+	const weatherHoursContainer = document.querySelector("#weatherHoursContainer");
 
+	// Clear existing Data
+	clear(nextDaysContainer);
+	clear(weatherHoursContainer);
+
+
+	// Add Sunrise and Sunset data
+	populateDOMElement(".astro", astro(data))
+
+	// Create HTML elements for each Day that is delivered by the API 
 	data.forecastDays.forEach((day) => {
+		
+		// Create HTML template for DayCard
+		const dayCardTemplate = `
+			<div  class = "weather-card-date">${day.date}</div>
+				<img  src   = ${generateIconUrl(day)}>
+				<h3   class = "weather-condition">${day.condition}</h3>
+				<div  class = "weather-card-details">
+				<div  class = "weather-card-temp-min">
+					<span class = "temp-icon">lo</span>
+					${metricAndImperial("temp.min", "&deg;", "&deg;", day)}
+				</div>
+				<div  class = "weather-card-divider"> | </div>
+				<div  class = "weather-card-temp-max">
+					<span class = "temp-icon">hi</span>
+					${metricAndImperial("temp.max", "&deg;", "&deg;", day)}
+				</div>
+				<div class = "weather-day-precip">${willItRain(day)}</div>
+			</div>`
+
 		const dayCard = document.createElement("div");
 		dayCard.className = "weather-day-card";
-
-		const dayDate = document.createElement("div");
-		dayDate.className = "weather-card-date";
-		dayDate.innerHTML = day.date;
-
-		const dayIcon = document.createElement("img");
-		// dayIcon.setAttribute("src", day.conditionIcon);
-		dayIcon.setAttribute("src", generateIconUrl(day));
-		dayIcon.setAttribute("alt", day.condition);
-
-		const dayCondition = document.createElement("h3");
-		dayCondition.classList.add("weather-condition");
-		dayCondition.innerHTML = day.condition;
-
-		const dayDetailsContainer = document.createElement("div");
-		dayDetailsContainer.className = "weather-card-details";
-
-		const tempContainerMin = document.createElement("div");
-		tempContainerMin.classList.add("weather-card-temp-min");
-
-		const tempContainerMinIcon = document.createElement("span");
-		tempContainerMinIcon.classList.add("temp-icon");
-		tempContainerMinIcon.textContent = "lo";
-
-		const tempContainerMinDual = document.createElement("div");
-		tempContainerMinDual.classList.add("weather-day-duals");
-		generateDualValueFields(tempContainerMinDual, "temp.min", "&deg;", "&deg;", day);
-
-		tempContainerMin.appendChild(tempContainerMinIcon);
-		tempContainerMin.appendChild(tempContainerMinDual);
-
-		const divider = document.createElement("div");
-		divider.classList.add("weather-card-divider");
-		divider.innerHTML = " | ";
-
-		const tempContainerMax = document.createElement("div");
-		tempContainerMax.classList.add("weather-card-temp-max");
-
-		const tempContainerMaxIcon = document.createElement("span");
-		tempContainerMaxIcon.classList.add("temp-icon");
-		tempContainerMaxIcon.textContent = "hi";
-
-		const tempContainerMaxDual = document.createElement("div");
-		tempContainerMaxDual.classList.add("weather-day-duals");
-		generateDualValueFields(tempContainerMaxDual, "temp.max", "&deg;", "&deg;", day);
-
-		tempContainerMax.appendChild(tempContainerMaxIcon);
-		tempContainerMax.appendChild(tempContainerMaxDual);
-
-		const dayPrecip = document.createElement("div");
-		dayPrecip.classList.add("weather-day-precip");
-
-		const dayPrecipIcon = document.createElement("span");
-		dayPrecipIcon.classList.add("icon");
-		dayPrecipIcon.textContent = "rainy";
-
-		const dayPrecipValues = document.createElement("div");
-		generateDualValueFields(dayPrecipValues, "precip", " mm", " in", day);
-
-		dayPrecip.appendChild(dayPrecipIcon);
-		dayPrecip.appendChild(dayPrecipValues);
-
-		dayDetailsContainer.appendChild(tempContainerMin);
-		dayDetailsContainer.appendChild(divider);
-		dayDetailsContainer.appendChild(tempContainerMax);
-		dayDetailsContainer.appendChild(dayPrecip);
-
-		//Construct the Weather Day Card
-		dayCard.appendChild(dayDate);
-		dayCard.appendChild(dayIcon);
-		dayCard.appendChild(dayCondition);
-		dayCard.appendChild(dayDetailsContainer);
+		dayCard.innerHTML = dayCardTemplate;
 
 		nextDaysContainer.appendChild(dayCard);
 	});
 
-	const weatherHoursContainer = document.querySelector("#weatherHoursContainer");
-	weatherHoursContainer.innerHTML = "";
-	weatherHoursContainer.setAttribute("draggable", "false");
+	data.currentDayHours.forEach((hour) => {
+		// Create HTML template for HourCard
+		const hourCardTemplate = `
+			<div class = "weather-hour-date">${hour.date}</div>
+			<div class = "weather-hour-time">${hour.time}</div>
+			<img src   = ${generateIconUrl(hour)}>
+			<h3  class = "weather-hour-condition">${hour.condition}</h3>
+			<div class = "weather-hour-temp">
+				<i>device_thermostat</i>
+				${metricAndImperial("temp", "&deg;", "&deg;", hour)}
+			</div>
+			<div class = "weather-hour-precip">
+				${willItRain(hour)}
+			</div>
+			<div class = "weather-hour-wind">
+				<i>air</i>
+				${metricAndImperial("wind", " kph", " mph", hour)}
+			</div>
+		`
 
-	data.currentDayHours.forEach((hour, index) => {
+		// Create Hour Card Element
 		const hourCard = document.createElement("div");
 		hourCard.className = "weather-hour-card";
-		hourCard.setAttribute("draggable", "false");
-
-		// time
-		const hourDate = document.createElement("div");
-		hourDate.classList.add("weather-hour-value");
-		hourDate.innerHTML = hour.date;
-
-		// time
-		const hourValue = document.createElement("div");
-		hourValue.classList.add("weather-hour-value");
-		
-		if (index === 0) {
-			hourValue.innerHTML = `<span class="weather-hour-value-now">now</span>`;
-		} else {
-			hourValue.innerHTML = hour.time;
-		}
-
-		// condition icon
-		const hourIcon = document.createElement("img");
-		// hourIcon.setAttribute("src", hour.conditionIcon);
-		hourIcon.setAttribute("src", generateIconUrl(hour));
-		hourIcon.setAttribute("alt", hour.condition);
-		hourIcon.setAttribute("draggable", "false");
-
-		// condution text
-		const hourCondition = document.createElement("h3");
-		hourCondition.classList.add("weather-hour-condition");
-		hourCondition.innerHTML = hour.condition;
-
-		// temp
-		const hourTemp = document.createElement("div");
-		hourTemp.classList.add("weather-hour-temp");
-
-		const hourTempIcon = document.createElement("span");
-		hourTempIcon.classList.add("icon");
-
-		const hourTempValues = document.createElement("div");
-		generateDualValueFields(hourTempValues, "temp", "&deg;", "&deg;", hour);
-		hourTemp.appendChild(hourTempIcon);
-		hourTemp.appendChild(hourTempValues);
-
-
-
-		// precip
-		const hourPrecip = document.createElement("div");
-		hourPrecip.classList.add("weather-hour-precip");
-
-		const hourPrecipIcon = document.createElement("span");
-		hourPrecipIcon.classList.add("icon");
-
-		const hourPrecipValues = document.createElement("div");
-		generateDualValueFields(hourPrecipValues, "precip", " mm", " in", hour);
-		
-		const hourRainSnowChance = document.createElement("div");
-		hourRainSnowChance.classList.add("weather-rain-snow-chance");
-
-		const rainChance = parseInt(hour.chanceOfRain);
-		const snowChance = parseInt(hour.chanceOfSnow);
-
-		if (rainChance >= snowChance)  {
-			hourRainSnowChance.textContent = `${rainChance}%`
-			hourPrecipIcon.textContent = "rainy";
-		} else {
-			hourRainSnowChance.textContent = `${snowChance}%`
-			hourPrecipIcon.textContent = "ac_unit";
-		}
-		
-		hourPrecip.appendChild(hourPrecipIcon);
-		hourPrecip.appendChild(hourRainSnowChance);
-
-		// wind
-		const hourWind = document.createElement("div");
-		hourWind.classList.add("weather-hour-wind");
-
-		const hourWindIcon = document.createElement("span");
-		hourWindIcon.classList.add("icon");
-		hourWindIcon.textContent = "air";
-
-		const hourWindValues = document.createElement("div");
-		generateDualValueFields(hourWindValues, "wind", " kph", " mph", hour);
-		hourWind.appendChild(hourWindIcon);
-		hourWind.appendChild(hourWindValues);
-
-		// construct card
-		hourCard.appendChild(hourDate);
-		hourCard.appendChild(hourValue);
-		hourCard.appendChild(hourIcon);
-		hourCard.appendChild(hourCondition);
-		hourCard.appendChild(hourTemp);
-		hourCard.appendChild(hourPrecip);
-		hourCard.appendChild(hourWind);
+		hourCard.innerHTML = hourCardTemplate;
 
 		// append card to container
 		weatherHoursContainer.appendChild(hourCard);
 	});
-}
-
-
-
-function generateIconUrl(data) {
-	const dn = data.iconCode.dayOrNight;
-	const code = data.iconCode.code;
-	return `images/icons/${code}-${dn}.svg`;
 }
 
 export { populateLocation, populateCurrent, populateForecast };

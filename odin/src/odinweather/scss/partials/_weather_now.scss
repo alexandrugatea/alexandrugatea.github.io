@@ -4,13 +4,14 @@
 	overflow: hidden;
 	padding: rem-calc(42);
 	margin: rem-calc(0 14);
+	min-height: rem-calc(630);
 
 	@include breakpoint(medium) {
 		// 768
 		display: grid;
 		grid-template-areas: "title title" "location weather" "details details";
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: rem-calc(100) auto;
+		grid-template-rows: rem-calc(35) auto;
 		align-items: center;
 
 		.title {
@@ -173,19 +174,24 @@
 			font-size: rem-calc(98);
 		}
 
-		@include breakpoint(large down) {
-			// 1024
-			height: rem-calc(98);
+		.dual-value {
+			width: 100%;
 
-			span {
-				font-size: rem-calc(77);
+			@include breakpoint(large down) {
+				// 1024
+				height: rem-calc(98);
+	
+				span {
+					font-size: rem-calc(77);
+				}
+			}
+	
+			@include breakpoint(xlarge) {
+				// 768
+				height: rem-calc(112);
 			}
 		}
 
-		@include breakpoint(xlarge) {
-			// 768
-			height: rem-calc(112);
-		}
 	}
 
 	.weather-current-text {
@@ -387,12 +393,12 @@
 	}
 
 	.weather-current-wind {
-		&-values {
+		&-values .dual-value{
 			@include setHeights(28);
 		}
 	}
 	.weather-current-precipitation {
-		&-values {
+		&-values .dual-value {
 			@include setHeights(28);
 		}
 	}

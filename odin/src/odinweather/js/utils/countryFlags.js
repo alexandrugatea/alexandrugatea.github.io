@@ -258,6 +258,4 @@ function getFlag(data) {
 	return flagIcon;
 }
 
-export {  }
-
 export { getFlag };

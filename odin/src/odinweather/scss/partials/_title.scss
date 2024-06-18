@@ -27,7 +27,7 @@
 		}
 	}
 
-	.refresh {
+	.refresh, .locate {
 		padding: rem-calc(7);
 		width: rem-calc(35);
 		height: rem-calc(35);
@@ -51,5 +51,15 @@
 			font-size: rem-calc(21);
 			color: $light;
 		}
+	}
+
+	.refresh.rotate {
+		animation: rotate 0.35s linear infinite;
+	}
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
 	}
 }
