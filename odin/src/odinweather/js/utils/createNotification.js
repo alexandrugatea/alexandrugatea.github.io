@@ -38,4 +38,4 @@ function createNotification(text, type) {
 	}
 }
 
-export { createNotification }
+export { createNotification };

@@ -15,4 +15,4 @@ function updateTime() {
 	localTimeContainer.innerHTML = currentTime;
 }
 
-export { updateTime }
+export { updateTime };

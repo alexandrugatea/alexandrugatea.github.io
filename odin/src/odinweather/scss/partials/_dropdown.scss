@@ -21,8 +21,7 @@
 	.popular-places {
 		display: flex;
 		width: 100%;
-		overflow-y: visible;
-		overflow-x: auto;
+		overflow-y: hidden;
 		padding: rem-calc(14);
 		gap: rem-calc(7);
 		min-height: rem-calc(77);
@@ -60,8 +59,11 @@
 .dropdown {
 	background: darken($light, 5%);
 	border-radius: rem-calc(28);
-	padding-bottom: rem-calc(14);
-	margin-top: rem-calc(14);
+	margin: rem-calc(14);
+
+	&:empty {
+		padding: 0;
+	}
 
 	&:has(.dropdown-item) {
 		box-shadow: rem-calc(0 7 56 14) rgba($dark, 0.21);
@@ -71,6 +73,32 @@
 		padding: rem-calc(21 21);
 		background: transparent;
 		cursor: pointer;
+
+		.dropdown-item-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+
+			.dic-name {
+				display: flex;
+				align-items: flex-start;
+				gap: rem-calc(7);
+
+				.fi {
+					width: rem-calc(18);
+					margin-top: rem-calc(2);
+				}
+			}
+
+			.dic-coords {
+				font-family: $font300i;
+				font-size: rem-calc(14);
+				padding-left: rem-calc(25);
+				margin-top: rem-calc(5);
+				opacity: 0.56;
+			}
+		}
 
 		&:not(:last-child) {
 			border-bottom: rem-calc(1) solid rgba($dark, 0.14);

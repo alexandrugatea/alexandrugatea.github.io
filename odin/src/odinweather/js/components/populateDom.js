@@ -1,58 +1,35 @@
-let intervalId;
+import { populateDOMElement } from "../utils/populateDomElement";
+import { getFlag } from "../utils/countryFlags";
+import { generateDualValueFields } from "../utils/generateDualValueFields";
+import { sunriseIcon, sunsetIcon } from "../utils/sunrisesunseticons";
+import { updateTimeContainer } from "../utils/currentTimeTimer";
+import { setDayNightClassesOnBody } from "../utils/bodyDayNightClasses";
+
 
 function populateLocation(data) {
-	const cityNameContainer = document.querySelector("#locationCity");
-	const cityRegionContainer = document.querySelector("#locationRegion");
-	const cityRegionCountry = document.querySelector("#locationCountry");
-	const coordsContainer = document.querySelector("#locationCoords");
-	const timeContainer = document.querySelector("#locationTime");
-
-	cityNameContainer.innerHTML = `${data.city}`;
-	cityRegionContainer.innerHTML = `Region: ${data.region}, `;
-	cityRegionCountry.innerHTML = `Country: ${data.country}.`;
-	coordsContainer.innerHTML = `Lat: ${data.lat}, Lon: ${data.lon}`;
-	// timeContainer.innerHTML = `${data.localtime.date}, ${data.localtime.time}`;
-
-	if (intervalId) {
-		clearInterval(intervalId);
-	}
-
-	// Function to update time
-	const updateTime = () => {
-		const [hours] = data.localtime.time.split(":");
-		const now = new Date();
-		const minutes = now.getMinutes().toString().padStart(2, "0");
-		const seconds = now.getSeconds().toString().padStart(2, "0");
-		const formattedTime = `${hours}:${minutes}:${seconds}`;
-
-		timeContainer.innerHTML = `${data.localtime.date}, ${formattedTime}`;
-	};
-
-	// Initialize the time
-	updateTime();
-
-	// Update the time every second
-	intervalId = setInterval(updateTime, 1000);
+	populateDOMElement("#locationCity", `${data.city}`);
+	populateDOMElement("#locationRegion", `Region: ${data.region} `);
+	populateDOMElement("#locationCountry", `${getFlag(data)} ${data.country}`);
+	populateDOMElement("#locationCoords", `${data.lat}, ${data.lon}`);
+	updateTimeContainer(data);
 }
 
+
+
 function populateCurrent(data) {
-	const body = document.body;
-	body.setAttribute("data-code", data.code);
+	setDayNightClassesOnBody(data);
 
 	const currentTempContainer = document.querySelector(".weather-current-temp");
 
 	generateDualValueFields(currentTempContainer, "temp", "&deg", "&deg", data);
 
+
 	const currentIconContainer = document.querySelector("#currentIcon");
-	currentIconContainer.src = data.icon;
+	currentIconContainer.src = generateIconUrl(data);
 
 	const currentTextContainer = document.querySelector("#currentText");
 	currentTextContainer.innerHTML = data.text;
 
-	// const currentFeelsContainer = document.querySelector('.weather-current-feels');
-	// generateDualValueFields(currentFeelsContainer, 'feelsLike', '&deg', '&deg', data);
-
-	currentTextContainer.innerHTML = data.text;
 
 	const currentHumidityContainer = document.querySelector("#currentHumidity");
 	currentHumidityContainer.innerHTML = `${data.humidity}<span class="unit">%<span>`;
@@ -72,28 +49,15 @@ function populateCurrent(data) {
 	const currentUVContainer = document.querySelector("#weatherCurrentUV");
 	currentUVContainer.innerHTML = `${data.uv}`;
 
-	const weatherNowContainer = document.querySelector("#weatherNow");
-
-	if (data.isDay === 1) {
-		body.classList.remove("night");
-		body.classList.add("day");
-
-		weatherNowContainer.classList.remove("night");
-		weatherNowContainer.classList.add("day");
-	} else {
-		body.classList.remove("day");
-		body.classList.add("night");
-
-		weatherNowContainer.classList.remove("day");
-		weatherNowContainer.classList.add("night");
-	}
 }
+
+
 
 function populateForecast(data) {
 	const astroContainer = document.querySelector(".astro");
 	astroContainer.innerHTML = `
-    Sunrise: ${data.forecastDays[0].astro.sunrise} ,
-    Sunset: ${data.forecastDays[0].astro.sunset}`;
+    <span>${sunriseIcon} ${data.forecastDays[0].astro.sunrise}</span>
+    <span>${sunsetIcon} ${data.forecastDays[0].astro.sunset}</span>`;
 
 	const nextDaysContainer = document.querySelector("#weatherNextDays");
 	nextDaysContainer.innerHTML = "";
@@ -107,7 +71,8 @@ function populateForecast(data) {
 		dayDate.innerHTML = day.date;
 
 		const dayIcon = document.createElement("img");
-		dayIcon.setAttribute("src", day.conditionIcon);
+		// dayIcon.setAttribute("src", day.conditionIcon);
+		dayIcon.setAttribute("src", generateIconUrl(day.iconCode.dayOrNight, day.iconCode.code));
 		dayIcon.setAttribute("alt", day.condition);
 
 		const dayCondition = document.createElement("h3");
@@ -180,7 +145,7 @@ function populateForecast(data) {
 	weatherHoursContainer.innerHTML = "";
 	weatherHoursContainer.setAttribute("draggable", "false");
 
-	data.currentDayHours.forEach((hour) => {
+	data.currentDayHours.forEach((hour, index) => {
 		const hourCard = document.createElement("div");
 		hourCard.className = "weather-hour-card";
 		hourCard.setAttribute("draggable", "false");
@@ -193,11 +158,17 @@ function populateForecast(data) {
 		// time
 		const hourValue = document.createElement("div");
 		hourValue.classList.add("weather-hour-value");
-		hourValue.innerHTML = hour.time;
+		
+		if (index === 0) {
+			hourValue.innerHTML = `<span class="weather-hour-value-now">now</span>`;
+		} else {
+			hourValue.innerHTML = hour.time;
+		}
 
 		// condition icon
 		const hourIcon = document.createElement("img");
-		hourIcon.setAttribute("src", hour.conditionIcon);
+		// hourIcon.setAttribute("src", hour.conditionIcon);
+		hourIcon.setAttribute("src", generateIconUrl(hour.iconCode.dayOrNight, hour.iconCode.code));
 		hourIcon.setAttribute("alt", hour.condition);
 		hourIcon.setAttribute("draggable", "false");
 
@@ -212,12 +183,13 @@ function populateForecast(data) {
 
 		const hourTempIcon = document.createElement("span");
 		hourTempIcon.classList.add("icon");
-		hourTempIcon.textContent = "thermometer";
 
 		const hourTempValues = document.createElement("div");
 		generateDualValueFields(hourTempValues, "temp", "&deg;", "&deg;", hour);
 		hourTemp.appendChild(hourTempIcon);
 		hourTemp.appendChild(hourTempValues);
+
+
 
 		// precip
 		const hourPrecip = document.createElement("div");
@@ -225,12 +197,26 @@ function populateForecast(data) {
 
 		const hourPrecipIcon = document.createElement("span");
 		hourPrecipIcon.classList.add("icon");
-		hourPrecipIcon.textContent = "rainy";
 
 		const hourPrecipValues = document.createElement("div");
 		generateDualValueFields(hourPrecipValues, "precip", " mm", " in", hour);
+		
+		const hourRainSnowChance = document.createElement("div");
+		hourRainSnowChance.classList.add("weather-rain-snow-chance");
+
+		const rainChance = parseInt(hour.chanceOfRain);
+		const snowChance = parseInt(hour.chanceOfSnow);
+
+		if (rainChance >= snowChance)  {
+			hourRainSnowChance.textContent = `${rainChance}%`
+			hourPrecipIcon.textContent = "rainy";
+		} else {
+			hourRainSnowChance.textContent = `${snowChance}%`
+			hourPrecipIcon.textContent = "ac_unit";
+		}
+		
 		hourPrecip.appendChild(hourPrecipIcon);
-		hourPrecip.appendChild(hourPrecipValues);
+		hourPrecip.appendChild(hourRainSnowChance);
 
 		// wind
 		const hourWind = document.createElement("div");
@@ -241,7 +227,7 @@ function populateForecast(data) {
 		hourWindIcon.textContent = "air";
 
 		const hourWindValues = document.createElement("div");
-		generateDualValueFields(hourWindValues, "wind", " mm", " in", hour);
+		generateDualValueFields(hourWindValues, "wind", " kph", " mph", hour);
 		hourWind.appendChild(hourWindIcon);
 		hourWind.appendChild(hourWindValues);
 
@@ -259,25 +245,10 @@ function populateForecast(data) {
 	});
 }
 
-function generateDualValueFields(container, valuePath, unitM, unitI, data) {
-	const value = resolveValuePath(data, valuePath);
-	const metricContainer = document.createElement("span");
-	const imperialContainer = document.createElement("span");
 
-	metricContainer.classList.add("metric");
-	imperialContainer.classList.add("imperial");
 
-	metricContainer.innerHTML = `${value.metric}<span class="unit">${unitM}</span>`;
-	imperialContainer.innerHTML = `${value.imperial}<span class="unit">${unitI}</span>`;
-
-	container.innerHTML = "";
-	container.classList.add("dual-value");
-	container.appendChild(metricContainer);
-	container.appendChild(imperialContainer);
-}
-
-function resolveValuePath(obj, path) {
-	return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+function generateIconUrl(data) {
+	return `images/icons/${data.iconCode.code}-${data.iconCode.dayOrNight}.svg`;
 }
 
 export { populateLocation, populateCurrent, populateForecast };

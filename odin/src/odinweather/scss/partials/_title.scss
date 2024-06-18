@@ -20,6 +20,13 @@
 		align-self: center;
 	}
 
+	span {
+		@include breakpoint(small only) {
+			// 768
+			flex-grow: 1;
+		}
+	}
+
 	.refresh {
 		padding: rem-calc(7);
 		width: rem-calc(35);
@@ -31,8 +38,13 @@
 		@include breakpoint(xlarge) {
 			// 1200
 			&:hover {
-				background: darken($light, 5%);
+				background: darken($dark, 5%);
 			}
+		}
+
+		@include breakpoint(small only) {
+			// < 768
+			margin-left: rem-calc(14);
 		}
 
 		.icon {

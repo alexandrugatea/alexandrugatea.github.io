@@ -4,7 +4,7 @@
 	max-width: rem-calc(1440);
 	margin: 0 auto rem-calc(21);
 	border-radius: rem-calc($weatherCornerRadius);
-
+	padding: rem-calc(28);
 	// display: grid;
 	// grid-template-areas: "now daily" "now hourly";
 	// grid-template-columns: 42% 58%;

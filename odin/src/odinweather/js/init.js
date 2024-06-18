@@ -9,31 +9,31 @@ import { getWeatherApiURL } from "./api/api";
 let currentDisplayedLocation = null;
 
 function initWeatherApp(initialWeatherUrl) {
-    currentDisplayedLocation = initialWeatherUrl;
-    fetchAndDisplayData(initialWeatherUrl);
+	currentDisplayedLocation = initialWeatherUrl;
+	fetchAndDisplayData(initialWeatherUrl);
 
-    const refreshButton = document.getElementById("refresh");
-    refreshButton.onclick = function () {
-        fetchAndDisplayData(currentDisplayedLocation);
-    };
+	const refreshButton = document.getElementById("refresh");
+	refreshButton.onclick = function () {
+		fetchAndDisplayData(currentDisplayedLocation);
+	};
 
-    const locateMeButton = document.getElementById("locateMe");
-    locateMeButton.onclick = async function () {
-        const userLocation = await fetchUserLocation();
-        const userWeatherApiURL = getWeatherApiURL({ lat: userLocation.lat, lon: userLocation.lon });
-        currentDisplayedLocation = userWeatherApiURL;
-        fetchAndDisplayData(userWeatherApiURL);
-    };
+	const locateMeButton = document.getElementById("locateMe");
+	locateMeButton.onclick = async function () {
+		const userLocation = await fetchUserLocation();
+		const userWeatherApiURL = getWeatherApiURL({ lat: userLocation.lat, lon: userLocation.lon });
+		currentDisplayedLocation = userWeatherApiURL;
+		fetchAndDisplayData(userWeatherApiURL);
+	};
 
-    changeUnits();
-    setInterval(updateTime, 1000);
-    updateTime();
-    dragHours();
-    searchCity(updateCurrentLocation);
+	changeUnits();
+	setInterval(updateTime, 1000);
+	updateTime();
+	dragHours();
+	searchCity(updateCurrentLocation);
 }
 
 function updateCurrentLocation(newLocationUrl) {
-    currentDisplayedLocation = newLocationUrl;
+	currentDisplayedLocation = newLocationUrl;
 }
 
-export {initWeatherApp}
+export { initWeatherApp };

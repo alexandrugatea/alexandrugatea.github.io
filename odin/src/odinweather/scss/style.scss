@@ -3,7 +3,7 @@
 $customFontPath: "../../../../src/fonts/";
 @import "../../../../src/scss/base/foundationMQ";
 @import "../../../../src/scss/base/mixins";
-// @import "../../../../src/scss/base/scroll";
+@import "../../../../src/scss/base/scroll";
 @import "../../../../src/scss/base/font";
 
 @import "partials/variables";

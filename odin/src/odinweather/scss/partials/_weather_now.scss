@@ -1,10 +1,62 @@
-.weather > .weather-now {
+.weather .weather-now {
+	position: relative;
+	border-radius: rem-calc(21);
+	overflow: hidden;
+	> * {
+		z-index: 1;
+	}
+
+	&.day .image-background {
+		.day {
+			opacity: 1;
+		}
+
+		.night {
+			opacity: 0;
+		}
+	}
+
+	&.night .image-background {
+		.day {
+			opacity: 0;
+		}
+
+		.night {
+			opacity: 1;
+		}
+	}
+
+
+	.image-background {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $dark;
+		opacity: 0.56;
+
+		img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: bottom;
+			transition: opacity 0.35s ease-in-out;
+			mix-blend-mode: lighten;
+		}
+}
+
 	@include breakpoint(medium) {
 		// 768
 		display: grid;
 		grid-template-areas: "title title" "location weather" "details details";
 		grid-template-columns: 2fr 3fr;
+		grid-template-rows: rem-calc(100) auto;
 		align-items: center;
+		min-height: 70vh;
 
 		.title {
 			grid-area: title;
@@ -29,7 +81,7 @@
 		// 1200
 		grid-template-areas: "title title title" "location weather details";
 		grid-template-columns: 3fr 5fr 3fr;
-		gap: rem-calc(21);
+		gap: rem-calc(7);
 		align-items: stretch;
 	}
 
@@ -38,7 +90,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem-calc(7);
+		padding: rem-calc(21);
 	}
+
 
 	.current-region,
 	.current-coords {
@@ -52,12 +106,17 @@
 .weather-current {
 	padding: rem-calc(35 0);
 	border-radius: rem-calc(14);
-	backdrop-filter: blur(7px);
-	background: rgba($light, 0.07);
+	// backdrop-filter: blur(2px);
+	// background: rgba($light, 0.07);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
 	@include breakpoint(large) {
 		// 768
 		padding: rem-calc(35);
+		min-height: rem-calc(350);
 	}
 
 	@include breakpoint(xxlarge) {
@@ -72,7 +131,7 @@
 		padding: rem-calc(35 0);
 	}
 
-	.weather-now {
+	.now {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
@@ -115,17 +174,39 @@
 	.astro {
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		gap: rem-calc(21);
+
+		svg {
+			margin-right: rem-calc(7);
+			path {
+				fill: $light;
+			}
+		}
+
+		.sunrise path {fill: lighten($accent, 20%)}
+		.sunset path {fill: lighten($accent, 10%)}
 	}
 }
 
 .weather-location {
-	@include breakpoint(xxlarge) {
+
+	@include breakpoint(medium down) {
+		// 768
+		padding: rem-calc(21 0 35 0);
+	}
+	@include breakpoint(xlarge) {
 		// 1200
 		align-self: center;
 	}
 
 	.weather-location-city {
 		@include flex-middle;
+
+		@include breakpoint(small only) {
+			// < 768
+			text-align: center;
+		}
 
 		@include breakpoint(medium) {
 			// 768
@@ -137,17 +218,30 @@
 			align-items: center;
 		}
 
+		.fi {
+			margin-right: rem-calc(7);
+		}
+
 		.current-city {
 			margin-bottom: rem-calc(7);
 			font-family: $font700;
-			font-size: rem-calc(42);
+			font-size: rem-calc(63);
+
+			@include breakpoint(small only) {
+				// < 768
+				font-size: rem-calc(42);
+			}
 		}
 
-		.current-conutry {
-			font-size: rem-calc(16);
-			font-family: $font500i;
-			margin-bottom: rem-calc(7);
-			opacity: 0.56;
+		.current-region {
+			display: none;
+		}
+
+		.current-country {
+			font-size: rem-calc(18);
+			font-family: $font500;
+			letter-spacing: rem-calc(0.5);
+			margin-top: rem-calc(14);
 			display: block;
 		}
 	}
@@ -187,23 +281,23 @@
 		// 1024
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+		height: 100%;
 	}
 
 	@include breakpoint(xxlarge) {
 		// 1400
 		gap: rem-calc(7);
-		height: 100%;
 	}
 
 	.flex-items {
 		@include flex-middle;
 		padding: rem-calc(14);
-		background: rgba(lighten($light, 25%), 0.1);
+		// background: rgba(lighten($light, 25%), 0.1);
 		border-radius: rem-calc(14);
 		gap: rem-calc(14);
 		width: 100%;
 		height: 100%;
-		backdrop-filter: blur(7px);
+		// backdrop-filter: blur(2px);
 		flex-shrink: 0;
 		min-width: 0;
 

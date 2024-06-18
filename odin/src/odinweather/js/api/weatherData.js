@@ -24,6 +24,7 @@ function getCurrentData(data) {
 		clouds: data.cloud,
 		code: data.condition.code,
 		icon: data.condition.icon,
+		iconCode: extractIconCode(data.condition.icon),
 		text: data.condition.text,
 		humidity: data.humidity,
 		uv: data.uv,
@@ -58,6 +59,9 @@ function getForecastData(data, location) {
 			},
 			condition: day.day.condition.text,
 			conditionIcon: day.day.condition.icon,
+			iconCode: extractIconCode(day.day.condition.icon),
+			chanceOfRain: day.day.daily_chance_of_rain,
+			chanceOfSnow: day.day.daily_chance_of_snow,
 			temp: {
 				max: {
 					metric: day.day.maxtemp_c,
@@ -118,6 +122,9 @@ function getForecastData(data, location) {
 			},
 			condition: hour.condition.text,
 			conditionIcon: hour.condition.icon,
+			iconCode: extractIconCode(hour.condition.icon),
+			chanceOfRain: hour.chance_of_rain,
+			chanceOfSnow: hour.chance_of_snow,
 		};
 	});
 
@@ -144,5 +151,10 @@ const formatTime = (timeString) => {
 	const formattedTime = `${hours.padStart(2, "0")}:${mins}:${seconds}`;
 	return formattedTime;
 };
+
+const extractIconCode = (data) => {
+	const [dayOrNight, code] =  [data.split('/')[5], data.split('/')[6].split('.')[0]];
+	return {dayOrNight, code};
+}
 
 export { getLocationData, getCurrentData, getForecastData };
