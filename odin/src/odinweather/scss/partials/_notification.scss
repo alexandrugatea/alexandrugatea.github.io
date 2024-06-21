@@ -19,11 +19,6 @@
 	font-family: $font500;
 	letter-spacing: rem-calc(0.3);
 
-	@include breakpoint(small only) {
-		// < 768
-		max-width: 100%;
-	}
-
 	&.open {
 		transform: translate(0, -2%);
 		transition: transform 0.21s ease-in;
@@ -48,26 +43,13 @@
 	left: 50%;
 	transform: translate(-50%, -100%);
 	z-index: 1000000;
-
-	background: $dark;
-	color: $light;
-	padding: rem-calc(21 21);
 	width: 100%;
-	max-width: rem-calc(630);
-	text-align: center;
-
+	max-width: rem-calc(1400);
+	padding: rem-calc(14);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 	transition: transform 0.21s ease-out;
-	font-family: $font500;
-	letter-spacing: rem-calc(0.3);
-
-	@include breakpoint(small only) {
-		// < 768
-		max-width: 100%;
-	}
 
 	&.open {
 		transform: translate(-50%, 0);
@@ -75,14 +57,45 @@
 	}
 
 	&-message {
-		flex-grow: 1;
-	}
-
-	.icon {
-		padding: rem-calc(7);
-		cursor: pointer;
+		width: 100%;
+		background: rgba($error, 0.91);
+		backdrop-filter: blur(28px);
+		color: $light;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		border-radius: rem-calc(56);
+		box-shadow: rem-calc(0 0 14 0) rgba(darken($dark, 25%), 0.21);
+		padding: rem-calc(14);
+		
+		span {
+			display: block;
+			flex-grow: 1;
+			font-family: $font500;
+			letter-spacing: rem-calc(0.3);
+			text-align: center;
+
+		}
+
+		i {
+			padding: rem-calc(7);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+		}
+		
+		.progress-circle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			circle {
+				stroke: $light;
+				fill: none;
+			}
+		}
 	}
 }

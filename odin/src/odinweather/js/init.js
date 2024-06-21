@@ -41,4 +41,6 @@ function updateCurrentLocation(newLocationUrl) {
 	currentDisplayedLocation = newLocationUrl;
 }
 
+
+
 export { initWeatherApp };
