@@ -28,7 +28,7 @@ function dragHours() {
 			// Change: Prevent default behavior to avoid text selection and other default actions
 			e.preventDefault();
 		}
-		
+
 		function slideOnDrag(e, speed) {
 			if (!isDown) return; // Only proceed if mouse click while dragging
 			e.preventDefault(); // Change: Prevent default behavior to avoid unintended actions

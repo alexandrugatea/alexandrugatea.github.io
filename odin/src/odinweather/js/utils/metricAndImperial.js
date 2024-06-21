@@ -12,7 +12,7 @@ function metricAndImperial(valuePath, unitM, unitI, data) {
 				${value.imperial}<span class="unit">${unitI}</span>
 			</span>
 		</div>
-	`
+	`;
 }
 
 export { metricAndImperial };

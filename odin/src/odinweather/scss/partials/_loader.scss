@@ -25,9 +25,9 @@
 	.loader-container {
 		border-radius: rem-calc(21);
 		background: transparent;
-		box-shadow: 
-				rem-calc(0 0 7 0) rgba($dark, 0.56),
-				rem-calc(0 0 0 14) rgba($light, 1);
+		box-shadow:
+			rem-calc(0 0 7 0) rgba($dark, 0.56),
+			rem-calc(0 0 0 14) rgba($light, 1);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -35,13 +35,13 @@
 		overflow: hidden;
 
 		dotlottie-player {
-			height: rem-calc(256)!important;
-			width: rem-calc(256)!important;
+			height: rem-calc(256) !important;
+			width: rem-calc(256) !important;
 
 			@include breakpoint(small only) {
 				// < 768
-				height: rem-calc(160)!important;
-				width: rem-calc(160)!important;
+				height: rem-calc(160) !important;
+				width: rem-calc(160) !important;
 			}
 		}
 	}

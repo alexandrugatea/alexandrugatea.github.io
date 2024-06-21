@@ -18,8 +18,8 @@ function initWeatherApp(initialWeatherUrl) {
 		this.classList.add("rotate");
 
 		setTimeout(() => {
-            this.classList.remove("rotate");
-        }, 350);
+			this.classList.remove("rotate");
+		}, 350);
 	};
 
 	const locateMeButton = document.getElementById("locateMe");

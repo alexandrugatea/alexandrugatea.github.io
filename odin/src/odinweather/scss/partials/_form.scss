@@ -9,6 +9,10 @@
 		max-width: calc(100% - rem-calc(14));
 	}
 
+	@include breakpoint(small only) {
+		// < 768
+		max-width: 100%;
+	}
 
 	.form-group {
 		display: flex;

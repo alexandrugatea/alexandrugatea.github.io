@@ -9,7 +9,7 @@
 	backdrop-filter: blur(7px);
 	max-width: rem-calc(1400);
 	top: 0;
-	
+
 	@include breakpoint(medium) {
 		// 768
 		left: 50%;
@@ -67,7 +67,7 @@
 	.weather-search {
 		flex: 1;
 		@include flex-middle(false, 0);
-		transition: all 0.21s $bezier;
+		transition: all 0.21s ease-in-out;
 
 		@include breakpoint(small only) {
 			// < 768
@@ -76,14 +76,15 @@
 			right: rem-calc(21);
 			top: rem-calc(21);
 			width: rem-calc(49);
-			
+
 			&.mobile-open {
 				position: absolute;
 				width: calc(100% - rem-calc(42));
 
-				.mobile-search-trigger {pointer-events: none;}
+				.mobile-search-trigger {
+					pointer-events: none;
+				}
 			}
-
 		}
 	}
 

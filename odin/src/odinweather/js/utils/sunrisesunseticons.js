@@ -7,9 +7,9 @@ const sunsetIcon = `<svg class="sunset" width="24" height="22" viewBox="0 0 24 2
 </svg>`;
 
 function astro(data) {
-    return `
+	return `
         <span>${sunriseIcon} ${data.forecastDays[0].astro.sunrise}</span>
-        <span>${sunsetIcon} ${data.forecastDays[0].astro.sunset}</span>`
+        <span>${sunsetIcon} ${data.forecastDays[0].astro.sunset}</span>`;
 }
 
-export { astro }
+export { astro };

@@ -4,6 +4,4 @@ function generateIconUrl(data) {
 	return `images/icons/${code}-${dn}.svg`;
 }
 
-
-
-export { generateIconUrl }
+export { generateIconUrl };

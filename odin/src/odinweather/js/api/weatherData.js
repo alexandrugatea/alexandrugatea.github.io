@@ -154,8 +154,8 @@ const formatTime = (timeString) => {
 };
 
 const extractIconCode = (data) => {
-	const [dayOrNight, code] =  [data.split('/')[5], data.split('/')[6].split('.')[0]];
-	return {dayOrNight, code};
-}
+	const [dayOrNight, code] = [data.split("/")[5], data.split("/")[6].split(".")[0]];
+	return { dayOrNight, code };
+};
 
 export { getLocationData, getCurrentData, getForecastData };

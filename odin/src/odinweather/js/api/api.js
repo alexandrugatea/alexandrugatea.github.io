@@ -6,11 +6,10 @@ const api = {
 		params: {
 			key: "pk.fa6e80804f9289787659846f822b3ee3",
 			q: "",
-			limit: 7,
+			limit: 10,
 			dedupe: 1,
-            normalizecity: 1,
-			tag: "place:*"
-
+			normalizecity: 1,
+			tag: "place:*",
 		},
 	},
 	weather: {
@@ -77,10 +76,10 @@ function getWeatherApiURL({ city = null, lat = null, lon = null }) {
  * @returns {string} - The URL with the appended parameters.
  */
 function populateParams(baseUrl, params) {
-    const queryString = Object.keys(params)
-        .map(key => `${key}=${params[key]}`)
-        .join('&');
-    return `${baseUrl}?${queryString}`;
+	const queryString = Object.keys(params)
+		.map((key) => `${key}=${params[key]}`)
+		.join("&");
+	return `${baseUrl}?${queryString}`;
 }
 
 export { api, getLocationApiURL, getWeatherApiURL };

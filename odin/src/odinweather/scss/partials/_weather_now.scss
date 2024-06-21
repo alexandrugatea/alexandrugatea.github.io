@@ -42,32 +42,10 @@
 		max-width: calc(100% - rem-calc(42));
 		margin: 0 auto;
 	}
-	
-	
+
 	> * {
 		z-index: 1;
 	}
-
-	&.day .image-background {
-		.day {
-			opacity: 1;
-		}
-
-		.night {
-			opacity: 0;
-		}
-	}
-
-	&.night .image-background {
-		.day {
-			opacity: 0;
-		}
-
-		.night {
-			opacity: 1;
-		}
-	}
-
 
 	.image-background {
 		position: absolute;
@@ -78,8 +56,12 @@
 		height: 100%;
 		background: $dark;
 		opacity: 0.56;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center bottom;
 
 		img {
+			display: none;
 			position: absolute;
 			inset: 0;
 			width: 100%;
@@ -90,8 +72,6 @@
 			mix-blend-mode: lighten;
 		}
 	}
-
-
 
 	.astro {
 		display: flex;
@@ -120,7 +100,6 @@
 		// .sunrise path {fill: lighten($accent, 20%)}
 		// .sunset path {fill: lighten($accent, 10%)}
 	}
-
 
 	.current-region,
 	.current-coords {
@@ -180,18 +159,17 @@
 			@include breakpoint(large down) {
 				// 1024
 				height: rem-calc(98);
-	
+
 				span {
 					font-size: rem-calc(77);
 				}
 			}
-	
+
 			@include breakpoint(xlarge) {
 				// 768
 				height: rem-calc(112);
 			}
 		}
-
 	}
 
 	.weather-current-text {
@@ -203,7 +181,6 @@
 	}
 
 	.weather-now-condition {
-
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -214,7 +191,6 @@
 			// < 768
 			flex-direction: column;
 		}
-
 
 		img {
 			min-width: rem-calc(180);
@@ -229,18 +205,15 @@
 				min-width: rem-calc(112);
 			}
 		}
-		
 	}
 
 	.weather-current-feels {
 		@include setHeights(21);
 		margin-bottom: rem-calc(21);
 	}
-
 }
 
 .weather-location {
-
 	@include breakpoint(xlarge) {
 		// 1200
 		align-self: center;
@@ -280,8 +253,13 @@
 			}
 		}
 
-		.current-region {
-			display: none;
+		.region-coords {
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem-calc(7);
+			margin-top: rem-calc(7);
+			justify-content: flex-start;
+			align-items: center;
 		}
 
 		.current-country {
@@ -289,7 +267,7 @@
 			font-family: $font500;
 			letter-spacing: rem-calc(0.5);
 			display: block;
-			
+
 			@include breakpoint(medium) {
 				// < 768
 				margin-top: rem-calc(14);
@@ -368,8 +346,6 @@
 				// 1400
 				flex-direction: column;
 			}
-
-			
 		}
 
 		.desc {
@@ -393,7 +369,7 @@
 	}
 
 	.weather-current-wind {
-		&-values .dual-value{
+		&-values .dual-value {
 			@include setHeights(28);
 		}
 	}

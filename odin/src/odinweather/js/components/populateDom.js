@@ -10,9 +10,9 @@ import { willItRain } from "../utils/willItRain";
 const location = {
 	city: "#locationCity",
 	region: "#locationRegion",
-    country: "#locationCountry",
-    coords: "#locationCoords",
-    time: "#locationTime",
+	country: "#locationCountry",
+	coords: "#locationCoords",
+	time: "#locationTime",
 };
 
 const current = {
@@ -20,18 +20,18 @@ const current = {
 	condition: "#currentText",
 	icon: "#currentIcon",
 	wind: ".weather-current-wind-values",
-    precipitation: ".weather-current-precipitation-values",
-    humidity: "#currentHumidity",
-    clouds: "#weatherCurrentClouds",
-    windDir: "#weatherCurrentWindDir",
-	uv: "#weatherCurrentUV"
+	precipitation: ".weather-current-precipitation-values",
+	humidity: "#currentHumidity",
+	clouds: "#weatherCurrentClouds",
+	windDir: "#weatherCurrentWindDir",
+	uv: "#weatherCurrentUV",
 };
 
 function populateLocation(data) {
 	populateDOMElement(location.city, data.city);
-	populateDOMElement(location.region, data.region);
+	populateDOMElement(location.region, `Region: ${data.region}`);
 	populateDOMElement(location.country, `${getFlag(data)} ${data.country}`);
-	populateDOMElement(location.coords, `${data.lat}, ${data.lon}`);
+	populateDOMElement(location.coords, `Coords: ${data.lat}, ${data.lon},`);
 	updateTimeContainer(data);
 }
 
@@ -49,8 +49,7 @@ function populateCurrent(data) {
 }
 
 function populateForecast(data) {
-	
-	// Get HTML containers for Hourly and Daily Forecast 
+	// Get HTML containers for Hourly and Daily Forecast
 	const nextDaysContainer = document.querySelector("#weatherNextDays");
 	const weatherHoursContainer = document.querySelector("#weatherHoursContainer");
 
@@ -58,13 +57,11 @@ function populateForecast(data) {
 	clear(nextDaysContainer);
 	clear(weatherHoursContainer);
 
-
 	// Add Sunrise and Sunset data
-	populateDOMElement(".astro", astro(data))
+	populateDOMElement(".astro", astro(data));
 
-	// Create HTML elements for each Day that is delivered by the API 
+	// Create HTML elements for each Day that is delivered by the API
 	data.forecastDays.forEach((day) => {
-		
 		// Create HTML template for DayCard
 		const dayCardTemplate = `
 			<div  class = "weather-card-date">${day.date}</div>
@@ -81,7 +78,7 @@ function populateForecast(data) {
 					${metricAndImperial("temp.max", "&deg;", "&deg;", day)}
 				</div>
 				<div class = "weather-day-precip">${willItRain(day)}</div>
-			</div>`
+			</div>`;
 
 		const dayCard = document.createElement("div");
 		dayCard.className = "weather-day-card";
@@ -108,7 +105,7 @@ function populateForecast(data) {
 				<i>air</i>
 				${metricAndImperial("wind", " kph", " mph", hour)}
 			</div>
-		`
+		`;
 
 		// Create Hour Card Element
 		const hourCard = document.createElement("div");
