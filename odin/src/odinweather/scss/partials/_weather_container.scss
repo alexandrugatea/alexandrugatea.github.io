@@ -1,5 +1,10 @@
 .weather-container {
-	padding: rem-calc(21);
+	padding: rem-calc(21 42);
 	border-radius: rem-calc(14);
 	background: transparent;
+
+	@include breakpoint(small only) {
+		// < 768
+		padding: rem-calc(21 14);
+	}
 }

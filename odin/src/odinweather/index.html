@@ -50,13 +50,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexandrugatea.com/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexandrugatea.com/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexandrugatea.com/favicon-16x16.png">
-
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+  />
     <title>Weather App</title> 
 </head>
 <body class="metric">
+
+    <div class="day-night-gradient-background"></div>
     <header class="weather-header">
         <div class="weather-logo">
-            <h1 class="weather-logo-name">The Weather <span>App</span> </h1>
+            <h1 class="weather-logo-name">Weather <span>App</span> </h1>
         </div>
         <div class="weather-search">
             <form action="" id="newLocationForm" name="newLocationForm" class="form" autocomplete="off">
@@ -64,86 +69,107 @@
                     <input type="text" name="newLocationField" id="newLocationField" class="city-search-field" placeholder="Search for new City">
                     <div class="search-results-container">
                         <div id="popularPlaces" class="popular-places">
-                            <button type="button" id="NewYork" class="popular-place">New York</button>
-                            <button type="button" id="London" class="popular-place">London</button>
-                            <button type="button" id="ClujNapoca" class="popular-place">Cluj-Napoca</button>
-                            <button type="button" id="Tokyo" class="popular-place">Tokyo</button>
-                            <button type="button" id="Sydney" class="popular-place">Sydney</button>
+                            <button type="button" data-id="New York" class="popular-place">New York</button>
+                            <button type="button" data-id="London" class="popular-place">London</button>
+                            <button type="button" data-id="Cluj Napoca" class="popular-place">Cluj-Napoca</button>
+                            <button type="button" data-id="Tokyo" class="popular-place">Tokyo</button>
+                            <button type="button" data-id="Sydney" class="popular-place">Sydney</button>
                         </div>
                         <div id="searchResults" class="dropdown"></div>
                     </div>
                     <input type="hidden" name="valueToFetchWeather" id="valueToFetchWeather">
                     <input type="hidden" name="valueToDisplyOnUI" id="valueToDisplyOnUI">
                     <button type="submit" id="submitForm" class="submit-form"><span class="icon">search</span></button>
+                    <button type="button" id="mobileSearchTrigger" class="mobile-search-trigger"></button>
                 </div>
             </form>
         </div>
         <div class="weather-local-time" id="localTime"></div>
-        <button id="units" class="units">Unit <span id="unit">&deg;C</span></button>
+        <button id="units" class="units"><span class="unit-label">Unit</span><span id="unit">&deg;C</span></button>
 
     </header>
 
     <div id="app" class="weather" >
         <div id="weatherNow" class="weather-now weather-container">
-            <div class="title">Today
+            <div class="image-background">
+                <img src="images/bg_day.jpg" alt="decorative" class="day">
+                <img src="images/bg_night.jpg" alt="decorative" class="night">
+            </div>
+            <div class="title">
+                <span>Today</span>
                 <button id="refresh" class="refresh"><span class="icon">refresh</span></button>
+                <button id="locateMe" class="locate"><span class="icon">my_location</span></button>
             </div>
             <div class="weather-location">
                 <span id="locationTime" class="location-time"></span>
                 <div class="weather-location-city">
                     <span id="locationCity" class="current-city"></span>
-                    <span id="locationRegion" class="current-region"></span>
+                    <div class="region-coords">
+                        <span id="locationCoords" class="current-coords"></span>
+                        <span id="locationRegion" class="current-region"></span>
+                    </div>
                     <span id="locationCountry" class="current-country"></span>
-                    <span id="locationCoords" class="current-coords"></span>
+                    <div class="astro"></div>
                 </div>
             </div>
             <div class="weather-current">
-                <div class="weather-now">
+                <div class="now">
                     <div class="weather-current-temp"></div>
-                    <div class="weather-now-icon">
+                    <div class="weather-now-condition">
                         <img src="#" alt="" id="currentIcon">
+                        <span id="currentText" class="weather-current-text"></span>
                     </div>
-                    <span id="currentText" class="weather-current-text"></span>
                 </div>
-                <div class="astro"></div>
             </div>
             <div class="weather-current-details">
                 <div class="weather-current-humidity flex-items">
-                    <span class="icon">water_drop</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">water_drop</span>
+                        <span class="desc">Humidity</span>
+                    </div>
                     <span id="currentHumidity" class="weather-value"></span>
-                    <span class="desc">Humid</span>
                 </div>
                 <div class="weather-current-wind flex-items">
-                    <div class="icon">air</div>
+                    <div class="current-detail-icon">
+                        <span class="icon">air</span>
+                        <span class="desc">Wind Speed</span>
+                    </div>
                     <div class="weather-current-wind-values weather-value"></div>
-                    <span class="desc">Wind S</span>
                 </div>
                 <div class="weather-current-wind-dir flex-items">
-                    <span class="icon">air</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">air</span>
+                        <span class="desc">Wind Direction</span>
+                    </div>
                     <span id="weatherCurrentWindDir" class="weather-value"></span>
-                    <span class="desc">Wind D</span>
                 </div>
                 <div class="weather-current-precipitation flex-items">
-                    <div class="icon">rainy</div>
+                    <div class="current-detail-icon">
+                        <span class="icon">rainy</span>
+                        <span class="desc">Rain Amount</span>
+                    </div>
                     <div class="weather-current-precipitation-values weather-value"></div>
-                    <span class="desc">Rain</span>
                 </div>
                 <div class="weather-current-clouds flex-items">
-                    <span class="icon">cloud</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">cloud</span>
+                        <span class="desc">Cloud Coverage</span>
+                    </div>
                     <span id="weatherCurrentClouds" class="weather-value"></span>
-                    <span class="desc">Clouds</span>
                 </div>
                 <div class="weather-current-uv flex-items">
-                    <span class="icon">sunny</span>
+                    <div class="current-detail-icon">
+                        <span class="icon">sunny</span>
+                        <span class="desc">UV Index</span>
+                    </div>
                     <span id="weatherCurrentUV" class="weather-value"></span>
-                    <span class="desc">UV Index</span>
                 </div>
             </div>
         </div>
         
         <div class="weather-hourly weather-container">
             <div class="title">Next Hours</div>
-            <div id="weatherHoursContainer" class="weather-hours">
+            <div id="weatherHoursContainer" class="weather-hours" draggable="false">
            
             </div>
         </div>
@@ -152,15 +178,14 @@
             <div class="title">Next Days</div>
             <div id="weatherNextDays" class="weather-days"></div>
         </div>
-
-        <div id="loader" class="loader open">
-            <div class="loader-container">
-                <img src="images/spin.gif" alt="">
-                <p>Fetching Data</p>
-            </div>
-        </div>
     </div>
 
+    <div id="loader" class="loader open">
+        <div class="loader-container">
+            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+            <dotlottie-player src="https://lottie.host/9c625eef-2dce-403e-a69e-571f0ba566d9/aTihb3f1Sd.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+        </div>
+    </div>
     <div class="weather-credits">
         Powered by <a href="https://www.weatherapi.com/"  target="_blank" alt="Free Weather API">WeatherAPI.com</a>
         and 

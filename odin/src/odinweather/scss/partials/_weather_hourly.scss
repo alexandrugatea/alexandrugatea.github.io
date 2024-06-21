@@ -2,30 +2,24 @@
 	overflow: hidden;
 	width: 100%;
 
-	&.active .weather-hours {
-		transform: scale(0.98);
-	}
-
 	.weather-hours {
-		// height: rem-calc(300);
-		// overflow: auto;
 		overflow: auto;
-
 		display: flex;
 		align-items: stretch;
 		justify-content: flex-start;
 		gap: rem-calc(7);
 		cursor: grab;
+		transform: scale(1);
+		transition: transform 0.21s $bezier;
 
-		// scrollbar-width: thin;
-		scrollbar-color: rgba($light, 0.14) rgba($dark, 0.49);
+		&:active {
+			cursor: grabbing;
+		}
 
 		@include breakpoint(xxlarge) {
 			// 1400
-			gap: rem-calc(14);
+			gap: rem-calc(7);
 		}
-		transform: scale(1);
-		transition: transform 0.21s $bezier;
 	}
 }
 
@@ -33,12 +27,18 @@
 	// < 768
 	@include flex-middle(false, 14);
 	padding: rem-calc(14);
-	background: rgba($light, 0.07);
+	background: rgba($dark, 0.14);
 	border-radius: rem-calc(14);
 	width: rem-calc(112);
 	flex-shrink: 0;
 	user-select: none;
 	pointer-events: none;
+	backdrop-filter: blur(3px);
+
+	@include breakpoint(small only) {
+		// < 768
+		width: rem-calc(126);
+	}
 
 	@include breakpoint(xxlarge) {
 		// 1400
@@ -48,19 +48,12 @@
 	* {
 		user-select: none;
 		-webkit-user-drag: none;
-		// pointer-events: none;
 	}
 
 	.weather-hour {
 		&-condition {
 			text-align: center;
-			line-height: 1.4;
-			height: rem-calc(16 * 1.4);
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 2;
+			flex-grow: 1;
 		}
 
 		&-temp,
@@ -76,5 +69,11 @@
 	}
 	.dual-value {
 		@include setHeights(21);
+	}
+}
+
+body.night {
+	.weather-hour-card {
+		background: rgba(darken($dark, 10%), 0.14);
 	}
 }

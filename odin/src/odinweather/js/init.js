@@ -1,42 +1,46 @@
-import getLocation from "./getLocation";
-import fetchData from "./fetchData";
-import { showLoader, hideLoader } from "./showhideLoader";
-import searchCity from "./searchForm.js";
-import displayData from "./displayData.js";
-import createNotification from "./createNotification.js";
+import { fetchAndDisplayData } from "./api/fetchData";
+import { changeUnits } from "./utils/changeUnits";
+import { updateTime } from "./utils/localTime";
+import { dragHours } from "./utils/drag";
+import { searchCity } from "./components/searchCity";
+import { fetchUserLocation } from "./components/getLocation";
+import { getWeatherApiURL } from "./api/api";
 
-export default function initWeatherApp() {
-	getLocation().then((coords) => {
-		let lat = coords.lat;
-		let lon = coords.lon;
-		let apiURL;
-		const apiKey = "62853d9a45c1413b89f201737240106";
+let currentDisplayedLocation = null;
 
-		if (lat === 0 && lon === 0) {
-			// default location, if user disables location
-			apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=London&days=7`;
-			const message = "Location is Disabled. Retrieving weather data for London";
-			createNotification(message);
-		} else {
-			// location based on lat lon got from navigator
-			apiURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=7`;
-		}
+function initWeatherApp(initialWeatherUrl) {
+	currentDisplayedLocation = initialWeatherUrl;
+	fetchAndDisplayData(initialWeatherUrl);
 
-		// show a loader before starting to fetch data
-		showLoader();
-		fetchData(apiURL)
-			.then((data) => {
-				// console.log(data);
-				// hide the loader when data was fetched
-				hideLoader();
+	const refreshButton = document.getElementById("refresh");
+	refreshButton.onclick = function () {
+		fetchAndDisplayData(currentDisplayedLocation);
+		this.classList.add("rotate");
 
-				// display data on DOM
-				displayData(data);
-			})
-			.catch((err) => {
-				console.error("Error fetching data: ", err);
-			});
-	});
+		setTimeout(() => {
+			this.classList.remove("rotate");
+		}, 350);
+	};
 
-	searchCity();
+	const locateMeButton = document.getElementById("locateMe");
+	locateMeButton.onclick = async function () {
+		const userLocation = await fetchUserLocation();
+		const userWeatherApiURL = getWeatherApiURL({ lat: userLocation.lat, lon: userLocation.lon });
+		currentDisplayedLocation = userWeatherApiURL;
+		fetchAndDisplayData(userWeatherApiURL);
+	};
+
+	changeUnits();
+	setInterval(updateTime, 1000);
+	updateTime();
+	dragHours();
+	searchCity(updateCurrentLocation);
 }
+
+function updateCurrentLocation(newLocationUrl) {
+	currentDisplayedLocation = newLocationUrl;
+}
+
+
+
+export { initWeatherApp };

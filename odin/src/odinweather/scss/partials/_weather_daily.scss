@@ -1,14 +1,26 @@
 .weather-daily {
 	width: 100%;
 	overflow: hidden;
+	padding-bottom: 0;
+
+	@include breakpoint(small only) {
+		// < 768
+		padding: rem-calc(0 14);
+	}
+}
+
+body.night {
+	.weather-days .weather-day-card {
+		background: rgba(darken($dark, 10%), 0.14);
+	}
 }
 
 .weather-days {
 	width: 100%;
-	gap: rem-calc(21);
+	gap: rem-calc(7);
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
 	overflow: auto;
 	padding: rem-calc(7 0);
 
@@ -16,22 +28,25 @@
 		padding: rem-calc(21);
 		width: rem-calc(210);
 		flex: 1 0 auto;
-		border-radius: rem-calc(8);
+		border-radius: rem-calc(14);
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		gap: rem-calc(7);
-		background: rgba($light, 0.07);
+		background: rgba($dark, 0.14);
+		backdrop-filter: blur(7px);
 	}
 	.weather-condition {
 		font-size: rem-calc(21);
 		margin-bottom: rem-calc(14);
+		text-align: center;
+		flex-grow: 1;
 	}
 	.weather-card-date {
 		sup {
-			font-family: $font300i;
+			font-family: $font300;
 			margin-left: rem-calc(2);
 		}
 	}
@@ -53,16 +68,21 @@
 
 		.weather-card-divider {
 			opacity: 0.56;
-			padding: rem-calc(0 14);
+			padding: rem-calc(0 7);
 		}
 
-		.temp-icon {
+		.temp-icon,
+		i {
 			margin-right: rem-calc(7);
 			opacity: 0.56;
 		}
 
 		.dual-value {
 			@include setHeights(21);
+		}
+
+		.weather-day-precip {
+			margin-left: rem-calc(14);
 		}
 	}
 
@@ -71,7 +91,8 @@
 		justify-content: center;
 		align-items: center;
 
-		.icon {
+		.icon,
+		i {
 			margin-right: rem-calc(7);
 		}
 

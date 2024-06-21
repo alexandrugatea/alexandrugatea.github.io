@@ -1,8 +1,9 @@
 body {
 	padding-bottom: rem-calc(56);
+	background: $dark;
 
 	@include breakpoint(small only) {
-		padding-top: rem-calc(154);
+		padding-top: rem-calc(91);
 	}
 
 	@include breakpoint(medium) {
@@ -11,8 +12,8 @@ body {
 	}
 }
 
-html,
-body {
-	scrollbar-width: thin;
-	scrollbar-color: rgba($light, 0.14) rgba($dark, 1);
-}
+// html,
+// body {
+// 	scrollbar-width: thin;
+// 	scrollbar-color: rgba($light, 0.14) rgba($dark, 1);
+// }

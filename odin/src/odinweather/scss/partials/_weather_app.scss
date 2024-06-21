@@ -1,31 +1,9 @@
-body {
-	background: $dark;
-}
-
 .weather {
 	position: relative;
 	width: 100%;
-	max-width: rem-calc(1440);
-	margin: 0 auto rem-calc(21);
+	max-width: rem-calc(1400);
+	margin: 0 auto;
 	border-radius: rem-calc($weatherCornerRadius);
-
-	// display: grid;
-	// grid-template-areas: "now daily" "now hourly";
-	// grid-template-columns: 42% 58%;
-	// grid-template-rows: auto auto;
 	gap: rem-calc(21);
-
 	font-family: $font500;
-
-	// color: $light;
-
-	&-now {
-		grid-area: now;
-	}
-	&-hourly {
-		grid-area: hourly;
-	}
-	&-daily {
-		grid-area: daily;
-	}
 }

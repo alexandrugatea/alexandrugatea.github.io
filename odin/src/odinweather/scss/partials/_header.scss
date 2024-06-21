@@ -1,21 +1,19 @@
 .weather-header {
 	width: 100%;
-	padding: rem-calc(14 21);
+	padding: rem-calc(14 42);
 	font-family: $font700;
 	font-size: rem-calc(21);
 	position: fixed;
-	top: 0;
-	left: 50%;
-	transform: translate(-50%, 0);
-	right: 0;
 	width: 100%;
 	z-index: 999999;
 	backdrop-filter: blur(7px);
-
-	max-width: rem-calc(1440);
+	max-width: rem-calc(1400);
+	top: 0;
 
 	@include breakpoint(medium) {
 		// 768
+		left: 50%;
+		transform: translate(-50%, 0);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -26,13 +24,13 @@
 	@include breakpoint(small only) {
 		// < 768
 		display: grid;
-		grid-template-columns: 3fr 1fr;
+		grid-template-columns: 1fr auto;
 		width: 100%;
-
-		grid-template-areas: "logo unit" "search search";
+		left: 0;
+		grid-template-areas: "logo unit";
 		grid-template-rows: rem-calc(49);
 		gap: rem-calc(14);
-		padding: rem-calc(21);
+		padding: rem-calc(21 91 21 21);
 	}
 
 	.weather-logo {
@@ -69,10 +67,24 @@
 	.weather-search {
 		flex: 1;
 		@include flex-middle(false, 0);
+		transition: all 0.21s ease-in-out;
 
 		@include breakpoint(small only) {
 			// < 768
 			grid-area: search;
+			position: absolute;
+			right: rem-calc(21);
+			top: rem-calc(21);
+			width: rem-calc(49);
+
+			&.mobile-open {
+				position: absolute;
+				width: calc(100% - rem-calc(42));
+
+				.mobile-search-trigger {
+					pointer-events: none;
+				}
+			}
 		}
 	}
 
@@ -102,11 +114,19 @@
 		@include breakpoint(small only) {
 			// < 768
 			grid-area: unit;
+			width: rem-calc(49);
 		}
 
 		@include breakpoint(medium) {
 			// 768
 			height: 100%;
+		}
+
+		.unit-label {
+			@include breakpoint(small only) {
+				// < 768
+				display: none;
+			}
 		}
 	}
 }
