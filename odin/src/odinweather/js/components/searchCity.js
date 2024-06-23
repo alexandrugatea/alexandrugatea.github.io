@@ -8,15 +8,18 @@ import {
 	createSearchInputMessage,
 	createDropdownItem,
 	clearDropdownItems,
-	openSearchContainer,
+	openSearchContainerAndChangeIcon,
 	dismissSearchOnBodyClickIfOnMobile,
 	openMobileSearchAndFocusIt,
 	handlePopularButtonClick,
+	changeSubmitButtonIcon,
+	resetFormAndFocusInput
 } from "../utils/searchUtils";
 
 // Get Existing DOM elements
 const newCityField = document.getElementById("newLocationField");
 const locationForm = document.getElementById("newLocationForm");
+const formSubmitButton = document.getElementById("submitForm");
 const hiddenField = document.getElementById("valueToFetchWeather");
 const hiddenFieldUI = document.getElementById("valueToDisplyOnUI");
 const searchContainer = document.querySelector(".search-results-container");
@@ -27,14 +30,19 @@ const body = document.body;
 const debounceTimer = 200;
 let debounceTimeout;
 
+const submitButtonIcons = {
+	search: "search",
+	delete: "close"
+}
+
 const state = {
 	currentIndex: 0,
 	isDropdownActive: false,
 };
 
 function searchCity(updateCurrentLocationCallback) {
-	mobileSearchTrigger.addEventListener("click", () => openMobileSearchAndFocusIt(locationForm, newCityField));
-	body.addEventListener("click", (e) => dismissSearchOnBodyClickIfOnMobile(e, locationForm, searchContainer));
+	mobileSearchTrigger.addEventListener("click", () => openMobileSearchAndFocusIt(locationForm, newCityField, newCityField.value, formSubmitButton, submitButtonIcons.delete));
+	body.addEventListener("click", (e) => dismissSearchOnBodyClickIfOnMobile(e, locationForm, searchContainer, formSubmitButton, submitButtonIcons.search));
 
 	newCityField.addEventListener("input", function () {
 		const query = this.value;
@@ -43,6 +51,11 @@ function searchCity(updateCurrentLocationCallback) {
 		hiddenFieldUI.value = newCityField.value;
 		clearTimeout(debounceTimeout);
 
+		// Change search button icon if tere is at least one character in the input field.
+		query.length > 0 ? 
+		changeSubmitButtonIcon(formSubmitButton, submitButtonIcons.delete) :
+		changeSubmitButtonIcon(formSubmitButton, submitButtonIcons.search);
+		
 		// Display a message if query is empty or has less than 3 characters
 		if (query.length >= 0 && query.length <= 2) {
 			return createSearchInputMessage(dropdown);
@@ -60,8 +73,9 @@ function searchCity(updateCurrentLocationCallback) {
 				fetch(url)
 					.then((response) => response.json())
 					.then((data) => {
+						console.log(data);
 						clearDropdownItems(dropdown);
-						openSearchContainer(searchContainer);
+						openSearchContainerAndChangeIcon(searchContainer, newCityField.value, formSubmitButton, submitButtonIcons.delete);
 						state.isDropdownActive = true;
 
 						if (!Array.isArray(data) || data.length === 0) {
@@ -78,6 +92,8 @@ function searchCity(updateCurrentLocationCallback) {
 								locationForm,
 								dropdown,
 								state,
+								formSubmitButton,
+								submitButtonIcons
 							});
 						});
 
@@ -96,6 +112,14 @@ function searchCity(updateCurrentLocationCallback) {
 
 	locationForm.addEventListener("submit", function (e) {
 		e.preventDefault();
+		
+		resetFormAndFocusInput(
+			formSubmitButton,
+			submitButtonIcons.search,
+			dropdown,
+			locationForm,
+			newCityField
+		);
 	});
 
 	function handleKeyDownWrapper(event) {
@@ -118,8 +142,10 @@ function searchCity(updateCurrentLocationCallback) {
 		if (cityCoords) {
 			const [lat, lon] = cityCoords.split(",");
 			apiURL = getWeatherApiURL({ lat, lon });
+			console.log("Got weather from latlot: ", apiURL)
 		} else if (cityName) {
 			apiURL = getWeatherApiURL({ city: cityName });
+			console.log("Got weather from city: ", apiURL)
 		} else {
 			alert("Please enter a city name");
 			return;
@@ -139,10 +165,11 @@ function searchCity(updateCurrentLocationCallback) {
 			});
 	}
 
-	newCityField.addEventListener("click", () => openSearchContainer(searchContainer));
+	newCityField.addEventListener("click", () => openSearchContainerAndChangeIcon(searchContainer, newCityField.value, formSubmitButton, submitButtonIcons.delete));
 
 	popularButtons.forEach((button) => {
 		button.addEventListener("click", function (e) {
+			changeSubmitButtonIcon(formSubmitButton, submitButtonIcons.search)
 			handlePopularButtonClick(
 				e,
 				button,

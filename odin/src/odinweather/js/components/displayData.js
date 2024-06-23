@@ -20,7 +20,6 @@ function displayData(data) {
 	populateCurrent(formatedCurrent);
 	populateForecast(formatedForecast);
 
-	console.log(formatedForecast);
 }
 
 export { displayData };

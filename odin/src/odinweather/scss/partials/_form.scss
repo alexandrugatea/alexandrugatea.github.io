@@ -34,6 +34,11 @@
 			height: rem-calc(49);
 			width: 100%;
 			background: $light;
+
+			@include breakpoint(medium) {
+				// 768
+				padding: rem-calc(0 56 0 21);
+			}
 		}
 
 		.submit-form {
@@ -47,6 +52,10 @@
 			top: rem-calc(4);
 			right: rem-calc(4);
 			z-index: 1;
+
+			i, .icon {
+				pointer-events: none;
+			}
 		}
 	}
 }

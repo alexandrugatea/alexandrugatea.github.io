@@ -46,6 +46,8 @@ function populateCurrent(data) {
 	populateDOMElement(current.clouds, `${data.clouds}<span class="unit">%<span>`);
 	populateDOMElement(current.windDir, data.windDir);
 	populateDOMElement(current.uv, data.uv);
+
+
 }
 
 function populateForecast(data) {

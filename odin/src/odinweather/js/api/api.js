@@ -7,7 +7,7 @@ const api = {
 			key: "pk.fa6e80804f9289787659846f822b3ee3",
 			q: "",
 			limit: 10,
-			dedupe: 1,
+			dedupe: 0,
 			normalizecity: 1,
 			tag: "place:*",
 		},

@@ -30,6 +30,8 @@ function createDropdownItem(location, index, options) {
 		locationForm,
 		dropdown,
 		state,
+		formSubmitButton,
+		submitButtonIcons
 	} = options;
 
 	const option = document.createElement("div");
@@ -50,8 +52,7 @@ function createDropdownItem(location, index, options) {
                 ${location.display_name}
             </span>
             <span class="dic-coords">
-                ${parseFloat(location.lat).toFixed(3)}, 
-                ${parseFloat(location.lon).toFixed(3)}
+                ${parseFloat(location.lat)},${parseFloat(location.lon)}
             </span>
         </span>
     `;
@@ -77,21 +78,29 @@ function setAttributes(element, attributes) {
 	Object.keys(attributes).forEach((key) => element.setAttribute(key, attributes[key]));
 }
 
-function openMobileSearchAndFocusIt(form, input) {
+function openMobileSearchAndFocusIt(form, input, query, button, icon) {
 	form.parentNode.classList.add("mobile-open");
 	input.focus();
+	input.click();
+	if (query.length > 0) {
+		changeSubmitButtonIcon(button, icon);
+	}
 }
 
-function dismissSearchOnBodyClickIfOnMobile(e, form, container) {
+function dismissSearchOnBodyClickIfOnMobile(e, form, container, button, icon) {
 	const target = form;
 	if (!target.contains(e.target)) {
 		form.parentNode.classList.remove("mobile-open");
 		container.classList.remove("open");
+		changeSubmitButtonIcon(button, icon);
 	}
 }
 
-function openSearchContainer(container) {
+function openSearchContainerAndChangeIcon(container, query, button, icon) {
 	container.classList.add("open");
+	if (query.length > 0) {
+		changeSubmitButtonIcon(button, icon);
+	}
 }
 
 function handlePopularButtonClick(
@@ -107,6 +116,7 @@ function handlePopularButtonClick(
 	const apiURL = getWeatherApiURL({ city: selectedCity });
 	searchContainer.classList.remove("open");
 	locationForm.parentNode.classList.remove("mobile-open");
+	
 	window.scroll({
 		top: 0,
 		left: 0,
@@ -126,6 +136,19 @@ function handlePopularButtonClick(
 			createNotification("Location not found", "toast");
 			hideLoader();
 		});
+}
+
+
+
+function changeSubmitButtonIcon(button, icon) {
+	button.querySelector('.icon').textContent = icon;
+}
+
+function resetFormAndFocusInput(button, icon, dropdownElement, form, input ) {
+	changeSubmitButtonIcon(button, icon)
+	clearDropdownItems(dropdownElement);
+	form.reset();
+	input.click();
 }
 
 // Add arrow navigation functionality
@@ -169,7 +192,7 @@ function handleKeyDown(
 
 			const newCityName = hiddenFieldUI.value;
 			const newCityCoords = hiddenField.value;
-			requestWeatherDataBasedOn(newCityName, newCityCoords);
+			requestWeatherDataBasedOn(newCityCoords);
 			form.parentNode.classList.remove("mobile-open");
 
 			clearDropdownItems(dropdownElement);
@@ -188,7 +211,9 @@ export {
 	createSearchInputMessage,
 	createDropdownItem,
 	clearDropdownItems,
-	openSearchContainer,
+	openSearchContainerAndChangeIcon,
 	handleKeyDown,
 	handlePopularButtonClick,
+	changeSubmitButtonIcon,
+	resetFormAndFocusInput
 };
