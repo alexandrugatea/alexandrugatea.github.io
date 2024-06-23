@@ -19,7 +19,7 @@ async function fetchData(url) {
  * @returns {void}
  * @throws Will throw an error if the network response is not ok.
  */
-function fetchAndDisplayData(url) {
+function fetchAndDisplayData(url, requestedCoords = null) {
 	// Show loading indicator
 	showLoader();
 
@@ -30,6 +30,14 @@ function fetchAndDisplayData(url) {
 
 			// Hide loading indicator
 			hideLoader();
+
+			// Check for location mismatch
+			if (requestedCoords) {
+				const isMismatch = checkLocationMismatch(requestedCoords, data.location);
+				if (isMismatch) {
+					createNotification("Returned location does not match the requested coordinates", "toast");
+				}
+			}
 
 			// Display the fetched data
 			displayData(data);
@@ -46,4 +54,25 @@ function fetchAndDisplayData(url) {
 		});
 }
 
-export { fetchData, fetchAndDisplayData };
+
+/**
+ * Checks if the returned location coordinates significantly differ from the requested coordinates.
+ *
+ * @param {object} requestedCoords - The requested coordinates with lat and lon properties.
+ * @param {object} returnedLocation - The location object from the API response.
+ * @returns {boolean} - Returns true if the coordinates mismatch significantly, false otherwise.
+ */
+function checkLocationMismatch(requestedCoords, returnedLocation) {
+	const { lat: reqLat, lon: reqLon } = requestedCoords;
+	const { lat: retLat, lon: retLon } = returnedLocation;
+
+	// Threshold for considering the coordinates as a mismatch (in degrees)
+	const threshold = 1;
+
+	return (
+		Math.abs(reqLat - retLat) > threshold ||
+		Math.abs(reqLon - retLon) > threshold
+	);
+}
+
+export { fetchData, fetchAndDisplayData, checkLocationMismatch };

@@ -1,4 +1,4 @@
-function createNotification(text, type) {
+function createNotification(text, type, timer = 3000) {
 	const notification = document.createElement("div");
 	notification.classList.add(type);
 
@@ -48,7 +48,7 @@ function createNotification(text, type) {
 		}, 350);
 	});
 
-	const toastTimeOut = 3000;
+	const toastTimeOut = timer;
 
 	if (type === "toast") {
 		const circle = progressCircle.querySelector("circle");

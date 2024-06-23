@@ -1,5 +1,5 @@
 import { showLoader, hideLoader } from "../utils/showhideLoader";
-import { fetchData } from "../api/fetchData";
+import { fetchData, checkLocationMismatch } from "../api/fetchData";
 import { displayData } from "./displayData";
 import { createNotification } from "../utils/createNotification";
 import { getLocationApiURL, getWeatherApiURL } from "../api/api";
@@ -73,7 +73,6 @@ function searchCity(updateCurrentLocationCallback) {
 				fetch(url)
 					.then((response) => response.json())
 					.then((data) => {
-						console.log(data);
 						clearDropdownItems(dropdown);
 						openSearchContainerAndChangeIcon(searchContainer, newCityField.value, formSubmitButton, submitButtonIcons.delete);
 						state.isDropdownActive = true;
@@ -138,14 +137,14 @@ function searchCity(updateCurrentLocationCallback) {
 
 	function requestWeatherDataBasedOn(cityName, cityCoords) {
 		let apiURL;
+		let requestedCoords = null;
 
 		if (cityCoords) {
 			const [lat, lon] = cityCoords.split(",");
 			apiURL = getWeatherApiURL({ lat, lon });
-			console.log("Got weather from latlot: ", apiURL)
+			requestedCoords = { lat: parseFloat(lat), lon: parseFloat(lon) };
 		} else if (cityName) {
 			apiURL = getWeatherApiURL({ city: cityName });
-			console.log("Got weather from city: ", apiURL)
 		} else {
 			alert("Please enter a city name");
 			return;
@@ -158,6 +157,14 @@ function searchCity(updateCurrentLocationCallback) {
 				displayData(data);
 				updateCurrentLocationCallback(apiURL);
 				newCityField.blur();
+
+				// Check for location mismatch after data is displayed
+				if (requestedCoords) {
+				const isMismatch = checkLocationMismatch(requestedCoords, data.location);
+				if (isMismatch) {
+					createNotification("WeatherAPI failed to retrieve data for this location and has defaulted to a different location", "toast", 6000);
+				}
+			}
 			})
 			.catch((err) => {
 				createNotification("Location not found", "toast");
