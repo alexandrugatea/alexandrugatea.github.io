@@ -1,8 +1,21 @@
+body.custom-cursor {
+  *,
+  *:hover,
+  *:before,
+  *:after,
+  *:active,
+  *:focus {
+      @include breakpoint(large) {
+          cursor: none !important;
+      }
+  }
+}
+
 .kursor-hover:hover {
   mix-blend-mode: normal;
 }
 
-#kursor {
+body.custom-cursor #kursor {
   position: fixed;
   top: -200px;
   left: -200px;
@@ -44,24 +57,24 @@
     backdrop-filter:  blur(3px) grayscale(100);
     background: rgba($bodyBackground, 0.56);
     //box-shadow: inset 0 0 0 rem-calc(7) rgba($bodyBackground, 0.1);
-    box-shadow: 0 0 0 rem-calc(5) accent(0.77);
+    box-shadow: 0 0 0 rem-calc(5) accent(1);
 
     span {
       opacity: 1;
-    //  color: rgba($bodyBackground, 0.77);
-    color: var(--accent);
+      //  color: rgba($bodyBackground, 0.77);
+      color: var(--accent);
     }
 
     &.about {
       width: rem-calc(21);
       height: rem-calc(21);
-    backdrop-filter: none;
+      backdrop-filter: none;
     }
   }  
 }
 
 
-#kursorTrail {
+body.custom-cursor #kursorTrail {
   position: fixed;
   top: -200px;
   left: -200px;
@@ -72,7 +85,7 @@
 
   background: rgba($bodyBackground, 0.21);
   @include glass($bodyBackground, 0.21, 3px);
-  box-shadow: 0 0 0 rem-calc(2) accent(0.91);
+  box-shadow: 0 0 0 rem-calc(2) accent(1);
  
   z-index: 99998; 
   transform: translate(-50%, -50%);

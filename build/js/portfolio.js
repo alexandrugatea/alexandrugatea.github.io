@@ -91,7 +91,29 @@ function renderCaptions(category) {
 const webData = [
     {
         'category': 'category-web',
-        'size': '1440-682',
+        'size': '1600-1000',
+        'captionID': 'weatherApp',
+        'src': 'build/images/portfolio/webs/weather.png',
+        'project-text': `
+        <h2>
+            Weather App
+        </h2>
+        <p>web design & development</p>`,
+        'type': ['web', 'landscape'],
+        'caption-text': `
+        <h2 class="galleryitem-caption-title">
+            Weather App
+        </h2>	
+        <p class="galleryitem-caption-text">
+            Practiced on working with multiple API's and came up with this pretty app. </br>
+            It features current Weather Data for multiple locations around the globe, grabbed by locationIQ API together with weather data from weatherAPI.com. Moreover, I've designed 96 weather icons along with 16 custom background images.
+        </p>
+        <a href="/odin/odinweather/" target="_blank">Visit Project</a>`,
+        'alt':  "Weather App"
+    },
+    {
+        'category': 'category-web',
+        'size': '1600-1000',
         'captionID': 'toDoApp',
         'src': 'build/images/portfolio/webs/ToDo.png',
         'project-text': `
@@ -112,7 +134,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1440-686',
+        'size': '1600-1000',
         'captionID': 'js30',
         'src': 'build/images/portfolio/webs/jsch.png',
         'project-text': `
@@ -136,7 +158,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1914-907',
+        'size': '1600-1000',
         'captionID': 'webAdminDash',
         'src': 'build/images/portfolio/webs/admindash.png',
         'project-text': `
@@ -157,7 +179,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '959-911',
+        'size': '1600-1000',
         'captionID': 'webSignInUp',
         'src': 'build/images/portfolio/webs/valhalla_sign_up.png',
         'project-text': `
@@ -165,7 +187,7 @@ const webData = [
                 SignIn SignUp Animated Switch
             </h2>
             <p>web design & development</p>`,
-        'type': ['web', 'square'],
+        'type': ['web', 'landscape'],
         'caption-text': `
         <h2 class="galleryitem-caption-title">
             Sign up / Sign In forms
@@ -178,7 +200,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1440-686',
+        'size': '1600-1000',
         'captionID': 'webTelenavNew',
         'src': 'build/images/portfolio/webs/tnv_new.png',
         'project-text': `
@@ -199,7 +221,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1440-685',
+        'size': '1600-1000',
         'captionID': 'webTelenavOld',
         'src': 'build/images/portfolio/webs/tnv_old.png',
         'project-text': `
@@ -220,7 +242,7 @@ const webData = [
     },
     {
         'category': 'category-web',
-        'size': '1440-689',
+        'size': '1600-1000',
         'captionID': 'webSynpheon',
         'src': 'build/images/portfolio/webs/synpheon.png',
         'project-text': `
@@ -240,27 +262,6 @@ const webData = [
         <a href="https://www.synpheon.com/" target="_blank">Visit site</a>`,
         'alt': "Synpheon [DE]"
     },
-    // {
-    //     'category': 'category-web',
-    //     'size': '1440-688',
-    //     'captionID': 'webDakar',
-    //     'src': 'build/images/portfolio/webs/dakar.png',
-    //    'project-text': `
-    //     <h2>
-    //         AutoDakar [RO]
-    //     </h2>
-    //     <p>web design & development</p>`,
-    //     'type': ['web', 'landscape'],
-    //     'caption-text': `
-    //     <h2 class="galleryitem-caption-title">
-    //         UIUX, from Brand to Code
-    //     </h2>	
-    //     <p class="galleryitem-caption-text">
-    //         Created the entire brand image, starting with the Logo, then moved into creating the UIUX for entire website, including the admin dashboards. Created from scratch an entire custom SCSS framework for the project.
-    //     </p>
-    //     <a href="https://www.autodakar.ro/" target="_blank">Visit site</a>`,
-    //     'alt': "AutoDakar [RO]"
-    // },
     {
         'category': 'category-web',
         'size': '1440-3138',
@@ -288,7 +289,7 @@ const webData = [
 const codePenData = [
     {
         'category': 'category-web',
-        'size': '420-274',
+        'size': '512-320',
         'captionID': 'webCodePenGridList',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_grid_list.png',
@@ -312,7 +313,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-283',
+        'size': '512-320',
         'captionID': 'webCodePenSVGJS',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_svg_circles.png',
@@ -335,20 +336,20 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-202',
+        'size': '512-320',
         'captionID': 'webCodePenBlobs',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_blob.png',
         'src': 'https://codepen.io/sgtdangates/embed/XWGGRNB?default-tab=result&theme-id=darkk',
         'project-text': `
             <h2>
-                JS generated and animated concentric blobs
+                JS generated and animated blobs
             </h2>
             <p>web development</p>`,
         'type': ['web', 'landscape'],
         'caption-text': `
         <h2 class="galleryitem-caption-title">
-            JS generated and animated concentric blobs
+            JS generated and animated blobs
         </h2>	
         <p class="galleryitem-caption-text">
             <span class="hint">For best experience open Codepens on a Desktop Browser</span>
@@ -358,7 +359,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-769',
+        'size': '512-320',
         'captionID': 'webCodePenTransparentMenu',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_blur_menu.png',
@@ -378,32 +379,9 @@ const codePenData = [
         </p>`,
         'alt': "CodePen Portfolio Alexandru Gatea Blurry Transparent Menu"
     },
-    // {
-    //     'category': 'category-web',
-    //     'size': '420-309',
-    //     'captionID': 'webCodePenResponsiveTable',
-    //     'iframe': true,
-    //     'thumb': 'build/images/portfolio/webs/codepen_table.png',
-    //     'src': 'https://codepen.io/sgtdangates/embed/bGZZWzo?default-tab=result&theme-id=dark',
-    //     'project-text': `
-    //         <h2>
-    //             Responsive Tables
-    //         </h2>
-    //         <p>web development</p>`,
-    //     'type': ['web', 'landscape'],
-    //     'caption-text': `
-    //     <h2 class="galleryitem-caption-title">
-    //         From Table to Cards
-    //     </h2>	
-    //     <p class="galleryitem-caption-text">
-    //         <span class="hint">For best experience open Codepens on a Desktop Browser</span>
-    //         I'm using lists with items, instead of the classic table element. The with just plain CSS I switch the view from tabelar to cards on mobile devices.
-    //     </p>`,
-    //     'alt': "CodePen Portfolio Alexandru Gatea Responsive Table"
-    // },
     {
         'category': 'category-web',
-        'size': '420-327',
+        'size': '512-320',
         'captionID': 'webCodePenFloatingButtons',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/fiddle-float.png',
@@ -426,7 +404,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-263',
+        'size': '512-320',
         'captionID': 'webCodePenAnimatedMenuInOut',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_animated_menu.png',
@@ -448,7 +426,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-272',
+        'size': '512-320',
         'captionID': 'webCodePenTriangleCarousel',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_carousel_triangle.png',
@@ -471,7 +449,7 @@ const codePenData = [
     },
     {
         'category': 'category-web',
-        'size': '420-270',
+        'size': '512-320',
         'captionID': 'webCodePenCSSSkeleton',
         'iframe': true,
         'thumb': 'build/images/portfolio/webs/codepen_skeleton.png',
@@ -496,10 +474,10 @@ const codePenData = [
 const mapsData = [
     {
         'category': 'category-maps',
-        'size': '1440-810',
+        'size': '1600-1000',
         'captionID': 'mapArt',
         'src': 'build/images/portfolio/maps/port_maps_3d_art.png',
-       'project-text': `
+        'project-text': `
         <h2>
             3D map: Blender + BlenderOSM
         </h2>
@@ -516,10 +494,10 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1440-810',
+        'size': '1600-1000',
         'captionID': 'mapPaper',
         'src': 'build/images/portfolio/maps/port_maps_3d_paper.png',
-       'project-text': `
+        'project-text': `
         <h2>
             3D paper buildings
         </h2>
@@ -536,15 +514,15 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1080-1080',
+        'size': '1600-1000',
         'captionID': 'mapBlender',
         'src': 'build/images/portfolio/maps/port_maps_blender.png',
-       'project-text': `
+        'project-text': `
         <h2>
             3D San Francisco Neighbourhood
         </h2>
         <p>3D art</p>`,
-        'type': ['map', 'square'],
+        'type': ['map', 'landscape'],
         'caption-text': `
         <h2 class="galleryitem-caption-title">
             3D San Francisco Neighbourhood
@@ -556,10 +534,10 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1200-853',
+        'size': '1600-1000',
         'captionID': 'mapRenderSun',
         'src': 'build/images/portfolio/maps/port_maps_day.png',
-       'project-text': `
+        'project-text': `
         <h2>
             Adding a Sun to the Navigation Engine
         </h2>
@@ -576,10 +554,10 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1200-853',
+        'size': '1600-1000',
         'captionID': 'mapRenderMoon',
         'src': 'build/images/portfolio/maps/port_maps_night.png',
-       'project-text': `
+        'project-text': `
         <h2>
             Adding a Moon to the Navigation Engine
         </h2>
@@ -596,10 +574,10 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1440-868',
+        'size': '1600-1000',
         'captionID': 'mapGradients',
         'src': 'build/images/portfolio/maps/port_maps_gradient.png',
-       'project-text': `
+        'project-text': `
         <h2>
             Buildings with Gradients
         </h2>
@@ -616,10 +594,10 @@ const mapsData = [
     },
     {
         'category': 'category-maps',
-        'size': '1440-810',
+        'size': '1600-1000',
         'captionID': 'mapStyle1',
         'src': 'build/images/portfolio/maps/port_maps_detroit1.png',
-       'project-text': `
+        'project-text': `
         <h2>
             Map style preview
         </h2>
@@ -632,44 +610,6 @@ const mapsData = [
         <p class="galleryitem-caption-text">
         </p>`,
         'alt':  "Map Design"
-    },
-    {
-        'category': 'category-maps',
-        'size': '1440-810',
-        'captionID': 'mapStyle2',
-        'src': 'build/images/portfolio/maps/port_maps_detroit2.png',
-       'project-text': `
-        <h2>
-            Map style preview
-        </h2>
-        <p>web development</p>`,
-        'type': ['map', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            Map style preview
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt':  "Map Design"
-    },
-    {
-        'category': 'category-maps',
-        'size': '1440-810',
-        'captionID': 'mapStyle3',
-        'src': 'build/images/portfolio/maps/port_maps_detroit3.png',
-       'project-text': `
-        <h2>
-            Map style preview
-        </h2>
-        <p>web development</p>`,
-        'type': ['map', 'landscape'],
-        'caption-text': `
-        <h2 class="galleryitem-caption-title">
-            Map style preview
-        </h2>	
-        <p class="galleryitem-caption-text">
-        </p>`,
-        'alt': "Map Design"
     }
 ];
 const brandData = [

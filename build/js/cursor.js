@@ -2,11 +2,12 @@
 const cursor = document.querySelector('#kursor');
 const cursorMessage = cursor.querySelector("#kMessage");
 const trail = document.querySelector('#kursorTrail');
-const hoverElements = document.querySelectorAll('.kursor-hover, .lg-prev, .lg-next, .lg-close, .lg-zoom-in, .lg-zoom-out');
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    
+    const hoverElements = document.querySelectorAll('.kursor-hover, .lg-prev, .lg-next, .lg-close, .lg-zoom-in, .lg-zoom-out');
 
     document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {

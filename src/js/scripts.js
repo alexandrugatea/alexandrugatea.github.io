@@ -1,8 +1,4 @@
-// ============================================================
 // Variables & Constants
-// ============================================================
-
-// ============================================================
 
 const body = document.body;
 
@@ -14,68 +10,65 @@ const navList = document.querySelector(".nav-list");
 
 
 // Get links for page transitions
-
 let links = document.querySelectorAll('.link');
 
-// ============================================================
-// Create grid on load & resize
-
+// Set flag for enabling and disabling scroll
 let isScrollEnabled = true;
 
 
-// ============================================================
 // Events
-// ============================================================
 var colorList = document.getElementById('colorList');
-    colorList.addEventListener('click', handleColorClick);
+colorList.addEventListener('click', handleColorClick);
 
-    // Check if there's a color stored in localStorage and apply it
-    var storedColor = localStorage.getItem('accentColor');
-    if (storedColor) {
-        changeAccentColor(storedColor);
+// Check if there's a color stored in localStorage and apply it
+var storedColor = localStorage.getItem('accentColor');
+if (storedColor) {
+    changeAccentColor(storedColor);
 
-        var listItems = colorList.querySelectorAll('li');
-        listItems.forEach(function (li) {
-            if (li.getAttribute('data-color') === storedColor) {
-                updateActiveListItem(li);
-            }
-        });
-    }
-    
-    var radiusList = document.getElementById('radiusList');
-    radiusList.addEventListener('click', handleRadiusClick);
-
-
-    // Check if there's a color stored in localStorage and apply it
-    var storedRadius = localStorage.getItem('radius');
-    var storedRadiusCircle = localStorage.getItem('radius-circle');
-    if (storedRadius && storedRadiusCircle) {
-        changeRadius(storedRadius, storedRadiusCircle);
-
-        var listItems = radiusList.querySelectorAll('li');
-        listItems.forEach(function (li) {
-            if (li.getAttribute('data-radius') === storedRadius && li.getAttribute('data-radius-circle') === storedRadiusCircle) {
-                updateActiveRadius(li);
-            }
-        });
-    }
-
-    // Check if 'defaultCursor' is set in localStorage and update checkbox accordingly
-    const defaultCursorSetting = localStorage.getItem('defaultCursor') === 'true';
-    const checkbox = document.getElementById('pointerType');
-    checkbox.checked = defaultCursorSetting;
-
-    // Apply the 'default-cursor' class to the body if checkbox is checked
-    updateCursor(defaultCursorSetting);
-
-    // Listen for changes on the checkbox to update local storage and body class
-    checkbox.addEventListener('change', function () {
-        localStorage.setItem('defaultCursor', checkbox.checked);
-        updateCursor(checkbox.checked);
+    var listItems = colorList.querySelectorAll('li');
+    listItems.forEach(function (li) {
+        if (li.getAttribute('data-color') === storedColor) {
+            updateActiveListItem(li);
+        }
     });
+}
 
+var radiusList = document.getElementById('radiusList');
+radiusList.addEventListener('click', handleRadiusClick);
+
+
+// Check if there's a color stored in localStorage and apply it
+var storedRadius = localStorage.getItem('radius');
+var storedRadiusCircle = localStorage.getItem('radius-circle');
+if (storedRadius && storedRadiusCircle) {
+    changeRadius(storedRadius, storedRadiusCircle);
+
+    var listItems = radiusList.querySelectorAll('li');
+    listItems.forEach(function (li) {
+        if (li.getAttribute('data-radius') === storedRadius && li.getAttribute('data-radius-circle') === storedRadiusCircle) {
+            updateActiveRadius(li);
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
+    const checkbox = document.getElementById('pointerType');
+
+    // Check if 'defaultCursor' is set in localStorage; fallback to checkbox state
+    const isDefaultCursor = localStorage.getItem('defaultCursor') === 'true' || checkbox.checked;
+
+    // Apply 'default-cursor' or 'custom-cursor' class based on the cursor state
+    updateCursor(isDefaultCursor);
+
+    // Initialize checkbox state based on localStorage
+    checkbox.checked = localStorage.getItem('defaultCursor') === 'true';
+
+    // Checkbox change listener
+    checkbox.addEventListener('change', function () {
+        const isChecked = checkbox.checked;
+        localStorage.setItem('defaultCursor', isChecked);
+        updateCursor(isChecked);
+    });
 
     // Open close navbar
     navTrig.addEventListener("click", function () {
@@ -112,14 +105,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.onpopstate = function () {
-        // Optionally initiate any animations or cleanup here
-        // Then force a reload (consider UX implications)
         pageTransition.classList.add("active");
         setTimeout(() => {
             window.location.reload();
         }, 350);
     };
-
 
     // disable smooth scroll while lightgallery is opened
     if (document.body.classList.contains("work")) {
@@ -133,20 +123,20 @@ document.addEventListener("DOMContentLoaded", function () {
             trail.style.display = 'block';
         });
     }
-    
-    
 });
 
 // ============================================================
 // Functions
 // ============================================================
 
-// Function to add/remove 'default-cursor' class based on the checkbox state
-function updateCursor(checked) {
-    if (checked) {
+// Function to add/remove 'default-cursor' or 'custom-cursor' class
+function updateCursor(isDefault) {
+    if (isDefault) {
         document.body.classList.add('default-cursor');
+        document.body.classList.remove('custom-cursor');
     } else {
         document.body.classList.remove('default-cursor');
+        document.body.classList.add('custom-cursor');
     }
 }
 

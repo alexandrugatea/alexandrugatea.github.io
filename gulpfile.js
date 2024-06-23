@@ -107,6 +107,7 @@ gulp.task('serve', function () {
     browserSync.init({
         server: {
             baseDir: destination, 
+            online: true,
             middleware: [historyApiFallback({
                 rewrites: [
                     {
@@ -138,7 +139,7 @@ gulp.task('serve', function () {
     gulp.watch(['src/pages/**/*.html', 'src/layouts/**/*.html'], gulp.series('html'));
     gulp.watch('src/fonts/**/*', gulp.series('fonts'));
     gulp.watch('src/images/**/*', gulp.series('images'));
-    gulp.watch(['src/**/**/*.html', 'odin/**/*.html']).on('change', browserSync.reload);
+    gulp.watch(['src/**/*.html', 'odin/**/*.html']).on('change', browserSync.reload);
 });
 
 // Default Task

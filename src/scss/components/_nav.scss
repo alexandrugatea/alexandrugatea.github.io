@@ -352,7 +352,7 @@
                             .corner-graphic {
 
                                 &:before {
-                                    box-shadow: inset rem-calc(3 3 0 2) accent();
+                                    box-shadow: inset rem-calc(3 3 0 2) accent(1);
                                 }
                             }
                         }
@@ -567,7 +567,7 @@
                 display: block;
                 width: rem-calc($navSpanWidth);
                 height: rem-calc($navSpanHeight);
-                background: accent();
+                background: accent(1);
                 position: absolute;
                 transition: all 0.25s ease-in-out;
                 top: 50%;

@@ -24,8 +24,11 @@ if (windowWidth > 1200) {
 }
 
 // Page transition effect
-pageTransition.classList.remove("active")
 
+document.addEventListener("load", function () {
+    // animate page transitioner
+    pageTransition.classList.remove("active");
+});
 document.addEventListener("DOMContentLoaded", function () {
     // animate the background grid
     container.classList.add("animate");
@@ -43,7 +46,7 @@ window.addEventListener('resize', () => {
 
 function smoothScroll(target, speed, smooth) {
     var moving = false;
-    var pos = window.pageYOffset || document.documentElement.scrollTop; // Get the initial scroll position
+    var pos = document.documentElement.scrollTop; // Get the initial scroll position
     var frame = target === document.body && document.documentElement ? document.documentElement : target;
 
     // Initialize the scroll position only once to prevent the jump
@@ -72,14 +75,11 @@ function smoothScroll(target, speed, smooth) {
     }
 
     function normalizeWheelDelta(e) {
-        if (e.detail) {
-            if (e.wheelDelta) {
-                return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1); // Opera
-            } else {
-                return -e.detail / 3; // Firefox
-            }
+        if (!e.detail) return e.wheelDelta / 120; // IE, Safari, Chrome        
+        if (e.wheelDelta) {
+            return (e.wheelDelta / e.detail / 40) * (e.detail > 0 ? 1 : -1); // Opera
         } else {
-            return e.wheelDelta / 120; // IE, Safari, Chrome
+            return -e.detail / 3; // Firefox
         }
     }
 

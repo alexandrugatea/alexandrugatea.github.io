@@ -5,7 +5,7 @@ function createNotification(text, type) {
 	const notificationMessage = document.createElement("p");
 	notificationMessage.classList.add(`${type}-message`);
 	notificationMessage.innerHTML = `<span>${text}</span>`;
-	
+
 	const removeIcon = document.createElement("i");
 	removeIcon.textContent = "close";
 
@@ -51,7 +51,6 @@ function createNotification(text, type) {
 	const toastTimeOut = 3000;
 
 	if (type === "toast") {
-
 		const circle = progressCircle.querySelector("circle");
 		setTimeout(() => {
 			circle.style.transition = `stroke-dashoffset ${toastTimeOut}ms linear`;

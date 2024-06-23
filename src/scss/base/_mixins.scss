@@ -17,6 +17,6 @@
 }
 
 
-@function accent($alpha: 0.85) {
+@function accent($alpha: 1) {
     @return rgba(var(--accent-r), var(--accent-g), var(--accent-b), $alpha);
 }

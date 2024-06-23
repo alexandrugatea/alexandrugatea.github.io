@@ -14,11 +14,13 @@ import { populateLocation, populateCurrent, populateForecast } from "./populateD
 function displayData(data) {
 	const formatedLocation = getLocationData(data.location);
 	const formatedCurrent = getCurrentData(data.current);
-	const formatedForecast = getForecastData(data.forecast, data.location);
+	const formatedForecast = getForecastData(data.forecast, data.location, data.current);
 
 	populateLocation(formatedLocation);
 	populateCurrent(formatedCurrent);
 	populateForecast(formatedForecast);
+
+	console.log(formatedForecast);
 }
 
 export { displayData };

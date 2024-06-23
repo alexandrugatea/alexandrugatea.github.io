@@ -108,9 +108,9 @@ function handlePopularButtonClick(
 	searchContainer.classList.remove("open");
 	locationForm.parentNode.classList.remove("mobile-open");
 	window.scroll({
-		top: 0, 
-		left: 0, 
-		behavior: 'smooth' 
+		top: 0,
+		left: 0,
+		behavior: "smooth",
 	});
 	showLoader();
 	fetchData(apiURL)

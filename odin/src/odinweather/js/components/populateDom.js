@@ -64,7 +64,7 @@ function populateForecast(data) {
 	data.forecastDays.forEach((day) => {
 		// Create HTML template for DayCard
 		const dayCardTemplate = `
-			<div  class = "weather-card-date">${day.date}</div>
+				<div  class = "weather-card-date">${day.date}</div>
 				<img  src   = ${generateIconUrl(day)}>
 				<h3   class = "weather-condition">${day.condition}</h3>
 				<div  class = "weather-card-details">
@@ -82,6 +82,8 @@ function populateForecast(data) {
 
 		const dayCard = document.createElement("div");
 		dayCard.className = "weather-day-card";
+		dayCard.dataset.code = day.weatherCode;
+		dayCard.dataset.time = day.isDay === 1 ? "day": "night";
 		dayCard.innerHTML = dayCardTemplate;
 
 		nextDaysContainer.appendChild(dayCard);

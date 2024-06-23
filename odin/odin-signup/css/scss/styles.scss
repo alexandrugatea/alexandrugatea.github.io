@@ -108,7 +108,7 @@ $accentColor: #ef6c00;
 			position: relative;
 			z-index: 1;
 			background: rgba($containerBackground, 0.63);
-			@include breakpoint(medium only) {
+			@include breakpoint(medium) {
 				backdrop-filter: blur(3px);
 				// 768
 				mask: linear-gradient(transparent 0%, #000 20%, #000 80%, transparent 100%);

@@ -38,7 +38,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem-calc(7);
-		padding: rem-calc(35);
+		padding: rem-calc(21);
 		max-width: calc(100% - rem-calc(42));
 		margin: 0 auto;
 	}
@@ -59,6 +59,13 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center bottom;
+
+		@include breakpoint(small only) {
+			// 1024
+			height: 60%;
+			border-radius: rem-calc(21);
+			opacity: 0.42;
+		}
 
 		img {
 			display: none;
@@ -158,10 +165,19 @@
 
 			@include breakpoint(large down) {
 				// 1024
-				height: rem-calc(98);
+				@include setHeights(98);
 
 				span {
 					font-size: rem-calc(77);
+				}
+			}
+
+			@include breakpoint(small only) {
+				// < 768
+				@include setHeights(56);
+
+				span {
+					font-size: rem-calc(56);
 				}
 			}
 
@@ -178,6 +194,11 @@
 		font-size: rem-calc(28);
 		max-width: rem-calc(280);
 		text-align: center;
+
+		@include breakpoint(small only) {
+			// < 768
+			font-size: rem-calc(21);
+		}
 	}
 
 	.weather-now-condition {
@@ -249,7 +270,7 @@
 
 			@include breakpoint(small only) {
 				// < 768
-				font-size: rem-calc(42);
+				font-size: rem-calc(28);
 			}
 		}
 
@@ -260,6 +281,11 @@
 			margin-top: rem-calc(7);
 			justify-content: flex-start;
 			align-items: center;
+
+			@include breakpoint(small only) {
+				// < 768
+				display: none;
+			}
 		}
 
 		.current-country {
@@ -294,16 +320,25 @@
 	margin-top: auto;
 	align-content: stretch;
 
+	@include breakpoint(small only) {
+		// < 768
+		padding: rem-calc(14);
+		margin-left: rem-calc(-14);
+		margin-right: rem-calc(-14);
+		background-color: rgba(darken($dark, 10%), 0.21);
+		border-radius: rem-calc(14);
+	}
+
 	@include breakpoint(medium down) {
 		// < 768
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
 	}
 
-	@media screen and (max-width: rem-calc(500)) {
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-	}
+	// @media screen and (max-width: rem-calc(500)) {
+	// 	grid-template-columns: repeat(3, 1fr);
+	// 	grid-template-rows: repeat(2, 1fr);
+	// }
 
 	@include breakpoint(large) {
 		// 1024

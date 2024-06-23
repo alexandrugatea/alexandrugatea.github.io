@@ -19,9 +19,9 @@
     //@include glass($bodyBackground, 0.28, 7px);
 
     box-shadow: 
-    rem-calc(0 0 0 0) accent(0),
-    inset 0 0 0 rem-calc(3) accent(1),
-    inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
+        rem-calc(0 0 0 0) accent(0),
+        inset 0 0 0 rem-calc(3) accent(1),
+        inset 0 0 0 rem-calc(100) rgba($bodyBackground, 1);
     text-decoration: none;
     //transform: scale(1);
     transition: all 0.25s ease-in-out!important; 

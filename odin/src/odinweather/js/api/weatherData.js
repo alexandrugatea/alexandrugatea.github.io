@@ -49,7 +49,7 @@ function getCurrentData(data) {
 	};
 }
 
-function getForecastData(data, location) {
+function getForecastData(data, location, current) {
 	const forecastDays = data.forecastday.map((day) => {
 		return {
 			date: formatDate(day.date),
@@ -57,8 +57,10 @@ function getForecastData(data, location) {
 				sunrise: day.astro.sunrise,
 				sunset: day.astro.sunset,
 			},
+			isDay: current.is_day,
 			condition: day.day.condition.text,
 			conditionIcon: day.day.condition.icon,
+			weatherCode: day.day.condition.code,
 			iconCode: extractIconCode(day.day.condition.icon),
 			chanceOfRain: day.day.daily_chance_of_rain,
 			chanceOfSnow: day.day.daily_chance_of_snow,

@@ -1,18 +1,4 @@
-body:not(.default-cursor) {
-    @include breakpoint(large) {
-        cursor: none !important;
-    }
-    *,
-    *:hover,
-    *:before,
-    *:after,
-    *:active,
-    *:focus {
-        @include breakpoint(large) {
-            cursor: none !important;
-        }
-    }
-}
+
 
 
 body {

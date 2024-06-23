@@ -67,14 +67,13 @@
 		border-radius: rem-calc(56);
 		box-shadow: rem-calc(0 0 14 0) rgba(darken($dark, 25%), 0.21);
 		padding: rem-calc(14);
-		
+
 		span {
 			display: block;
 			flex-grow: 1;
 			font-family: $font500;
 			letter-spacing: rem-calc(0.3);
 			text-align: center;
-
 		}
 
 		i {
@@ -85,7 +84,7 @@
 			justify-content: center;
 			position: relative;
 		}
-		
+
 		.progress-circle {
 			position: absolute;
 			top: 50%;
