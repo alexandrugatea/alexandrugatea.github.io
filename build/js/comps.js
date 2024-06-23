@@ -24,11 +24,8 @@ if (windowWidth > 1200) {
 }
 
 // Page transition effect
+pageTransition.classList.remove("active");
 
-document.addEventListener("load", function () {
-    // animate page transitioner
-    pageTransition.classList.remove("active");
-});
 document.addEventListener("DOMContentLoaded", function () {
     // animate the background grid
     container.classList.add("animate");
