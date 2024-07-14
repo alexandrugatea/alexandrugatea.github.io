@@ -62,7 +62,7 @@
 
 		@include breakpoint(small only) {
 			// 1024
-			height: 60%;
+			height: 57%;
 			border-radius: rem-calc(21);
 			opacity: 0.42;
 		}
@@ -148,7 +148,7 @@
 
 		@include breakpoint(small only) {
 			// < 768
-			padding-bottom: rem-calc(21);
+			padding-bottom: rem-calc(28);
 		}
 	}
 
@@ -333,6 +333,7 @@
 		// < 768
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
+		margin-top: rem-calc(10);
 	}
 
 	// @media screen and (max-width: rem-calc(500)) {
