@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, addDays, isToday, isTomorrow, parseISO } from "date-fns";
 
 function getLocationData(data) {
 	const [date, time] = data.localtime.split(" ");
@@ -104,8 +104,16 @@ function getForecastData(data, location, current) {
 		const time = hour.time.split(" ")[1];
 		const date = hour.time.split(" ")[0];
 
+		let dayLabel = formatDayDate(date);
+		
+		if (isToday(parseISO(date))) {
+			dayLabel = "Today";
+		} else if (isTomorrow(parseISO(date))) {
+			dayLabel = "Tomorrow";
+		}
+
 		return {
-			date: formatDayDate(date),
+			date: dayLabel,
 			time: time,
 			temp: {
 				metric: hour.temp_c,

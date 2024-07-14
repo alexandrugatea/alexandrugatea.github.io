@@ -25,7 +25,7 @@
 
 .weather-hour-card {
 	// < 768
-	@include flex-middle(false, 14);
+	@include flex-middle(false, 7);
 	padding: rem-calc(14);
 	background: rgba($dark, 0.14);
 	border-radius: rem-calc(14);
@@ -65,7 +65,20 @@
 	.weather-hour-temp,
 	.weather-hour-precip,
 	.weather-hour-wind {
-		@include flex-middle(true, 0);
+		@include flex-middle(false, 0, row);
+		width: 100%;
+		gap: rem-calc(7);
+
+		i {
+			width: rem-calc(42);
+			text-align: right;
+			display: inline-block;
+		}
+
+		div, div span {
+			min-width: rem-calc(56);
+			text-align: left;
+		}
 	}
 	.dual-value {
 		@include setHeights(21);
